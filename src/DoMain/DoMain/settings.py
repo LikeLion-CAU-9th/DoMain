@@ -133,3 +133,5 @@ EMAIL_HOST_USER = "doMain.accManager@gmail.com"
 EMAIL_HOST_PASSWORD = "doMain09!"
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+STATIC_URL = '/static/'
