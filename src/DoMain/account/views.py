@@ -29,11 +29,19 @@ class Activate(View):
 
 
 def login_view(request):
-  return render(request, 'account/login.html')
+  return render(request, 'login.html')
 
 
 def join_view(request):
-  return render(request, 'account/join.html')
+  return render(request, 'join.html')
+
+
+def login_action(request):
+  pass
+
+
+def join_action(request):
+  pass
 
 
 def send_validation_mail(request, user, email_address):
