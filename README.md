@@ -17,7 +17,7 @@ You can see our implementation source codes of this project [here](./src).
 
 | Sub group               | Members        |
 |-------------------------|----------------|
-| Asset Store and module implemenation        | 서지수, 이성민, 인세훈 |
+| Asset Store and module implementation        | 서지수, 이성민, 인세훈 |
 | Data design and management   | 김명준, 김영권, 윤선영 |
 | DOM rendering and data parsing | 박채연, 오지영, 최윤한 |
 
