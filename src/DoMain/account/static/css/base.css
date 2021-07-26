@@ -1,0 +1,11 @@
+html {
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  height: 100vh;
+  transform: translate(0, 40%);
+}
