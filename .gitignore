@@ -1,0 +1,11 @@
+### Django ###
+
+myvenv
+**/.DS_Store
+db.sqlite3
+db.sqlite3-journal
+media
+*.log
+*.pot
+*.pyc
+__pycache__/
