@@ -30,7 +30,6 @@ class Activate(View):
 
 
 def login_view(request):
-  
   return render(request, 'login.html')
 
 
