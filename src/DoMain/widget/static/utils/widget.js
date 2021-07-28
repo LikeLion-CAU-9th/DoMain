@@ -1,4 +1,4 @@
-[
+const widgetJSON = [
   {
     "type": "finance",
     "posX": "400px",
