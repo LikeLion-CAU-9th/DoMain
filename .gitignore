@@ -10,3 +10,7 @@ media
 *.pyc
 __pycache__/
 **/migrations
+
+
+### SECRET KEY ###
+secrets.json
