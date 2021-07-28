@@ -1,10 +1,13 @@
+a{
+    z-index: 1;
+}
 .sort{
     color:#A2A4A6;
     font-size: 1em;
     margin-top:0.5%;
     position:absolute;
 }
-#searchbox{
+.searchbox{
     width:20%;
     height:5%;
     border-radius: 70px;
@@ -18,16 +21,35 @@
     margin-top:0.5%;
     margin-right:0.4%;
 }
-#card-title{
-    font-family: 'ABeeZee', sans-serif;
-font-family: 'DM Serif Display', serif;
-font-size: 24;
+.card{
+    position:absolute;
+    z-index:1;
+}
+.card-title{
+    color:#000000;
+    font-family: 'DM Serif Display', serif;
+    text-decoration-line: none;
+    padding:6% 6% 0% 6%;
+    vertical-align:bottom;
+}
+.star{
+    padding-left:6%;
+    z-index:2;
+}
+.price{
+    color:#000000;
+    font-family: 'DM Serif Display', serif;
+    text-decoration-line: none;
+    padding-left:6%;
+    z-index:1;
 }
 #downloadbutton{
-    font-size: 2px;
+    font-size: 1px;
     width:35%;
     height:15%;
     background-color:#F7E461;
     border-color: #F7E461;
     font-family: 'ABeeZee', sans-serif;
+    margin-left:50%;
+    z-index:2;
 }
