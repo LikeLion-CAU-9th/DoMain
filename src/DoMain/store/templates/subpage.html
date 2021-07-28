@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/subpage.css">
+    <link rel="stylesheet" href="../static/css/commons/card.css">
+    <title>Subpage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="all">
+    <img src="../static/image/bar.svg">
+    <div class="sort">
+        <form>
+            sort 
+        <select name="sort" size="1">
+            <option value="one">인기순</option>
+            <option value="two">별점순</option>
+            <option value="three">다운로드순</option>
+            <option value="four">신규순</option>
+            <option value="five">낮은 가격순</option>
+            <option value="six">높은 가격순</option>
+        </select>
+    </form>
+    </div>
+
+    <div class="search">
+        <input type="text" id="searchbox" size="30%" placeholder="   search">    
+        <img src="../static/image/glasses.svg" id="glasses">
+    </div>
+
+    <br><br><br>
+
+    <!-- 기본 위젯카드 형식 -->
+    <div class="card" style="width: 18rem; border-radius:16px">
+        <img src="../static/image/widgetimage.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary" id="downloadbutton">DOWNLOAD</a>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

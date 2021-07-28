@@ -1,0 +1,28 @@
+.sort{
+    color:#A2A4A6;
+    font-size: 1em;
+    margin-top:0.5%;
+    position:absolute;
+}
+#searchbox{
+    width:20%;
+    height:5%;
+    border-radius: 70px;
+    position:absolute;
+    border:1px solid #A2A4A6;
+    margin-left:74%;
+}
+#glasses{
+    position:relative;
+    float:right;
+    margin-top:0.5%;
+    margin-right:0.4%;
+}
+#downloadbutton{
+    font-size: 2px;
+    width:35%;
+    height:15%;
+    background-color:#F7E461;
+    border-color: #F7E461;
+    font-family: 'ABeeZee', sans-serif;
+}
