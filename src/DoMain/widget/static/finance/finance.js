@@ -19,7 +19,3 @@ const AjaxCall = (url, data, method="GET", async=false) => {
   })
   return returnValue;
 }
-
-window.onload = () => {
-  console.log('load')
-}
