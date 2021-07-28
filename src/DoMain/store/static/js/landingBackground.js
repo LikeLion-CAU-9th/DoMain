@@ -2,10 +2,10 @@ const html = document.documentElement;
 const canvas = document.getElementById("apple");
 const context = canvas.getContext("2d");
 
-const frameCount = 98;
+const frameCount = 196;
 
 const currentFrame = index =>
-  `../static/image/landingBackground/scene${index
+  `../static/image/landingBackgroundScene1/scene${index
     .toString()
     .padStart(5, "0")}.png`;
 console.log(currentFrame);
@@ -21,7 +21,7 @@ const img = new Image();
 img.src = currentFrame(1);
 canvas.width = canvas.offsetWidth;
 // canvas.width = 1080;
-canvas.height = 770;
+canvas.height = 700;
 img.onload = function() {
   context.drawImage(img, 0, 0);
 };
