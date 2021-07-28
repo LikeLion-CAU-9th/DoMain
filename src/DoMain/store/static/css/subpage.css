@@ -18,6 +18,11 @@
     margin-top:0.5%;
     margin-right:0.4%;
 }
+#card-title{
+    font-family: 'ABeeZee', sans-serif;
+font-family: 'DM Serif Display', serif;
+font-size: 24;
+}
 #downloadbutton{
     font-size: 2px;
     width:35%;
