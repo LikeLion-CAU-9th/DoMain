@@ -22,5 +22,3 @@ def crawl_finance(stockItem):
       pass
     attempt += 1
   return price
-
-print(crawl_finance('네이버').strip())
