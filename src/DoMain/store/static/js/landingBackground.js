@@ -2,10 +2,10 @@ const html = document.documentElement;
 const canvas = document.getElementById("apple");
 const context = canvas.getContext("2d");
 
-const frameCount = 196;
+const frameCount = 28;
 
 const currentFrame = index =>
-  `../static/image/landingBackgroundScene1/scene${index
+  `../static/image/landingBackgroundScene2/scene${index
     .toString()
     .padStart(5, "0")}.png`;
 console.log(currentFrame);
