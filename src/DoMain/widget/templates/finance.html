@@ -11,12 +11,27 @@
   <title>Finance</title>
 </head>
 <body>
-  <div class="container">
-    <div class="financeBoard">
-      <ul class="stock-ul">
-        <li class="stock-item">Hello</li>
-        <li class="stock-item">World</li>
-      </ul>
+  <div class="container center-middle">
+    <div class="financeBoard center-middle">
+      <div class="stock-item">
+        <strong>삼성전자</strong>
+        <div class="price low-price">-</div>
+      </div>
+      <hr>
+      <div class="stock-item">
+        <strong>Naver</strong>
+        <div class="price low-price">-</div>
+      </div>
+      <hr>
+      <div class="stock-item">
+        <strong>카카오</strong>
+        <div class="price low-price">-</div>
+      </div>
+      <hr>
+      <div class="stock-item">
+        <strong>JYP Ent</strong>
+        <div class="price low-price">-</div>
+      </div>
     </div>
   </div>
 </body>
@@ -24,7 +39,7 @@
 
 <style>
   html {
-    background-color: #222222;
+    background-color: dimgrey;
   }
 
   .container {
@@ -35,6 +50,47 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: dimgrey;
+  }
+
+  .financeBoard {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 3px 3px 3px rgb(162, 214, 207);
+    color: #efefef;
+    border-radius: 14px;
+    width: 40%;
+    padding: 26px;
+  }
+
+  .stock-item {
+    flex: 1;
+    font-size: 1.2em;
+    line-height: 1.8em;
+  }
+  
+  .stock-item strong {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+  }
+
+  .stock-item div {
+    display: inline-block;
+    text-align: center;
+    width: 68%;
+  }
+
+  .center-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .high-price {
+    color: rgb(224, 58, 58);
+  }
+
+  .low-price {
+    color: rgb(62, 132, 236);
   }
 </style>

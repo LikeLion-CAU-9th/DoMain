@@ -8,7 +8,7 @@ def crawl_finance(stockItem):
   options.add_argument("headless")
   driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
   driver.maximize_window()
-  driver.implicitly_wait(7)
+  driver.implicitly_wait(1)
   driver.get(URL)
   search = driver.find_element_by_id('query')
   search.send_keys(stockItem)

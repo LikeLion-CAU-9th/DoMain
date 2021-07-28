@@ -1,13 +1,10 @@
-const finance = (stockItem) => {
+const finance = (targetIndex, stockItem) => {
   const URL = "/widget/getFinance/" + stockItem;
-  setInterval(()=>{
-    let price = AjaxCall(URL, data=null);
-    console.log(price)
-  },5000);  
+  document.querySelectorAll('.price')[targetIndex].innerHTML = AjaxCall(URL, data=null);
 }
 
 const AjaxCall = (url, data, method="GET", async=false) => {
-  let returnValue = false;
+  let returnValue = "NoN";
   $.ajax({
     url: url,
     type: method,
@@ -18,4 +15,11 @@ const AjaxCall = (url, data, method="GET", async=false) => {
     }
   })
   return returnValue;
+}
+
+window.onload = () => {
+  finance(0, '삼성전자');
+  finance(1, '네이버');
+  finance(2, '카카오');
+  finance(3, 'JYP Ent');
 }
