@@ -22,6 +22,13 @@ const AjaxCall = (url, data, method="GET", async=false) => {
   return returnValue;
 }
 
+const renderName = (items) => {
+  let target = document.querySelectorAll('.stock-name');
+  for(let i = 0; i < target.length; i++) {
+    target[i].innerHTML = items[i];
+  }
+}
+
 const renderPrice = (priceStr) => {
   let target = document.querySelectorAll('.price');
   priceList = priceStr.split('/');
@@ -36,5 +43,7 @@ const renderPrice = (priceStr) => {
 }
 
 window.onload = () => {
-  finance(["삼성전자", "네이버", "카카오", "JYP Ent"]);
+  const ITEMS = widgetJSON[0]['content']['items'];
+  renderName(ITEMS);
+  finance(ITEMS);
 }
