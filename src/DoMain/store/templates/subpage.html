@@ -44,24 +44,52 @@
     <br><br><br>
 
     <!-- 기본 위젯카드 형식 -->
-    <a href="#">
-        <div class="card" style="width: 18rem; border-radius:16px">
-            <img src="../static/image/widgetimage.png" class="card-img-top" alt="...">
-            <h5 class="card-title">Google Style Searchbar</h5>
-    </a> 
-    <div class="star">
-        <img src="../static/image/fullstar.svg">        
-        <img src="../static/image/fullstar.svg">
-        <img src="../static/image/fullstar.svg">
-        <img src="../static/image/fullstar.svg">
-        <img src="../static/image/emptystar.svg">
+    <div class="card" style="border-radius:20px;">
 
+        <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+
+        <script>
+            var emptyheart="../static/image/emptyheart.svg";
+            var fullheart="../static/image/fullheart.svg";
+
+            function toggleImg() {
+              if (document.getElementById("heart").getAttribute('src') === emptyheart){
+                document.getElementById("heart").setAttribute('src', fullheart);
+              }
+              else if (document.getElementById("heart").getAttribute === fullheart){
+                document.getElementById("heart").src = emptyheart;
+              }
+            
+            }
+        </script>
+
+    <a href="#">
+            <img src="../static/image/widgetimage.png" class="card-img-top" alt="..." style="border-radius:20px 20px 0px 0px;">
+            
+            <div class="title">Google Style Searchbar</div>
+    </a> 
+
+    <div class="shape">
+        <div class="star">
+            <img src="../static/image/fullstar.svg">
+            <img src="../static/image/fullstar.svg">
+            <img src="../static/image/fullstar.svg">
+            <img src="../static/image/fullstar.svg">
+            <img src="../static/image/emptystar.svg"> 
+        </div>   
+        <div class="text">&nbsp;&nbsp;<strong>4.1</strong> (151) &nbsp;&nbsp;|&nbsp;&nbsp;</div>
+        
+        <div class="smallheart">
+            <img src="../static/image/smallheart.svg"></div>
+            <div class="text">&nbsp;(1252)</div>
+        
     </div>
+
     <div>
-        <h5 class="price">$0
-            <a href="#" class="btn btn-primary" id="downloadbutton">DOWNLOAD</a>
-        </h5>
-    </div>
+    <div class="price">$0</div>
+    <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton">DOWNLOAD</a></div>
+    </div> 
+    
     </div>
     </div>
     

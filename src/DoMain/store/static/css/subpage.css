@@ -22,15 +22,32 @@ a{
     margin-right:0.4%;
 }
 .card{
-    position:absolute;
     z-index:1;
+    width: 330px; 
+    height:330px;
+    float:left;
 }
-.card-title{
+.card-img-top{
+    position:relative;
+    z-index: 2;
+    width:330px;
+    height:216px;
+}
+#heart{
+    cursor: pointer;
+    z-index:3;
+    position:absolute;
+    padding-left:86%;
+    padding-top:3%;
+}
+.title{
     color:#000000;
     font-family: 'DM Serif Display', serif;
     text-decoration-line: none;
-    padding:6% 6% 0% 6%;
+    padding:2% 6% 0% 6%;
+    margin-bottom:0rem;
     vertical-align:bottom;
+    font-size: 24px;
 }
 .star{
     padding-left:6%;
@@ -42,14 +59,32 @@ a{
     text-decoration-line: none;
     padding-left:6%;
     z-index:1;
+    float:left;
+    font-size:24px;
+}
+.button{
+    padding-top:2%;
+    padding-left:70%;
 }
 #downloadbutton{
     font-size: 1px;
-    width:35%;
-    height:15%;
+    width:85px;
+    height:25px;
     background-color:#F7E461;
     border-color: #F7E461;
     font-family: 'ABeeZee', sans-serif;
-    margin-left:50%;
     z-index:2;
+    float:left;
+}
+.star{
+    float:left;
+}
+.text{
+    font-family: 'DM Serif Display', serif;
+    float:left;
+    padding-top: 1.5%;
+}
+.smallheart{
+    float:left;
+    padding-top:1%;
 }
