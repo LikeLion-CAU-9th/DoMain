@@ -9,81 +9,81 @@
 
 }
 
-#master-container-scroller {
+.master-container-scroller {
     height: 66px;
     margin-bottom: -6px;
     overflow: hidden;
     position: relative
 }
 
-#master-container-scroller .master-container-scroller_item {
+.master-container-scroller .master-container-scroller_item {
     display: block;
     padding-bottom: 6px;
     -webkit-animation: scroll 10s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
     animation: scroll 10s cubic-bezier(0.645, 0.045, 0.355, 1) infinite
 }
 
-#master-container-scroller .master-container-scroller_item[href]:hover {
+.master-container-scroller .master-container-scroller_item[href]:hover {
     text-decoration: none;
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(1),
-#master-container-scroller .master-container-scroller_item:nth-child(1) a {
+.master-container-scroller .master-container-scroller_item:nth-child(1),
+.master-container-scroller .master-container-scroller_item:nth-child(1) a {
     color: #E65F48
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(2),
-#master-container-scroller .master-container-scroller_item:nth-child(2) a {
+.master-container-scroller .master-container-scroller_item:nth-child(2),
+.master-container-scroller .master-container-scroller_item:nth-child(2) a {
     color: #349AB5
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(3),
-#master-container-scroller .master-container-scroller_item:nth-child(3) a {
+.master-container-scroller .master-container-scroller_item:nth-child(3),
+.master-container-scroller .master-container-scroller_item:nth-child(3) a {
     color: #76BCAD
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(4),
-#master-container-scroller .master-container-scroller_item:nth-child(4) a {
+.master-container-scroller .master-container-scroller_item:nth-child(4),
+.master-container-scroller .master-container-scroller_item:nth-child(4) a {
     color: #84719f
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(5),
-#master-container-scroller .master-container-scroller_item:nth-child(5) a {
+.master-container-scroller .master-container-scroller_item:nth-child(5),
+.master-container-scroller .master-container-scroller_item:nth-child(5) a {
     color: #d47787
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(6),
-#master-container-scroller .master-container-scroller_item:nth-child(6) a {
+.master-container-scroller .master-container-scroller_item:nth-child(6),
+.master-container-scroller .master-container-scroller_item:nth-child(6) a {
     color: #F09551
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(7),
-#master-container-scroller .master-container-scroller_item:nth-child(7) a {
+.master-container-scroller .master-container-scroller_item:nth-child(7),
+.master-container-scroller .master-container-scroller_item:nth-child(7) a {
     color: #349AB5
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(8),
-#master-container-scroller .master-container-scroller_item:nth-child(8) a {
+.master-container-scroller .master-container-scroller_item:nth-child(8),
+.master-container-scroller .master-container-scroller_item:nth-child(8) a {
     color: #e86042
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(9),
-#master-container-scroller .master-container-scroller_item:nth-child(9) a {
+.master-container-scroller .master-container-scroller_item:nth-child(9),
+.master-container-scroller .master-container-scroller_item:nth-child(9) a {
     color: #74bcae
 }
 
-#master-container-scroller .master-container-scroller_item:nth-child(10),
-#master-container-scroller .master-container-scroller_item:nth-child(10) a {
+.master-container-scroller .master-container-scroller_item:nth-child(10),
+.master-container-scroller .master-container-scroller_item:nth-child(10) a {
     color: #E65F48
 }
 
 @media screen and (max-width: 615px) {
-    #master-container-scroller {
+    .master-container-scroller {
         height: 48px;
         line-height: 1.2;
         margin-bottom: 0
     }
-    #master-container-scroller .master-container-scroller_item {
+    .master-container-scroller .master-container-scroller_item {
         padding-bottom: 0;
         -webkit-animation: scroll-mobile 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
         animation: scroll-mobile 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite
