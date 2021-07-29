@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/subpage.css">
-    <link rel="stylesheet" href="../static/css/commons/card.css">
+    <link rel="stylesheet" href="../static/css/subpage.css?after">
+    <link rel="stylesheet" href="../static/css/commons/card.css?after">
     <title>Subpage</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,13 +19,27 @@
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body> 
     <div class="all">
     <img src="../static/image/bar.svg">
     <br><br>
     <div class="sort">
+        <!-- 위젯종류 -->
+        <div style="float:left;">
         <form>
-            sort 
+        <select name="sort" size="1">
+            <option value="one">BEST</option>
+            <option value="two">PACKAGE</option>
+            <option value="three">SEARCHBAR</option>
+            <option value="four">D-DAY</option>
+            <option value="five">TODOLIST</option>
+            <option value="six">NEW</option>
+        </select>
+    </form>
+    </div>
+    <!-- 피드순서 종류 -->
+    <div style="float:left; padding-left:2%;">
+        <form style="float:left;">
         <select name="sort" size="1">
             <option value="one">인기순</option>
             <option value="two">별점순</option>
@@ -34,20 +49,23 @@
             <option value="six">높은 가격순</option>
         </select>
     </form>
-    </div>
+</div>
 
+    </div>
+   
+<!-- 오른쪽 서치바 -->
     <div class="search">
         <input type="text" class="searchbox" size="30%" placeholder="   search">    
-        <img src="../static/image/glasses.svg" id="glasses">
+        <a href="#"><img src="../static/image/glasses.svg" id="glasses"></a>
     </div>
 
     <br><br><br>
 
-    <!-- 기본 위젯카드 형식 -->
-    <div class="card" style="border-radius:20px;">
-
+    <div class="card-container" style="width:1230px;overflow:auto; overflow-y:hidden">
+    <!-- 기본 위젯카드 형식 -->    
+    <div class="card" id="cardlayout">
+    <!-- 찜하기 하트 -->
         <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
-
         <script>
             var emptyheart="../static/image/emptyheart.svg";
             var fullheart="../static/image/fullheart.svg";
@@ -62,37 +80,358 @@
             
             }
         </script>
+    <!-- 북마크 -->
+    <img src="../static/image/redbookmark.svg" class="bookmark">
+    <div class="bookmarktext"><strong>SALE</strong></div>
 
+    <!-- 위젯이미지 -->
     <a href="#">
-            <img src="../static/image/widgetimage.png" class="card-img-top" alt="..." style="border-radius:20px 20px 0px 0px;">
-            
-            <div class="title">Google Style Searchbar</div>
+        <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+    <!-- 카드 타이틀 -->
+        <div class="title">Google Style Searchbar</div>
     </a> 
-
-    <div class="shape">
-        <div class="star">
-            <img src="../static/image/fullstar.svg">
-            <img src="../static/image/fullstar.svg">
-            <img src="../static/image/fullstar.svg">
-            <img src="../static/image/fullstar.svg">
-            <img src="../static/image/emptystar.svg"> 
-        </div>   
-        <div class="text">&nbsp;&nbsp;<strong>4.1</strong> (151) &nbsp;&nbsp;|&nbsp;&nbsp;</div>
-        
-        <div class="smallheart">
-            <img src="../static/image/smallheart.svg"></div>
-            <div class="text">&nbsp;(1252)</div>
-        
-    </div>
-
+    <!-- 별점이랑 좋아요 개수 부분 -->
     <div>
-    <div class="price">$0</div>
-    <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton">DOWNLOAD</a></div>
-    </div> 
-    
-    </div>
-    </div>
-    
+        <div class="starspace">
+            <img src="../static/image/fullstar.svg" class="star">
+            <img src="../static/image/fullstar.svg" class="star">
+            <img src="../static/image/fullstar.svg" class="star">
+            <img src="../static/image/fullstar.svg" class="star">
+            <img src="../static/image/emptystar.svg" class="star"> 
+        </div>   
+        <div class="text" style="color:#A2A4A6;">
+            <strong style="color:#000000">&nbsp;4.1</strong>
+            (151)</div>
 
+        <div class="smallheartspace">
+            <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
+            <img src="../static/image/smallheart.svg" class="smallheart">
+        </div>
+        <div class="text" id="hearttext"> &nbsp;(1252)</div>
+    </div>
+
+    <!-- 가격(+세일가)과 다운로드 버튼 -->
+    <div style="padding-bottom:3%;">
+    <div class="price">$0</div>
+    <div class="saleprice">&nbsp;$0&nbsp;</div>
+    <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+    </div> 
+    </div>
+    <!-- 카드옆쪽 공백 -->
+    <div class="cardspaceright">&nbsp;</div>
+
+    <!-- 카드하나 끝 -->
+
+
+    <!-- 기본 위젯카드 형식 -->    
+    <div class="card" id="cardlayout">
+        <!-- 찜하기 하트 -->
+            <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+            <script>
+                var emptyheart="../static/image/emptyheart.svg";
+                var fullheart="../static/image/fullheart.svg";
+    
+                function toggleImg() {
+                  if (document.getElementById("heart").getAttribute('src') === emptyheart){
+                    document.getElementById("heart").setAttribute('src', fullheart);
+                  }
+                  else if (document.getElementById("heart").getAttribute === fullheart){
+                    document.getElementById("heart").src = emptyheart;
+                  }
+                
+                }
+            </script>
+        <!-- 북마크<img src="../static/image/greenbookmark.svg" class="bookmark">
+        <div class="bookmarktext"><strong>BEST</strong></div> -->
+        
+    
+        <!-- 위젯이미지 -->
+        <a href="#">
+            <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+        <!-- 카드 타이틀 -->
+            <div class="title">Google Style Searchbar</div>
+        </a> 
+        <!-- 별점이랑 좋아요 개수 부분 -->
+        <div>
+            <div class="starspace">
+                <img src="../static/image/emptystar.svg" class="star">
+                <img src="../static/image/emptystar.svg" class="star">
+                <img src="../static/image/emptystar.svg" class="star">
+                <img src="../static/image/emptystar.svg" class="star">
+                <img src="../static/image/emptystar.svg" class="star"> 
+            </div>   
+            <div class="text" style="color:#A2A4A6;">
+                <strong style="color:#000000">&nbsp;0.0</strong>
+                (0)</div>
+    
+            <div class="smallheartspace">
+                <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
+                <img src="../static/image/smallheart.svg" class="smallheart">
+            </div>
+            <div class="text" id="hearttext"> &nbsp;(0)</div>
+        </div>
+    
+        <!-- 가격(+세일가)과 다운로드 버튼 -->
+        <div style="padding-bottom:3%;">
+        <div class="price">$0</div>
+        <div class="saleprice"></div>
+        <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+        </div> 
+        </div>
+        <!-- 카드옆쪽 공백 -->
+        <div class="cardspaceright">&nbsp;</div>
+    
+        <!-- 카드하나 끝 -->
+
+        <!-- 기본 위젯카드 형식 -->    
+    <div class="card" id="cardlayout">
+        <!-- 찜하기 하트 -->
+            <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+            <script>
+                var emptyheart="../static/image/emptyheart.svg";
+                var fullheart="../static/image/fullheart.svg";
+    
+                function toggleImg() {
+                  if (document.getElementById("heart").getAttribute('src') === emptyheart){
+                    document.getElementById("heart").setAttribute('src', fullheart);
+                  }
+                  else if (document.getElementById("heart").getAttribute === fullheart){
+                    document.getElementById("heart").src = emptyheart;
+                  }
+                
+                }
+            </script>
+        <!-- 북마크 -->
+        <img src="../static/image/redbookmark.svg" class="bookmark">
+        <div class="bookmarktext"><strong>SALE</strong></div>
+    
+        <!-- 위젯이미지 -->
+        <a href="#">
+            <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+        <!-- 카드 타이틀 -->
+            <div class="title">Google Style Searchbar</div>
+        </a> 
+        <!-- 별점이랑 좋아요 개수 부분 -->
+        <div>
+            <div class="starspace">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/emptystar.svg" class="star"> 
+            </div>   
+            <div class="text" style="color:#A2A4A6;">
+                <strong style="color:#000000">&nbsp;4.1</strong>
+                (151)</div>
+    
+            <div class="smallheartspace">
+                <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
+                <img src="../static/image/smallheart.svg" class="smallheart">
+            </div>
+            <div class="text" id="hearttext"> &nbsp;(1252)</div>
+        </div>
+    
+        <!-- 가격(+세일가)과 다운로드 버튼 -->
+        <div style="padding-bottom:3%;">
+        <div class="price">$0</div>
+        <div class="saleprice">&nbsp;$0&nbsp;</div>
+        <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+        </div> 
+        </div>
+        <!-- 카드옆쪽 공백 -->
+        <div class="cardspaceright">&nbsp;</div>
+    
+        <!-- 카드하나 끝 -->
+    
+    
+        <!-- 기본 위젯카드 형식 -->    
+        <div class="card" id="cardlayout">
+            <!-- 찜하기 하트 -->
+                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                <script>
+                    var emptyheart="../static/image/emptyheart.svg";
+                    var fullheart="../static/image/fullheart.svg";
+        
+                    function toggleImg() {
+                      if (document.getElementById("heart").getAttribute('src') === emptyheart){
+                        document.getElementById("heart").setAttribute('src', fullheart);
+                      }
+                      else if (document.getElementById("heart").getAttribute === fullheart){
+                        document.getElementById("heart").src = emptyheart;
+                      }
+                    
+                    }
+                </script>
+            <!-- 북마크 -->
+            <img src="../static/image/greenbookmark.svg" class="bookmark">
+            <div class="bookmarktext"><strong>BEST</strong></div>
+        
+            <!-- 위젯이미지 -->
+            <a href="#">
+                <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+            <!-- 카드 타이틀 -->
+                <div class="title">Google Style Searchbar</div>
+            </a> 
+            <!-- 별점이랑 좋아요 개수 부분 -->
+            <div>
+                <div class="starspace">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/emptystar.svg" class="star"> 
+                </div>   
+                <div class="text" style="color:#A2A4A6;">
+                    <strong style="color:#000000">&nbsp;0.0</strong>
+                    (0)</div>
+        
+                <div class="smallheartspace">
+                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
+                    <img src="../static/image/smallheart.svg" class="smallheart">
+                </div>
+                <div class="text" id="hearttext"> &nbsp;(0)</div>
+            </div>
+        
+            <!-- 가격(+세일가)과 다운로드 버튼 -->
+            <div style="padding-bottom:3%;">
+            <div class="price">$0</div>
+            <div class="saleprice"></div>
+            <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+            </div> 
+            </div>
+            <!-- 카드옆쪽 공백 -->
+            
+            <div class="cardspacebottom">&nbsp;</div>
+            
+            <!-- 카드하나 끝 -->
+            
+            <!-- 기본 위젯카드 형식 -->    
+    <div class="card" id="cardlayout">
+        <!-- 찜하기 하트 -->
+            <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+            <script>
+                var emptyheart="../static/image/emptyheart.svg";
+                var fullheart="../static/image/fullheart.svg";
+    
+                function toggleImg() {
+                  if (document.getElementById("heart").getAttribute('src') === emptyheart){
+                    document.getElementById("heart").setAttribute('src', fullheart);
+                  }
+                  else if (document.getElementById("heart").getAttribute === fullheart){
+                    document.getElementById("heart").src = emptyheart;
+                  }
+                
+                }
+            </script>
+        <!-- 북마크 -->
+        <img src="../static/image/redbookmark.svg" class="bookmark">
+        <div class="bookmarktext"><strong>SALE</strong></div>
+    
+        <!-- 위젯이미지 -->
+        <a href="#">
+            <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+        <!-- 카드 타이틀 -->
+            <div class="title">Google Style Searchbar</div>
+        </a> 
+        <!-- 별점이랑 좋아요 개수 부분 -->
+        <div>
+            <div class="starspace">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/fullstar.svg" class="star">
+                <img src="../static/image/emptystar.svg" class="star"> 
+            </div>   
+            <div class="text" style="color:#A2A4A6;">
+                <strong style="color:#000000">&nbsp;4.1</strong>
+                (151)</div>
+    
+            <div class="smallheartspace">
+                <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
+                <img src="../static/image/smallheart.svg" class="smallheart">
+            </div>
+            <div class="text" id="hearttext"> &nbsp;(1252)</div>
+        </div>
+    
+        <!-- 가격(+세일가)과 다운로드 버튼 -->
+        <div style="padding-bottom:3%;">
+        <div class="price">$0</div>
+        <div class="saleprice">&nbsp;$0&nbsp;</div>
+        <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+        </div> 
+        </div>
+        <!-- 카드옆쪽 공백 -->
+        <div class="cardspaceright">&nbsp;</div>
+    
+        <!-- 카드하나 끝 -->
+    
+    
+        <!-- 기본 위젯카드 형식 -->    
+        <div class="card" id="cardlayout">
+            <!-- 찜하기 하트 -->
+                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                <script>
+                    var emptyheart="../static/image/emptyheart.svg";
+                    var fullheart="../static/image/fullheart.svg";
+        
+                    function toggleImg() {
+                      if (document.getElementById("heart").getAttribute('src') === emptyheart){
+                        document.getElementById("heart").setAttribute('src', fullheart);
+                      }
+                      else if (document.getElementById("heart").getAttribute === fullheart){
+                        document.getElementById("heart").src = emptyheart;
+                      }
+                    
+                    }
+                </script>
+            <!-- 북마크 -->
+            <img src="../static/image/greenbookmark.svg" class="bookmark">
+            <div class="bookmarktext"><strong>BEST</strong></div>
+        
+            <!-- 위젯이미지 -->
+            <a href="#">
+                <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+            <!-- 카드 타이틀 -->
+                <div class="title">Google Style Searchbar</div>
+            </a> 
+            <!-- 별점이랑 좋아요 개수 부분 -->
+            <div>
+                <div class="starspace">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/fullstar.svg" class="star">
+                    <img src="../static/image/emptystar.svg" class="star"> 
+                </div>   
+                <div class="text" style="color:#A2A4A6;">
+                    <strong style="color:#000000">&nbsp;0.0</strong>
+                    (0)</div>
+        
+                <div class="smallheartspace">
+                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
+                    <img src="../static/image/smallheart.svg" class="smallheart">
+                </div>
+                <div class="text" id="hearttext"> &nbsp;(0)</div>
+            </div>
+        
+            <!-- 가격(+세일가)과 다운로드 버튼 -->
+            <div style="padding-bottom:3%;">
+            <div class="price">$0</div>
+            <div class="saleprice"></div>
+            <div class="button"><a href="#" class="btn btn-primary" id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+            </div> 
+            </div>
+            <!-- 카드옆쪽 공백 -->
+            <div class="cardspaceright">&nbsp;</div>
+            <div class="cardspacewidth">&nbsp;</div>
+        
+            <!-- 카드하나 끝 -->
+
+
+
+    <!-- all의 닫는 div태그 -->
+    </div>
+    <!-- all-container의 닫는 div태그 -->
+</div>
 </body>
 </html>
