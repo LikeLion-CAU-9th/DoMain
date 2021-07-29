@@ -8,12 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Do-Main</title>
-
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="{% static 'css/landing/landingBackground.css' %}" rel="stylesheet">
   <link href="{% static 'css/landing/landingContent.css' %}" rel="stylesheet">
   <link href="{% static 'css/landing/landingNavbar.css' %}" rel="stylesheet">
   <link href="{% static 'css/commons/footer1.css' %}" rel="stylesheet">
   <link href="{% static 'css/landing/textEffect.css' %}" rel="stylesheet">
+  <link href="{% static 'css/landing/landingService.css' %}" rel="stylesheet">
 
 
 
@@ -86,95 +89,121 @@
     </div>
   </div>
 
-  <div class = "landingContent3">
-      페이지 안에 두뇌를 달다. <br>
-      <div class = "landingSubText">
-        페이지 안으로 들어온 
-        <span class="specificLetter">Sticky Note</span> 로 <br>
-        기록을 콤팩트하게. <br>
-        <span class="specificLetter">디데이 알림</span>으로 중요한 일을 잊지 않고 
-        해낼 수 있습니다.
-      </div>
+  <div class="landingContent3">
+    페이지 안에 두뇌를 달다. <br>
+    <div class="landingSubText">
+      페이지 안으로 들어온
+      <span class="specificLetter">Sticky Note</span> 로 <br>
+      기록을 콤팩트하게. <br>
+      <span class="specificLetter">디데이 알림</span>으로 중요한 일을 잊지 않고
+      해낼 수 있습니다.
+    </div>
   </div>
 
-  <div class = "landingContent4">
+  <div class="landingContent4">
     지칠 줄 모르는 다양성. <br>
-    <div class = "landingSubText">
+    <div class="landingSubText">
       <span class="specificLetter">Asset Store</span> 가
       매주 업데이트 됩니다. <br>
       다양한 위젯과 레이아웃을 <br>
       업로드, 다운로드할 수 있죠
     </div>
-</div>
-
-<div class = "landingContent5">
-  보지 못한 페이지를 연결하다. <br>
-  <div class = "landingSubText">
-    원하는 페이지를 
-    <span class="specificLetter">북마크</span> 로 <br>
-    연결할 수 있습니다.<br>
-    원하는 방식으로 페이지를 연결하는 <br> 
-    최적화된 방법, 색다른 경험을 제공하죠.
   </div>
-</div>
 
-<div class = "landingContent6">
-  자신만의 이야기를 새기다. <br>
-  <div class = "landingSubText">
-    사용자를 위한 다양한 
-    <span class="specificLetterYellow">위젯 옵션</span><br>
-    기록을 콤팩트하게. <br>
-    텍스트, 아이콘, 이미지 조합으로 <br>
-    더욱 개성있게.
-  </div>
-</div>
-
-<div class="landingContent7">
-  <div class="contents">
-    Just <span class="specificLetter">D</span>o main
-    <div class='master-container-scroller'>
-      
-      <div class='master-container-scroller_item'>
-        D-DAY
-      </div>
-      <div class='master-container-scroller_item'>
-        STICKY NOTE
-      </div>
-      <div class='master-container-scroller_item'>
-        BOOKMARK
-      </div>
-      <div class='master-container-scroller_item'>
-        NAVER 
-      </div>
-      <div class='master-container-scroller_item'>
-        TODO LIST
-      </div>
-      <div class='master-container-scroller_item'>
-        YOUTUBE
-      </div>
-      <div class='master-container-scroller_item'>
-        MAIL
-      </div>
-      <div class='master-container-scroller_item'>
-        GOOGLE
-      </div>
-      <div class='master-container-scroller_item'>
-        LAYOUT
-      </div>
-      <div class='master-container-scroller_item'>
-        CUSTOM
-      </div>
+  <div class="landingContent5">
+    보지 못한 페이지를 연결하다. <br>
+    <div class="landingSubText">
+      원하는 페이지를
+      <span class="specificLetter">북마크</span> 로 <br>
+      연결할 수 있습니다.<br>
+      원하는 방식으로 페이지를 연결하는 <br>
+      최적화된 방법, 색다른 경험을 제공하죠.
     </div>
-    <div>시작해 보세요</div>
   </div>
-</div>
+
+  <div class="landingContent6">
+    자신만의 이야기를 새기다. <br>
+    <div class="landingSubText">
+      사용자를 위한 다양한
+      <span class="specificLetterYellow">위젯 옵션</span><br>
+      기록을 콤팩트하게. <br>
+      텍스트, 아이콘, 이미지 조합으로 <br>
+      더욱 개성있게.
+    </div>
+  </div>
+
+  <div class="landingContent7">
+    <div class="contents">
+      Just <span class="specificLetter">D</span>o main
+      <div class='master-container-scroller'>
+
+        <div class='master-container-scroller_item'>
+          D-DAY
+        </div>
+        <div class='master-container-scroller_item'>
+          STICKY NOTE
+        </div>
+        <div class='master-container-scroller_item'>
+          BOOKMARK
+        </div>
+        <div class='master-container-scroller_item'>
+          NAVER
+        </div>
+        <div class='master-container-scroller_item'>
+          TODO LIST
+        </div>
+        <div class='master-container-scroller_item'>
+          YOUTUBE
+        </div>
+        <div class='master-container-scroller_item'>
+          MAIL
+        </div>
+        <div class='master-container-scroller_item'>
+          GOOGLE
+        </div>
+        <div class='master-container-scroller_item'>
+          LAYOUT
+        </div>
+        <div class='master-container-scroller_item'>
+          CUSTOM
+        </div>
+      </div>
+      <div>시작해 보세요</div>
+    </div>
+  </div>
 
   <div class="footer">
     <div class="headline">
-      Service
+      Domain <br>
+      <button style="font-size: 25px; width:30%">시작하기</button>
     </div>
     <br>
-    <button>바로가기</button>
+    <!-- <div class = "row">
+      <div class = "col-4"><img class="landingServiceIntroduce" src="{% static 'image/detailPage.png' %}"></div>
+      <div class = "col-4">
+        <div class = "row-6">
+          sdfdsf
+        </div>
+        <div class = "row-6">
+          aaaaaaaaa
+        </div>
+      </div>
+      <div class = "col-4">dsfs</div>
+    </div> -->
+    <div class="row" style="margin:15% 0 0 0">
+      <div class = "col-2"></div>
+      <div class="col-3">
+        team IE9 Company <br>
+        중앙대 멋쟁이사자처럼 9th
+      </div>
+      <div class="col-3">
+        copyright(c)
+      </div>
+      <div class="col-3">
+        (주) IE9 Company <br>
+        중앙대 멋쟁이사자처럼 9th
+      </div>
+    </div>
   </div>
 
   <canvas id="apple" />
