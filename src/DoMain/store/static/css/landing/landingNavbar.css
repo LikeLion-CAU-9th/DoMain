@@ -1,0 +1,92 @@
+ul {
+    list-style: none;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    padding: 0.05em;
+}
+
+nav ul {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin: 0;
+    height: 25px;
+    padding: 0
+}
+
+nav ul li {
+    padding:0;
+    margin:0;
+}
+
+nav ul li a {
+    padding: 2em;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    color:#D3D3D3;
+    text-decoration-line: none;
+    transition: all 0.4s ease-in-out .1s;
+}
+
+nav ul li a:hover {
+    color:white;
+}
+
+#main_icon {
+    font-size:20px;
+    font-weight: bold;
+    padding: 0 350px 0 0;
+}
+
+.subnavbar_menu li a {
+    padding: 0.7em;
+}
+
+.sticky {
+    z-index:8;
+    position:sticky;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:15% 0 0 0;
+    padding: 10px 0 0 0;
+    border-bottom: rgb(77, 77, 77) 0.2px solid;
+}
+
+button {
+    background:#1AAB8A;
+    color: white;
+    border:none;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 25px;
+    z-index: 20;
+}
+
+button:hover{
+    background:#FFF;
+    color:#1AAB8A;
+  }
+
+
+.stickytest {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 50px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:1600px 0 0 0;
+    padding: 10px 0 0 0;
+}

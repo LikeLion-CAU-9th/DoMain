@@ -2,10 +2,10 @@ const html = document.documentElement;
 const canvas = document.getElementById("apple");
 const context = canvas.getContext("2d");
 
-const frameCount = 635;
+const frameCount = 865;
 
 const currentFrame = index =>
-  `../static/image/landingBackgroundScene3/scene${index
+  `../static/image/landingBackgroundScene4/scene${index
     .toString()
     .padStart(5, "0")}.png`;
 console.log(currentFrame);
@@ -20,8 +20,7 @@ const preloadImages = () => {
 const img = new Image();
 img.src = currentFrame(1);
 canvas.width = canvas.offsetWidth;
-// canvas.width = 1080;
-canvas.height = 700;
+canvas.height = 500;
 img.onload = function() {
   context.drawImage(img, 0, 0);
 };
@@ -39,7 +38,6 @@ window.addEventListener("scroll", () => {
     frameCount - 1,
     Math.ceil(scrollFraction * frameCount)
   );
-
   requestAnimationFrame(() => updateImage(frameIndex + 1));
 });
 
