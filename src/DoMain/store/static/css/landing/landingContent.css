@@ -1,0 +1,42 @@
+.specificLetter{
+    color: #D22657;
+}
+
+.landingContent1 {
+    z-index:10;
+    color: white;
+    position:absolute;
+    font-size: 70px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:300px 0 0 0;
+    padding: 10px 0 0 0;
+}
+.landingSubcontent1 {
+    z-index:10;
+    color: white;
+    position:absolute;
+    font-size: 20px;
+    top:0px;
+    width: 60%;
+    left:5%;
+    height: 40px;
+    margin:100px 0 0 0;
+    padding: 10px 0 0 0;
+
+}
+
+.landingContent2 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 50px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:1600px 0 0 0;
+    padding: 10px 0 0 0;
+}
