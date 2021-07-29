@@ -19,8 +19,8 @@
 #master-container-scroller .master-container-scroller_item {
     display: block;
     padding-bottom: 6px;
-    -webkit-animation: scroll 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
-    animation: scroll 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite
+    -webkit-animation: scroll 10s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+    animation: scroll 10s cubic-bezier(0.645, 0.045, 0.355, 1) infinite
 }
 
 #master-container-scroller .master-container-scroller_item[href]:hover {

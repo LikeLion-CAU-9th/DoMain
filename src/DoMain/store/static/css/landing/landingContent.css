@@ -1,5 +1,6 @@
 .specificLetter{
     color: #D22657;
+    font-weight: 700
 }
 
 .landingContent1 {
@@ -28,6 +29,19 @@
 
 }
 
+.landingSubText {
+    z-index:10;
+    color: white;
+    position:absolute;
+    font-size: 20px;
+    top:0px;
+    width: 60%;
+    left:2%;
+    height: 40px;
+    margin:80px 0 0 0;
+    padding: 10px 0 0 0;
+}
+
 .landingContent2 {
     z-index:8;
     color: white;
@@ -41,3 +55,54 @@
     padding: 10px 0 0 0;
 }
 
+.landingContent3 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:6000px 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.landingContent4 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:10000px 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.landingContent5 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:14000px 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.landingContent6 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:18000px 0 0 0;
+    padding: 10px 0 0 0;
+}

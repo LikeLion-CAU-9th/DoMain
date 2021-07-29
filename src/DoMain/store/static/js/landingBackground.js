@@ -2,18 +2,17 @@ const html = document.documentElement;
 const canvas = document.getElementById("apple");
 const context = canvas.getContext("2d");
 
-const frameCount = 865;
+const frameCount = 1123;
 
 const currentFrame = index =>
-  `../static/image/landingBackgroundScene4/scene${index
+  `../static/image/landingBackgroundScene6/scene${index
     .toString()
     .padStart(5, "0")}.png`;
-console.log(currentFrame);
 
 const preloadImages = () => {
   for (let i = 1; i < frameCount; i++) {
     const img = new Image();
-    img.src = currentFrame(i);
+    img.src = currentFrame(i + 1);
   }
 };
 
