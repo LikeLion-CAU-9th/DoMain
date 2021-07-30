@@ -103,6 +103,9 @@
     padding-left:3%;
     font-family: 'ABeeZee', sans-serif;
     font-size:90%;
+    line-height: 200%;
+    z-index:1;
+    position:absolute;
 }
 .widget-inform-left{
     z-index:3;
@@ -121,4 +124,14 @@
     position: relative;
     font-family: 'ABeeZee', sans-serif;
     font-size:90%;
+}
+.star-point{
+    z-index:1;
+    float:left;
+    padding-left:10%;
+}
+.stargraph{
+    border: solid 10px #45A685;
+    background-color: #45A685;
+    float:left;
 }
