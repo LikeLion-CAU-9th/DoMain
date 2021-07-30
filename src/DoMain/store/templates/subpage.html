@@ -8,8 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/subpage.css?after">
-    <link rel="stylesheet" href="../static/css/commons/card.css?after">
+    <link rel="stylesheet" href="../static/css/upperSection.css">
     <link rel="stylesheet" href="{% static 'css/commons/searchBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
+
     <title>Subpage</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -26,26 +28,36 @@
 </head>
 
 <body>
-    <div class="all">
+    <div class="upper-section">
         <img src="../static/image/bar.svg">
         <br><br>
-        <div class="sort">
+
             <!-- 위젯종류 -->
-            <div style="float:left;">
-                <form>
-                    <select name="sort" size="1">
-                        <option value="one">BEST</option>
-                        <option value="two">PACKAGE</option>
-                        <option value="three">SEARCHBAR</option>
-                        <option value="four">D-DAY</option>
-                        <option value="five">TODOLIST</option>
-                        <option value="six">NEW</option>
-                    </select>
-                </form>
-            </div>
+        <div class = "sort">
+                <dropdown>
+                    <input id="toggle2" type="checkbox">
+                    <label for="toggle2" class="animate">BEST<i class="fa fa-bars float-right"></i></label>
+                    <ul class="animate" style="margin: 0 0 0 -15%">
+                        <li class="animate">PACKAGE<i class="fa fa-code float-right"></i></li>
+                        <li class="animate">SEARCHBAR<i class="fa fa-arrows-alt float-right"></i></li>
+                        <li class="animate">D-DAY<i class="fa fa-cog float-right"></i></li>
+                        <li class="animate">TODOLIST<i class="fa fa-cog float-right"></i></li>
+                        <li class="animate">NEW<i class="fa fa-cog float-right"></i></li>
+                    </ul>
+                </dropdown>
             <!-- 피드순서 종류 -->
-            <div style="float:left; padding-left:2%;">
-                <form style="float:left;">
+                    <dropdown>
+                            <input id="toggle3" type="checkbox">
+                            <label for="toggle3" class="animate">인기순<i class="fa fa-bars float-right"></i></label>
+                            <ul class="animate" style="margin: 0 0 0 -15%">
+                                <li class="animate">별점순<i class="fa fa-code float-right"></i></li>
+                                <li class="animate">다운로드순<i class="fa fa-arrows-alt float-right"></i></li>
+                                <li class="animate">신규순<i class="fa fa-cog float-right"></i></li>
+                                <li class="animate">낮은 가격순<i class="fa fa-cog float-right"></i></li>
+                                <li class="animate">높은 가격순<i class="fa fa-cog float-right"></i></li>
+                            </ul>
+                        </dropdown>
+                <!-- <form style="float:left;">
                     <select name="sort" size="1">
                         <option value="one">인기순</option>
                         <option value="two">별점순</option>
@@ -54,10 +66,8 @@
                         <option value="five">낮은 가격순</option>
                         <option value="six">높은 가격순</option>
                     </select>
-                </form>
+                </form> -->
             </div>
-
-        </div>
 
         <!-- 오른쪽 서치바 -->
         <div class="search">
@@ -445,6 +455,7 @@
 
         <!-- container의 닫는 div태그 -->
     </div>
+    <script src="{% static 'js/dropdown.js' %}"></script>
 </body>
 
 </html>
