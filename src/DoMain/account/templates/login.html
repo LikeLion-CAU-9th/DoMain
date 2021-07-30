@@ -12,9 +12,13 @@
 </head>
 <body>
   <div class="container">
-    <input type="text" placeholder="e-mail"><br><br>
-    <input type="password" placeholder="password"><br><br><br>
-    <input class="login-submit" type="submit" value="login">
+    <form method = "POST" action= "../loginAction/">
+      {% csrf_token %}
+      <input type="text" placeholder="e-mail" name="email"><br><br>
+      <input type="password" placeholder="password" name="raw_pw"><br><br><br>
+      <input class="login-submit" type="submit" value="login">
+    </form>
+    
   </div>
 </body>
 </html>
