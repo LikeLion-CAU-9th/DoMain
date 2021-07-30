@@ -38,19 +38,20 @@ def join_view(request):
 
 
 def login_action(request):
-  email = request['POST'].get('email')
-  raw_pw = request['POST'].get('raw_pw')
-  HashedPasswordObj =hashlib.sha1(raw_pw.encode('UTF-8'))
-  HashedPassword = HashedPasswordObj.hexdigest()
-  queryset = User_info.objects.filter(user_email = email, user_pwd = HashedPassword)
+  email = request.POST.get('email')
+  raw_pw = request.POST.get('raw_pw')
+  # HashedPasswordObj =hashlib.sha1(raw_pw.encode('UTF-8'))
+  # HashedPassword = HashedPasswordObj.hexdigest()
+  queryset = User_info.objects.filter(user_email = email, user_pwd = raw_pw)
 
   if len(queryset) == 1 :
-    if queryset[0]['is_active'] :
-      # return redirect('main')
-      pass
-    # is_active == False : email 인증 단계로 
-  pass
-
+    return render(request, 'success.html')
+    # if queryset[0]['is_active'] :
+    #   # return redirect('main')
+    #   pass
+    # # is_active == False : email 인증 단계로 
+    #   pass
+  return render(request, 'fail.html')
 
 def join_action(request):
   pass
