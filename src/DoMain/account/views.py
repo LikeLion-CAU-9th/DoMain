@@ -11,8 +11,6 @@ from .tokens import account_activation_token
 from .text import message
 import hashlib
 
-from .forms import UserForm
-import hashlib
 
 class Activate(View):
   def get(self, request, uidb64, token):
@@ -74,6 +72,3 @@ def send_validation_mail(request, user, email_address):
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
 
-def pwd_same(request):
-  data = request.POST
-  

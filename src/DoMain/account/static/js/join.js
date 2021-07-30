@@ -4,7 +4,8 @@ const emailCheck = () => {
     const userEmail = document.querySelector('#user_email').value;
     const mailFormat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const mailValidation = mailFormat.test(userEmail.toLowerCase())
-    if(mailValidation) {
+    const mailAlreadyExist = AjaxCall('../email-check/', {'email': userEmail});
+    if(mailValidation && mailAlreadyExist)  {
         return true;
     }
     return false;
