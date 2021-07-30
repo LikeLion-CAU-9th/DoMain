@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,20 @@
   <link rel="stylesheet" href="{% static 'css/join.css' %}">
   <title>DoMain-join</title>
 </head>
-<body>
-  
-</body>
+<form action="{% url 'join_action' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div>
+    <input class="signup-input" type="text" name="user_name" placeholder="이름 입력">
+  </div>
+  <div>
+    <input type="text" name="user_email" placeholder="이메일 주소">
+  </div>
+  <div>
+    <input type="password" name="user_pwd" placeholder="비밀번호">
+  </div>
+  <div>
+    <input type="password" name="user_pwd_check" placeholder="비밀번호 확인">
+  </div>
+  <button type="submit">signup</button>
+</form>
 </html>
