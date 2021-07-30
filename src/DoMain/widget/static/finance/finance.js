@@ -17,6 +17,8 @@ const AjaxCall = (url, data, method="GET", async=false) => {
     data: data,
     success: function(data) {
       returnValue = data;
+      hideLoader();
+      appearContent();
     }
   })
   return returnValue;
@@ -40,6 +42,14 @@ const renderPrice = (priceStr) => {
     }
     target[i].innerHTML = price;
   }
+}
+
+const hideLoader = () => {
+  document.querySelector('.loader').style.display = 'none';
+}
+
+const appearContent = () => {
+  document.querySelector('.financeBoard .content').style.display = 'block';
 }
 
 window.onload = () => {
