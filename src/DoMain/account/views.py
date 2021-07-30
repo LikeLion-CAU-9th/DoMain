@@ -60,7 +60,7 @@ def join_action(request):
   data = request.POST
   HashedPasswordObj =hashlib.sha1(data.get('user_pwd', False).encode('UTF-8'))
   HashedPassword = HashedPasswordObj.hexdigest()
-  User_info.objects.create(user_email=data.get('user_email', False), user_pwd=HashedPassword, user_name=data.get('user_name', False))
+  User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd', False), user_name=data.get('user_name', False))
   return redirect('login_view')
 
 
@@ -74,3 +74,6 @@ def send_validation_mail(request, user, email_address):
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
 
+def pwd_same(request):
+  data = request.POST
+  
