@@ -56,10 +56,18 @@ def login_action(request):
 
 def join_action(request):
   data = request.POST
-  HashedPasswordObj =hashlib.sha1(data.get('user_pwd', False).encode('UTF-8'))
-  HashedPassword = HashedPasswordObj.hexdigest()
-  User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd', False), user_name=data.get('user_name', False))
+  # HashedPasswordObj =hashlib.sha1(data.get('user_pwd', False).encode('UTF-8'))
+  # HashedPassword = HashedPasswordObj.hexdigest()
+  User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd'), user_name=data.get('user_name', False))
   return redirect('login_view')
+
+def join_email_overap(request):
+  email = request.GET['email']
+  queryset = User_info.objects.filter(user_email = email)
+  if len(queryset) > 0:
+    return HttpResponse('Overap')
+  return HttpResponse('Usable')
+
 
 
 def send_validation_mail(request, user, email_address):
