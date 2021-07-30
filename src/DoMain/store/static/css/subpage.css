@@ -1,6 +1,12 @@
 a{
     z-index: 1;
 }
+#container{
+    max-width: 97%;
+}
+#row{
+    margin-right: 0%;
+}
 .sort{
     color:#A2A4A6;
     font-size: 1em;
@@ -36,9 +42,10 @@ a{
 }
 #cardlayout{
     z-index:1;
-    width: 285px; 
+    width: 105%;
     float:left;
     border-radius:20px;
+    margin-bottom: 7%;
 }
 .cardimg{
     position:relative;
@@ -99,7 +106,7 @@ a{
     padding-right:5%;
 }
 #downloadbutton{
-    font-size: 1px;
+    font-size: 5%;
     color:black;
     width:31%;
     height:10%;
