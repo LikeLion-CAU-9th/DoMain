@@ -8,6 +8,11 @@
     font-weight: 700
 }
 
+.specificLetterGreen{
+    color: #76BCAD;
+    font-weight: 700
+}
+
 .landingContent1 {
     z-index:10;
     color: white;
