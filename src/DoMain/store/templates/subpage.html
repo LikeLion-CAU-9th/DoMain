@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/upperSubPage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/commons/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/tabMenu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/tabMenuBar.css' %}">
 
     <title>Subpage</title>
 
@@ -28,29 +28,7 @@
 </head>
 
 <body>
-    <div class="upper-section">
-        <div class="row">
-            <div class="col-9">
-                <img src="{% static 'image/bannerSubPage.png' %}">
-            </div>
-            <div class="col-3">
-                <div class="row">
-                    <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
-                </div>
-                <div class="row">
-                    <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
-                </div>
-                <div class="row">
-                    <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
-                </div>
-                <div class="row">
-                    <img src="{% static 'image/bannerSubPage.png' %}" style="width:65%; margin-bottom:10px;">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="container">
+    <div class="container" id="container" style="margin: 5% 0 0 0">
 
         <div class="row">
             <div class="col-12">
@@ -440,21 +418,37 @@
                             </div>
                         </div>
                         <!-- 카드하나 끝 -->
-
                         <!-- row의 닫는 div태그 -->
                     </div>
-
-
-
                 </section>
                 <section class="section" id="content2">sdfd</section>
             </div>
-
-
         </div>
 
         <!-- container의 닫는 div태그 -->
     </div>
+
+    <div class="upper-section">
+            <div class="row">
+                <div class="col-9">
+                    <img src="{% static 'image/bannerSubPage.png' %}">
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
+                    </div>
+                    <div class="row">
+                        <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
+                    </div>
+                    <div class="row">
+                        <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
+                    </div>
+                    <div class="row">
+                        <img src="{% static 'image/bannerSubPage.png' %}" style="width:65%; margin-bottom:10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- <dropdown>
                     <input id="toggle3" type="checkbox">
@@ -467,9 +461,6 @@
                         <li class="animate">높은 가격순<i class="fa fa-cog float-right"></i></li>
                     </ul>
                 </dropdown> -->
-
-
-
 
     <script src="{% static 'js/dropdown.js' %}"></script>
 </body>
