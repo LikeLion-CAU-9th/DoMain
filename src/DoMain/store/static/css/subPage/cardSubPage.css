@@ -24,7 +24,7 @@ p {
     color: #fff;
     cursor: pointer;
     margin-bottom: 60px;
-    height: 400px;
+    height: 350px;
   }
   
   .border {
@@ -40,7 +40,7 @@ p {
   
   .card-detail h2 {
     position: relative;
-    padding: 150px 0px 100px 10px;
+    padding: 160px 0px 5px 10px;
     width: 90%;
   }
   
@@ -52,9 +52,14 @@ p {
     border: 2px solid #c0c0c0;
     border-radius: 10px;
   }
+
+  .cardDescription {
+    padding: 0 10% 0 13%;
+    font-size: 10px;
+  }
   
   .card-color-0 {
-    background-color: #EB5160;
+    background-color: #8DAA91;
   }
   
   .card-color-1 {
@@ -62,7 +67,7 @@ p {
   }
   
   .card-color-2 {
-    background-color: #8DAA91;
+    background-color: #EB5160;
   }
   
   .card-color-3 {
@@ -198,6 +203,20 @@ p {
   @media screen and (max-width: 600px) {
     .card-column {
       width: 90%;
+    }
+    
+    .column-1 {
+      padding-top: 0px;
+    }
+    
+    .open-content .cardImage {
+      margin-top: 40px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .card-column {
+      width: 50%;
     }
     
     .column-1 {
