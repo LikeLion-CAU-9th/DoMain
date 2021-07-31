@@ -11,6 +11,5 @@ media
 __pycache__/
 **/migrations
 
-
 ### SECRET KEY ###
 secrets.json
