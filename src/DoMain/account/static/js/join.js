@@ -61,6 +61,13 @@ const bothCheck = () => {
 
 
 window.onload = () => {
+
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+        };
+    }, true);
+
     const joinBtn = document.querySelector('#joinBtn');
     joinBtn.style.pointerEvents = "none";
     joinBtn.style.background = 'gray';
