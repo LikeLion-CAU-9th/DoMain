@@ -10,6 +10,8 @@ media
 *.pyc
 __pycache__/
 **/migrations
+settings.json
+.vscode/**
 
 ### SECRET KEY ###
 secrets.json
