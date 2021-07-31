@@ -4,6 +4,9 @@ from django.urls import path
 from .views import Activate
 
 urlpatterns = [
+  path('success/', views.login_success, name="login_success"),
+  path('logout/',  views.logout, name="logout"),
+  path('fail/', views.login_fail, name ="login_fail"),
   path('login/', views.login_view, name="login_view"),
   path('loginAction/', views.login_action, name="login_action"),
   path('join/', views.join_view, name="join_view"),
