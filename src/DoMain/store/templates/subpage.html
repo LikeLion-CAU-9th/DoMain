@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/subpage.css">
+    <link rel="stylesheet" href="{% static 'css/subpage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/upperSubPage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/commons/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
@@ -50,17 +50,17 @@
                 <input class="tabs" id="tab6" type="radio" name="tabs">
                 <label class="tablabel" for="tab6">NEW</label>
                 <input id="searchBar" class="searchbar" type="text" placeholder="Search">
-                <a id="btnSearch" class="btn-search"><img src="../static/image/glasses.svg" id="glasses"></a>
+                <a id="btnSearch" class="btn-search"><img src="{% static 'image/glasses.svg' %}" id="glasses"></a>
                 <section class="section" id="content2">
                     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
                         <!-- 기본 위젯카드 형식 -->
                         <div class="col">
                             <div class="card" id="cardlayout">
                                 <!-- 찜하기 하트 -->
-                                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                                <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
                                 <script>
-                                    var emptyheart = "../static/image/emptyheart.svg";
-                                    var fullheart = "../static/image/fullheart.svg";
+                                    var emptyheart = "{% static 'image/emptyheart.svg' %}";
+                                    var fullheart = "{% static 'image/fullheart.svg' %}";
 
                                     function toggleImg() {
                                         if (document.getElementById("heart").getAttribute('src') === emptyheart) {
@@ -74,23 +74,23 @@
                                 </script>
                                 <!-- 북마크 -->
                                 <div>
-                                    <img src="../static/image/redbookmark.svg" class="bookmark">
+                                    <img src="{% static 'image/redbookmark.svg' %}" class="bookmark">
                                     <div class="bookmarktext"><strong>SALE</strong></div>
                                 </div>
                                 <!-- 위젯이미지 -->
                                 <a href="#">
-                                    <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+                                    <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
                                     <!-- 카드 타이틀 -->
                                     <div class="title">Google Style Searchbar</div>
                                 </a>
                                 <!-- 별점이랑 좋아요 개수 부분 -->
                                 <div>
                                     <div class="starspace">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
                                     </div>
                                     <div class="text" style="color:#A2A4A6;">
                                         <strong style="color:#000000">&nbsp;4.1</strong>
@@ -98,7 +98,7 @@
 
                                     <div class="smallheartspace">
                                         <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                        <img src="../static/image/smallheart.svg" class="smallheart">
+                                        <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
                                     </div>
                                     <div class="text" id="hearttext"> &nbsp;(1252)</div>
                                 </div>
@@ -119,10 +119,10 @@
                         <div class="col">
                             <div class="card" id="cardlayout">
                                 <!-- 찜하기 하트 -->
-                                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                                <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
                                 <script>
-                                    var emptyheart = "../static/image/emptyheart.svg";
-                                    var fullheart = "../static/image/fullheart.svg";
+                                    var emptyheart = "{% static 'image/emptyheart.svg' %}";
+                                    var fullheart = "{% static 'image/fullheart.svg' %}";
 
                                     function toggleImg() {
                                         if (document.getElementById("heart").getAttribute('src') === emptyheart) {
@@ -140,18 +140,19 @@
 
                                 <!-- 위젯이미지 -->
                                 <a href="#">
-                                    <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+                                    <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
                                     <!-- 카드 타이틀 -->
                                     <div class="title">Google Style Searchbar</div>
                                 </a>
                                 <!-- 별점이랑 좋아요 개수 부분 -->
                                 <div>
                                     <div class="starspace">
-                                        <img src="../static/image/emptystar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}
+                                        " class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
                                     </div>
                                     <div class="text" style="color:#A2A4A6;">
                                         <strong style="color:#000000">&nbsp;0.0</strong>
@@ -159,7 +160,7 @@
 
                                     <div class="smallheartspace">
                                         <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                        <img src="../static/image/smallheart.svg" class="smallheart">
+                                        <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
                                     </div>
                                     <div class="text" id="hearttext"> &nbsp;(0)</div>
                                 </div>
@@ -180,10 +181,10 @@
                         <div class="col">
                             <div class="card" id="cardlayout">
                                 <!-- 찜하기 하트 -->
-                                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                                <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
                                 <script>
-                                    var emptyheart = "../static/image/emptyheart.svg";
-                                    var fullheart = "../static/image/fullheart.svg";
+                                    var emptyheart = "{% static 'image/emptyheart.svg' %}";
+                                    var fullheart = "{% static 'image/fullheart.svg' %}";
 
                                     function toggleImg() {
                                         if (document.getElementById("heart").getAttribute('src') === emptyheart) {
@@ -196,23 +197,24 @@
                                     }
                                 </script>
                                 <!-- 북마크 -->
-                                <img src="../static/image/redbookmark.svg" class="bookmark">
+                                <img src="{% static 'image/redbookmark.svg' %}" class="bookmark">
                                 <div class="bookmarktext"><strong>SALE</strong></div>
 
                                 <!-- 위젯이미지 -->
                                 <a href="#">
-                                    <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+                                    <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
                                     <!-- 카드 타이틀 -->
                                     <div class="title">Google Style Searchbar</div>
                                 </a>
                                 <!-- 별점이랑 좋아요 개수 부분 -->
                                 <div>
                                     <div class="starspace">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}
+                                        " class="star">
                                     </div>
                                     <div class="text" style="color:#A2A4A6;">
                                         <strong style="color:#000000">&nbsp;4.1</strong>
@@ -220,7 +222,7 @@
 
                                     <div class="smallheartspace">
                                         <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                        <img src="../static/image/smallheart.svg" class="smallheart">
+                                        <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
                                     </div>
                                     <div class="text" id="hearttext"> &nbsp;(1252)</div>
                                 </div>
@@ -242,10 +244,10 @@
                         <div class="col">
                             <div class="card" id="cardlayout">
                                 <!-- 찜하기 하트 -->
-                                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                                <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
                                 <script>
-                                    var emptyheart = "../static/image/emptyheart.svg";
-                                    var fullheart = "../static/image/fullheart.svg";
+                                    var emptyheart = "{% static 'image/emptyheart.svg' %}";
+                                    var fullheart = "{% static 'image/fullheart.svg' %}";
 
                                     function toggleImg() {
                                         if (document.getElementById("heart").getAttribute('src') === emptyheart) {
@@ -258,23 +260,23 @@
                                     }
                                 </script>
                                 <!-- 북마크 -->
-                                <img src="../static/image/greenbookmark.svg" class="bookmark">
+                                <img src="{% static 'image/greenbookmark.svg' %}" class="bookmark">
                                 <div class="bookmarktext"><strong>BEST</strong></div>
 
                                 <!-- 위젯이미지 -->
                                 <a href="#">
-                                    <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+                                    <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
                                     <!-- 카드 타이틀 -->
                                     <div class="title">Google Style Searchbar</div>
                                 </a>
                                 <!-- 별점이랑 좋아요 개수 부분 -->
                                 <div>
                                     <div class="starspace">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
                                     </div>
                                     <div class="text" style="color:#A2A4A6;">
                                         <strong style="color:#000000">&nbsp;0.0</strong>
@@ -282,7 +284,7 @@
 
                                     <div class="smallheartspace">
                                         <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                        <img src="../static/image/smallheart.svg" class="smallheart">
+                                        <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
                                     </div>
                                     <div class="text" id="hearttext"> &nbsp;(0)</div>
                                 </div>
@@ -302,10 +304,10 @@
                         <div class="col">
                             <div class="card" id="cardlayout">
                                 <!-- 찜하기 하트 -->
-                                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                                <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
                                 <script>
-                                    var emptyheart = "../static/image/emptyheart.svg";
-                                    var fullheart = "../static/image/fullheart.svg";
+                                    var emptyheart = "{% static 'image/emptyheart.svg' %}";
+                                    var fullheart = "{% static 'image/fullheart.svg' %}";
 
                                     function toggleImg() {
                                         if (document.getElementById("heart").getAttribute('src') === emptyheart) {
@@ -318,23 +320,23 @@
                                     }
                                 </script>
                                 <!-- 북마크 -->
-                                <img src="../static/image/redbookmark.svg" class="bookmark">
+                                <img src="{% static 'image/redbookmark.svg' %}" class="bookmark">
                                 <div class="bookmarktext"><strong>SALE</strong></div>
 
                                 <!-- 위젯이미지 -->
                                 <a href="#">
-                                    <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+                                    <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
                                     <!-- 카드 타이틀 -->
                                     <div class="title">Google Style Searchbar</div>
                                 </a>
                                 <!-- 별점이랑 좋아요 개수 부분 -->
                                 <div>
                                     <div class="starspace">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
                                     </div>
                                     <div class="text" style="color:#A2A4A6;">
                                         <strong style="color:#000000">&nbsp;4.1</strong>
@@ -342,7 +344,7 @@
 
                                     <div class="smallheartspace">
                                         <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                        <img src="../static/image/smallheart.svg" class="smallheart">
+                                        <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
                                     </div>
                                     <div class="text" id="hearttext"> &nbsp;(1252)</div>
                                 </div>
@@ -365,10 +367,10 @@
                         <div class="col">
                             <div class="card" id="cardlayout">
                                 <!-- 찜하기 하트 -->
-                                <img src="../static/image/emptyheart.svg" id="heart" alt="" onclick="toggleImg()" />
+                                <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
                                 <script>
-                                    var emptyheart = "../static/image/emptyheart.svg";
-                                    var fullheart = "../static/image/fullheart.svg";
+                                    var emptyheart = "{% static 'image/emptyheart.svg' %}";
+                                    var fullheart = "{% static 'image/fullheart.svg' %}";
 
                                     function toggleImg() {
                                         if (document.getElementById("heart").getAttribute('src') === emptyheart) {
@@ -381,23 +383,24 @@
                                     }
                                 </script>
                                 <!-- 북마크 -->
-                                <img src="../static/image/greenbookmark.svg" class="bookmark">
+                                <img src="{% static 'image/greenbookmark.svg' %}" class="bookmark">
                                 <div class="bookmarktext"><strong>BEST</strong></div>
 
                                 <!-- 위젯이미지 -->
                                 <a href="#">
-                                    <img src="../static/image/widgetimage.png" class="cardimg" alt="no image">
+                                    <img src="{% static 'image/widgetimage.png' %}
+                                    " class="cardimg" alt="no image">
                                     <!-- 카드 타이틀 -->
                                     <div class="title">Google Style Searchbar</div>
                                 </a>
                                 <!-- 별점이랑 좋아요 개수 부분 -->
                                 <div>
                                     <div class="starspace">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
                                     </div>
                                     <div class="text" style="color:#A2A4A6;">
                                         <strong style="color:#000000">&nbsp;0.0</strong>
@@ -405,7 +408,7 @@
 
                                     <div class="smallheartspace">
                                         <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                        <img src="../static/image/smallheart.svg" class="smallheart">
+                                        <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
                                     </div>
                                     <div class="text" id="hearttext"> &nbsp;(0)</div>
                                 </div>
@@ -433,11 +436,11 @@
                                 <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
                                 <div class="row" style="padding: 10% 0 0 0">
                                     <div class="col-5" style="padding:3px 0 0 40px;">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/fullstar.svg" class="star">
-                                        <img src="../static/image/emptystar.svg" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
                                     </div>
 
                                     <div class="col-2">
@@ -445,7 +448,7 @@
                                     </div>
 
                                     <div class = "col-4" style="padding: 0 0 0 30px;">
-                                            <img src="../static/image/smallheart.svg" >
+                                            <img src="{% static 'image/smallheart.svg' %}" >
                                             1252
                                     </div>
                                 </div>
