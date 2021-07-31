@@ -1,7 +1,10 @@
 from django.shortcuts import render
 
 
-def store_main(request):
+def landing_page(request):
+    return render(request, 'landingPage.html')
+
+ def store_main(request):
     return render(request, 'MainPage.html')
 
 def subpage(request):
