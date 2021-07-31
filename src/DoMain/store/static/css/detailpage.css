@@ -1,18 +1,12 @@
-.searchbox{
-    width:20%;
-    height:5%;
-    border-radius: 70px;
-    position:absolute;
-    border:1px solid #A2A4A6;
-    margin-left:74%;
+.leftspace{
+    width: 75%;
+    float: left;
 }
-#glasses{
-    position:relative;
-    float:right;
-    margin-top:0.5%;
-    margin-right:0.4%;
+.rightspace{
+    width: 24%;
+    float: right;
 }
-/*  */
+/* leftspace */
 .title{
     color:#000000;
     font-family: 'DM Serif Display', serif;
@@ -25,7 +19,6 @@
 .pricespace{
     float:right;
     font-size: 130%;
-    padding-right: 20.5%;
     padding-top: 1%;
 }
 .price{
@@ -51,27 +44,29 @@
 }
 #hearttext{
     color:#A2A4A6;
-    font-family: 'DM Serif Display', serif;
+    font-family: 'ABeeZee', sans-serif;
     float:left;
     z-index:1;
     font-size: 120%;
 }
-.button{
-    padding-right:20%;
-}
 #downloadbutton{
+    border: 1px solid #F7E461;
+    border-radius: 5px;
     color:black;
     width:25%;
     height:10%;
     background-color:#F7E461;
-    border-color: #F7E461;
     font-family: 'ABeeZee', sans-serif;
     z-index:2;
     float:right;
+    padding:5px 10px;
+    
+    
+    
 }
 .line{
     border: solid 1.2px #EDEDED;
-    width:80%;
+    width:100%;
     float:left;
     margin-top: 0rem;
 }
@@ -100,13 +95,11 @@
     font-family: 'ABeeZee', sans-serif;
     font-size:90%;
     line-height: 200%;
-    z-index:1;
-    position:absolute;
 }
 .widget-inform-left{
     z-index:3;
     float:left;
-    padding-left:60%;
+    padding-left:75%;
     position: relative;
     font-family: 'ABeeZee', sans-serif;
     color:#D94738;
@@ -116,7 +109,6 @@
 .widget-inform-right{
     z-index:2;
     float:right;
-    padding-right:20%;
     position: relative;
     font-family: 'ABeeZee', sans-serif;
     font-size:90%;
@@ -129,9 +121,9 @@
 .stargraph{
     z-index:2; 
     float:left; 
-    padding-left:28%;
     line-height: 200%;
     padding-top: 0.3%;
+    padding-left:5%;
 }
 .graphstick{
     border: 1px solid #45A685;
@@ -155,8 +147,7 @@ input{
 }
 .review-button{
     font-family: 'ABeeZee', sans-serif;
-    float:left;
-    padding-left:60%;
+    float:right;
 }
 .delete-button{
     padding:5px 10px;
@@ -175,11 +166,19 @@ input{
 ::selection{
     background-color: #45A685;
 }
-.leftspace{
+#recommend-widget{
+    width:60%;
+    border-radius:10px;
     float:left;
-    z-index:1;
+    z-index:5;
 }
-.rightspace{
-    float:right;
-    z-index:2;
+@media screen and (max-width: 1200px) {
+    .rightspace{
+        display:none;
+    }
+    .leftspace{
+        width:100%;
+    }
 }
+
+/* rightspace */

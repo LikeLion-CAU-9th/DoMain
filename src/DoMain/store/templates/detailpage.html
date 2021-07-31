@@ -27,12 +27,14 @@
 </head>
 
 <body>
-    <div class="all">
+    <!-- style="width:100%; overflow:hidden" -->
+    <div class="all"">
         <img src="../static/image/bar.svg">
         <br><br>
+
         <!-- 왼쪽 부분 -->
         <div class="leftspace">
-            <div class="card" style="width: 80%;height:60%;border-radius:20px;">
+            <div class="card">
                 <div class="card-body" style="width:100%;">
                     <!-- 이미지 carousel -->
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -46,13 +48,16 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="../static/image/widget2.png" class="d-block w-100" alt="...">
+                                <img src="../static/image/widget2.png" style="width:100%;" class="d-block w-100"
+                                    alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="../static/image/widget3.png" class="d-block w-100" alt="...">
+                                <img src="../static/image/widget3.png" style="width:100%;" class="d-block w-100"
+                                    alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="../static/image/widgetimage.png" class="d-block w-100" alt="...">
+                                <img src="../static/image/widgetimage.png" style="width:100%;" class="d-block w-100"
+                                    alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" style="border:none;" type="button"
@@ -85,7 +90,7 @@
                 </div>
             </div>
 
-            <br>
+            <br><br>
             <!-- 하트랑 다운로드버튼 부분 -->
             <div style="padding-top:5%;">
                 <!-- smallheart -->
@@ -93,8 +98,9 @@
                 <div id="hearttext"> &nbsp;(1252)</div>
 
                 <!-- download button -->
-                <div class="button"><a href="#" class="btn btn-primary"
-                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
+                <a href="#">
+                    <button id="downloadbutton" type="button">&nbsp;DOWNLOAD&nbsp;</button>
+                </a>
             </div>
 
             <br><br>
@@ -106,14 +112,16 @@
                 <div class="profile-space">
 
                     <!-- 프로필이미지 -->
-                    <div class="box" style="background: #BDBDBD;">
-                        <img class="profile" src="../static/image/anna.jpg">
-                    </div>
-                    <!-- 프로필 내용 -->
-                    <div class="text" , style="padding-left:15%;">
-                        <div style="font-size:130%; font-weight:bold;">Jisoo</div>
-                        <div>ios designer</div>
-                        <div style="color:#0275B1;">디자인의 가치를 만들어 내는 디자이너 입니다.
+                    <div>
+                        <div class="box" style="background: #BDBDBD;">
+                            <img class="profile" src="../static/image/anna.jpg">
+                        </div>
+                        <!-- 프로필 내용 -->
+                        <div class="text">
+                            <div style="font-size:130%; font-weight:bold;">Jisoo</div>
+                            <div>ios designer</div>
+                            <div style="color:#0275B1;">디자인의 가치를 만들어 내는 디자이너 입니다.
+                            </div>
                         </div>
                     </div>
                     <br><br>
@@ -152,8 +160,9 @@
             <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div>
             <!-- 별점 점수와 별점개수-->
             <div class="star-point">
-                <div class="text" , style="padding-left:15%;font-size:100%;">5<br>4<br>3<br>2<br>1</div>
-                <div class="text" , style="padding-left:35%; z-index:2; color:#A2A4A6;font-size:100%;">
+                <div class="text" , style="position:absolute;font-size:100%;">5<br>4<br>3<br>2<br>1</div>
+                <div class="text" , style="padding-left:40%; z-index:2; color:#A2A4A6;font-size:100%; position: relative;
+                padding-left: 1000%;">
                     (132)<br>(24)<br>(12)<br>(2)<br>(1)
                 </div>
             </div>
@@ -190,7 +199,7 @@
             <!-- 리뷰 작성 input 칸 -->
             <input type="text" name="review" size="50" placeholder="별점 선택 후, 리뷰를 남겨주세요.">
 
-            <hr class="line" style="width:72%;padding-left:2%;margin-bottom: 5px;">
+            <hr class="line" style="width:91%;margin-bottom: 5px;">
             <!-- 리뷰버튼 -->
             <div class="review-button">
                 <button class="delete-button" type="button">DELETE&nbsp;</button>
@@ -205,7 +214,7 @@
                     <img class="profile" src="../static/image/elsa.jpg">
                 </div>
                 <!-- 채워진 별 -->
-                <div class="starspace" style="width: 60%;padding-left: 12%;">
+                <div class="starspace" style="width: 40%;padding-left: 5%;">
                     <img src="../static/image/greenstar.svg" class="star">
                     <img src="../static/image/greenstar.svg" class="star">
                     <img src="../static/image/greenstar.svg" class="star">
@@ -213,12 +222,17 @@
                     <img src="../static/image/greenstar.svg" class="star">
                 </div>
                 <br>
-                <div class="text" style="font-weight:bold; padding-left:8%;">이성민 님 &nbsp;&nbsp;2021.07.31</div>
-                <br>
-                <div class="text" style="padding-left:8%;">디자인이 너무 예뻐요! 당장 다운받았습니다.</div>
-                <br>
-                <!-- js display이용하면 될 듯 -->
-                <div class="text" style="padding-left:8%;color:#1C62A8;">▼ 댓글 {32}개 보기</div>
+
+                <div class="text" style="padding-left: 0%;
+                width: 70%;">
+                    <div class="text" style="font-weight:bold; padding-left:8%;">이성민 님 &nbsp;&nbsp;2021.07.31</div>
+                    <br>
+                    <div class="text" style="padding-left:8%;width: 400%;">디자인이 너무 예뻐요! 당장 다운받았습니다.</div>
+                    <br>
+
+                    <!-- js display이용하면 될 듯 -->
+                    <div class="text" style="padding-left:8%;color:#1C62A8;">▼ 댓글 {32}개 보기</div>
+                </div>
             </div>
 
             <!-- 기록된 리뷰2 -->
@@ -229,29 +243,122 @@
                     <img class="profile" src="../static/image/olaf.jpg">
                 </div>
                 <!-- 채워진 별 -->
-                <div class="starspace" style="width: 60%;padding-left: 12%;">
+                <div class="starspace" style="width: 40%;padding-left: 5%;">
                     <img src="../static/image/greenstar.svg" class="star">
                     <img src="../static/image/greenstar.svg" class="star">
                     <img src="../static/image/greenstar.svg" class="star">
-                    <img src="../static/image/emptystar.svg" class="star">
-                    <img src="../static/image/emptystar.svg" class="star">
+                    <img src="../static/image/greenstar.svg" class="star">
+                    <img src="../static/image/greenstar.svg" class="star">
                 </div>
                 <br>
-                <div class="text" style="font-weight:bold; padding-left:8%;">인세훈 님 &nbsp;&nbsp;2021.07.31</div>
-                <br>
-                <div class="text" style="padding-left:8%;">좋아요!</div>
-                <br>
-                <!-- js display이용하면 될 듯 -->
-                <div class="text" style="padding-left:8%;color:#1C62A8;">▼ 댓글 {32}개 보기</div>
-            </div>
-        </div>
-<!-- 오른쪽 부분:연관 위젯 -->
-<div class="rightspace">
 
+                <div class="text" style="padding-left: 0%;
+                width: 70%;">
+                    <div class="text" style="font-weight:bold; padding-left:8%;">인세훈 님 &nbsp;&nbsp;2021.07.31</div>
+                    <br>
+                    <div class="text" style="padding-left:8%;width: 400%;">디자인이 너무 예뻐요! 당장 다운받았습니다.</div>
+                    <br>
+
+                    <!-- js display이용하면 될 듯 -->
+                    <div class="text" style="padding-left:8%;color:#1C62A8;">▼ 댓글 {32}개 보기</div>
+                </div>
+            </div>
+
+            <!-- 왼쪽 부분 끝 div태그 -->
+        </div>
+
+
+
+        <!-- 오른쪽 부분:연관 위젯-->
+        <div class="rightspace">
+            <!-- 위젯 하나 -->
+            <a href="#">
+            <div>
+                <!-- 썸넬이미지 -->
+                <div class="card" style="flex-direction: row;border:none;">
+                    <img src="../static/image/recommendwidget.png" class="card-img-top" id="recommend-widget" alt="...">
+                
+                <div style="line-height: 80%;">
+                    <!-- title -->
+                    <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
+                        Naver Style<br>Searchbar
+                    </div>
+                    <!-- 별점이랑 좋아요 개수 부분 -->
+                    <br><br><br>
+                    <div class="starspace" style="width: 100%;">
+                        <img src="../static/image/fullstar.svg" class="star">
+                        <img src="../static/image/fullstar.svg" class="star">
+                        <img src="../static/image/fullstar.svg" class="star">
+                        <img src="../static/image/fullstar.svg" class="star">
+                        <img src="../static/image/emptystar.svg" class="star">
+                    </div>
+                    <br>
+                    <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
+                        <strong style="color:#000000">&nbsp;4.1</strong>
+                        (151)
+                    </div>
+                    <br>
+
+
+                    <!-- price -->
+                    <br><br><br>
+                    <div>
+                        <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
+                        <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </a>
+            <!-- 위젯하나 끝 -->
+
+            <!-- 위젯 하나 -->
+            <a href="#">
+                <div style="padding-top:3%;">
+                    <!-- 썸넬이미지 -->
+                    <div class="card" style="flex-direction: row;border:none;">
+                        <img src="../static/image/recommendwidget.png" class="card-img-top" id="recommend-widget" alt="...">
+                    
+                    <div style="line-height: 80%;">
+                        <!-- title -->
+                        <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
+                            Naver Style<br>Searchbar
+                        </div>
+                        <!-- 별점이랑 좋아요 개수 부분 -->
+                        <br><br><br>
+                        <div class="starspace" style="width: 100%;">
+                            <img src="../static/image/fullstar.svg" class="star">
+                            <img src="../static/image/fullstar.svg" class="star">
+                            <img src="../static/image/fullstar.svg" class="star">
+                            <img src="../static/image/fullstar.svg" class="star">
+                            <img src="../static/image/emptystar.svg" class="star">
+                        </div>
+                        <br>
+                        <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
+                            <strong style="color:#000000">&nbsp;4.1</strong>
+                            (151)
+                        </div>
+                        <br>
     
-</div>
+    
+                        <!-- price -->
+                        <br><br><br>
+                        <div>
+                            <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
+                            <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+                <!-- 위젯하나 끝 -->
+
+
+            <!-- 오른쪽 부분 끝나는 div태그 -->
+        </div>
 
         <br><br><br>
+
         <!-- all을 닫는 div태그 -->
     </div>
 
