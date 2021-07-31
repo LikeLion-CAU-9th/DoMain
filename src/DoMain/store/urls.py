@@ -4,6 +4,6 @@ from store.views import *
 urlpatterns = [
     path('', store_main, name='store_main'),
     path('landing', landing_page, name="landingPage"),
-    path('subpage/', views.subpage, name="subpage"),
-    path('detailpage/', views.detailpage, name="detailpage"),
+    path('subpage/', subpage, name="subpage"),
+    path('detailpage/', detailpage, name="detailpage"),
 ]

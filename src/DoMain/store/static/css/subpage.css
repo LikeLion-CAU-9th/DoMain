@@ -126,12 +126,12 @@ a{
     width: 20%;
     float:left;
 }
-.text{
+/* .text{
     color:white;
     font-family: 'DM Serif Display', serif;
     float:left;
     z-index:1;
-}
+} */
 .smallheartspace{
     float:right;
     padding-left:66%;
