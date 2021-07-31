@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/subpage.css">
     <link rel="stylesheet" href="{% static 'css/upperSection.css' %}">
-    <link rel="stylesheet" href="{% static 'css/commons/searchBar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/commons/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/tabMenu.css' %}">
 
@@ -30,9 +30,9 @@
 <body>
     <div class="upper-section">
 
-            <!-- 위젯종류 -->
-        <div class = "sort">
-                <dropdown>
+        <!-- 위젯종류 -->
+        <div class="sort">
+            <!-- <dropdown>
                     <input id="toggle2" type="checkbox">
                     <label for="toggle2" class="animate">BEST<i class="fa fa-bars float-right"></i></label>
                     <ul class="animate" style="margin: 0 0 0 -17%">
@@ -42,52 +42,68 @@
                         <li class="animate">TODOLIST<i class="fa fa-cog float-right"></i></li>
                         <li class="animate">NEW<i class="fa fa-cog float-right"></i></li>
                     </ul>
-                </dropdown>
+                </dropdown> -->
             <!-- 피드순서 종류 -->
-                    <dropdown>
-                            <input id="toggle3" type="checkbox">
-                            <label for="toggle3" class="animate">인기순<i class="fa fa-bars float-right"></i></label>
-                            <ul class="animate" style="margin: 0 0 0 -17%">
-                                <li class="animate">별점순<i class="fa fa-code float-right"></i></li>
-                                <li class="animate">다운로드순<i class="fa fa-arrows-alt float-right"></i></li>
-                                <li class="animate">신규순<i class="fa fa-cog float-right"></i></li>
-                                <li class="animate">낮은 가격순<i class="fa fa-cog float-right"></i></li>
-                                <li class="animate">높은 가격순<i class="fa fa-cog float-right"></i></li>
-                            </ul>
-                        </dropdown>
-            </div>
+
+        </div>
 
         <!-- 오른쪽 서치바 -->
-        <div class="search" style="margin:20px 0 0 0">
-            <input id="searchBar" class="searchbar" type="text" placeholder="Search">
-            <a id="btnSearch" class="btn-search"><img src="../static/image/glasses.svg" id="glasses"></a>
-        </div>
+
 
         <!-- all의 닫는 div태그 -->
     </div>
     <br><br><br>
-    
+
 
 
     <div class="container" id="container">
-        <!-- Widget List Tab Menu
+        
+        <div class="row">
+                <div class = "col-8"></div>
+
+                <div class = "col-4">
+                        
+                </div>
+            <div class="col-12">
+                <!-- Widget List Tab Menu
             it is composed of subtabs according to the widget style
         -->
-            <input class="tabs"id="tab1" type="radio" name="tabs" checked>
-            <label for="tab1">BEST</label>
-            <input class="tabs"id="tab2" type="radio" name="tabs">
-            <label for="tab2">PACKAGE</label>
-            <input class="tabs"id="tab3" type="radio" name="tabs">
-            <label for="tab3">SEARCHBAR</label>
-            <input class="tabs"id="tab4" type="radio" name="tabs">
-            <label for="tab4">D-DAY</label>
-            <input class="tabs"id="tab5" type="radio" name="tabs">
-            <label for="tab5">TODOLIST</label>
-            <input class="tabs"id="tab6" type="radio" name="tabs">
-            <label for="tab6">NEW</label>
+                <input class="tabs" id="tab1" type="radio" name="tabs" checked>
+                <label class="tablabel" for="tab1">BEST</label>
+                <input class="tabs" id="tab2" type="radio" name="tabs">
+                <label class="tablabel" for="tab2">PACKAGE</label>
+                <input class="tabs" id="tab3" type="radio" name="tabs">
+                <label class="tablabel"for="tab3">SEARCHBAR</label>
+                <input class="tabs" id="tab4" type="radio" name="tabs">
+                <label class="tablabel"for="tab4">D-DAY</label>
+                <input class="tabs" id="tab5" type="radio" name="tabs">
+                <label class="tablabel"for="tab5">TODOLIST</label>
+                <input class="tabs" id="tab6" type="radio" name="tabs">
+                <label class="tablabel"for="tab6">NEW</label>
+                        <input id="searchBar" class="searchbar" type="text" placeholder="Search">
+                        <a id="btnSearch" class="btn-search"><img src="../static/image/glasses.svg" id="glasses"></a>
+                <section class="section" id="content1">sdf</section>
+            <section class="section" id="content2">sdfd</section>
+            </div>
+            
+            
+        </div>
 
-            <section class="section" id="content1">sdf</section>
-            <section class = "section" id="content2">sdfd</section>
+
+        <!-- <dropdown>
+                    <input id="toggle3" type="checkbox">
+                    <label for="toggle3" class="animate">인기순<i class="fa fa-bars float-right"></i></label>
+                    <ul class="animate" style="margin: 0 0 0 -17%">
+                        <li class="animate">별점순<i class="fa fa-code float-right"></i></li>
+                        <li class="animate">다운로드순<i class="fa fa-arrows-alt float-right"></i></li>
+                        <li class="animate">신규순<i class="fa fa-cog float-right"></i></li>
+                        <li class="animate">낮은 가격순<i class="fa fa-cog float-right"></i></li>
+                        <li class="animate">높은 가격순<i class="fa fa-cog float-right"></i></li>
+                    </ul>
+                </dropdown> -->
+
+
+        
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
             <!-- 기본 위젯카드 형식 -->
             <div class="col">

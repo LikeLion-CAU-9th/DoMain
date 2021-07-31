@@ -6,7 +6,6 @@
     width: 120px;
     border: none;
     margin-top: 15px;
-    /* margin-right: 8px; */
     font-family: "Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
     font-size: 1em;
     font-weight: bold;
@@ -23,7 +22,7 @@
 }
 
 .searchbar:focus {
-    width: 400px;
+    width: 300px;
     font-family: "Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
     font-size: 1em;
     font-weight: bold;

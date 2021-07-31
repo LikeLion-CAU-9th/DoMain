@@ -1,14 +1,10 @@
-.fa{
-    font-size: .8em;
-     line-height: 22px !important;
-}
    dropdown{
       display: inline-block;
       margin: 20px 20px; 
    }
    dropdown label, dropdown ul li{
      display: block;
-     width: 200px;
+     width: 150px;
      background: #ECF0F1;
      padding: 15px 20px;
    }
