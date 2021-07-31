@@ -1,0 +1,135 @@
+body {
+    margin-top: 7%;
+    background-color: #f6f6f6;
+}
+
+.main-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.blanck {
+    width: 15%;
+}
+
+.main-content {
+    width: 85%;
+}
+
+.mainpage-content-1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.weekly-best {
+    background: rgba(69, 166, 133, 0.72);
+    flex-direction: column;
+    width: 45%
+}
+
+.weekly-best-content {
+    text-align: right;
+    width: 100%;
+    padding-bottom: 5%;
+    margin-top: 2%;
+}
+
+.weekly-best-title {
+    color: white;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 3%;
+}
+
+.weekly-best-detail {
+    margin-bottom: 3%;
+    color: white;
+    margin-right: 3%;
+    font-weight: 400;
+}
+
+.weekly-best-image {
+    background-image: url('/static/image/Desktop - 8.png');
+    background-size: 47% auto;
+    padding: 55% 0 0 0;
+    background-attachment: fixed;
+    background-position: 28% 60%;
+    background-repeat: no-repeat;
+    margin: 0;
+    
+}
+
+.colorful-widget {
+    background-color: #F7E461;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.colorful-widget-image {
+    background-image: url('/static/image/Desktop - 9.png');
+    background-size: 100% auto;
+    padding: 40% 0 0 0;
+    background-position: 100% 5%;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+.colorful-widget-content {
+    background-color: rgba(250, 239, 162, 1);
+    height: 40%;
+}
+
+.colorful-widget-title {
+    color: black;
+    font-size: 36px;
+    position: relative;
+    margin-left: 3%;
+}
+
+.colorful-widget-detail {
+    position: relative;
+    margin-left: 3%;
+    font-weight: 500;
+}
+
+.colorful-widget-bottom {
+    background-color: rgba(222, 105, 93, 1);
+    
+}
+
+.mainpage-content-2 {
+    display: flex;
+    flex-direction: row;
+    height:400px;
+}
+
+.widget-recommend{
+    width:45%; 
+}
+
+.widget-recommend-image{
+    background-image: url("/static/image/widget-recommend.png");
+    background-size: 47% auto;
+    padding: 400px 0 0 0;
+    background-position: 100% 75%;
+    background-repeat: no-repeat;
+    margin: 0;
+    background-attachment: fixed;
+    height: fit-content;
+    background-repeat: repeat-y;
+    position: relative;
+}
+
+.widget-recommend-image-cover{
+    background-color: rgba(56, 56, 56, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

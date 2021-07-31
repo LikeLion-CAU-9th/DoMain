@@ -1,0 +1,132 @@
+.specificLetter{
+    color: #D22657;
+    font-weight: 700
+}
+
+.specificLetterYellow{
+    color: #F7E461;
+    font-weight: 700
+}
+
+.specificLetterGreen{
+    color: #76BCAD;
+    font-weight: 700
+}
+
+.landingContent1 {
+    z-index:10;
+    color: white;
+    position:absolute;
+    font-size: 70px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:300px 0 0 0;
+    padding: 10px 0 0 0;
+}
+.landingSubcontent1 {
+    z-index:10;
+    color: white;
+    position:absolute;
+    font-size: 20px;
+    top:0px;
+    width: 60%;
+    left:5%;
+    height: 40px;
+    margin:100px 0 0 0;
+    padding: 10px 0 0 0;
+
+}
+
+.landingSubText {
+    z-index:10;
+    color: white;
+    position:absolute;
+    font-size: 20px;
+    top:0px;
+    width: 60%;
+    left:2%;
+    height: 40px;
+    margin:80px 0 0 0;
+    padding: 30% 0 0 0;
+}
+
+.landingContent2 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:2000px 0 0 0;
+    padding: 20% 0 0 0;
+}
+
+.landingContent3 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:6000px 0 0 0;
+    padding: 20% 0 0 0;
+}
+
+.landingContent4 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:10000px 0 0 0;
+    padding: 20% 0 0 0;
+}
+
+.landingContent5 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:14000px 0 0 0;
+    padding: 20% 0 0 0;
+}
+
+.landingContent6 {
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:19000px 0 0 0;
+    padding: 20% 0 0 0;
+}
+
+.landingContent7 {
+    text-align: center;
+    z-index:8;
+    color: white;
+    position:absolute;
+    font-size: 35px;
+    top:0px;
+    width: 60%;
+    left:20%;
+    height: 40px;
+    margin:22500px 0 0 0;
+    padding: 20% 0 0 0;
+}
