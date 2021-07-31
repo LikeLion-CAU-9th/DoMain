@@ -49,6 +49,8 @@ p {
     position: absolute;
     top: -6%;
     left: -6%;
+    border: 2px solid #c0c0c0;
+    border-radius: 10px;
   }
   
   .card-color-0 {
