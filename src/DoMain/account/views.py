@@ -9,6 +9,8 @@ from django.contrib.sites.shortcuts import get_current_site
 from .models import User_info
 from .tokens import account_activation_token
 from .text import message
+import hashlib
+
 
 class Activate(View):
   def get(self, request, uidb64, token):
@@ -29,7 +31,22 @@ class Activate(View):
 
 
 def login_view(request):
+  if 'user_email' in request.session:
+    return redirect('login_success')
   return render(request, 'login.html')
+
+
+def login_success(request):
+  return render(request, 'success.html')
+
+
+def login_fail(request):
+  return render(request, 'fail.html')
+
+
+def logout(request):
+  del request.session['user_email']
+  return redirect('login_view')
 
 
 def join_view(request):
@@ -37,11 +54,37 @@ def join_view(request):
 
 
 def login_action(request):
-  pass
+  email = request.POST.get('email')
+  raw_pw = request.POST.get('raw_pw')
+  # HashedPasswordObj =hashlib.sha1(raw_pw.encode('UTF-8'))
+  # HashedPassword = HashedPasswordObj.hexdigest()
+  queryset = User_info.objects.filter(user_email = email, user_pwd = raw_pw)
+  
+  if len(queryset) == 1 :
+    request.session['user_email'] = email
+    return render(request, 'success.html')
+    # if queryset[0]['is_active'] :
+    #   # return redirect('main')
+    #   pass
+    # # is_active == False : email 인증 단계로 
+    #   pass
+  return render(request, 'fail.html')
 
 
 def join_action(request):
-  pass
+  data = request.POST
+  # HashedPasswordObj =hashlib.sha1(data.get('user_pwd', False).encode('UTF-8'))
+  # HashedPassword = HashedPasswordObj.hexdigest()
+  User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd'), user_name=data.get('user_name', False))
+  return redirect('login_view')
+
+def join_email_overap(request):
+  email = request.GET['email']
+  queryset = User_info.objects.filter(user_email = email)
+  if len(queryset) > 0:
+    return HttpResponse('Overap')
+  return HttpResponse('Usable')
+
 
 
 def send_validation_mail(request, user, email_address):
@@ -53,3 +96,4 @@ def send_validation_mail(request, user, email_address):
     mail_to = email_address
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
+
