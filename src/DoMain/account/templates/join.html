@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +8,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/join.css' %}">
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/join.js' %}"></script>
   <title>DoMain-join</title>
 </head>
-<body>
-  
-</body>
+
+
+<div class = "container">
+  <form action="{% url 'join_action' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input id="user_name" type="text" name="user_name" placeholder="이름 입력"><br><br>
+    <input id="user_email" type="text" name="user_email" placeholder="이메일 주소"><br><br>
+    <input id="user_pwd" type="password" name="user_pwd" placeholder="비밀번호"><br><br>
+    <input id="user_pwd_check" type="password" name="user_pwd_check" placeholder="비밀번호 확인">
+    <br><br>
+    <input class="join-submit" id="joinBtn" type="submit" value="join">
+    <h3>이메일 중복체크(help...), 이메일 형식 체크, 비밀번호 일치 여부 확인시 join 활성화</h3>
+  </form>
+</div>
+
 </html>

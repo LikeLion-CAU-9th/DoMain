@@ -11,6 +11,7 @@ from .tokens import account_activation_token
 from .text import message
 import hashlib
 
+
 class Activate(View):
   def get(self, request, uidb64, token):
     try:
@@ -54,7 +55,19 @@ def login_action(request):
   return render(request, 'fail.html')
 
 def join_action(request):
-  pass
+  data = request.POST
+  # HashedPasswordObj =hashlib.sha1(data.get('user_pwd', False).encode('UTF-8'))
+  # HashedPassword = HashedPasswordObj.hexdigest()
+  User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd'), user_name=data.get('user_name', False))
+  return redirect('login_view')
+
+def join_email_overap(request):
+  email = request.GET['email']
+  queryset = User_info.objects.filter(user_email = email)
+  if len(queryset) > 0:
+    return HttpResponse('Overap')
+  return HttpResponse('Usable')
+
 
 
 def send_validation_mail(request, user, email_address):
@@ -66,3 +79,4 @@ def send_validation_mail(request, user, email_address):
     mail_to = email_address
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
+
