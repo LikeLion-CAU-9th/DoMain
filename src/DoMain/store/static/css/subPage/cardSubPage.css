@@ -2,14 +2,9 @@ p {
     line-height: 1.5;
   }
   
-  /* .container {
-    max-width: 800px;
-    margin: 0 auto;
-  } */
-  
   /* Cards */
   .card-column {
-    width: 50%;
+    width: 33%;
     float: left;
     padding: 4%;
     box-sizing: border-box;
@@ -20,7 +15,7 @@ p {
   }
   
   .card-detail {
-    width: 92%;
+    width: 100%;
     max-width: 340px;
     margin-left: auto;
     margin-right: auto;
@@ -29,6 +24,7 @@ p {
     color: #fff;
     cursor: pointer;
     margin-bottom: 60px;
+    height: 400px;
   }
   
   .border {
@@ -42,9 +38,9 @@ p {
     top: -6px;
   }
   
-  .card-detail h1 {
+  .card-detail h2 {
     position: relative;
-    padding: 190px 0px 100px 10px;
+    padding: 150px 0px 100px 10px;
     width: 90%;
   }
   
@@ -105,7 +101,7 @@ p {
     margin-bottom: 5%;
   }
   
-  .open-content .text h1, .open-content .text p {
+  .open-content .text h2, .open-content .text p {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -153,7 +149,7 @@ p {
     transition: opacity 200ms linear 0ms, transform 200ms ease-in 0ms;
   }
   
-  .card-detail h1 {
+  .card-detail h2 {
     transform: translate3d(20%, 0px, 0px);  
     transition: opacity 200ms linear 120ms, transform 200ms ease-in 120ms;
   }
@@ -174,7 +170,7 @@ p {
     opacity: 0;
   }
   
-  .card-detail.out h1, .card-detail.clicked h1 {
+  .card-detail.out h2, .card-detail.clicked h2 {
     transform: translate3d(20%, -40px, 0px);
     opacity: 0;
   }
