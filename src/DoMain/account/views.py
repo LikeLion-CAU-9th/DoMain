@@ -31,7 +31,22 @@ class Activate(View):
 
 
 def login_view(request):
+  if 'user_email' in request.session:
+    return redirect('login_success')
   return render(request, 'login.html')
+
+
+def login_success(request):
+  return render(request, 'success.html')
+
+
+def login_fail(request):
+  return render(request, 'fail.html')
+
+
+def logout(request):
+  del request.session['user_email']
+  return redirect('login_view')
 
 
 def join_view(request):
@@ -44,8 +59,9 @@ def login_action(request):
   # HashedPasswordObj =hashlib.sha1(raw_pw.encode('UTF-8'))
   # HashedPassword = HashedPasswordObj.hexdigest()
   queryset = User_info.objects.filter(user_email = email, user_pwd = raw_pw)
-
+  
   if len(queryset) == 1 :
+    request.session['user_email'] = email
     return render(request, 'success.html')
     # if queryset[0]['is_active'] :
     #   # return redirect('main')
@@ -53,6 +69,7 @@ def login_action(request):
     # # is_active == False : email 인증 단계로 
     #   pass
   return render(request, 'fail.html')
+
 
 def join_action(request):
   data = request.POST
