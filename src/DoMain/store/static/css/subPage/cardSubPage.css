@@ -195,6 +195,9 @@ p {
     pointer-events: all;
     transition-delay: 1000ms;
   }
+  .detailDescription{
+   color: black; 
+  }
   
   /* 
   ** Media Queries
