@@ -12,23 +12,21 @@ const emailCheck = () => {
         data: {'email': userEmail},
         dataType : "text",
         success: function(response) {
+            console.log(response)
             if(response == 'Overap') {
                 mailOverap = true;
-                // 여기서는 mailOverap이 true인데
-                console.log(mailOverap)  
             }
         },
         error: function() {
             console.log("error")
         }
     })
-
-    // 여기서는 mailOverap이 false로 나와,,
-    console.log(mailOverap)  
-    if(mailValidation && !mailOverap) {
-        return true;
-    }
-    return false;
+    setTimeout(()=>{
+        if(mailValidation && !mailOverap) {
+            return true;
+        }
+        return false;
+    },300);
 }
 
 
