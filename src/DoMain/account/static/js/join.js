@@ -21,7 +21,9 @@ const emailCheck = () => {
             console.log("error")
         }
     })
-    setTimeout(()=>{
+    console.log(mailOverap)
+    setTimeout(check = ()=>{
+        // console.log(mailValidation)
         if(mailValidation && !mailOverap) {
             return true;
         }
@@ -44,6 +46,7 @@ const passwordCheck = () => {
 const bothCheck = () => {
     const joinBtn = document.querySelector('#joinBtn');
     const userName = document.querySelector('#user_name').value;
+    
     if(emailCheck() && passwordCheck()) {
         if(userName.length != 0){
             joinBtn.style.pointerEvents = '';
