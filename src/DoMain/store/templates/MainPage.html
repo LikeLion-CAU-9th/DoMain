@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,73 +12,139 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <style>
-
-        .main-page-content{
-            width:100%
-        }
-
-        .weekly-best{
-            height:100%;
-            background:rgba(69, 166, 133, 0.72);
-        }
-
-        .weekly-best-image{
-            background-image: url('/static/image/weekly-best-image.png');
-            background-size: 600px auto;
-            padding: 60% 0 0 0;
-            background-attachment: fixed;
-            background-position:8.3% 56.5%;
-            background-repeat: no-repeat;
-        }
-
-        .weekly-best-detail{
-            margin-bottom:3%;
-        }
-
-        .weekly-best-title,
-        .weekly-best-detail{
-            margin-right:20px; 
-        }
-
-
-    </style>
-
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Mainpage.css' %}">
 </head>
 
-<body style="margin:100px 0 0 0; background-color: #f6f6f6;">
-    <div class="container" style="margin:0; padding:0; display:flex; flex-direction: row;">
-        <div class="col-2"></div>
-        <div class="col-10">
+<body>
+    <div class="main-container">
+        <div class="blanck"></div>
+        <div class="main-content">
             <div class="mainpage-title">
-                <b style="font-size: 60px; color:black; margin:0 ">
-                    <span style = "color : #F7E461;">D</span>oMain
+                <b style="font-size: 60px; color:black;">
+                    <span style="color : #F7E461;">D</span>oMain
                 </b>
             </div>
-            <div class="mainpage-content" style="display:flex; flex-direction: row;">
-                <div class="weekly-best col-6" style="flex-direction: column;">
-                    <div class="weekly-best-content" style="text-align: right; ">
-                        <b class="weekly-best-title" style="color: white; font-size: 36px; margin-top: 20px;">금주 BEST11</b>
-                        <div class="weekly-best-detail" style="color: white;">
+            <div class="mainpage-content-1">
+                <div class="weekly-best">
+                    <div class="weekly-best-content">
+                        <b class="weekly-best-title">금주 BEST11</b>
+                        <div class="weekly-best-detail">
                             Gmail, Naver Search, Google Map 등 다양한 위젯을
                             이용해보세요!
                         </div>
-                        <div class="weekly-best-image" style="margin:0; width:100%; height:100%;">
-                            
+                        <div class="weekly-best-image">
                         </div>
                     </div>
                 </div>
-                <div class="colorful-widget ">
-
+                <div class="colorful-widget">
+                    <div class="colorful-widget-image">
+                    </div>
+                    <div class="colorful-widget-content">
+                        <b class="colorful-widget-title">Colorful <span
+                                style="color:rgba(222, 105, 93, 1)">W</span>idget</b>
+                        <div class="colorful-widget-detail">
+                            다양한 Color와 디자인으로 자유롭게 위젯을 만들어보세요
+                        </div>
+                    </div>
+                    <div style="height:20%">
+                        <div class="colorful-widget-bottom" style="background-color: rgba(69, 166, 133, 0.72);">
+                        </div>
+                    </div>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
+            <div class="mainpage-content-2">
+                <div class="custom-mainpage" style="background-color: rgba(222, 105, 93,0.8); width: 55%;">
+                    <div class="custom-mainpage-top" style="height: 15%;">
+                    </div>
+                    <div class="custom-mainpage-content"
+                        style="padding-right:2%; background-color:rgba(222, 105, 93,1); height:30%">
+                        <div class="custom-mainpage-title"
+                            style="font-weight: 600; text-align: right; font-size: 36px; color: white;">
+                            Customize Your <span style="color: rgba(250, 239, 162, 1);">M</span>ainpage
+                        </div>
+                        <div class="custom-mainpage-detail" style="color:white; text-align: right; font-size: px; ">
+                            메인 페이지를 나만의 취향으로 꾸며보세요
+                        </div>
+                    </div>
+                    <div class="custom-mainpage-buttons" style="height:55%; display:flex; flex-direction: row;">
+                        <div class="custom-mainpage-tocustom"
+                            style="width:50%; height: 100%;background-color: rgba(222, 105, 93,0.5);">
+                            커스텀 페이지로 이동
+                        </div>
+                        <div class="custom-mainpage-tocustom"
+                            style="width:50%; height: 100%;background-color: rgba(222, 105, 93,0.2)">
+                            스토어 페이지로 이동
+                        </div>
+                    </div>
+                </div>
 
+                <div class="widget-recommend">
+                    <div class="widget-recommend-image">
+                        <div class="widget-recommend-image-cover">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="card">
+                        <img src="/static/image/weekly-best-image-1.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/static/image/weekly-best-image-1.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="/static/image/weekly-best-image-1.png">
+                        <div class="card-body">
+                            <p class="card-text">위젯에 대한 설명 뭐시기</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card">
+                        <img src="/static/image/weekly-best-image-1.png">
+                        <div class="card-body">
+                            <p class="card-text">위젯에 대한 설명 뭐시기</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
-    </div>  
-
-
+        
+    </div>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+<script type="text/javascript" src="/static/js/carousel.js"></script>
 
 </html>
