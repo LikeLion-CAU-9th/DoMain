@@ -1,5 +1,5 @@
 from os import name
-from mainpage.views import main
+from board.views import main
 from django.urls import path
 
 
