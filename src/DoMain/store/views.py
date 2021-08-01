@@ -5,7 +5,7 @@ def landing_page(request):
     return render(request, 'landingPage.html')
 
 def store_main(request):
-    return render(request, 'MainPage.html')
+    return render(request, 'AssetStoreMainPage.html')
 
 def subpage(request):
     return render(request, 'subpage.html')
