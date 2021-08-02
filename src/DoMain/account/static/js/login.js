@@ -11,9 +11,8 @@
       wgi.style.display = "none";
       gsu.style.display = "none";
       whitebox.style.float = "right";
-
       greenbox.style.marginLeft = "0%";
-      
+
       if(greenbox.style.marginLeft ==="0%"){
         wgu.style.display = "block";
         gsi.style.display = "block";

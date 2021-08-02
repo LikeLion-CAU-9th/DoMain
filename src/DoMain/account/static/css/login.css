@@ -27,7 +27,7 @@ about page design
 
 body{
   margin:0px;
-  /* overflow:hidden;  */
+  overflow:hidden; 
 }
 ::placeholder{
   font-family: 'ABeeZee', sans-serif;
@@ -131,6 +131,7 @@ input{
   font-size:200%;
   text-align:center;
   font-weight: bold;
+  
 }
 .line{
   border: solid 1.2px #EDEDED;
