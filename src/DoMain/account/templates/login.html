@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
   <div class="back-ground-shape">
     <img src="{% static 'image/tri.svg' %}" class="tri">
@@ -27,36 +29,97 @@
       <input type="password" placeholder="password" name="raw_pw"><br><br><br>
       <input class="login-submit" type="submit" value="login">
     </form> {% endcomment %} -->
-  <div>
-    <!-- 흰색 박스와 초록 박스 -->
-    <div style="margin-top:4%;position:relative;">
-      <div class="box">
-        <div class="white-box">
-        <div class="bold-title">Sign in to DoMain</div>
-      <div class="text" style="color:black;">welcome to DoMain</div>  
-      <input type="text" 
-      </div>
 
-      <br>
-        <!-- 초록 박스 -->
-        <div class="green-box">
+  <!-- 흰색 박스와 초록 박스 -->
+  <div style="margin-top:4%;position:relative;">
+    <div class="box">
+      <!-- 흰색 박스 -->
+      <div class="white-box">
+        <!-- 흰색 sign in -->
+        <div class="white-sign-in">
+          <br><br><br><br><br>
+          <div class="bold-title">Sign in to DoMain</div>
+          <div class="text" style="color:black;">welcome to DoMain</div><br><br>
+          <!-- input부분 -->
+          <div class="input-group">
+            <input type="text" placeholder="EMAIL" name="email"><br>
+            <input type="text" placeholder="PASSWORD" name="password"><br><br>
+          </div>
+          <!-- input위의 아이콘 -->
+          <div class="icon-group">
+            <img src="{% static 'image/user.svg' %}" class="icon"><br>
+            
+            <img src="{% static 'image/mail.svg' %}" class="icon">
+          </div>
+          <br>
+          <!-- 패스워드 잊은 경우 line -->
+          <div class="text" style="color:black;">Forgot your password?
+            <br>
+            <hr class="line">
+          </div><br><br>
+          <div style="text-align: center;border-color: #45A685;">
+            <a href="#"><button id="button" type="button">SIGN IN</button></a>
+          </div>
+        </div>
+
+        <!-- 흰색 sign up -->
+        <div class="white-sign-up">
+          <br><br><br><br><br>
+          <div class="bold-title">Creat Account</div>
+          <div class="text" style="color:black;">welcome to DoMain</div><br><br>
+          <!-- input부분 -->
+          <div class="input-group">
+            <input type="text" placeholder="NAME" name="name"><br>
+            <input type="text" placeholder="EMAIL" name="email"><br>
+            <input type="text" placeholder="PASSWORD" name="password"><br>
+          </div>
+          <!-- input위의 아이콘 -->
+          <div class="icon-group">
+            <img src="{% static 'image/user.svg' %}" class="icon"><br>
+            
+            <img src="{% static 'image/mail.svg' %}" class="icon">
+          </div>
+          <br>
+          <!-- 패스워드 잊은 경우 line -->
+          <div class="text" style="color:black;">Forgot your password?
+            <br>
+            <hr class="line">
+          </div><br><br>
+          <div style="text-align: center;border-color: #45A685;">
+            <a href="#"><button id="button" type="button">SIGN IN</button></a>
+          </div>
+        </div>
+
+
+
+      </div>
+      <br><br>
+
+
+      <!-- 초록 박스 -->
+      <div class="green-box">
+        <!-- 초록 sign up -->
+        <div class="green-sign-up">
+          <br><br><br><br><br><br>
           <div class="italic-title">Hello, friends!</div>
-          <div class="text">Enter your personal details<br> 
+          <div class="text">Enter your personal details<br>
             and start journey with us.</div>
-            <br><br>
+          <br><br>
           <div style="text-align: center;">
-            <button>SIGN UP</button>
+            <a href="#"><button id="button" type="button">SIGN UP</button></a>
           </div>
         </div>
       </div>
-    </div>
-        
-<!-- 전체 박스 -->
-      </div>
+
+      <!-- 초록 sign in -->
 
 
-<!-- 맺는 div -->
+
+    <!-- 전체 박스 끝 -->
     </div>
+  </div>
+
 
 </body>
+
 </html>

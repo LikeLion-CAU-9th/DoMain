@@ -29,15 +29,39 @@ body{
   margin:0px;
   /* overflow:hidden; */
 }
-input{
-  width: 22%;
-  height: 10%;
-  border: none;
-  border-radius: 10px;
-  background-color: #E6E6E6;
+::placeholder{
+  font-family: 'ABeeZee', sans-serif;
 }
-button{
-  width: 40%;
+input{
+  width: 56%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+  margin-bottom: 2%;
+  padding-left: 10%;
+}
+.input-group{
+  text-align: center;
+  width:100%;
+  z-index:2;
+  position: absolute;
+}
+.icon{
+  width: 25px;
+  margin-top: 10%;
+  margin-bottom: 35%;
+  padding: 20%;
+}
+.icon-group{
+  width: 38px;
+  z-index: 3;
+  position: relative;
+  padding-left: 18%;
+}
+#button{
+  cursor: pointer;
+  width: 125px;
   height: 40px;
   border:solid 1.5px;
   border-color: white;
@@ -45,6 +69,7 @@ button{
   background-color: #45A685;
   position: relative;
   color:white;
+  z-index: 5;
 }
 /* front-space */
 .front-space{
@@ -60,17 +85,24 @@ button{
   z-index:2;
   position:absolute;
   margin-left:18%;
+  float:left;
 }
 .white-box{
-  width:65%;
+  width:64%;
+  /* white-box가 왼쪽에 있을 때 */
   float:left;
+  /* white-box가 오른쪽에 있을 때 */
+  float:right;
 }
 .green-box{
   width: 35%;
-  float: right;
+  height:500px;
+  /*green-box가 오른쪽에 있을 때 */ 
+  /* margin-left:64.8%;  */
+   /*green-box가 왼쪽에 있을 때 */
+  margin-left:0%; 
   border: 1px solid #45A685;
-  border-radius: 0px 5px 5px 0px;
-  padding: 20px 0px;
+  /* border-radius: 0px 5px 5px 0px; */
   background-color:#45A685;
   opacity:0.8;
   z-index:3;
@@ -96,3 +128,21 @@ button{
   text-align:center;
   font-weight: bold;
 }
+.line{
+  border: solid 1.2px #EDEDED;
+    width: 33%;
+    float: left;
+    margin-top: 0rem;
+    text-align: center;
+    margin-left: 33%;
+}
+.white-sign-in{
+  display:none;
+  z-index:5;
+  position: relative;
+}
+.green-sign-up{
+  display:none;
+  z-index:5;
+  position: relative;
+} 
