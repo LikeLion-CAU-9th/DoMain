@@ -2,8 +2,68 @@
 
 {% load static %}
 
-{% block headers %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/mypage/profilePage.css' %}">
+
 {% endblock %}
 
 {% block contents %}
+<div class="mypage-background">
+<header class="header">
+        <div class="text-vertical-center">
+          <h1 class="title">Oereo</h1>
+          <a href="#about">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-angle-double-down fa-stack-1x"></i>
+            </span>
+          </a>
+        </div>
+      </header>
+      
+      <div id="about" class="myprofile-body">
+        <div class="row">
+           <h1 class="page-header">Introduce</h1>
+           <div class="col-md-8">
+             <div>
+               <p> <strong> 디자이너로 일하고 있는 Oereo 입니다! </strong></p> <p>좋은 프로젝트와 디자인을 앞으로 많이 올릴 예정이에요! 위젯과 레이아웃 많이 공유하면서 지내요!</p>
+               
+             </div>
+           </div>
+           
+        </div>
+      </div>
+      
+      <div id="discography" class="myprofile-body">
+            <h1 class="page-header">Custom Widget</h1>
+
+        <div class="row" style="flex-direction:row; display: grid; grid-template-columns: 1fr 1fr 1fr;">
+           <div class="margin-bottom">
+             <h4><strong>Widget1</strong></h4>
+             <a href="https://en.wikipedia.org/wiki/Tidal_(album)" target="_blank"> <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}" alt="Can't load image" > </a>
+           </div>
+          <div class="margin-bottom">
+             <h4><strong>Widget2</strong></h4>
+             <a href="https://en.wikipedia.org/wiki/When_the_Pawn..." target="_blank"> <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}" alt="Can't load image" > </a>
+           </div>
+          <div class="margin-bottom ">
+             <h4><strong>Widget3</strong></h4>
+             <a href="https://en.wikipedia.org/wiki/Extraordinary_Machine" target="_blank"> <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}" alt="Can't load image" > </a>
+           </div>
+          <div class="margin-bottom ">
+             <h4><strong>Widget4</strong></h4>
+             <a href="https://en.wikipedia.org/wiki/The_Idler_Wheel..." target="_blank"> <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}" alt="Can't load image"> </a>
+           </div>
+        </div>
+      </div>
+      
+      <br>
+      
+      <footer>
+        <div class="row">
+          <div class="col-md-offset-4 col-md-4 text-center">
+            <p>coded by <a target="_blank" href="https://github.com/carolinass">carolinass</a></p>
+          </div>
+        </div>
+      </footer>
+    </div>
 {% endblock %}
