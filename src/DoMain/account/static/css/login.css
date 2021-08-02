@@ -27,7 +27,7 @@ about page design
 
 body{
   margin:0px;
-  overflow:hidden; 
+  /* overflow:hidden;  */
 }
 ::placeholder{
   font-family: 'ABeeZee', sans-serif;
@@ -86,27 +86,30 @@ input{
   position:absolute;
   margin-left:18%;
   float:left;
+  overflow:hidden;
 }
-.white-box{
+#white-box{
   width:64%;
   /* white-box가 왼쪽에 있을 때 */
   float:left;
   /* white-box가 오른쪽에 있을 때 */
-  float:right;
-}
-.green-box{
+  /* float:right;*/
+} 
+#green-box{
   width: 35%;
   height:500px;
   /*green-box가 오른쪽에 있을 때 */ 
-  /* margin-left:64.8%;  */
+  margin-left:64.8%;  
    /*green-box가 왼쪽에 있을 때 */
-  margin-left:0%; 
+  /* margin-left:0%;  */
   border: 1px solid #45A685;
   /* border-radius: 0px 5px 5px 0px; */
   background-color:#45A685;
   opacity:0.8;
   z-index:3;
   position: relative;
+  transition-property: margin-left;
+  transition-duration: 1s;
 }
 .italic-title{
   font-family: 'DM Serif Display', serif;
@@ -136,21 +139,28 @@ input{
     text-align: center;
     margin-left: 33%;
 }
-.white-sign-in{
-  display:none;
+#white-sign-in{
+  display:block;
   z-index:5;
   position: relative;
+  /* transition-delay:display 3s; */
+  transition-property: display;
+  transition-delay: 30s;
 }
-.green-sign-up{
-  display:none;
+#green-sign-up{
+  display:block;
   z-index:5;
   position: relative;
 } 
-.white-sign-up{
+#white-sign-up{
+  display:none;
   z-index:5;
   position: relative;
+  transition-property: display;
+  transition-delay: 5s;
 }
-.green-sign-in{
+#green-sign-in{
+  display:none;
   z-index:5;
   position: relative;
 } 
