@@ -32,10 +32,69 @@
       allowfullscreen></iframe>
   </div> -->
   <div style="position: absolute; z-index: 4; width: 90%; height: 100%; color: white;">
-<div class = "row">
-  sdfsf
+    <div class="row">
+      <div class="col-4">
+        <video muted autoplay loop
+          style="max-width: 100%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 purple); margin: 0 0 20px 0;"
+          src="{% static 'image/landingHeader/seonyoung(2).mp4' %}" type="video/ogg">
+        </video>
+        <video muted autoplay loop
+          style="max-width: 100%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 gray);"
+          src="{% static 'image/landingHeader/KakaoTalk_20210714_041500971.mp4' %}" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-4">
+          <video muted autoplay loop
+          style="max-width: 100%; display: block;z-index:8; filter:opacity(.8) drop-shadow(0 0 0 yellow); max-height:40%;margin: 0 0 20px 0;"
+          src="{% static 'image/landingHeader/seongminLanding.mp4' %}" type="video/mp4">
+        </video>
+        <video muted autoplay loop
+          style="max-width: 90%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 #50BCDF);"
+          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
+        </video>
+        
+
+      </div>
+      <div class="col-4">
+        <div class = "row">
+        <div class = "col-6">
+            <video muted autoplay loop
+            style="max-width: 180%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 red); margin: 0 0 20px -110%;"
+            src="{% static 'image/landingHeader/KakaoTalk_20210714_041500971.mp4' %}" type="video/mp4">
+          </video>
+          <video muted autoplay loop
+            style="max-width: 90%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 gray); margin: -38% 0 0 82%;"
+            src="{% static 'image/landingHeader/KakaoTalk_20210714_041500971.mp4' %}" type="video/mp4">
+          </video>
+          <video muted autoplay loop
+            style="max-width: 190%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 green); margin: 10px 0 20px -18%;"
+            src="{% static 'image/landingHeader/seonyoung(2).mp4' %}" type="video/ogg">
+          </video>
+        </div>
+        <div class = "col-6">
+            <video muted autoplay loop
+            style="max-width: 210%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 orange); margin: 0 0 20px -40%;"
+            src="{% static 'image/landingHeader/seonyoung(2).mp4' %}" type="video/ogg">
+          </video>
+          <video muted autoplay loop
+          style="max-width: 100%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 #50BCDF);  margin: 0 0 20px 70%;"
+          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
+        </video>
+        <video muted autoplay loop
+          style="max-width: 100%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 pink);  margin: 0 0 20px 70%;"
+          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
+        </video>
+        <video muted autoplay loop
+          style="max-width: 100%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 purple);  margin: 0 0 20px 70%;"
+          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
+        </video>
+        
+        </div>
+      </div>
+      </div>
+    </div>
+    
   </div>
-</div>
 
   <div class="sticky">
     <nav class='sticky_navbar'>
@@ -181,11 +240,11 @@
   <div class="footer">
     <div class="headline">
       Domain <br>
-      <button onclick = "location.href='{% url 'store_main' %}'" style="font-size: 25px; width:30%">시작하기</button>
+      <button onclick="location.href='{% url 'store_main' %}'" style="font-size: 25px; width:30%">시작하기</button>
     </div>
     <br>
     <div class="row" style="margin:15% 0 0 0">
-      <div class = "col-2"></div>
+      <div class="col-2"></div>
       <div class="col-3">
         team IE9 Company <br>
         중앙대 멋쟁이사자처럼 9th
