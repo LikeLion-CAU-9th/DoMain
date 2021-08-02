@@ -109,7 +109,7 @@ input{
   z-index:3;
   position: relative;
   transition-property: margin-left;
-  transition-duration: 1s;
+  transition-duration: 0.4s;
 }
 .italic-title{
   font-family: 'DM Serif Display', serif;
@@ -123,6 +123,7 @@ input{
   color:white;
   font-size:100%;
   text-align: center;
+  
 }
 .bold-title{
   color:#45A685;
@@ -140,27 +141,27 @@ input{
     margin-left: 33%;
 }
 #white-sign-in{
-  display:block;
   z-index:5;
   position: relative;
   /* transition-delay:display 3s; */
-  transition-property: display;
-  transition-delay: 30s;
+  transition-delay:all 2s;
+  display:block;
 }
 #green-sign-up{
-  display:block;
   z-index:5;
   position: relative;
+  transition-delay:all 2s;
+  display:block;
 } 
 #white-sign-up{
-  display:none;
   z-index:5;
   position: relative;
-  transition-property: display;
-  transition-delay: 5s;
+  transition-delay:all 2s;
+  display:none;
 }
-#green-sign-in{
-  display:none;
+#green-sign-in{ 
   z-index:5;
   position: relative;
+  transition-delay:all 2s;
+  display:none;
 } 
