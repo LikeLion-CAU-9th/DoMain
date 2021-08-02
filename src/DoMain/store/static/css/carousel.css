@@ -1,19 +1,4 @@
-.carousel{
-    
-    height:400px
-}
-
-.carousel-item{
-    height:200px;
-}
-
-.card{
-    width:25%;
-    height: 300px;
-    margin:5%;
-    
-}
-
-.card-body{
-    height: 20%;
+.item{
+    margin: 2% 1% 2% 1%;
+    border: 3px black;
 }

@@ -9,11 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asset Store</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/Mainpage.css' %}">
+    <link rel="stylesheet" href="{% static '/css/carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/css/owl.carousel.css' %}">
 
-    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
-    <link rel="stylesheet" href="{% static 'css/Mainpage.css' %}">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+
+
+
 </head>
 
 <body>
@@ -74,7 +85,7 @@
                         </div>
                         <div class="custom-mainpage-tocustom"
                             style="width:50%; height: 100%;background-color: rgba(222, 105, 93,0.2)">
-                            <a href = "{% url 'subpage' %}">스토어 페이지로 이동</a>
+                            <a href="{% url 'subpage' %}">스토어 페이지로 이동</a>
                         </div>
                     </div>
                 </div>
@@ -87,64 +98,126 @@
                     </div>
                 </div>
             </div>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
+            <!-- <div id="carouselExampleControls" class="carousel slide carousel-showmanymoveone" data-ride="carousel">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="card">
-                        <img src="/static/image/weekly-best-image-1.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="carousel-item active">
+                        <div class="item">
+                            <img src="/static/image/custompage-1.jpg" class="item-img-top" alt="...">
+                            <div class="item-body">
+                                <h5 class="item-title">asfesf</h5>
+                                <p class="item-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <img src="/static/image/weekly-best-image-1.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="carousel-item">
+                        <div class="item">
+                            <img src="/static/image/custompage-2.png" class="item-img-top" alt="...">
+                            <div class="item-body">
+                                <h5 class="item-title">item title</h5>
+                                <p class="item-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="item">
+                            <img src="/static/image/custompage-3.png" class="item-img-top" alt="...">
+                            <div class="item-body">
+                                <h5 class="item-title">item title</h5>
+                                <p class="item-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="item">
+                            <img src="/static/image/custompage-4.png" class="item-img-top" alt="...">
+                            <div class="item-body">
+                                <h5 class="item-title">item title</h5>
+                                <p class="item-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only" style="color:black">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only" style="color:black">Next</span>
+                </a>
+            </div> -->
+
+            <div class="mainpage-content-3" style="height:300px;">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="/static/image/custompage-1.jpg" class="item-img-top" alt="...">
+                        <div class="item-body">
+                            <h5 class="item-title">asfesf</h5>
+                            <p class="item-text">Some quick example text to build on the item title and make up
+                                the bulk of the item's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/static/image/custompage-2.png" class="item-img-top" alt="...">
+                        <div class="item-body">
+                            <h5 class="item-title">item title</h5>
+                            <p class="item-text">Some quick example text to build on the item title and make up
+                                the bulk of the item's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/static/image/custompage-3.png" class="item-img-top" alt="...">
+                        <div class="item-body">
+                            <h5 class="item-title">item title</h5>
+                            <p class="item-text">Some quick example text to build on the item title and make up
+                                the bulk of the item's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/static/image/custompage-4.png" class="item-img-top" alt="...">
+                        <div class="item-body">
+                            <h5 class="item-title">item title</h5>
+                            <p class="item-text">Some quick example text to build on the item title and make up
+                                the bulk of the item's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="card">
-                        <img src="/static/image/weekly-best-image-1.png">
-                        <div class="card-body">
-                            <p class="card-text">위젯에 대한 설명 뭐시기</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="card">
-                        <img src="/static/image/weekly-best-image-1.png">
-                        <div class="card-body">
-                            <p class="card-text">위젯에 대한 설명 뭐시기</p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
+            </div>
         </div>
-        
     </div>
+    <script>
+        $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+    </script>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
 
-<script type="text/javascript" src="/static/js/carousel.js"></script>
 
 </html>
