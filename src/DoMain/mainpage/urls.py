@@ -1,9 +1,10 @@
 from os import name
-from mainpage.views import main
+from . import views
 from django.urls import path
 
 
 urlpatterns = [
-    path('start/', main, name="finance"),
+    path('start/', views.main, name="finance"),
+    path('mainbar/', views.mainbar, name="custom"),
 ]
 
