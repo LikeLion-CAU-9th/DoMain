@@ -27,7 +27,7 @@ about page design
 
 body{
   margin:0px;
-  /* overflow:hidden; */
+  overflow:hidden; 
 }
 ::placeholder{
   font-family: 'ABeeZee', sans-serif;
@@ -143,6 +143,14 @@ input{
 }
 .green-sign-up{
   display:none;
+  z-index:5;
+  position: relative;
+} 
+.white-sign-up{
+  z-index:5;
+  position: relative;
+}
+.green-sign-in{
   z-index:5;
   position: relative;
 } 
