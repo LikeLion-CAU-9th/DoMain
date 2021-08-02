@@ -1,4 +1,4 @@
-input {
+/* input {
   width: 220px;
   height: 40px;
   border: none;
@@ -13,4 +13,86 @@ input {
   font-weight: 800;
   font-size: 1.1em;
   cursor: pointer;
+}
+
+about page design 
+.sign-in{
+  width: 75%;
+  float: left;
+}
+.sign-up{
+  width: 24%;
+  float: right;
+} */
+
+body{
+  margin:0px;
+  /* overflow:hidden; */
+}
+input{
+  width: 22%;
+  height: 10%;
+  border: none;
+  border-radius: 10px;
+  background-color: #E6E6E6;
+}
+button{
+  width: 40%;
+  height: 40px;
+  border:solid 1.5px;
+  border-color: white;
+  border-radius: 40px;
+  background-color: #45A685;
+  position: relative;
+  color:white;
+}
+/* front-space */
+.front-space{
+  z-index:5;
+  position:relative;
+}
+/*  */
+.box{
+  border: 1px solid none;
+  border-radius: 5px;
+  width:65%;
+  background-color:#ffffff;
+  z-index:2;
+  position:absolute;
+  margin-left:18%;
+}
+.white-box{
+  width:65%;
+  float:left;
+}
+.green-box{
+  width: 35%;
+  float: right;
+  border: 1px solid #45A685;
+  border-radius: 0px 5px 5px 0px;
+  padding: 20px 0px;
+  background-color:#45A685;
+  opacity:0.8;
+  z-index:3;
+  position: relative;
+}
+.italic-title{
+  font-family: 'DM Serif Display', serif;
+  font-size:200%;
+  color:white;
+  text-align: center;
+
+}
+.text{
+  font-family: 'ABeeZee', sans-serif;
+  color:white;
+  font-size:100%;
+  text-align: center;
+}
+.bold-title{
+  color:#45A685;
+  font-family: 'ABeeZee', sans-serif;
+  font-size:200%;
+  text-align:center;
+  font-weight: bold;
 }

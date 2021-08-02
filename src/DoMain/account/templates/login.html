@@ -9,16 +9,54 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <title>DoMain-login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <div class="container">
+  <div class="back-ground-shape">
+    <img src="{% static 'image/tri.svg' %}" class="tri">
+    <img src="{% static 'image/cir.svg' %}" class="cir">
+  </div>
+  <!-- {% comment %} <div class="container">
     <form method = "POST" action= "../loginAction/">
       {% csrf_token %}
       <input type="text" placeholder="e-mail" name="email"><br><br>
       <input type="password" placeholder="password" name="raw_pw"><br><br><br>
       <input class="login-submit" type="submit" value="login">
-    </form>
-    
-  </div>
+    </form> {% endcomment %} -->
+  <div>
+    <!-- 흰색 박스와 초록 박스 -->
+    <div style="margin-top:4%;position:relative;">
+      <div class="box">
+        <div class="white-box">
+        <div class="bold-title">Sign in to DoMain</div>
+      <div class="text" style="color:black;">welcome to DoMain</div>  
+      <input type="text" 
+      </div>
+
+      <br>
+        <!-- 초록 박스 -->
+        <div class="green-box">
+          <div class="italic-title">Hello, friends!</div>
+          <div class="text">Enter your personal details<br> 
+            and start journey with us.</div>
+            <br><br>
+          <div style="text-align: center;">
+            <button>SIGN UP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+<!-- 전체 박스 -->
+      </div>
+
+
+<!-- 맺는 div -->
+    </div>
+
 </body>
 </html>
