@@ -11,3 +11,11 @@ def get_finance(request):
   for item in priceList:
     return_str += (item + "/")
   return HttpResponse(return_str)
+
+
+def dday_view(request):
+  return render(request, 'dday.html')
+
+def get_dday(request):
+  
+  return HttpResponse()
