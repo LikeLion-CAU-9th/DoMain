@@ -9,25 +9,43 @@
     <title>mainpage asset store</title>
 
     <style>
-        p {
-            padding: 10px;
+        .box1 {
+            width: 300px;
+            height: 800px;
             margin: 15px;
             border-style: solid;
             border-radius: 20px;
             border: 3px;
             padding: 10px;
             float: right;
+            background-color: #CAE2E1;
+            color: white;
+            overflow: auto;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 40px;
+            margin: 15px;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            border: 3px;
+            padding: auto;
+            float: right;
+            background-color: #acccc4;
         }
         
     </style>
 </head>
 
 <body>
-    <p> widget</p>
-    <div style="border:2px; border-radius: 5px; padding: 10px; ">widget</div>
-    <img src="{% static 'img/Group 13.png' %}">
-
-
+    <div class="boxA">
+    <div class="box1">widget</div>
+    <img align="absmiddle" src="{% static 'img/App 21.png' %}" border="0">
+    <img align="absmiddle" src="{% static 'img/App 22.png' %}" border="0">
+    <img align="absmiddle" src="{% static 'img/App 24.png' %}" border="0">
+    <div class="box2"></div>
+    </div>
 
 
 
