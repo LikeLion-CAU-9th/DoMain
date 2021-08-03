@@ -24,7 +24,8 @@ h1, h4, p {
 .myprofile-body {
     padding: 0 0 0 240px;
     margin-top: 50px;
-  }
+    border-top: 15px solid white;
+}
   
 .title {
     color: white;
