@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'account',
     'store',
 	  'widget',
-    'mainpage',
+    'board',
 ]
 
 MIDDLEWARE = [
