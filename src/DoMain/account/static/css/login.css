@@ -1,29 +1,4 @@
-/* input {
-  width: 220px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.75) 0px 54;
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-}
 
-.login-submit {
-  width: 160px;
-  background-color: royalblue;
-  font-weight: 800;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
-about page design 
-.sign-in{
-  width: 75%;
-  float: left;
-}
-.sign-up{
-  width: 24%;
-  float: right;
-} */
 
 body{
   margin:0px;
@@ -103,7 +78,6 @@ input{
    /*green-box가 왼쪽에 있을 때 */
   /* margin-left:0%;  */
   border: 1px solid #45A685;
-  /* border-radius: 0px 5px 5px 0px; */
   background-color:#45A685;
   opacity:0.8;
   z-index:3;
@@ -144,7 +118,6 @@ input{
 #white-sign-in{
   z-index:5;
   position: relative;
-  /* transition-delay:display 3s; */
   transition-delay:all 2s;
   display:block;
 }
