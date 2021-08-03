@@ -1,4 +1,4 @@
-/**
+owl-prev/**
  * Owl Carousel v2.3.4
  * Copyright 2013-2018 David Deutsch
  * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
@@ -29,6 +29,7 @@
   .owl-carousel .owl-stage-outer {
     position: relative;
     overflow: hidden;
+    
     /* fix for flashing background */
     -webkit-transform: translate3d(0px, 0px, 0px); }
   .owl-carousel .owl-wrapper,
