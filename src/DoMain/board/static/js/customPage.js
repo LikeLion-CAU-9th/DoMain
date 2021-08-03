@@ -1,64 +1,35 @@
-const widgetClicked = document.querySelector(".widget-frame")
-const modal = document.querySelector("#modal");
-const closedBtn = document.querySelector(".close-area");
-const startBtn = document.querySelector("#beginning-btn")
-const addWidget = document.querySelector("widget-frame")
+const widgets = document.querySelectorAll(".widget-frame");
 
-function borderMaiking() {
-    widgetClicked.style.border = "2px dashed #000000"
-}
 
-widgetClicked.addEventListener('click', e => {
-    borderMaiking();
-})
-
-function modalOff() {
-    modal.style.display = "none";
-}
-
-function modalOn() {
-    modal.style.display = "flex";
-}
-
-function addWidgetMain() {
-    addWidget.style.top
-
-}
-
-closedBtn.addEventListener('click', e => {
-    modalOff();
-});
-
-startBtn.addEventListener('click', e => {
-    modalOn();
-})
-
-const modal = document.querySelector("#modal");
-const closedBtn = document.querySelector(".close-area");
-const startBtn = document.querySelector("#beginning-btn")
-const addWidget = document.querySelector("widget-frame")
-
-function modalOff() {
-    modal.style.display = "none";
-}
-
-function modalOn() {
-    modal.style.display = "flex";
-}
-
-function addWidgetMain() {
-    addWidget.style.top
+function borderMaking(widget) {
+    widget.style.border = '3px solid #ffffff';
+    widget.classList.add('Clicked');
     
+};
+
+function borderRemoving(event) {
+    event.preventDefault();
+    event.style.border
 }
 
-closedBtn.addEventListener('click', e => {
-    modalOff();
-});
+for (const widget of widgets) {
+    if (widget.style.border = 'none') {
+        widget.addEventListener('click', e => {
+            borderMaking(widget);
+            
+        })
+    } 
+};
 
-startBtn.addEventListener('click', e => {
-    modalOn();
-})
 
-addWidget.addEventListener('click', e => {
-    addWidgetMain();
-})
+
+
+
+
+
+
+
+
+
+
+

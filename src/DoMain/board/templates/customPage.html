@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link href="{% static 'css/customPage.css' %}" rel = "stylesheet">
+
+<style>
+    ul {
+        list-style-type: none;
+        margin : 0;
+        padding : 0;
+        overflow: hidden;
+    }
+
+    .modal-tab li {
+        float:left;
+        display : block;
+        margin : 0 5px 0 5px;
+    
+    }
+
+    .modal-tab button {
+        border: none;
+        width: 15vh;
+        height:auto;
+        
+    }
+
+    .modal-tab button:hover{
+        background-color: #ffffff;
+        color: chartreuse
+    }
+
+    #saving-btn {
+        margin : 5% 5% 5% 5%;
+    }
+
+</style>
+</head>
+
+<body>
+    <div class='row'>
+        <p class="DoMain"> DoMain</p>
+    </div>
+
+    <div class='row' id="main-widget" style="width: 100%; height: 80%;">
+
+    </div>
+
+
+    <div class="row" style="width:100%; height: 20%;">
+        <div class="col-5">
+
+        </div>
+        <div class="col-7">
+            <button id="beginning-btn"> 시작하기 </button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal-overlay">
+        <div class="modal-window">
+            <div class="title">
+                <h2 style="display: flex; justify-content: center;"> 위젯 리스트</h2>
+            </div>
+            <div class="close-area">X</div>
+<!-- modal Tab -->
+            <div class ="modal-tab" style = "display: inline;">
+              <ul>
+            <li id = "finance-tab-button"><button>주식</button></li>
+            <li id = "dday-tab-button"><button>디데이</button></li>
+            <li id = "searchbar-tab-button"><button>서치바</button></li>
+            <li id = "stickyy-tab-button"><button>스티키노트</button></li>
+            <li id = "todolist-tab-button"><button>투두리스트</button></li>
+              </ul>  
+            </div>
+
+            
+            <!-- modal content -->
+            <div class="content">
+
+
+            </div>
+            <button id = "saving-btn"> 저장하기 </button>
+        </div>
+    </div>
+    <script src="{% static 'js/customPage.js' %}"> </script>
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/widgetClick.js' %}"></script>
+
+</body>
+
+</html>
