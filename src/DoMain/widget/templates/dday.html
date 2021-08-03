@@ -11,18 +11,35 @@
   <script src="{% static 'dday/dday.js' %}"></script>
   <title>Dday</title>
 </head>
+
 <body>
   <div class="containter center-middle" id = "ddaybox" name = "ddaybox">
-    <h1>Dday</h1>
-    <strong id="ddayName"></strong>
-    <hr>
-    <strong id="dday"></strong><br><br>
+    <div onmouseover=ddayListShow() onmouseout=ddayListHide()>
+      <h1 class="title" id="title">Dday</h1>
+      <strong id="ddayName"></strong>
+      <hr>
+      <strong id="dday"></strong><br><br>
+    </div>
+    <div>
+      <!-- <input type="button" id="addButton" value="d-day 추가"/> -->
+      <form>
+        <p>D-day 추가</p>
+        <p><input type="date"></p>
+        <p><input type="submit" value="Submit"></p>
+      </form>
+    </div>
   </div>
+
+
+    
+  
+
+  
 </body>
 </html>
 
 <style>
-    .center-middle {
+  .center-middle {
     position: absolute;
     top: 50%;
     left: 50%;
