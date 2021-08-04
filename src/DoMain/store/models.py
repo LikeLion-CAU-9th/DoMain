@@ -18,6 +18,15 @@ class WidgetType:
 
 class Widget(models.Model):
     user = models.ForeignKey()
+    download = models.IntegerField()
+    widget_type = models.CharField(
+        max_length=20, 
+        choices=WidgetType,
+        default=SIMPLE_WIDGET,
+        help_text= '위젯 형식'
+    )
+    description = models.CharField(max_length=255, null=True, blank=True, help_text="위젯 설명")
+    title = models.CharField(max_length=63, null=True, blank=True, help_text='위젯 제목')
 
 
 
