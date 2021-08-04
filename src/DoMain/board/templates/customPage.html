@@ -17,40 +17,82 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <link href="{% static 'css/customPage.css' %}" rel = "stylesheet">
+    <link href="{% static 'css/customPage.css' %}" rel="stylesheet">
 
-<style>
-    ul {
-        list-style-type: none;
-        margin : 0;
-        padding : 0;
-        overflow: hidden;
-    }
+    <style>
+        ul {
+            list-style-type: none;
+            margin: -4% 0 0 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
-    .modal-tab li {
-        float:left;
-        display : block;
-        margin : 0 5px 0 5px;
-    
-    }
 
-    .modal-tab button {
-        border: none;
-        width: 15vh;
-        height:auto;
-        
-    }
+        .modal-tab .btn:hover {
+            background-color: #d45858;
+            color: white
+        }
 
-    .modal-tab button:hover{
-        background-color: #ffffff;
-        color: chartreuse
-    }
+        .content div {
+            display: none;
+        }
 
-    #saving-btn {
-        margin : 5% 5% 5% 5%;
-    }
+        #saving-btn {
+            margin: 5% 5% 5% 5%;
+        }
 
-</style>
+        .modal-tab ul {
+            list-style: none;
+        }
+
+        .modal-tab {
+            position: relative;
+        }
+
+        .modal-tab .list {
+            overflow: hidden;
+        }
+
+        .modal-tab .list li {
+            display: inline;
+            margin : -3% 0 0 0;
+            border: none;
+            width: 16.6vh;
+            height: 10vh;
+        }
+
+        .modal-tab .list .btn {
+            font-size: 13px;
+        }
+
+        .modal-tab .list .cont {
+            display: none;
+            position: absolute;
+            top: 200px;
+            left: 0;
+            background: #555;
+            color: rgb(187, 116, 116);
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 10px;
+            
+        }
+
+        .modal-tab .list li.is_on .btn {
+            font-weight: bold;
+            color: green;
+        }
+
+        .modal-tab .list li.is_on .cont {
+            display: flex;
+        }
+
+        .modal-tab .list li.is_on .cont button {
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,39 +105,59 @@
     </div>
 
 
-    <div class="row" style="width:100%; height: 20%;">
-        <div class="col-5">
-
-        </div>
-        <div class="col-7">
-            <button id="beginning-btn"> 시작하기 </button>
-        </div>
+    <div class="row" style="width:100%; height: 20%;"></div>
+    <div class="col-7">
+        <button id="beginning-btn"> 시작하기 </button>
+    </div>
     </div>
 
     <div id="modal" class="modal-overlay">
         <div class="modal-window">
             <div class="title">
-                <h2 style="display: flex; justify-content: center;"> 위젯 리스트</h2>
-            </div>
-            <div class="close-area">X</div>
-<!-- modal Tab -->
-            <div class ="modal-tab" style = "display: inline;">
-              <ul>
-            <li id = "finance-tab-button"><button>주식</button></li>
-            <li id = "dday-tab-button"><button>디데이</button></li>
-            <li id = "searchbar-tab-button"><button>서치바</button></li>
-            <li id = "stickyy-tab-button"><button>스티키노트</button></li>
-            <li id = "todolist-tab-button"><button>투두리스트</button></li>
-              </ul>  
+                <h2 style="display: flex; justify-content: center;"> </h2>
             </div>
 
-            
-            <!-- modal content -->
-            <div class="content">
+            <!-- modal Tab -->
+            <div class="modal-tab" style="display: inline;">
+                <ul class="list">
+                    <li id="finance-tab-button" class="is_on">
+                        <button class="btn"> 주식</button>
+                        <div class="cont">
+                            <button> 주식 </button>
+                        </div>
+                    </li>
+                    <li id="dday-tab-button">
+                        <button class="btn"> 디데이</button>
+                        <div class="cont">
+                            <button> 디데이 </button>
+                        </div>
+                    </li>
+                    <li id="searchbar-tab-button">
+                        <button class="btn"> 서치바</button>
+                        <div class="cont">
+                            <button> 서치바</button>
+                        </div>
+                    </li>
+                    <li id="sticky-tab-button">
+                        <button class="btn"> 스티키</button>
+                        <div class="cont">
+                            <button> 스티키</button>
+                        </div>
 
+                    </li>
+                    <li id="todolist-tab-button">
+                        <button class="btn"> 투두</button>
+                        <div class="cont">
+                            <button> 투두리스트 </button>
+                        </div>
+                    </li>
+                </ul>
 
             </div>
-            <button id = "saving-btn"> 저장하기 </button>
+
+
+
+            <button id="saving-btn"> 저장하기 </button>
         </div>
     </div>
     <script src="{% static 'js/customPage.js' %}"> </script>

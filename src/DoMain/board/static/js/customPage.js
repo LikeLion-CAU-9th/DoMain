@@ -1,16 +1,12 @@
-const widgets = document.querySelectorAll(".widget-frame");
+const widgets = document.querySelectorAll(".modal-tab .list .is_on .cont button");
 
 
 function borderMaking(widget) {
-    widget.style.border = '3px solid #ffffff';
+    widget.style.border = '3px solid #blue';
     widget.classList.add('Clicked');
     
 };
 
-function borderRemoving(event) {
-    event.preventDefault();
-    event.style.border
-}
 
 for (const widget of widgets) {
     if (widget.style.border = 'none') {
@@ -20,6 +16,8 @@ for (const widget of widgets) {
         })
     } 
 };
+
+
 
 
 
