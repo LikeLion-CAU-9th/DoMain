@@ -41,7 +41,7 @@ input{
   border:solid 1.5px;
   border-color: white;
   border-radius: 40px;
-  background-color: #45A685;
+  background-color: rgba(106, 184, 157,1);
   position: relative;
   color:white;
   z-index: 5;
@@ -74,13 +74,14 @@ input{
   width: 35%;
   height:500px;
   /*green-box가 오른쪽에 있을 때 */ 
-  margin-left:64.8%;  
+  margin-left:64.8%;
    /*green-box가 왼쪽에 있을 때 */
-  /* margin-left:0%;  */
-  border: 1px solid #45A685;
-  background-color:#45A685;
-  opacity:0.8;
-  z-index:3;
+  /* margin-left:0%; */
+  border: 1px solid rgba(106, 184, 157,1);
+  background-color:rgba(106, 184, 157,1); 
+  /* #45A685;
+  opacity:0.8; */
+  z-index:6;
   position: relative;
   transition-property: margin-left;
   transition-duration: 0.4s;
@@ -122,7 +123,7 @@ input{
   display:block;
 }
 #green-sign-up{
-  z-index:5;
+  z-index:7;
   position: relative;
   transition-delay:all 2s;
   display:block;
@@ -134,7 +135,7 @@ input{
   display:none;
 }
 #green-sign-in{ 
-  z-index:5;
+  z-index:7;
   position: relative;
   transition-delay:all 2s;
   display:none;
