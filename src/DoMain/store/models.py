@@ -17,7 +17,7 @@ class WidgetType:
 
 
 class Widget(models.Model):
-    user = models.ForeignKey()
+    user = models.ForeignKey(User)
     download = models.IntegerField()
     widget_type = models.CharField(
         max_length=20, 
@@ -26,9 +26,23 @@ class Widget(models.Model):
         help_text= '위젯 형식'
     )
     description = models.CharField(max_length=255, null=True, blank=True, help_text="위젯 설명")
-    title = models.CharField(max_length=63, null=True, blank=True, help_text='위젯 제목')
+    name = models.CharField(max_length=63, null=True, blank=True, help_text='위젯 제목')
+
+    def __str__(self):
+        return self.nname
+
+    @property
+    def host(self):
+        return self.user.name
+
+    @property
+    def host_id(self):
+        return self.user.id    
 
 
+class WidgetGrade(models.Model)
+    user = models.ForeignKey(User)
+    widget = models.Foreignkey(Widget)
 
 
 
