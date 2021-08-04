@@ -9,10 +9,10 @@
     <title>mainpage asset store</title>
 
     <style>
-        .box1 {
+        .asset_box {
             width: 300px;
             height: 800px;
-            margin: 15px;
+
             border-style: solid;
             border-radius: 20px;
             border: 3px;
@@ -22,43 +22,56 @@
             color: white;
             overflow: auto;
             position: relative;
-            display: flex;
 
         }
 
-        .box2 {
+        .asset_box_title {
             width: 100%;
-            height: 40px;
+            height: 10%;
+            display: block;
             color: white;
-            margin: 20px;
             border-top-right-radius: 20px;
             border-top-left-radius: 20px;
-            border: 3px;
-            padding: 4px;
             background-color: #acccc4;
-            position: sticky;
-            display: inline;
-            left: 560px;
-            top: 10px;
+            margin: 0 0 5% 0;
+            
+
         }
 
-    
+        .asset_box_title p {
+            margin : 0 0 0 5%;
+            font-size: 5vh;
+            font-weight: 600;
+            color: #ffffff;
         
+        }
+
+        .asset_content {
+            height: auto;
+            margin: 5% 0 0 0;
+        }
+
+        .asset_content div {
+            margin: 0;
+            position: absolute;
+            text-align: right;
+        }
     </style>
 </head>
 
 <body>
-    
-    <div class="box1">
-        <div class="box2">widget</div>
-    <div style="margin-top: 30px; justify-content: center; flex-direction: row;">
-    <div style="text-align: right"><img align="absmiddle" src="{% static 'img/App 21.png' %}" ></div>
-    <div style="text-align: right"><img align="absmiddle" src="{% static 'img/App 22.png' %}" ></div>
-    <div style="text-align: right"><img align="absmiddle" src="{% static 'img/App 24.png' %}" ></div>
-    </div>
+
+    <div class="asset_box">
+        <div class="asset_box_title"> <p>widget</p></div>
+        <div class="asset-content">
+            <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+            <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+            <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+        </div>
     </div>
 
 
 
 </body>
+
 </html>

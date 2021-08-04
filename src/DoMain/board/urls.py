@@ -4,6 +4,8 @@ from board.views import *
 
 
 urlpatterns = [
-    path('custom/', custom, name="cusom"),
+    path('custom/', custom, name="custom"),
+    path('mainbar/', mainbar, name="mainbar"),
+
 ]
 
