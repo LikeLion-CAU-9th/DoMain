@@ -26,9 +26,9 @@ body {
 }
 
 .weekly-best {
-    background: rgba(69, 166, 133, 0.72);
+    background: rgba(118,188,164,1);
     flex-direction: column;
-    width: 45%
+    width: 45%;
 }
 
 .weekly-best-content {
@@ -109,7 +109,7 @@ body {
 }
 
 .widget-recommend{
-    width:45%; 
+    width:50%; 
 }
 
 .widget-recommend-image{

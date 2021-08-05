@@ -41,7 +41,9 @@ input{
   border:solid 1.5px;
   border-color: white;
   border-radius: 40px;
+
   background-color: rgba(106, 184, 157,1);
+
   position: relative;
   color:white;
   z-index: 5;
@@ -79,9 +81,8 @@ input{
   /* margin-left:0%; */
   border: 1px solid rgba(106, 184, 157,1);
   background-color:rgba(106, 184, 157,1); 
-  /* #45A685;
-  opacity:0.8; */
   z-index:6;
+
   position: relative;
   transition-property: margin-left;
   transition-duration: 0.4s;

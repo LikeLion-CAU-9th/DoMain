@@ -31,6 +31,4 @@ function changeBox2() {
 
   wgi.style.display = "block";
   gsu.style.display = "block";
-
-
 }
