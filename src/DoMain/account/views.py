@@ -86,7 +86,6 @@ def join_email_overap(request):
   return HttpResponse('Usable')
 
 
-
 def send_validation_mail(request, user, email_address):
     mail_title = "DoMain 이메일 인증을 완료해주세요."
     domain = get_current_site(request).domain
@@ -97,3 +96,6 @@ def send_validation_mail(request, user, email_address):
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
 
+
+def mob_warning(request):
+  return render(request, 'mob-warning.html')
