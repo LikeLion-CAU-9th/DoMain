@@ -23,7 +23,7 @@ overflow:visible;
 .main-menu {
 padding: 15% 0 0 0 ;
 background:#212121;
-border-right:1px solid #e5e5e5;
+/* border-right:1px solid #e5e5e5; */
 position:fixed;
 top:0;
 bottom:0;
