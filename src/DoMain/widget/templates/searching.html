@@ -1,12 +1,74 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="{% static 'utils/widget.js' %}"></script>
+  <script src="{% static 'searching/searching.js' %}"></script>
   <title>Searching</title>
 </head>
 <body>
-  
+  <div class="container center-middle">
+    
+    <div class="widget widget-search">
+      <input class="searching" placeholder="Search..."></input>
+      <div class="searchBtn-container">
+        <img src="{% static 'image/magnifying-glass.png' %}">
+      </div>
+    </div>
+    
+  </div>
 </body>
 </html>
+
+<style>
+  html {
+    background-color: #0b1826;
+  }
+
+  .container {
+    display: inline-block;
+    /* width: 50%; */
+    /* height: 50vh; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .center-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .searching {
+    display: inline-block;
+    border: 4px solid #ee531e;
+    background-color: transparent;
+    padding-left: 14px;
+    color: #ee531e;
+  }
+
+  .searching:focus {
+    outline: none;
+  }
+
+  .searchBtn-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:#ee531e;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .searchBtn-container img {
+    width: 70%;
+    position: absolute;
+  }
+</style>
