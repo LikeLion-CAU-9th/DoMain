@@ -86,14 +86,14 @@ function animateCoverUp(card) {
   scaleCoverToFillWindow(cardPosition);
   // update the content of the opened page
   openContentText.innerHTML =
-    "<h1>" + card.children[2].textContent + "</h1>" + paragraphText;
+    "<h1>" + card.children[2].textContent + "</h1>" + paragraphText + test;
   openContentImage.src = card.children[1].src;
   setTimeout(function() {
     // update the scroll position to 0 (so it is at the top of the 'opened' page)
     window.scroll(0, 0);
     // set page to open
     pageIsOpen = true;
-  }, 300);
+  }, 10);
 }
 
 function animateCoverBack(card) {
@@ -122,7 +122,7 @@ function animateCoverBack(card) {
     pageIsOpen = false;
     // remove the clicked class so the card animates back in
     currentCard.className = currentCard.className.replace(" clicked", "");
-  }, 301);
+  }, 10);
 }
 
 function setCoverPosition(cardPosition) {
@@ -170,13 +170,13 @@ function onCloseClick() {
 }
 
 function animateOtherCards(card, out) {
-  var delay = 100;
+  var delay = 10;
   for (var i = 0; i < nCards; i++) {
     // animate cards on a stagger, 1 each 100ms
     if (cards[i] === card) continue;
     if (out) animateOutCard(cards[i], delay);
     else animateInCard(cards[i], delay);
-    delay += 100;
+    delay += 10;
   }
 }
 
@@ -211,7 +211,9 @@ function resize() {
   windowHeight = window.innerHeight;
 }
 
-var paragraphText =
-  "<p>Somebody once told me the world is gonna roll me. I ain't the sharpest tool in the shed. She was looking kind of dumb with her finger and her thumb in the shape of an \"L\" on her forehead. Well the years start coming and they don't stop coming. Fed to the rules and I hit the ground running. Didn't make sense not to live for fun. Your brain gets smart but your head gets dumb. So much to do, so much to see. So what's wrong with taking the back streets? You'll never know if you don't go. You'll never shine if you don't glow.</p><p>Hey now, you're an all-star, get your game on, go play. Hey now, you're a rock star, get the show on, get paid. And all that glitters is gold. Only shooting stars break the mold.</p><p>It's a cool place and they say it gets colder. You're bundled up now, wait till you get older. But the meteor men beg to differ. Judging by the hole in the satellite picture. The ice we skate is getting pretty thin. The water's getting warm so you might as well swim. My world's on fire, how about yours? That's the way I like it and I never get bored.</p>";
-
-paragraphText.style.color = "black";
+var paragraphText = "<p>dsfdsf</p>";
+var test = "sdfsf";
+$(document).ready(function() {
+  document.getElementById("test").innerHTML =
+    '<object type="text/html" data=".html"></object>';
+});
