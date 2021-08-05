@@ -66,14 +66,14 @@
         }
 
         .modal-tab .list .cont {
+        
             display: none;
             position: absolute;
             top: 200px;
             left: 0;
-            background: #555;
             color: rgb(187, 116, 116);
             text-align: center;
-            width: 100px;
+            width: 1000px;
             height: 100px;
             line-height: 100px;
             border-radius: 10px;
@@ -85,12 +85,14 @@
             color: green;
         }
 
-        .modal-tab .list li.is_on .cont {
+        .modal-tab .list li.is_on .cont{
             display: flex;
         }
 
         .modal-tab .list li.is_on .cont button {
-            border: none;
+            border: 1px solid black;
+            width: 100px;
+            margin: 0 0 0 2%;
         }
     </style>
 </head>
@@ -123,7 +125,10 @@
                     <li id="finance-tab-button" class="is_on">
                         <button class="btn"> 주식</button>
                         <div class="cont">
-                            <button> 주식 </button>
+                            <button> 주식1 </button>
+                            <button> 주식2 </button>
+                            <button> 주식3 </button>
+
                         </div>
                     </li>
                     <li id="dday-tab-button">
