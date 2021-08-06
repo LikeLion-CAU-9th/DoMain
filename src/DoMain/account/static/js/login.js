@@ -13,7 +13,6 @@ function changeBox1() {
 
   wgu.style.display = "block";
   gsi.style.display = "block";
-
 }
 
 function changeBox2() {
@@ -32,5 +31,4 @@ function changeBox2() {
 
   wgi.style.display = "block";
   gsu.style.display = "block";
-
 }
