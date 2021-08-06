@@ -11,3 +11,6 @@ def get_finance(request):
   for item in priceList:
     return_str += (item + "/")
   return HttpResponse(return_str)
+  
+def stickynote_view(request):
+  return render(request, 'stickynote.html')
