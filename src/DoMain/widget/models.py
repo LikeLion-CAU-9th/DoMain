@@ -1,11 +1,26 @@
-# from django.db import models
-# from account.models import User_info
+from django.db import models
+from account.models import User_info
 
-# class Layout(models.Model):
-#   layout_seq = models.AutoField(primary_key=True)
-#   owner = models.ForeignKey(User_info, related_name="layout", on_delete=models.CASCADE, db_column="owner")
-#   data = models.TextField(null=False, default="[]")
-#   first_creater = models.ForeignKey(User_info, related_name="layout", on_delete=models.CASCADE, db_column="first_creater")
-#   create_date = models.DateField(auto_now_add=True, verbose_name="create_date")
-#   is_applied = models.BooleanField(null=False, default=False)
-#   from_store = models.BooleanField(null=False, default=False)
+
+class AbstractBaseWidget(models.Model):
+    pk = models.AutoField(primary_key=True)
+    creater = models.ForeignKey(
+        User_info, 
+        on_delete=models.CASCADE, 
+        db_column="creater"
+    )
+    create_date = models.DateField(auto_now_add=True, verbose_name="create_date")
+    data = models.TextField(null=False, default="[]")
+    from_store = models.BooleanField(null=False, default=False)
+    
+    @property
+    def get_usrname(self):
+        return self.first_creater.name
+
+class Layout(AbstractBaseWidget):
+  owner = models.ForeignKey(
+      User_info, 
+      on_delete=models.CASCADE, 
+      db_column="owner"
+    )
+  is_applied = models.BooleanField(null=False, default=False)
