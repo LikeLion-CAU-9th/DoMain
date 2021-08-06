@@ -1,16 +1,143 @@
-input {
-  width: 220px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.75) 0px 54;
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-}
 
-.login-submit {
-  width: 160px;
-  background-color: royalblue;
-  font-weight: 800;
-  font-size: 1.1em;
-  cursor: pointer;
+
+body{
+  margin:0px;
+  overflow:hidden; 
 }
+::placeholder{
+  font-family: 'ABeeZee', sans-serif;
+}
+input{
+  width: 56%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+  margin-bottom: 2%;
+  padding-left: 10%;
+}
+.input-group{
+  text-align: center;
+  width:100%;
+  z-index:2;
+  position: absolute;
+}
+.icon{
+  width: 25px;
+  margin-top: 10%;
+  margin-bottom: 35%;
+  padding: 20%;
+}
+.icon-group{
+  width: 38px;
+  z-index: 3;
+  position: relative;
+  padding-left: 18%;
+}
+#button{
+  cursor: pointer;
+  width: 125px;
+  height: 40px;
+  border:solid 1.5px;
+  border-color: white;
+  border-radius: 40px;
+
+  background-color: rgba(106, 184, 157,1);
+
+  position: relative;
+  color:white;
+  z-index: 5;
+}
+/* front-space */
+.front-space{
+  z-index:5;
+  position:relative;
+}
+/*  */
+.box{
+  border: 1px solid none;
+  border-radius: 5px;
+  width:65%;
+  background-color:#ffffff;
+  z-index:2;
+  position:absolute;
+  margin-left:18%;
+  float:left;
+  overflow:hidden;
+}
+#white-box{
+  width:64%;
+  /* white-box가 왼쪽에 있을 때 */
+  float:left;
+  /* white-box가 오른쪽에 있을 때 */
+  /* float:right;*/
+} 
+#green-box{
+  width: 35%;
+  height:500px;
+  /*green-box가 오른쪽에 있을 때 */ 
+  margin-left:64.8%;
+   /*green-box가 왼쪽에 있을 때 */
+  /* margin-left:0%; */
+  border: 1px solid rgba(106, 184, 157,1);
+  background-color:rgba(106, 184, 157,1); 
+  z-index:6;
+
+  position: relative;
+  transition-property: margin-left;
+  transition-duration: 0.4s;
+}
+.italic-title{
+  font-family: 'DM Serif Display', serif;
+  font-size:200%;
+  color:white;
+  text-align: center;
+
+}
+.text{
+  font-family: 'ABeeZee', sans-serif;
+  color:white;
+  font-size:100%;
+  text-align: center;
+  
+}
+.bold-title{
+  color:#45A685;
+  font-family: 'ABeeZee', sans-serif;
+  font-size:200%;
+  text-align:center;
+  font-weight: bold;
+  
+}
+.line{
+  border: solid 1.2px #EDEDED;
+    width: 33%;
+    float: left;
+    margin-top: 0rem;
+    text-align: center;
+    margin-left: 33%;
+}
+#white-sign-in{
+  z-index:5;
+  position: relative;
+  transition-delay:all 2s;
+  display:block;
+}
+#green-sign-up{
+  z-index:7;
+  position: relative;
+  transition-delay:all 2s;
+  display:block;
+} 
+#white-sign-up{
+  z-index:5;
+  position: relative;
+  transition-delay:all 2s;
+  display:none;
+}
+#green-sign-in{ 
+  z-index:7;
+  position: relative;
+  transition-delay:all 2s;
+  display:none;
+} 
