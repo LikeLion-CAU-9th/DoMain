@@ -4,7 +4,6 @@ from account.models import User_info
 from widget.models import AbstractBaseWidget
 
 
-# # 첫번째 영권이랑 얘기한 방법
 # class AbstractWidget(AbstractBaseWidget):
 #     users_like = 
 
@@ -17,8 +16,6 @@ from widget.models import AbstractBaseWidget
 # users_like = models.ManyToMany
 
 
-
-# 2번째 방법
 class WidgetType:
     """
     WigetType
@@ -37,8 +34,8 @@ class StoreWidget(AbstractBaseWidget):
     download = models.IntegerField()
     widget_type = models.CharField(
         max_length=20, 
-        choices=WidgetType,
-        default=SIMPLE_WIDGET,
+        choices=WidgetType.WIDGET_TYPES,
+        default=WidgetType.SIMPLE_WIDGET,
         help_text= '위젯 형식'
     )
     description = models.CharField(max_length=255, null=True, blank=True, help_text="위젯 설명")
