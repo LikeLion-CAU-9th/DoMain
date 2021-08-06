@@ -9,13 +9,7 @@ const widgetJSON = [
     "type": "stickynote",
     "posX": "400px",
     "posY": "300px",
-    "contents": {"title": "다이어트 계획", "content": "없음"}
-  },
-  {
-    "type": "dday",
-    "posX": "400px",
-    "posY": "300px",
-    "contents": {"title": "종강", "date":"2021.12.27"}
+    "contents": {"title": "다이어트 계획", "memo": "없음"}
   },
 ]
 
