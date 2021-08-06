@@ -3,7 +3,7 @@ from account.models import User_info
 
 
 class AbstractBaseWidget(models.Model):
-  pk = models.AutoField(primary_key=True)
+  seq = models.AutoField(primary_key=True)
   creater = models.ForeignKey(
       User_info, 
       on_delete=models.CASCADE, 
