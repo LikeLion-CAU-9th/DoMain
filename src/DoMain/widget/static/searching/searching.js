@@ -38,8 +38,8 @@ const searchAction = (QUERY_URL) => {
 }
 
 window.onload = () => {
-  let engine = widgetJSON[1]['content']['engine'];
-  let width = widgetJSON[1]['content']['width'];
-  let height = widgetJSON[1]['content']['height'];
+  let engine = widgetJSON[2]['content']['engine'];
+  let width = widgetJSON[2]['content']['width'];
+  let height = widgetJSON[2]['content']['height'];
   searching(engine, width, height);
 }
