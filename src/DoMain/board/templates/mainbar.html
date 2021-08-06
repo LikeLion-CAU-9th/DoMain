@@ -8,23 +8,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mainpage asset store</title>
 
-    <style>
-        .asset_box {
-            width: 300px;
-            height: 800px;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 1.3;
+}
 
-            border-style: solid;
-            border-radius: 20px;
-            border: 3px;
-            padding: 10px;
-            float: right;
-            background-color: #CAE2E1;
-            color: white;
-            overflow: auto;
-            position: relative;
+ul {
+    list-style: none;
+}
 
-        }
-
+.tabmenu{ 
+  max-width:600px; 
+  margin: 0 auto; 
+  position:relative; 
+}
+.tabmenu ul li{
+  display:  inline-block;
+  width:33.33%; 
+  float: left;  
+  text-align:center; 
+  background :#f9f9f9;
+}
+.tabmenu ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+}
+.tabCon{
+  display:none; 
+  text-align:left; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+}
+.btnCon:target  {
+  background : #ccc;
+}
+.btnCon:target .tabCon{
+  display: block;
+}
+       
+/* 
         .asset_box_title {
             width: 100%;
             height: 10%;
@@ -55,20 +86,87 @@
             margin: 0;
             position: absolute;
             text-align: right;
-        }
+        } */ 
     </style>
 </head>
 
 <body>
+    <div class="tabmenu">
+        <ul>
+            <li id="tab1" class="btnCon"><a class="btn first" href="#tab1">위젯</a>
+                <div class="tabCon" >
+                    기본 위젯
+                    <div class="asset-content">
+                        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+                        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+                        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+                        
+                        <br/>
+                        달력 위젯
 
-    <div class="asset_box">
+                        <img align="absmiddle" src="{% static 'img/image 13.png' %}">
+                        <img align="absmiddle" src="{% static 'img/image 14.png' %}">
+                        
+                        </br>
+                        서치바 위젯
+
+                        <img align="absmiddle" src="{% static 'img/Group 10.png' %}">
+                        <img align="absmiddle" src="{% static 'img/Group 12.png' %}">
+                    </div>      
+                </div>
+            </li>
+
+            <li id="tab2" class="btnCon"><a class="btn first" href="#tab2">레이아웃</a>
+                <div class="tabCon" >
+                    레이아웃 top 10
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'img/예시.png' %}" height="150" width="250" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'img/예시.png' %}" height="150" width="250" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'img/예시 .png' %}" height="1500" width="250"  class="d-block w-100" alt="...">
+                        </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </li>
+
+            <li id="tab3" class="btnCon"><a class="btn first" href="#tab3">My theme</a>
+                <div class="tabCon" >
+                    my theme 
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    
+
+            
+    <!-- <div class="asset_box">
         <div class="asset_box_title"> <p>widget</p></div>
         <div class="asset-content">
             <img align="absmiddle" src="{% static 'img/App 21.png' %}">
             <img align="absmiddle" src="{% static 'img/App 22.png' %}">
             <img align="absmiddle" src="{% static 'img/App 24.png' %}">
         </div>
-    </div>
+    </div> -->
 
 
 
