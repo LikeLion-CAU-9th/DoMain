@@ -13,18 +13,17 @@
 </head>
 
 <body>
-  <div class="containter center-middle" id = "ddaybox" name = "ddaybox">
+  <div class="container center-middle background" id = "ddaybox" name = "ddaybox">
     <div onmouseover=ddayListShow() onmouseout=ddayListHide()>
-      <h1 class="title" id="title">Dday</h1>
-      <div id = "ddayAdd"></div>
-    </div>
-    <div>
+      
+      <div class="center" id = "ddayFirst"></div>
+      <div class="center" id = "ddayAdd"></div>
       <div>
-        <h3>D-day 추가</h3>
-        <p><input type="date"></p>
-        <p><input type="submit" value="Add"></p>
+        <!-- <h3>D-day 추가</p> -->
+        <!-- <p><input type="submit" value="Add"></p> -->
       </div>
     </div>
+    
   </div>
   
 </body>
@@ -40,12 +39,31 @@
 
   .container {
     display: inline-block;
-    width: 50%;
-    height: 50vh;
+    width: 150px;
+    height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  .background {
+    background-color: beige;
+    border-radius:10px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:5px;
+    padding-bottom:5px;
+    box-shadow: 5px 5px 5px;
+  }
+
+  .center{
+    text-align: center;
+    line-height: 20px;
+  }
+
+
+
+  
 
 </style>
