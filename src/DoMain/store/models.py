@@ -4,17 +4,17 @@ from account.models import User_info
 from widget.models import AbstractBaseWidget
 
 
-# 첫번째 영권이랑 얘기한 방법
-class AbstractWidget(AbstractBaseWidget):
-    users_like = 
+# # 첫번째 영권이랑 얘기한 방법
+# class AbstractWidget(AbstractBaseWidget):
+#     users_like = 
 
 
-class StoreWidget(AbstractWidget)
-users_like = models.ManyToManyField
+# class StoreWidget(AbstractWidget)
+# users_like = models.ManyToManyField
 
 
-class StoreLayout(AbstractWidget)
-users_like = models.ManyToMany
+# class StoreLayout(AbstractWidget)
+# users_like = models.ManyToMany
 
 
 
@@ -59,10 +59,10 @@ class StoreWidget(AbstractBaseWidget):
     def host_id(self):
         return self.user.id
 
-    @peroperty
-    def score(self):
-        score = WidgetStarredUser.objects.filter(is_removed=False).aggregate(Avg('score'))
-        return score
+    # @peroperty
+    # def score(self):
+    #     score = WidgetStarredUser.objects.filter(is_removed=False).aggregate(Avg('score'))
+    #     return score
 
 
 # class WidgetGrade(models.Model):
