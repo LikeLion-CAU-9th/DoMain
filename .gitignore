@@ -9,7 +9,6 @@ media
 *.pot
 *.pyc
 __pycache__/
-**/migrations
 settings.json
 .vscode/**
 
