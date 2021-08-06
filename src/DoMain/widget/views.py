@@ -15,5 +15,13 @@ def get_finance(request):
   return HttpResponse(return_str)
 
 
+def dday_view(request):
+  return render(request, 'dday.html')
+
+
+def get_dday(request):
+  return HttpResponse()
+
+
 def searching_view(request):
   return render(request, 'searching.html')
