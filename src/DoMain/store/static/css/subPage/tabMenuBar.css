@@ -1,0 +1,63 @@
+.section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+    display: block;
+}
+#fontsub {
+    font-size: 120%;
+    color: #545454;
+}
+#fontbold {
+    font-weight: bold;
+}
+#green {
+    color: #00be68;
+}
+.tabs {
+    display: none;
+}
+.tablabel {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    /* margin-bottom: 0; */
+    color: #bbb;
+    border: 1px solid transparent;
+}
+.tablabel:hover {
+    color: #2A6049;
+    cursor: pointer;
+}
+/*input 클릭시, label 스타일*/
+.tabs:checked + .tablabel {
+    color: #2A6049;
+    border: 1px solid #ddd;
+    border-top: 2px solid #2A6049;
+    border-bottom: 1px solid #ffffff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+    display: block;
+}
+#fontsub {
+    font-size: 120%;
+    color: #545454;
+}
+#fontbold {
+    font-weight: bold;
+}
+#green {
+    color: #00be68;
+}

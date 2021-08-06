@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Store</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/css/Mainpage.css' %}">
+    <link rel="stylesheet" href="{% static '/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" href="{% static '/css/carousel.css' %}">
+
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="blanck"></div>
+        <div class="main-content">
+            <div class="mainpage-title">
+                <b style="font-size: 60px; color:black;">
+                    <span style="color : rgba(222, 105, 93,1);">D</span>oMain
+                </b>
+            </div>
+            <div class="whole-content">
+                <div class="mainpage-content-1">
+                    <div class="weekly-best">
+                        <div class="weekly-best-content">
+                            <b class="weekly-best-title">금주 BEST11</b>
+                            <div class="weekly-best-detail">
+                                Gmail, Naver Search, Google Map 등 다양한 위젯을
+                                이용해보세요!
+                            </div>
+                            <div class="weekly-best-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colorful-widget">
+                        <div class="colorful-widget-image">
+                        </div>
+                        <div class="colorful-widget-content">
+                            <b class="colorful-widget-title">Colorful <span
+                                    style="color:rgba(222, 105, 93, 1)">W</span>idget</b>
+                            <div class="colorful-widget-detail">
+                                다양한 Color와 디자인으로 자유롭게 위젯을 만들어보세요
+                            </div>
+                        </div>
+                        <div style="height:20%">
+                            <div class="colorful-widget-bottom" style="background-color: rgba(69, 166, 133, 0.72);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainpage-content-2">
+                    <div class="custom-mainpage" style="background-color: rgba(222, 105, 93,0.8); width: 55%;">
+                        <div class="custom-mainpage-top" style="height: 15%;">
+                        </div>
+                        <div class="custom-mainpage-content"
+                            style="padding-right:2%; background-color:rgba(222, 105, 93,1); height:30%">
+                            <div class="custom-mainpage-title"
+                                style="font-weight: 600; text-align: right; font-size: 36px; color: white;">
+                                Customize Your <span style="color: rgba(250, 239, 162, 1);">M</span>ainpage
+                            </div>
+                            <div class="custom-mainpage-detail" style="color:white; text-align: right; font-size: px; ">
+                                메인 페이지를 나만의 취향으로 꾸며보세요
+                            </div>
+                        </div>
+                        <div class="custom-mainpage-buttons" style="height:55%; display:flex; flex-direction: row;">
+                            <div class="custom-mainpage-tocustom"
+                                style="width:50%; height: 100%;background-color: rgba(222, 105, 93,0.5);">
+                                커스텀 페이지로 이동
+                            </div>
+                            <div class="custom-mainpage-tocustom"
+                                style="width:50%; height: 100%;background-color: rgba(222, 105, 93,0.2)">
+                                <a href="{% url 'subpage' %}">스토어 페이지로 이동</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget-recommend">
+                        <div class="widget-recommend-image">
+                            <div class="widget-recommend-image-cover"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mainpage-content-3" >
+                    <div class="owl-carousel owl-theme card-container">
+                        <div class="item card">
+                            <img src="/static/image/custompage-1.jpg" class="item-img-top card-image" alt="...">
+                            <div class="item-body card-body">
+                                <h5 class="item-title card-title">asfesf</h5>
+                                <p class="item-text card-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="item card">
+                            <img src="/static/image/custompage-2.png" class="item-img-top card-image" alt="...">
+                            <div class="item-body card-body">
+                                <h5 class="item-title card-title">item title</h5>
+                                <p class="item-text card-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="item card">
+                            <img src="/static/image/custompage-3.png" class="item-img-top card-image" alt="..." >
+                            <div class="item-body card-body">
+                                <h5 class="item-title card-title">item title</h5>
+                                <p class="item-text card-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="item card">
+                            <img src="/static/image/custompage-4.png" class="item-img-top card-image" alt="...">
+                            <div class="item-body card-body">
+                                <h5 class="item-title card-title">item title</h5>
+                                <p class="item-text card-text">Some quick example text to build on the item title and make up
+                                    the bulk of the item's content.</p>
+                                <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        navText:[
+            "<div class='nav-btn prev-slide'><i class='bi bi-caret-left-fill prev-icon'></i></div>",
+            "<div class='nav-btn next-slide'><i class='bi bi-caret-right-fill'></i></div>"],
+        dots:false,
+        margin:20,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3
+            }
+        }
+    })
+    </script>
+</body>
+
+
+
+</html>
