@@ -1,22 +1,14 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/subpage.css' %}">
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/subpage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/upperSubPage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/commons/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/tabMenuBar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/cardSubPage.css' %}">
-
-
-    <title>Subpage</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -27,10 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container" id="container" style="margin: 5% 0 0 0">
+{% endblock %}
+{% block contents %}
+    <div class="container" id="container" style="margin: 3% 0 0 7%; width: 90%">
 
         <div class="row">
             <div class="col-12">
@@ -639,6 +630,5 @@
     <script src="{% static 'js/dropdown.js' %}"></script>
     <script src="{% static 'js/cardDetailEffect.js' %}"></script>
 
-</body>
+{% endblock %}
 
-</html>
