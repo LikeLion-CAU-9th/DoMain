@@ -16,6 +16,10 @@ def get_finance(request):
     return_str += (item + "/")
   return HttpResponse(return_str)
 
+  
+def stickynote_view(request):
+  return render(request, 'stickynote.html')
+
 
 def dday_view(request):
   return render(request, 'dday.html')
