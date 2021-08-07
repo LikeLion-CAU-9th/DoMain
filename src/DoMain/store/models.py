@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Avg
 from account.models import User_info
 from widget.models import AbstractBaseWidget
+from django.utils import timezone
 
 
 # class AbstractWidget(AbstractBaseWidget):
@@ -47,11 +48,11 @@ class StoreWidget(AbstractBaseWidget):
 
 
     def __str__(self):
-        return self.nname
+        return self.name
 
     @property
     def host(self):
-        return self.user.name
+        return self.user.user_name
 
     @property
     def host_id(self):
@@ -82,3 +83,10 @@ class StoreWidget(AbstractBaseWidget):
 
 # class WidgetStarredUser(WidgetGrade):
 #     score = models.FloatField()
+
+
+class Comment(models.Model):
+    writer = models.ForeignKey(User_info, on_delete=models.CASCADE)
+    content = models.CharField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+    widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE)

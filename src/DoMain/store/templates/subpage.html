@@ -85,7 +85,8 @@
                                 </div>
                                 <div class="text" style="color:#A2A4A6;">
                                     <strong style="color:#000000">&nbsp;4.1</strong>
-                                    (151)</div>
+                                    (151)
+                                </div>
 
                                 <div class="smallheartspace">
                                     <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
@@ -147,7 +148,8 @@
                                 </div>
                                 <div class="text" style="color:#A2A4A6;">
                                     <strong style="color:#000000">&nbsp;0.0</strong>
-                                    (0)</div>
+                                    (0)
+                                </div>
 
                                 <div class="smallheartspace">
                                     <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
@@ -209,7 +211,8 @@
                                 </div>
                                 <div class="text" style="color:#A2A4A6;">
                                     <strong style="color:#000000">&nbsp;4.1</strong>
-                                    (151)</div>
+                                    (151)
+                                </div>
 
                                 <div class="smallheartspace">
                                     <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
@@ -271,7 +274,8 @@
                                 </div>
                                 <div class="text" style="color:#A2A4A6;">
                                     <strong style="color:#000000">&nbsp;0.0</strong>
-                                    (0)</div>
+                                    (0)
+                                </div>
 
                                 <div class="smallheartspace">
                                     <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
@@ -331,7 +335,8 @@
                                 </div>
                                 <div class="text" style="color:#A2A4A6;">
                                     <strong style="color:#000000">&nbsp;4.1</strong>
-                                    (151)</div>
+                                    (151)
+                                </div>
 
                                 <div class="smallheartspace">
                                     <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
@@ -395,7 +400,8 @@
                                 </div>
                                 <div class="text" style="color:#A2A4A6;">
                                     <strong style="color:#000000">&nbsp;0.0</strong>
-                                    (0)</div>
+                                    (0)
+                                </div>
 
                                 <div class="smallheartspace">
                                     <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
@@ -420,6 +426,36 @@
             <section class="section" id="content1">
                 <div class="container">
                     <div class="card-column column-0">
+
+                        {% for widget in widgets %}
+                        <a href="{% url 'detailpage' widget.seq %}">
+                            <div class="card-detail card-color-0">
+                                <div class="border"></div>
+                                <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
+                                <h2>{{widget.name}}</h2>
+                                <p class="cardDescription">{{widget.description}}</p>
+                                <div class="row" style="padding: 10% 0 0 0">
+                                    <div class="col-5" style="padding:3px 0 0 40px;">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
+                                    </div>
+
+                                    <div class="col-2">
+                                        4.1
+                                    </div>
+
+                                    <div class="col-4" style="padding: 0 0 0 30px;">
+                                        <img src="{% static 'image/smallheart.svg' %}">
+                                        1252
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        {% endfor %}
                         <div class="card-detail card-color-0">
                             <div class="border"></div>
                             <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
@@ -548,34 +584,34 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="javascript:link()">
+
                         <div class="card-detail card-color-3">
-                            
-                                <div class="border"></div>
-                                <img class="cardImage"
-                                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-03.jpg" />
-                                <h2>Naver Style Searchbar</h2>
-                                <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                                <div class="row" style="padding: 10% 0 0 0">
-                                    <div class="col-5" style="padding:3px 0 0 40px;">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                    </div>
 
-                                    <div class="col-2">
-                                        4.1
-                                    </div>
-
-                                    <div class="col-4" style="padding: 0 0 0 30px;">
-                                        <img src="{% static 'image/smallheart.svg' %}">
-                                        1252
-                                    </div>
+                            <div class="border"></div>
+                            <img class="cardImage"
+                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-03.jpg" />
+                            <h2>Naver Style Searchbar</h2>
+                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
+                            <div class="row" style="padding: 10% 0 0 0">
+                                <div class="col-5" style="padding:3px 0 0 40px;">
+                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
+                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
                                 </div>
+
+                                <div class="col-2">
+                                    4.1
+                                </div>
+
+                                <div class="col-4" style="padding: 0 0 0 30px;">
+                                    <img src="{% static 'image/smallheart.svg' %}">
+                                    1252
+                                </div>
+                            </div>
                         </div>
-                    </a>
+
                     </div>
                 </div>
 
@@ -634,11 +670,7 @@
 <script src="{% static 'js/dropdown.js' %}"></script>
 <script src="{% static 'js/cardDetailModal.js' %}"></script>
 <script>
-    function link() {
-        setTimeout(function() {
-            location.href = "{% url 'detailpage' %}";
-        }, 1000);
-    }
+   
 </script>
 
 {% endblock %}

@@ -5,6 +5,6 @@ urlpatterns = [
     path('', store_main, name='store_main'),
     path('landing', landing_page, name="landingPage"),
     path('subpage/', subpage, name="subpage"),
-    path('detailpage/', detailpage, name="detailpage"),
+    path('widget/<int:id>', detailpage, name="detailpage"),
     path('mypage/', mypage, name="mypage")
 ]
