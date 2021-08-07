@@ -51,7 +51,22 @@ def layout_delete(request, pk):
 def layout_clone(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
-  if len(qs) == 1:
+  if is_distinct_QS(qs):
     Layout.objects.create(creater = user, owner = user, from_store = False, data = qs[0].data, is_applied = False)
     # return redirect('layoutlist page')
     pass
+
+
+def get_applied_layout(request):
+  user = get_user_inst(request)
+  qs = Layout.objects.filter(owner=user, is_applied=True)
+  json = "[]"
+  if is_distinct_QS(qs):
+    json = qs[0].data
+  return HttpResponse(json)
+  
+  
+def is_distinct_QS(QS):
+  if len(QS) == 1:
+    return True
+  return False
