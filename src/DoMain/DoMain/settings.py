@@ -34,8 +34,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'store',
+<<<<<<< HEAD
+	  'widget',
+    'board',
+=======
     'widget',
     'mainpage',
+>>>>>>> 0c43e79d0ea3ef4afbeb66a16034740db5fd31f0
 ]
 
 MIDDLEWARE = [
