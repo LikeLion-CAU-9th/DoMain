@@ -38,8 +38,6 @@ def login_view(request):
 
 
 def login_success(request):
-  print("*******************************")
-  get_user_seq(request)
   return render(request, 'success.html')
 
 
