@@ -25,8 +25,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,7 +33,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
-	'widget',
+    'store',
+<<<<<<< HEAD
+	  'widget',
+    'board',
+=======
+    'widget',
+    'mainpage',
+>>>>>>> 0c43e79d0ea3ef4afbeb66a16034740db5fd31f0
 ]
 
 MIDDLEWARE = [
@@ -53,7 +58,7 @@ ROOT_URLCONF = 'DoMain.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'Domain/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,1 +1,133 @@
- 
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="{% static 'utils/widget.js' %}"></script>
+  <script src="{% static 'finance/finance.js' %}"></script>
+  <title>Finance</title>
+</head>
+<body>
+  <div class="container center-middle">
+    <div class="financeBoard center-middle">
+      <div class="loader">
+        <div>Loading ...</div><br>
+        <div class="loader-spinner"></div>
+      </div>
+      <div class="content">
+        <div class="stock-item">
+          <strong class="stock-name">😵‍💫</strong>
+          <div class="price low-price">-</div>
+        </div>
+        <hr>
+        <div class="stock-item">
+          <strong class="stock-name">😵‍💫</strong>
+          <div class="price low-price">-</div>
+        </div>
+        <hr>
+        <div class="stock-item">
+          <strong class="stock-name">😵‍💫</strong>
+          <div class="price low-price">-</div>
+        </div>
+        <hr>
+        <div class="stock-item">
+          <strong class="stock-name">😵‍💫</strong>
+          <div class="price low-price">-</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  html {
+    background-color: dimgrey;
+  }
+
+  .container {
+    display: inline-block;
+    width: 50%;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .financeBoard {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 3px 3px 3px rgb(162, 214, 207);
+    color: #efefef;
+    border-radius: 14px;
+    width: 40%;
+    padding: 26px;
+    user-select: none;
+    min-height: 190px;
+  }
+
+  .financeBoard .content {
+    display: none;
+  }
+
+  .stock-item {
+    flex: 1;
+    font-size: 1.2em;
+    line-height: 1.8em;
+  }
+  
+  .stock-item strong {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+  }
+
+  .stock-item div {
+    display: inline-block;
+    text-align: center;
+    width: 68%;
+  }
+
+  .center-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .high-price {
+    color: rgb(224, 58, 58);
+  }
+
+  .low-price {
+    color: rgb(62, 132, 236);
+  }
+
+  .loader {
+    position: absolute;
+    top: calc(50% - 80px);
+    left: calc(50% - 60px);
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .loader-spinner {
+    border: 12px solid #f3f3f3; /* Light grey */
+    border-top: 12px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    animation: spin 2s linear infinite;
+    z-index: 10;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
