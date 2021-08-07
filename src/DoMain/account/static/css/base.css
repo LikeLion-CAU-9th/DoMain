@@ -1,11 +1,29 @@
-html {
+/* html {
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
   overflow: hidden;
+} */
+html{
+  background-color: #E6E6E6;
 }
-
-.container {
+/* .container {
   text-align: center;
   height: 100vh;
   transform: translate(0, 40%);
+} */
+.back-ground-shape{
+  z-index: 1;
 }
+.tri{
+  width:30%;
+  float:right;
+  vertical-align: top;
+  margin-top:-125px;
+}
+.cir{
+  width:30%;
+  float:left;
+  vertical-align: bottom;
+  margin-top: 300px;
+}
+
