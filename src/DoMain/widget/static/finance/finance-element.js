@@ -1,0 +1,4 @@
+const getFinanceElements = () => {
+  elem = '<div class="financeBoard center-middle"><div class="loader"><div>Loading ...</div><br><div class="loader-spinner"></div></div><div class="content"><div class="stock-item"><strong class="stock-name">😵‍💫</strong><div class="price low-price">-</div></div><hr><div class="stock-item"><strong class="stock-name">😵‍💫</strong><div class="price low-price">-</div></div><hr><div class="stock-item"><strong class="stock-name">😵‍💫</strong><div class="price low-price">-</div></div><hr><div class="stock-item"><strong class="stock-name">😵‍💫</strong><div class="price low-price">-</div></div></div></div>';
+  return elem
+}

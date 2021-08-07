@@ -1,0 +1,185 @@
+/* Common */
+
+html {
+  background-color: dimgrey;
+}
+
+.container {
+  display: inline-block;
+  width: 50%;
+  height: 50vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-board {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Finance */
+
+.financeBoard {
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 3px 3px 3px rgb(162, 214, 207);
+  color: #efefef;
+  border-radius: 14px;
+  padding: 26px;
+  user-select: none;
+  min-height: 190px;
+  position: absolute;
+}
+
+.financeBoard .content {
+  display: none;
+}
+
+.stock-item {
+  flex: 1;
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+
+.stock-item strong {
+  display: inline-block;
+  text-align: center;
+  width: 30%;
+}
+
+.stock-item div {
+  display: inline-block;
+  text-align: center;
+  width: 68%;
+}
+
+.center-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.high-price {
+  color: rgb(224, 58, 58);
+}
+
+.low-price {
+  color: rgb(62, 132, 236);
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 80px);
+  left: calc(50% - 60px);
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.loader-spinner {
+  border: 12px solid #f3f3f3; /* Light grey */
+  border-top: 12px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 2s linear infinite;
+  z-index: 10;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Note */
+
+.note {
+  font-family:  Arial;
+  font-size: 16px;
+  margin : 12px;
+  background: #666;
+  color: #fff;
+  word-break: break-all;
+  position: absolute;
+}
+
+.note h2{
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.note p {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.note a{
+  text-decoration: none;
+  color : #000;
+  background: #FFC;
+  display: block;
+  height : 100%;
+  width: 100%;
+  padding: 16px;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transition: transform .15s linear;
+}
+
+.note h2{
+  font-size: 120%;
+  font-weight: bold;
+  padding-bottom: 10px;
+
+}
+
+.note p{
+  font-family: cursive;
+  font-size: 90%;
+}
+
+.note ul li a:hover, ul li a:focus{
+  box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  transform:scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
+.searching {
+  display: inline-block;
+  border: 4px solid #ffffff;
+  background-color: transparent;
+  padding-left: 14px;
+}
+
+.searching:focus {
+  outline: none;
+}
+
+.searchBtn-container {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.searchBtn-container img {
+  width: 70%;
+  position: absolute;
+}
+
+/* D-Day */
+
+.background {
+  background-color: beige;
+  border-radius:10px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-top:5px;
+  padding-bottom:5px;
+  box-shadow: 5px 5px 5px;
+}
