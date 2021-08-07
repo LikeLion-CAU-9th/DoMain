@@ -16,6 +16,10 @@ def get_finance(request):
     return_str += (item + "/")
   return HttpResponse(return_str)
 
+  
+def stickynote_view(request):
+  return render(request, 'stickynote.html')
+
 
 def dday_view(request):
   return render(request, 'dday.html')
@@ -34,6 +38,7 @@ def layout_add(request):
   Layout.objects.create(creater=user, owner=user, data="[]", from_store = False)
   return redirect('test')
 
+
 def layout_delete(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
@@ -41,10 +46,11 @@ def layout_delete(request, pk):
     qs.delete()
     return redirect('test')
 
+
 def layout_clone(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
-  if len(qs) == 1:
+  if is_distinct_QS(qs):
     Layout.objects.create(creater = user, owner = user, from_store = False, data = qs[0].data, is_applied = False)
     return redirect('test')
     
@@ -58,3 +64,20 @@ def view_list(request):
   user = get_user_inst(request)
   layout_list = Layout.objects.filter(owner=user)
   return layout_list
+    # return redirect('layoutlist page')
+    pass
+
+
+def get_applied_layout(request):
+  user = get_user_inst(request)
+  qs = Layout.objects.filter(owner=user, is_applied=True)
+  json = "[]"
+  if is_distinct_QS(qs):
+    json = qs[0].data
+  return HttpResponse(json)
+  
+  
+def is_distinct_QS(QS):
+  if len(QS) == 1:
+    return True
+  return False

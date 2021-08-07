@@ -16,13 +16,22 @@ const ddayListup = (ITEMS) => {
         ddayList.push([ddayName, dday]);
     };
 
-    let contents = "";
+    // let contents = "";
+    let contents = [];
     for(let i = 0; i < ddayList.length; i++){
-        contents = contents + "<hr><p>"+ddayList[i][0]+"</p><p>"+"D - "+ddayList[i][1].toString()+"</p>"
+        // contents = contents + "<hr><p>"+ddayList[i][0]+"</p><p>"+"D - "+ddayList[i][1].toString()+"</p>"
+        contents[i] = "<h2>"+"D-"+ddayList[i][1].toString()+"</h2>"+"<p>"+ddayList[i][0]+"</p>"
     };
-    console.log(contents);
+    console.log(contents[1])
+     // ddayAdd.innerHTML = contents+"<hr>";
+    const ddayFirst = document.querySelector('#ddayFirst');
+    ddayFirst.innerHTML = contents[0]
+
     const ddayAdd = document.querySelector('#ddayAdd');
-    ddayAdd.innerHTML = contents+"<hr>";
+    ddayAdd.innerHTML = contents[1] + contents[2];
+
+
+
 
 }
 
@@ -36,6 +45,6 @@ const ddayListShow = () => {
 
 window.onload = () => {
     const ITEMS = widgetJSON[1]['content']['items'];
-    document.querySelector(".title").addEventListener('load', ddayListup(ITEMS), false);
-    document.querySelector(".title").addEventListener('load', ddayListHide(), false);    
+    document.querySelector(".background").addEventListener('load', ddayListup(ITEMS), false);
+    document.querySelector(".background").addEventListener('load', ddayListHide(), false);    
    }
