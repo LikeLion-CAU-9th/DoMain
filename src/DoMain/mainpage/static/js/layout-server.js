@@ -24,13 +24,14 @@ const renderAppliedLayout = () => {
   console.log(JSON_STR);
   let json = JSON.parse(JSON_STR);
   for(let i=0; i<json.length; i++) {
+    console.log(i + "th widget");
     let type = json[i].type;
     let contents = json[i].contents;
     if(type === "finance")
       finance(contents);
-    else if(type === "d-day")
-      console.log()
     else if(type === "stickynote")
+      stickynote(contents);
+    else if(type === "d-day")
       console.log()
   }
 }
