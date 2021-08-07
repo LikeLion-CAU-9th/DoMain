@@ -142,3 +142,27 @@ html {
   position: relative;
   z-index: 5;
 }
+
+.searching {
+  display: inline-block;
+  border: 4px solid #ffffff;
+  background-color: transparent;
+  padding-left: 14px;
+}
+
+.searching:focus {
+  outline: none;
+}
+
+.searchBtn-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.searchBtn-container img {
+  width: 70%;
+  position: absolute;
+}
