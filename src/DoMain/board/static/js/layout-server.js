@@ -32,9 +32,9 @@ const renderAppliedLayout = () => {
     else if(type === "stickynote")
       stickynote(contents);
     else if(type === "searching")
-      searching(contents)
-    else if(type === "d-day")
-      console.log()
+      searching(contents);
+    else if(type === "dday")
+      dday(contents);
   }
   console.log("All widgets are rendered");
 }
