@@ -74,7 +74,7 @@ def is_distinct_QS(QS):
   return False
 
 
-LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}}]'
+LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}},{"type": "dday","posX": "200px","posY": "100px","contents": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}}]'
 
 
 def insert_dummy_layout(request, apply):
