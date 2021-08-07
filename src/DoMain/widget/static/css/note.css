@@ -1,4 +1,4 @@
-body{
+.note body{
   font-family:  Arial;
   font-size: 16px;
   margin : 12px;
@@ -7,26 +7,26 @@ body{
   word-break: break-all;
 }
 
-h2{
+.note h2{
   font-size: 20px;
   font-weight: normal;
 }
 
-p {
+.note p {
   font-size: 10px;
   font-weight: normal;
 }
 
-ul,li{
+.note ul,.note li{
   list-style:none;
 }
 
-ul{
+.note ul{
   overflow: hidden;
   padding: 48px;
 }
 
-ul li a{
+.note ul li a{
   text-decoration: none;
   color : #000;
   background: #FFC;
@@ -39,41 +39,41 @@ ul li a{
   transition: transform .15s linear;
 }
 
-ul li{
+.note ul li{
   margin:16px;
   float: left;
 }
 
-ul li h2{
+.note ul li h2{
   font-size: 120%;
   font-weight: bold;
   padding-bottom: 10px;
 
 }
 
-ul li p{
+.note ul li p{
   font-family: cursive;
   font-size: 90%;
 }
 
-ul li:nth-child(even) a{
+.note ul li:nth-child(even) a{
   position:relative;
   top:5px;
   background: #cfc;
 }
 
-ul li :nth-child(3n) a{
+.note ul li :nth-child(3n) a{
   position: relative;
   top:-5px;
   background: #CCF;
 }
 
-ul li:nth-child(5n) a{
+.note ul li:nth-child(5n) a{
   position: relative;
   top:-10px;
 }
 
-ul li a:hover, ul li a:focus{
+.note ul li a:hover, ul li a:focus{
   box-shadow: 10px 10px 7px rgba(0,0,0,.7);
   transform:scale(1.25);
   position: relative;
