@@ -32,20 +32,29 @@ def searching_view(request):
 def layout_add(request):
   user = get_user_inst(request)
   Layout.objects.create(creater=user, owner=user, data="[]", from_store = False)
-  return 
+  return redirect('test')
 
 def layout_delete(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
   if len(qs) == 1:
-    Layout.objects.delete(owner = user, seq = pk)
-    # return redirect('layoutlist page')
-    pass
+    qs.delete()
+    return redirect('test')
 
 def layout_clone(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
   if len(qs) == 1:
     Layout.objects.create(creater = user, owner = user, from_store = False, data = qs[0].data, is_applied = False)
-    # return redirect('layoutlist page')
-    pass
+    return redirect('test')
+    
+
+def insert_dummy_layout(request, apply):
+  user = get_user_inst(request)
+  Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data='[{"type": "finance","posX": "300px","posY": "500px","contents": {"items": ["애플", "아마존", "구글", "마이크로소프트"]}},{"type": "d-day","posX": "300px","posY": "100px","content": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}},{"type": "searching","posX": "700px","posY": "500px","content": {"engine": "naver", "width": "500px", "height": "70px"}},{"type": "stickynote","posX": "700px","posY": "100px","contents": {"title": "다이어트 계획", "memo": "없음"}}]')
+  return True
+
+def view_list(request):
+  user = get_user_inst(request)
+  layout_list = Layout.objects.filter(owner=user)
+  return layout_list
