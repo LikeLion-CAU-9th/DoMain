@@ -1,7 +1,7 @@
 const finance = (contents) => {
   let stockItems = contents.items;
   let elem = getFinanceElements();
-  document.querySelector('.main-board').innerHTML = elem;
+  document.querySelector('.main-board').innerHTML += elem;
   document.querySelector('.financeBoard').style.width = contents.width;
   document.querySelector('.financeBoard').style.left = contents.posX;
   document.querySelector('.financeBoard').style.top = contents.posY;
