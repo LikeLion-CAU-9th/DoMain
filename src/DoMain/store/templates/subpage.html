@@ -19,6 +19,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
+
 {% endblock %}
 {% block contents %}
 <div class="container" id="container" style="margin: 3% 0 0 7%; width: 90%">
@@ -430,6 +433,15 @@
                         {% for widget in widgets %}
                         <a href="{% url 'detailpage' widget.seq %}">
                             <div class="card-detail card-color-0">
+                                <!-- 좋아요 버튼 -->
+    <a href="{% url 'like' widget.seq %}" style="position:absolute; z-index:10;">
+        {% if user in widget.like_widgets.all %}
+        <i class="fas fa-heart" style="color:red;"></i>
+        {% else %}
+        <i class="far fa-heart"></i>
+        {% endif %}
+        ({{ widget.like_widgets.count }})
+    </a>
                                 <div class="border"></div>
                                 <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
                                 <h2>{{widget.name}}</h2>

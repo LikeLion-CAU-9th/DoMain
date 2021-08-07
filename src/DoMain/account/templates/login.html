@@ -19,6 +19,7 @@
 </head>
 
 <body>
+<div class="container">
   <div class="back-ground-shape">
     <img src="{% static 'image/tri.svg' %}" class="tri">
     <img src="{% static 'image/cir.svg' %}" class="cir">
@@ -40,8 +41,11 @@
         <div class="text" style="color:black;">welcome to DoMain</div><br><br>
         <!-- input부분 -->
         <div class="input-group">
-          <input type="text" placeholder="EMAIL" name="email"><br>
-          <input type="text" placeholder="PASSWORD" name="raw_pw"><br><br>
+        <form method = "POST" action= "../loginAction/">
+      {% csrf_token %}
+      <input type="text" placeholder="EMAIL" name="email"><br>
+      <input type="pasword" placeholder="PASSWORD" name="raw_pw"><br><br>
+    
         </div>
         <!-- input위의 아이콘 -->
         <div class="icon-group">
@@ -56,10 +60,11 @@
           <hr class="line">
         </div><br><br>
         <div style="text-align: center;border-color: #45A685;">
-          <a href="#"><button id="button" type="button">SIGN IN</button></a>
+          {% comment %} <a href="#"><button id="button" type="button">SIGN IN</button></a> {% endcomment %}
+          <input class="login-submit" id="button" type="submit" value="SIGN IN">
         </div>
       </div>
-
+</form>
       <!-- 흰색 sign up -->
       <div id="white-sign-up">
         <br><br><br><br><br>
