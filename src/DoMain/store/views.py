@@ -1,6 +1,7 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from store.models import StoreWidget
 from store.models import Comment
+from account.models import User_info
 
 
 def landing_page(request):
@@ -15,13 +16,20 @@ def subpage(request):
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
-    return render(request, 'detailpage.html', {"widget":widget})
+    comments = Comment.objects.filter(widget=widget)
+    return render(request, 'detailpage.html', {"widget":widget, "comments":comments})
 
 def mypage(request):
     return render(request, 'myPage.html')
 
-def comment_write(request):
+def comment_write(request, id):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+    
     if request.method == "POST":
         comment = Comment()
-        comment.writer = request.user
+        comment.writer = user
+        comment.widget = get_object_or_404(StoreWidget, seq=id)
         comment.content = request.POST.get('content')
+        comment.save()
+        return redirect('/store/widget/'+str(id))

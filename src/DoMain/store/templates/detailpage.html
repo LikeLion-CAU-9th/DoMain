@@ -194,10 +194,26 @@
             <!-- 리뷰 작성 input 칸 -->
             <input type="text" name="review" size="50" placeholder="별점 선택 후, 리뷰를 남겨주세요.">
 
+
+            <form method="POST" action="{% url 'comment_write' widget.seq %}">
+                {% csrf_token %}
+                <input type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요"></input>
+                <input type="submit" value="작성하기"></input>
+            </form>
+
+            {% for comment in comments %}
             
-
-
-
+            <div class="comment">
+                <div class="writer" style="color:blue;">
+                    {{ comment.writer.user_name }}
+                </div>
+                <div class="date" style="display:inline">
+                    {{ comment.time }}
+                </div>
+                <p>{{ comment.content }}</p>
+                <hr>
+            </div>
+            {% endfor %}
             <hr class="line" style="width:91%;margin-bottom: 5px;">
             <!-- 리뷰버튼 -->
             <div class="review-button">

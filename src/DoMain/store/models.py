@@ -89,4 +89,4 @@ class Comment(models.Model):
     writer = models.ForeignKey(User_info, on_delete=models.CASCADE)
     content = models.CharField(max_length=300)
     time = models.DateTimeField(default=timezone.now)
-    widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE)
+    widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE, related_name='comments')
