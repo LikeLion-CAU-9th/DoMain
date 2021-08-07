@@ -38,3 +38,7 @@ const renderAppliedLayout = () => {
   }
   console.log("All widgets are rendered");
 }
+
+window.onload = () => {
+  renderAppliedLayout();
+}
