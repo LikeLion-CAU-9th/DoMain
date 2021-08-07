@@ -1,3 +1,5 @@
+/* Common */
+
 html {
   background-color: dimgrey;
 }
@@ -19,6 +21,8 @@ html {
   top: 0;
   left: 0;
 }
+
+/* Finance */
 
 .financeBoard {
   background-color: rgba(0, 0, 0, 0.85);
@@ -92,6 +96,8 @@ html {
   100% { transform: rotate(360deg); }
 }
 
+/* Note */
+
 .note {
   font-family:  Arial;
   font-size: 16px;
@@ -164,4 +170,16 @@ html {
 .searchBtn-container img {
   width: 70%;
   position: absolute;
+}
+
+/* D-Day */
+
+.background {
+  background-color: beige;
+  border-radius:10px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-top:5px;
+  padding-bottom:5px;
+  box-shadow: 5px 5px 5px;
 }
