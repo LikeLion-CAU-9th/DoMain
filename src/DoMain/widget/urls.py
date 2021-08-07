@@ -9,5 +9,7 @@ urlpatterns = [
   path('dday/', views.dday_view, name="finance"),
   path('getDday/', views.get_dday, name="get-dday"),
   path('searching/', views.searching_view, name="searching"),
-  path('delete-layout/<str:pk>/', views.layout_delete), 
+  path('layout-delete/<str:pk>/', views.layout_delete), 
+  path('layout-clone/<str:pk>/', views.layout_clone),
+  path('layout-add/', views.layout_add), 
 ]
