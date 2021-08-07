@@ -42,9 +42,3 @@ const ddayListHide = () => {
 const ddayListShow = () => {
     document.querySelector('#ddayAdd').style.display = 'block';
 }
-
-window.onload = () => {
-    const ITEMS = widgetJSON[1]['content']['items'];
-    document.querySelector(".background").addEventListener('load', ddayListup(ITEMS), false);
-    document.querySelector(".background").addEventListener('load', ddayListHide(), false);    
-   }

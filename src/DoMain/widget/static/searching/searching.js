@@ -36,10 +36,3 @@ const searchAction = (QUERY_URL) => {
   const URL = QUERY_URL + topic;
   location.href = URL;
 }
-
-window.onload = () => {
-  let engine = widgetJSON[2]['content']['engine'];
-  let width = widgetJSON[2]['content']['width'];
-  let height = widgetJSON[2]['content']['height'];
-  searching(engine, width, height);
-}

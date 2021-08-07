@@ -4,9 +4,3 @@ const stickynote = (title, memo) => {
   let notecontent = document.querySelector('#content');
   notecontent.innerHTML = memo;
 }
-
-window.onload = () => {
-  const TITLE = widgetJSON[1]['contents']['title'];
-  const MEMO = widgetJSON[1]['contents']['memo'];
-  stickynote(TITLE, MEMO);
-}

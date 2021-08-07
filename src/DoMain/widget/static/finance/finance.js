@@ -51,9 +51,3 @@ const hideLoader = () => {
 const appearContent = () => {
   document.querySelector('.financeBoard .content').style.display = 'block';
 }
-
-window.onload = () => {
-  const ITEMS = widgetJSON[0]['content']['items'];
-  renderName(ITEMS);
-  finance(ITEMS);
-}
