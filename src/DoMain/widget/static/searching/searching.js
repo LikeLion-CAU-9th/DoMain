@@ -4,12 +4,21 @@ const URL_OBJ = {
   'DAUM': "https://search.daum.net/search?nil_suggest=btn&w=tot&DA=SBC&q="
 }
 
-const searching = (engine, width, height) => {
+const searching = (contents) => {
+  let engine = contents.engine;
+  let width = contents.width;
+  let height = contents.height;
+  let mainColor = contents.bgColor;
+  document.querySelector('.widget-search').style.top = contents.posY;
+  document.querySelector('.widget-search').style.left = contents.posX;
   document.querySelector('.searching').style.width = width;
   document.querySelector('.searching').style.height = height;
+  document.querySelector('.searching').style.fontSize = (pixelToInt(height)-40) + "px";
+  document.querySelector('.searching').style.borderColor = mainColor;
+  document.querySelector('.searching').style.color = mainColor;
   document.querySelector('.searchBtn-container').style.width = (pixelToInt(height) + 8) + "px";
   document.querySelector('.searchBtn-container').style.height = (pixelToInt(height) + 8) + "px"; // height is same with width
-  document.querySelector('.searching').style.fontSize = (pixelToInt(height)-40) + "px";
+  document.querySelector('.searchBtn-container').style.backgroundColor = mainColor;
   document.querySelector('.searchBtn-container').style.borderTopRightRadius = "20px";
   document.querySelector('.searchBtn-container').style.borderBottomRightRadius = "20px";
   document.querySelector('.searchBtn-container img').style.top = "50%";
