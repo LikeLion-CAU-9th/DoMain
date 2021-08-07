@@ -157,7 +157,6 @@ html {
 .searchBtn-container {
   position: absolute;
   top: 0;
-  right: 0;
   text-align: center;
   cursor: pointer;
 }
