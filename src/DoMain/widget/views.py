@@ -38,6 +38,7 @@ def layout_add(request):
   Layout.objects.create(creater=user, owner=user, data="[]", from_store = False)
   return 
 
+
 def layout_delete(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
@@ -45,6 +46,7 @@ def layout_delete(request, pk):
     Layout.objects.delete(owner = user, seq = pk)
     # return redirect('layoutlist page')
     pass
+
 
 def layout_clone(request, pk):
   user = get_user_inst(request)
