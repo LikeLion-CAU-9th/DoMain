@@ -1,3 +1,5 @@
 from django.contrib import admin
+from store.models import StoreWidget
 
-# Register your models here.
+admin.site.register(StoreWidget)
+
