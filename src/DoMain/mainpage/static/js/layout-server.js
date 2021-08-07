@@ -31,7 +31,10 @@ const renderAppliedLayout = () => {
       finance(contents);
     else if(type === "stickynote")
       stickynote(contents);
+    else if(type === "searching")
+      searching(contents)
     else if(type === "d-day")
       console.log()
   }
+  console.log("All widgets are rendered");
 }
