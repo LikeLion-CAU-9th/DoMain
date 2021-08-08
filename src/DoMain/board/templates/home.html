@@ -10,7 +10,7 @@
 </head>
 <body>
     <video autoplay muted loop id="bgvid">
-        <source src="../media/Cloud.mp4" type="video/mp4">
+        <source src="../media/yellow2.mp4" type="video/mp4">
     </video>
     <div class="navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
@@ -52,10 +52,27 @@
                             <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Custom Layout</span>
                         </div>
-                    <a href="#" class="nav__link">
+
+                    <div href="#" class="nav__link">
                         <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">Log out</span>
-                    </a>
+                        <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                        <input type="file" id="ex_file">
+                    </div>
+
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Projects</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link" id="collapse__link"></ion-icon>
+                        <ul class="collapse__menu" id="collapse__menu">
+                            <a href="#" class="collapse__sublink">Data</a>
+                            <a href="#" class="collapse__sublink">Group</a>
+                            <a href="#" class="collapse__sublink">Members</a>
+                    </body>
+                    </div>
+
+
                 </div>
             </nav>
         </div>
@@ -66,12 +83,7 @@
         <script src="{% static 'js/modals.js' %}"></script>
     </body>
 
-
-
-
 </body>
-
-
 
 
 </html>

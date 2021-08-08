@@ -34,8 +34,9 @@ video#bgvid{
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size:30px;
+    font-size:200%;
     font-weight: bold;
+    font-family: 'ABeeZee', sans-serif;
     padding-top: 1%;
     width:10%;
     margin-left:45%;
@@ -43,25 +44,23 @@ video#bgvid{
 }
 
 .logo a{
-    color:#be62ff;
+    color:#F7E461;
     text-decoration-line: none;
     transition: all 0.4s ease-in-out .1s;
 }
 
 .logo a span{
-    color: black;
+    color:#A2A4A6;
     text-decoration-line: none;
     font-size: 100;
 }
 
 .logo a:hover{
-    color:black;
+    color:#A2A4A6;
 }
 
 .logo a span:hover{
-    background: linear-gradient(to right,#ce8aff, #8a9cff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #F7E461;
 }
 
 .subnavbar_menu {
@@ -85,11 +84,11 @@ video#bgvid{
 }
 
 .subnavbar_menu a:hover{
-    color: black;
+    color: rgba(106, 184, 157,1);
 }
 
 button {
-    background:#ce8aff;
+    background:rgba(106, 184, 157,1);
     color: white;
     border:none;
     cursor:pointer;
@@ -100,7 +99,7 @@ button {
 
 button:hover{
     background:#FFF;
-    color:#ce8aff;
+    color:rgba(106, 184, 157,1);
   }
 
 
@@ -112,9 +111,9 @@ button:hover{
     --nav--width: 92px;
 
     /* Colores */
-    --first-color: #c12fff;
-    --bg-color: rgba(217, 173, 255, 0.5);
-    --sub-color: #b6cefc;
+    --first-color: #ffb32f;
+    --bg-color: rgba(250, 203, 144, 0.5);
+    --sub-color: #fcf1b6;
     --white-color: #fff;
 
     /* Fuente y tipografia */
@@ -157,10 +156,10 @@ a {
 /* R NAV */
 .r-navbar {
     position: fixed;
-    top: 0;
+    top:10%;
     right: 0;
+    height:70%;
     width: var(--nav--width);
-    height: 100vh;
     background-color: var(--bg-color);
     color: var(--white-color);
     padding: 1.5rem 1.5rem 2rem;
@@ -210,6 +209,7 @@ a {
     transition: .3s;
     cursor: pointer;
 }
+
 
 .nav__link:hover {
     background-color: var(--first-color);
@@ -269,6 +269,22 @@ a {
 
 /* Rotate icon */
 .rotate {
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
     transition: .5s;
+}
+
+
+#id_file {
+    font-size: 20px;
+}
+
+input[type="file"] { 
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    padding: 0; 
+    margin: -1px; 
+    overflow: hidden; 
+    clip:rect(0,0,0,0); 
+    border: 0; 
 }
