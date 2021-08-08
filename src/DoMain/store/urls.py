@@ -7,5 +7,5 @@ urlpatterns = [
     path('subpage/', subpage, name="subpage"),
     path('widget/<int:id>', detailpage, name="detailpage"),
     path('mypage/', mypage, name="mypage"),
-    path('comment/write/<int:id>', comment_write, name="comment_write"),
+    path('widget/comment/write/', comment_write, name="comment_write"),
 ]

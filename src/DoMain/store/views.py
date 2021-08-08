@@ -1,8 +1,9 @@
-from django.http import request
+from django.http import request, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from store.models import StoreWidget
 from store.models import Comment
 from account.models import User_info
+import json
 
 
 def landing_page(request):
@@ -25,17 +26,22 @@ def detailpage(request, id):
 def mypage(request):
     return render(request, 'myPage.html')
 
-def comment_write(request, id):
+def comment_write(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
-    
+    print("b")
     if request.method == "POST":
+        print("a")
         comment = Comment()
         comment.writer = user
-        comment.widget = get_object_or_404(StoreWidget, seq=id)
-        comment.content = request.POST.get('content')
+        comment.widget = get_object_or_404(StoreWidget, seq=request.POST.get('widget_id'))
+        comment.content = request.POST.get('body')
         comment.save()
-        return redirect('/store/widget/'+str(id))
+        ret = {
+            'body': comment.content
+        }
+        return HttpResponse(json.dumps(ret), content_type="application/json")
+        # return redirect('/store/widget/'+str(id))
 
 # def reply_comment(request, id):
 #     email = request.session['user_email']
