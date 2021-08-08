@@ -26,8 +26,52 @@
             <li><a href="{% url 'join_view' %}">SignUp</a></li>
             {% endif %}
             <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
-
         </ul>
     </div>
+
+
+    <body id="body-pd">
+        <div class="r-navbar" id="navbar">
+            <nav class="nav">
+                <div>
+                    <div class="nav__brand">
+                        <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                        <a href="#" class="nav__logo">DoMain</a>
+                    </div>
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Download Widget</span>
+                        </a>
+                        <a href="#" class="nav__link">
+                            <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Layout List</span>
+                        </a>
+    
+                        <div href="#" class="nav__link">
+                            <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Custom Layout</span>
+                        </div>
+                    <a href="#" class="nav__link">
+                        <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Log out</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    
+        <!-- IONICONS -->
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+        <!-- JS -->
+        <script src="{% static 'js/modals.js' %}"></script>
+    </body>
+
+
+
+
 </body>
+
+
+
+
 </html>
