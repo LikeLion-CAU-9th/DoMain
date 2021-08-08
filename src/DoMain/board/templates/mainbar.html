@@ -26,6 +26,9 @@ ul {
   max-width:600px; 
   margin: 0 auto; 
   position:relative; 
+  float: right;
+  width: 400px;
+  text-align: center;
 }
 .tabmenu ul li{
   display:  inline-block;
@@ -40,21 +43,30 @@ ul {
   height:40px;
   text-decoration:none; 
   color: #000;
+  float: right;
+  text-align: center;
 }
 .tabCon{
   display:none; 
-  text-align:left; 
+  text-align: center; 
   padding: 20px;
   position:absolute; 
   left:0; top:40px; 
   box-sizing: border-box; 
   border : 5px solid #f9f9f9;
+  width: 400px;
 }
 .btnCon:target  {
   background : #ccc;
 }
 .btnCon:target .tabCon{
   display: block;
+  text-align: center;
+}
+.img {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
 }
        
 /* 
