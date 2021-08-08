@@ -1,0 +1,41 @@
+caret-color {
+    #02aab0;
+} #02aab0;
+
+background {
+    linear-gradient(135deg, #02aab0, #00cdac);
+} 
+
+*:focus {
+    outline: none;
+  }
+
+  ul li {
+    cursor: pointer;
+    position: relative;
+    ...
+  }
+  .close {
+    position: absolute;
+    ...
+  }
+
+  ul li.checked {
+    background: #ddd;
+    color: #272341;
+    text-decoration: line-through;
+  }
+  
+  ul li.checked::before {
+    content: "";
+    position: absolute;
+    border-color: #272341;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 13px;
+    left: 80px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+  

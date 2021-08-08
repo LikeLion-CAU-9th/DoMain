@@ -9,5 +9,6 @@ urlpatterns = [
   path('dday/', views.dday_view, name="finance"),
   path('getDday/', views.get_dday, name="get-dday"),
   path('searching/', views.searching_view, name="searching"),
+  path('todo/', views.todo_view,name="todo-list"),
   path('delete-layout/<str:pk>/', views.layout_delete), 
 ]
