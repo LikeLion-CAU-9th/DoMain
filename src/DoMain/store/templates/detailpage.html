@@ -203,12 +203,10 @@
             <!-- Comment List -->
             <div class="comment" id="comment-list" style="float:left">
                 {% for comment in comments %}
-                <div id="comment-format">
                     <span>{{comment.writer.user_name}}</span>
                     <span>{{comment.content}}</span>
                     <span>{{comment.time}}</span>
-                    
-                </div>
+                    <hr>
                 {% endfor %}
             </div>
 
@@ -370,7 +368,6 @@
             </a>
             <!-- 위젯하나 끝 -->
 
-
             <!-- 오른쪽 부분 끝나는 div태그 -->
         </div>
 
@@ -414,16 +411,16 @@
         leftBtn.addEventListener("click", moveLslide);
         rightBtn.addEventListener("click", moveRslide);
         let today = new Date();
+
         function make_comment(widget_id) {
             let body = $("#comment-input").val();
+
             console.log(body);
-            let commentFormat = $("#comment-format");
-            console.log(commentFormat);
             $.ajax({
                 type: "POST",
                 url: "comment/write/",
                 data: {
-                    'widget_id': widget_id,
+                    'widget_id': widget_id,  //1
                     'body': body,
                     'csrfmiddlewaretoken': '{{csrf_token}}'
                 },
@@ -431,8 +428,8 @@
                 success: function (response) {
                     console.log(response.message);
                    
-                    $("#comment-list").append("<span>" + response.user + "</span>")
-                    $("#comment-list").append("<span>" + response.body + "</span>")
+                    $("#comment-list").append("<span>" + response.user + "</span>&nbsp;")
+                    $("#comment-list").append("<span>" + response.body + "</span>&nbsp")
                     $("#comment-list").append("<span>" + response.time + "</span><hr>")
                     
                     $("#comment-input").val(' ');
