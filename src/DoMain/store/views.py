@@ -41,20 +41,20 @@ def comment_write(request):
     
 #     return redirect('subpage')
 def like(request):
-    user = request.user
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
     widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
     
-    
-    if widget.like_users.filter(seq=user.name):
+    if user in widget.like_users.all():
         widget.like_users.remove(user)
         message="♡"
 
     else:
         widget.like_users.add(user)
         message="♥"
-    
+    print(widget.like_count())
     ret={
         'message':message,
-        'num':widget.like_count(),
+        'num':str(widget.like_count()),
     }
     return HttpResponse(json.dumps(ret), content_type="application/json")

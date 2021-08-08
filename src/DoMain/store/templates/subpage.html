@@ -21,8 +21,30 @@
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+<script>
+    function like(widget_id){
+        $.ajax({
+            type:"POST",
+            url:"like",  
+            data:{
+                'widget_id':widget_id,
+                'csrfmiddlewaretoken':'{{csrf_token}}',
+            },
+            dataType:"json",
+            success:function(response){
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like">'+response.message+'</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">'+response.num+'</span>');
+            }, 
+            error:function(request, status, error){
+                alert(error);
+            },
+        });
+    }
+</script>
 
 {% endblock %}
 {% block contents %}
@@ -699,25 +721,4 @@
 
 </script>
 
-<script>
-    function like(widget_id){
-        $.ajax({
-            type:"POST",
-            url:"/widget/like",  /<int:widget_id>/like
-            data:{
-                'widget_id':widget_id,
-                'csrfmiddlewaretoken':'{{csrf_token}}',
-            },
-            dataType:"json",
-            success:function(response){
-                console.log(response.message);
-                $("#like").replaceWith('<p id="like">'+response.message+'</p>')
-                $("#like_counting").replaceWith('<span id="like_counting">'+response.num+'</span>');
-            }, 
-            error:function(request, status, error){
-                alert(error);
-            },
-        });
-    }
-</script>
 {% endblock %}

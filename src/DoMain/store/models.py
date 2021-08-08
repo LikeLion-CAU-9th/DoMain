@@ -52,6 +52,10 @@ class StoreWidget(AbstractBaseWidget):
         return self.name
 
     @property
+    def like_count(self):
+        return self.like_users.count()
+
+    @property
     def host(self):
         return self.user.user_name
 
@@ -91,3 +95,6 @@ class Comment(models.Model):
     content = models.CharField(max_length=300)
     time = models.DateTimeField(default=timezone.now)
     widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE)
+
+
+  
