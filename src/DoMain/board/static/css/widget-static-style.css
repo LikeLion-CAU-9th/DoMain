@@ -183,3 +183,28 @@ html {
   padding-bottom:5px;
   box-shadow: 5px 5px 5px;
 }
+
+/* Timer */
+.widget-timer {
+  display: inline-block;
+  position: absolute;
+  background-color: #111111;
+  box-shadow: 3px 3px 3px rgb(150, 231, 168);
+  padding: 22px;
+  border-radius: 14px;
+  letter-spacing: 4px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 28px;
+}
+
+.widget-timer .remain-time {
+  font-family: clock-font;
+  font-size: 32px;
+  letter-spacing: 6px;
+}
+
+@font-face {
+  font-family: clock-font;
+  src: url('/static/font/clock.ttf');
+}

@@ -1,6 +1,13 @@
 const timer = (contents) => {
+  let elem = getTimerElements();
+  document.querySelector('.main-board').innerHTML += elem;
   const eventName = contents.event;
   document.querySelector('.event').innerHTML = eventName + ": ";
+  document.querySelector('.widget-timer').style.color = contents.bgColor;
+  document.querySelector('.widget-timer').style.left = contents.posX;
+  document.querySelector('.widget-timer').style.top = contents.posY;
+  document.querySelector('.widget-timer').style.fontSize = contents.fontSize;
+  document.querySelector('.widget-timer .remain-time').style.fontSize = (pixelToInt(contents.fontSize)+4) + "px";;
   const time = contents.time;
   let hours = time.split(':')[0];
   let minutes = time.split(':')[1];
@@ -14,8 +21,6 @@ const timer = (contents) => {
 const renderRemainTime = (hours, minutes, seconds) => {
   let now = new Date();
   let targetTime = getTargetDate(hours, minutes, seconds);
-  console.log("now: ", now);
-  console.log("tar: ", targetTime);
   let timeleft = targetTime - now;
   if (timeleft <= 0) {
     document.querySelector('.remain-time').innerHTML = "It's over! 🌟";
@@ -45,12 +50,4 @@ const intToTwoDigit = (num) => {
   if(strNum.length === 1)
     result = "0" + strNum;
   return result
-}
-
-window.onload = () => {
-  let timerObj = {
-    'event': '자정',
-    'time': '23:59:00'
-  }
-  timer(timerObj);
 }
