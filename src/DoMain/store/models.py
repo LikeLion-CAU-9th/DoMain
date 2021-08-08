@@ -90,11 +90,10 @@ class Comment(models.Model):
     content = models.CharField(max_length=300)
     time = models.DateTimeField(default=timezone.now)
     widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE, related_name='comments')
-    # 이걸 만들 필요가 있나???? -> reply_comment({{comment.id}})로 써야하나 해서
-    id = models.AutoField(primary_key=True)
+   
 
 class Reply(models.Model):
     writer = models.ForeignKey(User_info, on_delete=models.CASCADE)
     content = models.CharField(max_length=300)
     time = models.DateTimeField(default=timezone.now)
-    comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)

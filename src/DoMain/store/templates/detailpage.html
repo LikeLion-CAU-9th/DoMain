@@ -203,11 +203,13 @@
             <!-- Comment List -->
             <div class="comment" id="comment-list" style="float:left">
                 {% for comment in comments %}
+                <div class="commentDataList">
                     <span>{{comment.writer.user_name}}</span>
                     <span>{{comment.content}}</span>
                     <span>{{comment.time}}</span>
+                    <button onClick="make_reply({{comment.id}})" type="submit">대댓글</button>
                     <hr>
-
+                </div>
 
 
                 {% endfor %}
@@ -396,7 +398,7 @@
             } else {
                 curIndex = 0;
             }
-            console.log(curIndex);
+            // console.log(curIndex);
 
             Slides[curIndex].classList.add(SHOWING_CLASS);
         }
@@ -418,7 +420,7 @@
         function make_comment(widget_id) {
             let body = $("#comment-input").val();
 
-            console.log(body);
+            // console.log(body);
             $.ajax({
                 type: "POST",
                 url: "comment/write/",
@@ -429,11 +431,12 @@
                 },
                 dataType: "json",
                 success: function (response) {
-                    console.log(response.message);
+                    // console.log(response.message);
                    
-                    $("#comment-list").append("<span>" + response.user + "</span>&nbsp;")
-                    $("#comment-list").append("<span>" + response.body + "</span>&nbsp")
-                    $("#comment-list").append("<span>" + response.time + "</span><hr>")
+                    $(".commentDataList").append("<span>" + response.user + "</span>&nbsp;")
+                    $(".commentDataList").append("<span>" + response.body + "</span>&nbsp")
+                    $(".commentDataList").append("<button onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button>")
+                    $(".commentDataList").append("<span>" + response.time + "</span><hr>")
                     
                     $("#comment-input").val(' ');
                 },
@@ -442,21 +445,37 @@
                 }
             })
         }
-
+        let replyFlag = true;
         function make_reply(comment_id){
-            $.ajax({
-                type:"GET",
-                url:"reply/write/",
-                data: {
-                    'comment_id':comment_id,
-                    'csrfmiddlewaretoken': '{{csrf_token}}'
-                },
-                dataType:"json",
-                success: function(response){
-                    
-                }
-
-            })
+            //console.log()
+            if(replyFlag === true){
+                $.ajax({
+                    type:"GET",
+                    url:"reply/write/",
+                    data: {
+                        'comment_id':comment_id,
+                        'csrfmiddlewaretoken': '{{csrf_token}}'
+                    },
+                    dataType:"json",
+                    success: function(response){
+                        console.log(response)
+                        console.log(response.length)
+                        let commentList = document.querySelector("#comment-list")
+                        for(let i = 0; i<response.length; i++){
+                            console.log(commentList[comment_id]);
+                            commentList[comment_id].append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
+                        }
+                        replyFlag=false;
+                    },
+                    error: function (request, status, error) {
+                        alert(error);
+                    }
+                })
+            }
+            else {
+                $(".replyData").remove();
+                replyFlag=true;
+            }
 
         }
     </script>
