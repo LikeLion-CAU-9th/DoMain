@@ -51,7 +51,6 @@ video#bgvid{
 .logo a span{
     color: black;
     text-decoration-line: none;
-    transition: all 0.4s ease-in-out .1s;
     font-size: 100;
 }
 
@@ -65,7 +64,7 @@ video#bgvid{
     -webkit-text-fill-color: transparent;
 }
 
-ul{
+.subnavbar_menu {
     height: 6%;
     position: absolute;
     list-style: none;
@@ -73,11 +72,11 @@ ul{
     display: flex;
 }
 
-div ul li{
+.subnavbar_menu li{
     float:left;
 }
 
-div ul li a{
+.subnavbar_menu li a{
     padding-left: 2em;
     font-size: 0.9em;
     color:#888787;
@@ -85,7 +84,7 @@ div ul li a{
     transition: all 0.4s ease-in-out .1s;
 }
 
-div ul li a:hover{
+.subnavbar_menu a:hover{
     color: black;
 }
 
@@ -103,3 +102,173 @@ button:hover{
     background:#FFF;
     color:#ce8aff;
   }
+
+
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/* VARIABLES CSS */
+:root {
+    --nav--width: 92px;
+
+    /* Colores */
+    --first-color: #c12fff;
+    --bg-color: rgba(217, 173, 255, 0.5);
+    --sub-color: #b6cefc;
+    --white-color: #fff;
+
+    /* Fuente y tipografia */
+    --body-font: 'Poppins', sans-serif;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+
+    /* z index */
+    --z-fixed: 100;
+}
+
+/* BASE */
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 2rem 0 0 6.75rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* R NAV */
+.r-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: var(--nav--width);
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    padding: 1.5rem 1.5rem 2rem;
+    transition: .5s;
+    z-index: var(--z-fixed);
+    border-radius: 30px 0px 0px 30px ;
+}
+
+/* NAV */
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    opacity: 1;
+}
+
+.nav__brand {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.nav__toggle {
+    font-size: 1.25rem;
+    padding: .75rem;
+    cursor: pointer;
+}
+
+.nav__logo {
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.nav__link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: .75rem;
+    padding: .75rem;
+    color: var(--white-color);
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.nav__link:hover {
+    background-color: var(--first-color);
+}
+
+.nav__icon {
+    font-size: 1.25rem;
+}
+
+.nav_name {
+    font-size: var(--small-font-size);
+}
+
+/* Expander menu */
+.expander {
+    width: calc(var(--nav--width) + 9.25rem);
+}
+
+/* Add padding body*/
+.body-pd {
+    padding: 2rem 0 0 16rem;
+}
+
+/* Active links menu */
+.active {
+    background-color: var(--first-color);
+}
+
+/* COLLAPSE */
+.collapse {
+    grid-template-columns: 20px max-content 1fr;
+}
+
+.collapse__link {
+    justify-self: flex-end;
+    transition: .5;
+}
+
+.collapse__menu {
+    display: none;
+    padding: .75rem 2.25rem;
+}
+
+.collapse__sublink {
+    color: var(--sub-color);
+    font-size: var(--small-font-size);
+}
+
+.collapse__sublink:hover {
+    color: var(--white-color);
+}
+
+/* Show collapse */
+.showCollapse {
+    display: block;
+}
+
+/* Rotate icon */
+.rotate {
+    transform: rotate(180deg);
+    transition: .5s;
+}
