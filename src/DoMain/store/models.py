@@ -90,3 +90,7 @@ class Comment(models.Model):
     content = models.CharField(max_length=300)
     time = models.DateTimeField(default=timezone.now)
     widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE, related_name='comments')
+
+
+# class ReplyComment(models.Model):
+#     parent_comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
