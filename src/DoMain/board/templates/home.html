@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <title>DoMain</title>
+</head>
+<body>
+    <video autoplay muted loop id="bgvid">
+        <source src="../media/Cloud.mp4" type="video/mp4">
+    </video>
+    <div class="navbar">
+        <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+        <ul class='subnavbar_menu'>
+            {% if user.is_authenticated %}
+            <li><a href='#'>asset store</a></li>
+            <li>lock</li>
+            <li><span>{{user.user_name}}</span>님 환영합니다!</li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+
+            {% else %}
+            <li><a href="{% url 'login_view' %}">SignIn</a></li>
+            <li><a href="{% url 'join_view' %}">SignUp</a></li>
+            {% endif %}
+            <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
+
+        </ul>
+    </div>
+</body>
+</html>

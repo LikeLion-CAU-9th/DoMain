@@ -12,3 +12,6 @@ def subpage(request):
 
 def detailpage(request):
     return render(request, 'detailpage.html')
+
+def mypage(request):
+    return render(request, 'myPage.html')

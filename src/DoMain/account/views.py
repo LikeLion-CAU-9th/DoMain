@@ -1,3 +1,4 @@
+from django.db.models import query
 from django.shortcuts import redirect, render
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.http.response import HttpResponse, JsonResponse, StreamingHttpResponse
@@ -37,6 +38,8 @@ def login_view(request):
 
 
 def login_success(request):
+  print("*******************************")
+  get_user_seq(request)
   return render(request, 'success.html')
 
 
@@ -78,13 +81,13 @@ def join_action(request):
   User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd'), user_name=data.get('user_name', False))
   return redirect('login_view')
 
+
 def join_email_overap(request):
   email = request.GET['email']
   queryset = User_info.objects.filter(user_email = email)
   if len(queryset) > 0:
     return HttpResponse('Overap')
   return HttpResponse('Usable')
-
 
 
 def send_validation_mail(request, user, email_address):
@@ -97,3 +100,16 @@ def send_validation_mail(request, user, email_address):
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
 
+
+def is_sess_attached(request):
+  is_sess = False
+  if 'user_email' in request.session:
+    is_sess = True
+  return is_sess
+
+
+def get_user_inst(request):
+  if is_sess_attached(request):
+    email = request.session['user_email']
+    queryset = User_info.objects.filter(user_email = email)
+    return queryset[0]
