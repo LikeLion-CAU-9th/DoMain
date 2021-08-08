@@ -34,13 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'store',
-<<<<<<< HEAD
-	  'widget',
+	'widget',
     'board',
-=======
-    'widget',
-    'mainpage',
->>>>>>> 0c43e79d0ea3ef4afbeb66a16034740db5fd31f0
 ]
 
 MIDDLEWARE = [
@@ -138,3 +133,6 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'board', 'media')
