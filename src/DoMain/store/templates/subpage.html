@@ -435,12 +435,14 @@
                             <div class="card-detail card-color-0">
                                 <!-- 좋아요 버튼 -->
                                 <a href="{% url 'like' widget.seq %}" style="position:absolute; z-index:10;">
-                                    {% if user in widget.like_widgets.all %}
+                                    {% if user in widget.like_users.all %}
+                                    
                                     <i class="fas fa-heart" style="color:red;"></i>
                                     {% else %}
+                                    
                                     <i class="far fa-heart"></i>
                                     {% endif %}
-                                    ({{ widget.like_widgets.count }})
+                                    ({{ widget.like_users.count }})
                                 </a>
                                 <div class="border"></div>
                                 <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
