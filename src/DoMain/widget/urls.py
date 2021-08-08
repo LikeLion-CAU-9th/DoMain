@@ -10,5 +10,6 @@ urlpatterns = [
   path('getDday/', views.get_dday, name="get-dday"),
   path('searching/', views.searching_view, name="searching"),
   path('delete-layout/<str:pk>/', views.layout_delete),
-  path('get-applied-layout/', views.get_applied_layout)
+  path('get-applied-layout/', views.get_applied_layout),
+  path('timer/', views.timer_view),
 ]
