@@ -207,6 +207,9 @@
                     <span>{{comment.content}}</span>
                     <span>{{comment.time}}</span>
                     <hr>
+
+
+
                 {% endfor %}
             </div>
 
@@ -438,6 +441,23 @@
                     alert(error);
                 }
             })
+        }
+
+        function make_reply(comment_id){
+            $.ajax({
+                type:"GET",
+                url:"reply/write/",
+                data: {
+                    'comment_id':comment_id,
+                    'csrfmiddlewaretoken': '{{csrf_token}}'
+                },
+                dataType:"json",
+                success: function(response){
+                    
+                }
+
+            })
+
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
