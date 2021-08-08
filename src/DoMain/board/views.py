@@ -20,7 +20,7 @@ def createData(request, table):
         pw = params['pw']
         name = params['name']
         User_info.objects.create(user_email=email, user_pwd=pw, user_name=name)
-        return redirect('custom')
+        return redirect('login_view')
     if table == "layout":
         layout = "[]"
         if params['dummy']:
@@ -30,5 +30,5 @@ def createData(request, table):
         user = get_user_inst(request)
         Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
-        return redirect('custom')
+        return redirect('login_view')
             
