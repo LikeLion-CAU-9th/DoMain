@@ -35,6 +35,8 @@ const renderAppliedLayout = () => {
       searching(contents);
     else if(type === "dday")
       dday(contents);
+    else if(type === "timer")
+      timer(contents);
   }
   console.log("All widgets are rendered");
 }
