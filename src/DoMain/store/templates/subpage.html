@@ -21,6 +21,28 @@
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+    functionl like(widget_id){
+        $.ajax({
+            type:"POST",
+            url:"like/<int:widget_id>",
+            data:{
+                'widget_id':widget_id,
+                'csrfmiddlewaretoken':'{{csrf_token}}',
+            },
+            dataType:"json",
+            success:function(response){
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like_button">'+response.message+'</p>')
+                $("#like_counting").replacewith('<span id="like_counting">'+response.num+'</span>');
+            }, 
+            error:function(request, status, error){
+                alert(error);
+            },
+        });
+    }
+</script>
 
 {% endblock %}
 {% block contents %}
@@ -431,10 +453,10 @@
                     <div class="card-column column-0">
 
                         {% for widget in widgets %}
-                        <a href="{% url 'detailpage' widget.seq %}">
+                        {% comment %} <a href="{% url 'detailpage' widget.seq %}"> {% endcomment %}
                             <div class="card-detail card-color-0">
                                 <!-- 좋아요 버튼 -->
-                                <a href="{% url 'like' widget.seq %}" style="position:absolute; z-index:10;">
+                                {% comment %} <a href="{% url 'like' widget.seq %}" style="position:absolute; z-index:10;">
                                     {% if user in widget.like_users.all %}
                                     
                                     <i class="fas fa-heart" style="color:red;"></i>
@@ -443,7 +465,15 @@
                                     <i class="far fa-heart"></i>
                                     {% endif %}
                                     ({{ widget.like_users.count }})
-                                </a>
+                                </a> {% endcomment %}
+                                <div style="z-index: 10;position: absolute;">
+                                <button onClick="like({{widget.seq}})">
+                                    <p id="like_button">{{message}}</p>
+                                </button>
+                                (<span>{{widget.like_count}}</span>)
+                                {% comment %}  {% endcomment %}
+                                </div>
+
                                 <div class="border"></div>
                                 <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
                                 <h2>{{widget.name}}</h2>

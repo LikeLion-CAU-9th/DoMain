@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from store.models import StoreWidget, Comment
 from account.models import User_info
 from django.http import HttpResponse
-
+import json
 
 def landing_page(request):
     return render(request, 'landingPage.html')
@@ -29,14 +29,33 @@ def comment_write(request):
         comment.writer = request.user
         comment.content = request.POST.get('content')
 # 좋아요
-def like(request, widget_id):
+# def like(request, widget_id):
+#     email= request.session['user_email']
+#     user = User_info.objects.get(user_email=email)
+#     print(email)
+#     widget = get_object_or_404(StoreWidget, seq=widget_id)
+#     if user in widget.like_users.all():
+#         widget.like_users.remove(user)
+#     else:
+#         widget.like_users.add(user)
+    
+#     return redirect('subpage')
+def like(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
-    print(email)
-    widget = get_object_or_404(StoreWidget, seq=widget_id)
-    if user in widget.like_users.all():
+    widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
+    
+    
+    if widget.like_users.filter(id=user.name):
         widget.like_users.remove(user)
+        message="♡"
+
     else:
         widget.like_users.add(user)
+        message="♥"
     
-    return redirect('subpage')
+    ret={
+        'message':message,
+        'num':widget.like_count(),
+    }
+    return HttpResponse(json.dumps(ret), content_type="application/json")
