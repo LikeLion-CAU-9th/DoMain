@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detailwidget.css' %}">
     <link rel="stylesheet" href="{% static 'css/commons/card.css' %}">
     <title>Detailpage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -152,19 +152,19 @@
             <br><br>
 
             <!-- 별점 현황 -->
-            <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div>
+            <!-- <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div> -->
             <!-- 별점 점수와 별점개수-->
-            <div class="star-point">
+            <!-- <div class="star-point">
                 <div class="text" , style="position:absolute;font-size:100%;">5<br>4<br>3<br>2<br>1</div>
                 <div class="text" , style="padding-left:40%; z-index:2; color:#A2A4A6;font-size:100%; position: relative;
                 padding-left: 1000%;">
                     (132)<br>(24)<br>(12)<br>(2)<br>(1)
                 </div>
-            </div>
+            </div> -->
 
             <!-- 별점 막대그래프:일단 임의로 width값을 주긴했는데,, 
     이거 별점 받은 개수대로 하려면은 개수에 따른 %를 계산을 해봐야할 것 같아용-->
-            <div class="stargraph">
+            <!-- <div class="stargraph">
                 <div class="graphstick" style="width:1000%;"></div>
                 <br>
                 <div class="graphstick" style="width:500%;"></div>
@@ -174,41 +174,38 @@
                 <div class="graphstick" style="width:150%;"></div>
                 <br>
                 <div class="graphstick" style="width:100%;"></div>
-            </div>
+            </div> -->
 
-            <br><br><br><br><br><br><br><br>
+            <!-- <br><br><br><br><br><br><br><br> -->
+            
+            <h4>댓글</h4>
+            
             <!-- 리뷰댓글다는 부분 -->
+            <div class="review-box">
             <!-- 프로필이미지 -->
-            <div class="box" style="background: #BDBDBD;">
-                <img class="profile" src="{% static 'image/elsa.jpg' %}">
-            </div>
-            <!-- 빈 별 -->
-            <div class="starspace">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-            </div>
-            <br>
-            <!-- 리뷰 작성 input 칸 -->
-            
+                <div class="box" style="background: #BDBDBD;">
+                    <img class="profile" src="{% static 'image/elsa.jpg' %}">
+                </div>
+                
 
-            <!-- Comment Form -->
 
-            <input id="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
-            <button onClick="make_comment({{widget.seq}}  )" type="submit">작성하기</button>
-            
+                <!-- Comment Form -->
+
+                <input id="comment-input" class="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
+                <div class="comment-button">
+                    <button onClick="make_comment({{widget.seq}}  )" type="submit">작성하기</button>
+                </div>
+            </div>
 
             <!-- Comment List -->
-            <div class="comment" id="comment-list" style="float:left">
+            <div class="comment" id="comment-list" style="float:left; width:70%">
                 {% for comment in comments %}
-                <div class="commentDataList{{ forloop.counter }}">
+                <div class="commentDataList{{ forloop.counter }} commentList">
                 
-                    <span>{{comment.writer.user_name}}</span>
-                    <span>{{comment.content}}</span>
-                    <span>{{comment.time}}</span>
-                    <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit">대댓글</button>
+                    <span class="comment-writer">{{comment.writer.user_name}}</span>
+                    <span class="comment-content">{{comment.content}}</span>
+                    <span class="comment-time">{{comment.time}}</span>
+                    <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit" class="reply-button">대댓글</button>
                     <hr>
                 </div>
 
@@ -230,14 +227,7 @@
                 <div class="box" style="background: #BDBDBD;">
                     <img class="profile" src="{% static 'image/elsa.jpg' %}">
                 </div>
-                <!-- 채워진 별 -->
-                <div class="starspace" style="width: 40%;padding-left: 5%;">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                </div>
+                
                 <br>
 
                 <div class="text" style="padding-left: 0%;
@@ -260,14 +250,14 @@
                     <img class="profile" src="{% static 'image/olaf.jpg' %}">
                 </div>
                 <!-- 채워진 별 -->
-                <div class="starspace" style="width: 40%;padding-left: 5%;">
+                <!-- <div class="starspace" style="width: 40%;padding-left: 5%;">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                 </div>
-                <br>
+                <br> -->
 
                 <div class="text" style="padding-left: 0%;
                 width: 70%;">
