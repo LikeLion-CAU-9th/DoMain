@@ -197,20 +197,20 @@
             <!-- Comment Form -->
 
             <input id="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
-            <button onClick="make_comment({{widget.seq}})" type="submit">작성하기</button>
-
+            <button onClick="make_comment({{widget.seq}}  )" type="submit">작성하기</button>
+            
 
             <!-- Comment List -->
             <div class="comment" id="comment-list" style="float:left">
                 {% for comment in comments %}
-                <div class="commentDataList">
+                <div class="commentDataList{{ forloop.counter }}">
+                
                     <span>{{comment.writer.user_name}}</span>
                     <span>{{comment.content}}</span>
                     <span>{{comment.time}}</span>
-                    <button onClick="make_reply({{comment.id}})" type="submit">대댓글</button>
+                    <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit">대댓글</button>
                     <hr>
                 </div>
-
 
                 {% endfor %}
             </div>
@@ -398,7 +398,7 @@
             } else {
                 curIndex = 0;
             }
-            // console.log(curIndex);
+            console.log(curIndex);
 
             Slides[curIndex].classList.add(SHOWING_CLASS);
         }
@@ -416,11 +416,13 @@
         leftBtn.addEventListener("click", moveLslide);
         rightBtn.addEventListener("click", moveRslide);
         let today = new Date();
-
+        let commentIndex = "{{ comments|length }}";
+        
         function make_comment(widget_id) {
+            commentIndex = commentIndex-1;
             let body = $("#comment-input").val();
+            
 
-            // console.log(body);
             $.ajax({
                 type: "POST",
                 url: "comment/write/",
@@ -431,14 +433,22 @@
                 },
                 dataType: "json",
                 success: function (response) {
-                    // console.log(response.message);
+                    let div = document.createElement("div");
+                    let commentList = document.querySelector("#comment-list")
+                    div.className = `commentDataList${response.comments_length}`;
+                    commentList.appendChild(div)
+                    console.log(response.message);
                    
-                    $(".commentDataList").append("<span>" + response.user + "</span>&nbsp;")
-                    $(".commentDataList").append("<span>" + response.body + "</span>&nbsp")
-                    $(".commentDataList").append("<button onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button>")
-                    $(".commentDataList").append("<span>" + response.time + "</span><hr>")
+                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.user + "</span>&nbsp;")
+
+                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.body + "</span>&nbsp")
+
+                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.time + "</span>")
+                    
+                    $(`.commentDataList${response.comments_length}`).append("<button onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
                     
                     $("#comment-input").val(' ');
+                    index = index+1;
                 },
                 error: function (request, status, error) {
                     alert(error);
@@ -446,8 +456,8 @@
             })
         }
         let replyFlag = true;
-        function make_reply(comment_id){
-            //console.log()
+        function make_reply(comment_id, index){
+            console.log()
             if(replyFlag === true){
                 $.ajax({
                     type:"GET",
@@ -460,10 +470,8 @@
                     success: function(response){
                         console.log(response)
                         console.log(response.length)
-                        let commentList = document.querySelector("#comment-list")
                         for(let i = 0; i<response.length; i++){
-                            console.log(commentList[comment_id]);
-                            commentList[comment_id].append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
+                            $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
                         }
                         replyFlag=false;
                     },

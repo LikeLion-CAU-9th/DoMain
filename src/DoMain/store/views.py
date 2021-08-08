@@ -39,6 +39,10 @@ def comment_write(request):
         comment.content = request.POST.get('body')
         comment.save()
 
+        store_widget = StoreWidget.objects.get(seq=request.POST.get('widget_id'))
+
+        comments = Comment.objects.filter(widget=store_widget)
+        comments_length=len(comments)
         dt_now = datetime.now()
         ampm = dt_now.strftime('%p')
         ampm_kr = '오전' if ampm == 'AM' else '오후'
@@ -49,7 +53,8 @@ def comment_write(request):
             .encode('unicode-escape').decode())
             .encode().decode('unicode-escape'),
             'user': comment.writer.user_name,
-            'id': comment.id
+            'id': comment.id,
+            "comments_length":comments_length
         }
         return HttpResponse(json.dumps(ret), content_type="application/json")
         
