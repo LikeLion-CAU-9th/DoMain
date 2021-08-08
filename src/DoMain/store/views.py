@@ -38,7 +38,9 @@ def comment_write(request):
         comment.content = request.POST.get('body')
         comment.save()
         ret = {
-            'body': comment.content
+            'body': comment.content,
+            'time': comment.time.strftime('%Y-%m-%d'),
+            'user': comment.writer.user_name
         }
         return HttpResponse(json.dumps(ret), content_type="application/json")
         # return redirect('/store/widget/'+str(id))

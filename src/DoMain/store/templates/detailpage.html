@@ -36,7 +36,7 @@
 
         <!-- 왼쪽 부분 -->
         <div class="leftspace">
-             <div>                
+            <div>
                 <div class="carouselcontainer">
                     <div class="carousel">
                         <i class="fa fa-chevron-left movebtn" id="left"></i>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="slide_item">
                             <h1><img src="{% static 'image/widget2.png' %}"></h1>
-                        </div>    
+                        </div>
                         <i class="fa fa-chevron-right movebtn" id="right"></i>
                         <!-- <div class="carousel_page">
                             <i class="fa fa-circle page cur-page"></i>
@@ -66,10 +66,10 @@
                     </div>
                 </div>
 
-            </div> 
-            
+            </div>
 
-            
+
+
 
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <!-- title과 price부분 -->
@@ -195,27 +195,22 @@
             <input type="text" name="review" size="50" placeholder="별점 선택 후, 리뷰를 남겨주세요.">
 
             <!-- Comment Form -->
-            
-                <input id="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
-                <button onClick="make_comment({{widget.seq}})" type="submit">작성하기</button>
-                
+
+            <input id="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
+            <button onClick="make_comment({{widget.seq}})" type="submit">작성하기</button>
+
 
             <!-- Comment List -->
-            <ul id="comment-list">
+            <div class="comment" id="comment-list" style="float:left">
                 {% for comment in comments %}
-                <div class="comment">
-                    <div class="writer" style="color:blue;">
-                        {{ comment.writer.user_name }}
-                    </div>
-                    <div class="date" style="display:inline">
-                        {{ comment.time }}
-                    </div>
-                    <p>{{ comment.content }}</p>
-                    <hr>
-
+                <div id="comment-format">
+                    <span>{{comment.writer.user_name}}</span>
+                    <span>{{comment.content}}</span>
+                    <span>{{comment.time}}</span>
+                    
                 </div>
                 {% endfor %}
-            </ul>
+            </div>
 
 
             <hr class="line" style="width:91%;margin-bottom: 5px;">
@@ -387,9 +382,9 @@
 
     <script>
         const SHOWING_CLASS = "showing";
-       
+
         const Slides = document.querySelectorAll(".slide_item");
-       
+
         const leftBtn = document.querySelector("#left");
         const rightBtn = document.querySelector("#right");
         let curIndex = 0;
@@ -402,7 +397,7 @@
                 curIndex = 0;
             }
             console.log(curIndex);
-            
+
             Slides[curIndex].classList.add(SHOWING_CLASS);
         }
 
@@ -416,13 +411,16 @@
             Slides[curIndex].classList.add(SHOWING_CLASS);
         }
 
-        leftBtn.addEventListener("click",moveLslide);
-        rightBtn.addEventListener("click",moveRslide);
-        
-        function make_comment(widget_id){
+        leftBtn.addEventListener("click", moveLslide);
+        rightBtn.addEventListener("click", moveRslide);
+        let today = new Date();
+        function make_comment(widget_id) {
             let body = $("#comment-input").val();
+            console.log(body);
+            let commentFormat = $("#comment-format");
+            console.log(commentFormat);
             $.ajax({
-                type:"POST",
+                type: "POST",
                 url: "comment/write/",
                 data: {
                     'widget_id': widget_id,
@@ -430,20 +428,23 @@
                     'csrfmiddlewaretoken': '{{csrf_token}}'
                 },
                 dataType: "json",
-                success: function(response) {
+                success: function (response) {
                     console.log(response.message);
-                    $("#comment-list").append("<span>"+response.body + "</span><hr>")
+                   
+                    $("#comment-list").append("<span>" + response.user + "</span>")
+                    $("#comment-list").append("<span>" + response.body + "</span>")
+                    $("#comment-list").append("<span>" + response.time + "</span><hr>")
+                    
                     $("#comment-input").val(' ');
                 },
-                error: function(request, status, error){
+                error: function (request, status, error) {
                     alert(error);
                 }
             })
         }
-        
-
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </body>
 
 </html>
