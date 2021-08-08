@@ -455,28 +455,20 @@
                     <div class="card-column column-0">
 
                         {% for widget in widgets %}
-                        {% comment %} <a href="{% url 'detailpage' widget.seq %}"> {% endcomment %}
+                        <div style="padding-left:80%;">
                         <button onClick="like({{widget.seq}})">
-                        <p id="like">{{message}}</p>
+                        {%if user in widget.like_users.all%}
+                        <span><p id="like">{{"♥"}}</p></span>
+                        {%else%}
+                        <span><p id="like">{{"♡"}}</p></span>
+                        {%endif%}
                         </button>
 
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span id="like_counting">({{widget.like_count}})</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span id="like_counting">{{widget.like_users.count}}</span>
+                        </div>
 
                             <div class="card-detail card-color-0">
-                                <!-- 좋아요 버튼 -->
-                                {% comment %} <a href="{% url 'like' widget.seq %}" style="position:absolute; z-index:10;">
-                                    {% if user in widget.like_users.all %}
-                                    
-                                    <i class="fas fa-heart" style="color:red;"></i>
-                                    {% else %}
-                                    
-                                    <i class="far fa-heart"></i>
-                                    {% endif %}
-                                    ({{ widget.like_users.count }})
-                                </a> {% endcomment %}
-                                                               
-
                                 <div class="border"></div>
                                 <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
                                 <h2>{{widget.name}}</h2>

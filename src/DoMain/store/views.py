@@ -52,9 +52,9 @@ def like(request):
     else:
         widget.like_users.add(user)
         message="♥"
-    print(widget.like_count())
+   
     ret={
         'message':message,
-        'num':str(widget.like_count()),
+        'num':int(widget.like_users.count()),
     }
     return HttpResponse(json.dumps(ret), content_type="application/json")
