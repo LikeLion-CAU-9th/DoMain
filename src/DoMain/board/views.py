@@ -7,3 +7,5 @@ def custom(request):
 def mainbar(request):
     return render(request, 'mainbar.html')
 
+def home(request):
+    return render(request, 'home.html')

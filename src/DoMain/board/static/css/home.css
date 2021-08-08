@@ -1,0 +1,105 @@
+html,
+body {
+    width:100%;
+    height:100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+video#bgvid{
+    position:fixed;
+    right:0;
+    bottom:0;
+    min-width:100%;
+    min-height:100%;
+    width:auto;
+    height:auto;
+    z-index: -1;
+    background-size:cover;
+}
+
+.navbar{
+    position: relative;
+    width:100%;
+    height:6%;
+    margin:0;
+    padding:0;
+    display: flex;
+}
+
+.logo {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size:30px;
+    font-weight: bold;
+    padding-top: 1%;
+    width:10%;
+    margin-left:45%;
+    margin-right:0;
+}
+
+.logo a{
+    color:#be62ff;
+    text-decoration-line: none;
+    transition: all 0.4s ease-in-out .1s;
+}
+
+.logo a span{
+    color: black;
+    text-decoration-line: none;
+    transition: all 0.4s ease-in-out .1s;
+    font-size: 100;
+}
+
+.logo a:hover{
+    color:black;
+}
+
+.logo a span:hover{
+    background: linear-gradient(to right,#ce8aff, #8a9cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ul{
+    height: 6%;
+    position: absolute;
+    list-style: none;
+    margin-left: 80%;
+    display: flex;
+}
+
+div ul li{
+    float:left;
+}
+
+div ul li a{
+    padding-left: 2em;
+    font-size: 0.9em;
+    color:#888787;
+    text-decoration-line: none;
+    transition: all 0.4s ease-in-out .1s;
+}
+
+div ul li a:hover{
+    color: black;
+}
+
+button {
+    background:#ce8aff;
+    color: white;
+    border:none;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 25px;
+}
+
+button:hover{
+    background:#FFF;
+    color:#ce8aff;
+  }
