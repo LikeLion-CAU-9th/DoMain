@@ -8,4 +8,5 @@ urlpatterns = [
     path('widget/<int:id>', detailpage, name="detailpage"),
     path('mypage/', mypage, name="mypage"),
     path('widget/comment/write/', comment_write, name="comment_write"),
+    path('widget/reply/write/', reply_comment, name="reply_comment"),
 ]

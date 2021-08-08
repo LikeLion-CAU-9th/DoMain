@@ -1,7 +1,7 @@
 from django.http import request, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from store.models import StoreWidget
-from store.models import Comment
+from store.models import Comment, Reply
 from account.models import User_info
 import json
 from django.utils import timezone
@@ -22,8 +22,8 @@ def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
     # comment = get_object_or_404(Comment, id=id)
     comments = Comment.objects.filter(widget=widget)
-    # replys = ReplyComment.objects.filter(comment=comment)
-    return render(request, 'detailpage.html', {"widget":widget, "comments":comments})
+    replys = Reply.objects.all()
+    return render(request, 'detailpage.html', {"widget":widget, "comments":comments, "replys":replys})
 
 def mypage(request):
     return render(request, 'myPage.html')
@@ -31,7 +31,7 @@ def mypage(request):
 def comment_write(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
-    
+
     if request.method == "POST":
         comment = Comment()
         comment.writer = user
@@ -39,13 +39,16 @@ def comment_write(request):
         comment.content = request.POST.get('body')
         comment.save()
 
-        kst = datetime.now(timezone('Asia/Seoul'))
+        dt_now = datetime.now()
 
+        ampm = dt_now.strftime('%p')
+        ampm_kr = '오전' if ampm == 'AM' else '오후'
+    
         ret = {
             'body': comment.content,
-            'time': kst.strftime(
-        '%Y년 %m월 %d일 %H:%M %p'.encode('unicode-escape').decode()
-    ).encode().decode('unicode-escape'),
+            'time': dt_now.strftime(f"%Y년 %#m월 %#d일 %I:%M {ampm_kr}"
+            .encode('unicode-escape').decode())
+            .encode().decode('unicode-escape'),
             'user': comment.writer.user_name
         }
         return HttpResponse(json.dumps(ret), content_type="application/json")
