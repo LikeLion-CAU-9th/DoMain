@@ -8,5 +8,6 @@ urlpatterns = [
     path('widget/<int:id>', detailpage, name="detailpage"),
     path('mypage/', mypage, name="mypage"),
        # 좋아요
-    path('like/<int:widget_id>/', like, name="like"),
+    # path('like/<int:widget_id>/', like, name="like"),
+    path('widget/like', like, name="like"),
 ]

@@ -149,3 +149,14 @@ a{
     z-index:3;
     position:relative;
 }
+button{
+    border-color:none;
+    color:#D94738;
+    z-index: 10;position: absolute;
+    /* border:none;
+    background-color: none;
+    font-size:50%; */
+}
+span{
+    z-index: 10;position: absolute;
+}

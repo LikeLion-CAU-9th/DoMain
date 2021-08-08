@@ -41,12 +41,11 @@ def comment_write(request):
     
 #     return redirect('subpage')
 def like(request):
-    email= request.session['user_email']
-    user = User_info.objects.get(user_email=email)
+    user = request.user
     widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
     
     
-    if widget.like_users.filter(id=user.name):
+    if widget.like_users.filter(seq=user.name):
         widget.like_users.remove(user)
         message="♡"
 

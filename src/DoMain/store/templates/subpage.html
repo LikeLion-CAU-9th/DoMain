@@ -22,27 +22,7 @@
 
 <script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script>
-    functionl like(widget_id){
-        $.ajax({
-            type:"POST",
-            url:"like/<int:widget_id>",
-            data:{
-                'widget_id':widget_id,
-                'csrfmiddlewaretoken':'{{csrf_token}}',
-            },
-            dataType:"json",
-            success:function(response){
-                console.log(response.message);
-                $("#like").replaceWith('<p id="like_button">'+response.message+'</p>')
-                $("#like_counting").replacewith('<span id="like_counting">'+response.num+'</span>');
-            }, 
-            error:function(request, status, error){
-                alert(error);
-            },
-        });
-    }
-</script>
+
 
 {% endblock %}
 {% block contents %}
@@ -454,6 +434,13 @@
 
                         {% for widget in widgets %}
                         {% comment %} <a href="{% url 'detailpage' widget.seq %}"> {% endcomment %}
+                        <button onClick="like({{widget.seq}})">
+                        <p id="like">{{message}}</p>
+                        </button>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span id="like_counting">({{widget.like_count}})</span>
+
                             <div class="card-detail card-color-0">
                                 <!-- 좋아요 버튼 -->
                                 {% comment %} <a href="{% url 'like' widget.seq %}" style="position:absolute; z-index:10;">
@@ -466,13 +453,7 @@
                                     {% endif %}
                                     ({{ widget.like_users.count }})
                                 </a> {% endcomment %}
-                                <div style="z-index: 10;position: absolute;">
-                                <button onClick="like({{widget.seq}})">
-                                    <p id="like_button">{{message}}</p>
-                                </button>
-                                (<span>{{widget.like_count}}</span>)
-                                {% comment %}  {% endcomment %}
-                                </div>
+                                                               
 
                                 <div class="border"></div>
                                 <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
@@ -500,6 +481,7 @@
                         </a>
 
                         {% endfor %}
+                        
                         <div class="card-detail card-color-0">
                             <div class="border"></div>
                             <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
@@ -717,4 +699,25 @@
 
 </script>
 
+<script>
+    function like(widget_id){
+        $.ajax({
+            type:"POST",
+            url:"/widget/like",  /<int:widget_id>/like
+            data:{
+                'widget_id':widget_id,
+                'csrfmiddlewaretoken':'{{csrf_token}}',
+            },
+            dataType:"json",
+            success:function(response){
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like">'+response.message+'</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">'+response.num+'</span>');
+            }, 
+            error:function(request, status, error){
+                alert(error);
+            },
+        });
+    }
+</script>
 {% endblock %}
