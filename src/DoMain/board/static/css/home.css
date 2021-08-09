@@ -34,7 +34,7 @@ video#bgvid{
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size:200%;
+    font-size: 27px;
     font-weight: bold;
     font-family: 'ABeeZee', sans-serif;
     padding-top: 1%;
@@ -52,7 +52,7 @@ video#bgvid{
 .logo a span{
     color:black;
     text-decoration-line: none;
-    font-size: 100;
+    font-size: 27px;
 }
 
 .logo a:hover{
@@ -133,9 +133,9 @@ button:hover{
 }
 
 /* BASE */
-*, ::before, ::after {
+/* *, ::before, ::after {
     box-sizing: border-box;
-}
+} */
 
 #body-pd {
     position: relative;
@@ -225,7 +225,7 @@ a {
 }
 
 .nav__icon {
-    font-size: 1.25rem;
+    font-size: 3rem;
 }
 
 .nav_name {

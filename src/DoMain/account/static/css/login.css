@@ -5,7 +5,7 @@ body{
   overflow:hidden; 
 }
 ::placeholder{
-  font-family: 'ABeeZee', sans-serif;
+  
 }
 input{
   width: 56%;
@@ -48,6 +48,23 @@ input{
   color:white;
   z-index: 5;
 }
+
+#joinBtn{
+  cursor: pointer;
+  width: 125px;
+  height: 40px;
+  border:solid 1.5px;
+  border-color: white;
+  border-radius: 40px;
+
+  background-color: rgba(106, 184, 157,1);
+
+  position: relative;
+  color:white;
+  z-index: 5;
+}
+
+
 /* front-space */
 .front-space{
   z-index:5;
@@ -95,7 +112,7 @@ input{
 
 }
 .text{
-  font-family: 'ABeeZee', sans-serif;
+  
   color:white;
   font-size:100%;
   text-align: center;
@@ -103,7 +120,7 @@ input{
 }
 .bold-title{
   color:#45A685;
-  font-family: 'ABeeZee', sans-serif;
+  
   font-size:200%;
   text-align:center;
   font-weight: bold;

@@ -1,13 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mainbar.css' %}" />
+    <!-- Widget related style sheet -->
+    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}"></link>
+    <!-- Widget related script files -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{% static 'finance/finance-element.js' %}"></script>
+    <script src="{% static 'finance/finance.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote-element.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote.js' %}"></script>
+    <script src="{% static 'searching/searching-element.js' %}"></script>
+    <script src="{% static 'searching/searching.js' %}"></script>
+    <script src="{% static 'dday/dday-element.js' %}"></script>
+    <script src="{% static 'dday/dday.js' %}"></script>
+    <script src="{% static 'timer/timer-element.js' %}"></script>
+    <script src="{% static 'timer/timer.js' %}"></script>
+
+    <!-- Server Request script files -->
+    <script src="{% static 'js/layout-server.js' %}"></script>
+    <script src="{% static 'js/update-request.js' %}"></script>
+
     <title>DoMain</title>
+
 </head>
+
 <body>
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
@@ -84,6 +107,13 @@
         <!-- JS -->
         <script src="{% static 'js/modals.js' %}"></script>
 
+<!-- <div class="asset_box">
+    <div class="asset_box_title"> <p>widget</p></div>
+    <div class="asset-content">
+        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
+-->
 </body>
 </html>

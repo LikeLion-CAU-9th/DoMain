@@ -1,5 +1,6 @@
 a{
     z-index: 1;
+    text-decoration:none;
 }
 #container{
     max-width: 97%;
@@ -44,15 +45,14 @@ a{
     z-index:1;
     width: 105%;
     float:left;
-    border-radius:20px;
     margin-bottom: 7%;
+    overflow:hidden;
 }
 .cardimg{
     position:relative;
     z-index: 2;
     width:100%;
-    height:65%;
-    border-radius:20px 20px 0px 0px;
+    height:200px;
 }
 .bookmark{
     z-index:3;
@@ -60,7 +60,7 @@ a{
 }
 .bookmarktext{
     z-index:4;
-    font-family: 'ABeeZee', sans-serif;
+    /*  */
     font-size: 18px;
     padding:5%;
     color:white;
@@ -75,16 +75,16 @@ a{
 }
 .title{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
+    /*  */
     text-decoration-line: none;
-    padding:2% 6% 0% 6%;
+    padding:2% 4%;
     margin-bottom:0rem;
     vertical-align:bottom;
-    font-size: 140%;
+    font-size: 130%;
 }
 .price{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
+    /*  */
     text-decoration-line: none;
     padding-left:6%;
     z-index:1;
@@ -93,7 +93,7 @@ a{
 }
 .saleprice{
     color:#D94738;
-    font-family: 'DM Serif Display', serif;
+    /*  */
     text-decoration:line-through;
     z-index:1;
     float:left;
@@ -104,17 +104,27 @@ a{
 .button{
     padding-top:2%;
     padding-right:5%;
+    text-decoration: none;
+}
+.download-space{
+    padding-bottom: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
 }
 #downloadbutton{
     font-size: 5%;
     color:black;
-    width:31%;
-    height:10%;
+    width:40%;
+    height:30px;
     background-color:#F7E461;
     border-color: #F7E461;
-    font-family: 'ABeeZee', sans-serif;
+    /*  */
     z-index:2;
     float:right;
+    text-decoration: none;
+    border: 1px solid #F7E461;
+    border-radius: 5px; 
+
 }
 .starspace{
     float:left;
@@ -128,7 +138,7 @@ a{
 }
 /* .text{
     color:white;
-    font-family: 'DM Serif Display', serif;
+    
     float:left;
     z-index:1;
 } */
@@ -149,3 +159,50 @@ a{
     z-index:3;
     position:relative;
 }
+#like{
+    font-size:200%;
+    float:left;
+    color:#D94738;
+}
+#like_counting{
+    padding-top: 13%;
+    font-size: 100%;
+    padding-left: 5%;
+    float: left;
+}
+.heart-button:focus{
+    outline:0;
+    border:0;
+    outline-color: transparent;
+}
+.heart-button{
+    outline:none;
+    border:none;
+    z-index: 10;
+    position: absolute;
+    background-color:transparent;
+    width:100px;
+}
+.likespace{
+    z-index: 10;
+    position: absolute;
+    float: left;
+    padding-left: 3%;
+    margin-top: -2%;
+}
+body {font-family: 'NotoSansKR', 'sans-serif';}
+
+@font-face {
+    font-family: 'NotoSansKR';
+    src: url('/store/static/fonts/manrope-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: 'NotoSansKR';
+    src: url('/store/static/fonts/notosanskr-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+AC00-U+D7A3;
+} 
