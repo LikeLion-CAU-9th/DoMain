@@ -24,8 +24,8 @@ const AjaxCall = (url, data, method="GET", async=false) => {
     data: data,
     success: function(data) {
       returnValue = data;
-      hideLoader(index);
-      appearContent(index);
+      hideLoader();
+      appearContent();
     }
   })
   return returnValue;
@@ -51,10 +51,10 @@ const renderPrice = (priceStr, index) => {
   }
 }
 
-const hideLoader = (index) => {
-  document.querySelectorAll('.loader')[index].style.display = 'none';
+const hideLoader = () => {
+  document.querySelector('.loader').style.display = 'none';
 }
 
-const appearContent = (index) => {
-  document.querySelectorAll('.financeBoard .content')[index].style.display = 'block';
+const appearContent = () => {
+  document.querySelector('.financeBoard .content').style.display = 'block';
 }

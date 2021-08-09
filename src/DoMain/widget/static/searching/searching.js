@@ -31,9 +31,12 @@ const searching = (contents, index) => {
   document.querySelectorAll('.searching')[index].style.borderRadius = "20px";
   const ENGINE = engine.toUpperCase();
   const QUERY_URL = URL_OBJ[ENGINE];
-  document.querySelectorAll('.searchBtn-container')[index].addEventListener('click', () => {
-    searchAction(QUERY_URL);
-  })
+  setTimeout(()=>{
+    document.querySelectorAll('.searchBtn-container')[index].addEventListener('click', () => {
+      searchAction(QUERY_URL, index);
+    });
+    console.log("searching event added")
+  }, 1000)
 }
 
 const pixelToInt = (pixel) => {
@@ -44,8 +47,9 @@ const pixelToInt = (pixel) => {
   return parseInt(result);
 }
 
-const searchAction = (QUERY_URL) => {
-  topic = document.querySelector('.searching').value;
+const searchAction = (QUERY_URL, index) => {
+  console.log("searchAction")
+  topic = document.querySelectorAll('.searching')[index].value;
   const URL = QUERY_URL + topic;
   let openNewWindow = window.open("about:blank");
   openNewWindow.location.href = URL;
