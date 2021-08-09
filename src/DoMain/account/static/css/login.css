@@ -5,7 +5,7 @@ body{
   overflow:hidden; 
 }
 ::placeholder{
-  font-family: 'ABeeZee', sans-serif;
+  
 }
 input{
   width: 56%;
@@ -112,7 +112,7 @@ input{
 
 }
 .text{
-  font-family: 'ABeeZee', sans-serif;
+  
   color:white;
   font-size:100%;
   text-align: center;
@@ -120,7 +120,7 @@ input{
 }
 .bold-title{
   color:#45A685;
-  font-family: 'ABeeZee', sans-serif;
+  
   font-size:200%;
   text-align:center;
   font-weight: bold;

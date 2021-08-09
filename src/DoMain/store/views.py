@@ -7,6 +7,7 @@ from widget.models import Layout
 import json
 from django.utils import timezone
 from datetime import datetime
+from store.models import WidgetType
 
 
 def landing_page(request):
@@ -19,7 +20,16 @@ def subpage(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
     widgets = StoreWidget.objects.all()
-    return render(request, 'subpage.html', {'widgets':widgets, 'user':user})
+    layouts = StoreWidget.objects.filter(widget_type=WidgetType.LAYOUT_WIDGET)
+    searchbars = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_SEARCH_BAR)
+    ddays = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_D_DAY)
+    notes = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_NOTE)
+    finances = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_FINANCE)
+    bookmarks = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_BOOK_MARK)
+
+    # image=StoreWidget.objects.get('image')
+
+    return render(request, 'subpage.html', {'widgets':widgets, 'user':user, 'layouts':layouts, 'searchbars':searchbars, 'ddays':ddays, 'notes':notes, 'finances':finances, 'bookmarks':bookmarks})
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
