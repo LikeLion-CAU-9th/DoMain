@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detailwidget.css' %}">
     <link rel="stylesheet" href="{% static 'css/commons/card.css' %}">
     <title>Detailpage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,7 +36,7 @@
 
         <!-- 왼쪽 부분 -->
         <div class="leftspace">
-             <div>                
+            <div>
                 <div class="carouselcontainer">
                     <div class="carousel">
                         <i class="fa fa-chevron-left movebtn" id="left"></i>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="slide_item">
                             <h1><img src="{% static 'image/widget2.png' %}"></h1>
-                        </div>    
+                        </div>
                         <i class="fa fa-chevron-right movebtn" id="right"></i>
                         <!-- <div class="carousel_page">
                             <i class="fa fa-circle page cur-page"></i>
@@ -66,10 +66,10 @@
                     </div>
                 </div>
 
-            </div> 
-            
+            </div>
 
-            
+
+
 
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <!-- title과 price부분 -->
@@ -152,19 +152,19 @@
             <br><br>
 
             <!-- 별점 현황 -->
-            <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div>
+            <!-- <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div> -->
             <!-- 별점 점수와 별점개수-->
-            <div class="star-point">
+            <!-- <div class="star-point">
                 <div class="text" , style="position:absolute;font-size:100%;">5<br>4<br>3<br>2<br>1</div>
                 <div class="text" , style="padding-left:40%; z-index:2; color:#A2A4A6;font-size:100%; position: relative;
                 padding-left: 1000%;">
                     (132)<br>(24)<br>(12)<br>(2)<br>(1)
                 </div>
-            </div>
+            </div> -->
 
             <!-- 별점 막대그래프:일단 임의로 width값을 주긴했는데,, 
     이거 별점 받은 개수대로 하려면은 개수에 따른 %를 계산을 해봐야할 것 같아용-->
-            <div class="stargraph">
+            <!-- <div class="stargraph">
                 <div class="graphstick" style="width:1000%;"></div>
                 <br>
                 <div class="graphstick" style="width:500%;"></div>
@@ -174,28 +174,43 @@
                 <div class="graphstick" style="width:150%;"></div>
                 <br>
                 <div class="graphstick" style="width:100%;"></div>
-            </div>
+            </div> -->
 
-            <br><br><br><br><br><br><br><br>
-            <!-- 리뷰댓글다는 부분 -->
-            <!-- 프로필이미지 -->
-            <div class="box" style="background: #BDBDBD;">
-                <img class="profile" src="{% static 'image/elsa.jpg' %}">
-            </div>
-            <!-- 빈 별 -->
-            <div class="starspace">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                <img src="{% static 'image/emptystar.svg' %}" class="star">
-            </div>
-            <br>
-            <!-- 리뷰 작성 input 칸 -->
-            <input type="text" name="review" size="50" placeholder="별점 선택 후, 리뷰를 남겨주세요.">
-
+            <!-- <br><br><br><br><br><br><br><br> -->
             
+            <h4>댓글</h4>
+            
+            <!-- 리뷰댓글다는 부분 -->
+            <div class="review-box">
+            <!-- 프로필이미지 -->
+                <div class="box" style="background: #BDBDBD;">
+                    <img class="profile" src="{% static 'image/elsa.jpg' %}">
+                </div>
+                
 
+
+                <!-- Comment Form -->
+
+                <input id="comment-input" class="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
+                <div class="comment-button">
+                    <button onClick="make_comment({{widget.seq}}  )" type="submit">작성하기</button>
+                </div>
+            </div>
+
+            <!-- Comment List -->
+            <div class="comment" id="comment-list" style="float:left; width:70%">
+                {% for comment in comments %}
+                <div class="commentDataList{{ forloop.counter }} commentList">
+                
+                    <span class="comment-writer">{{comment.writer.user_name}}</span>
+                    <span class="comment-content">{{comment.content}}</span>
+                    <span class="comment-time">{{comment.time}}</span>
+                    <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit" class="reply-button">대댓글</button>
+                    <hr>
+                </div>
+
+                {% endfor %}
+            </div>
 
 
             <hr class="line" style="width:91%;margin-bottom: 5px;">
@@ -212,14 +227,7 @@
                 <div class="box" style="background: #BDBDBD;">
                     <img class="profile" src="{% static 'image/elsa.jpg' %}">
                 </div>
-                <!-- 채워진 별 -->
-                <div class="starspace" style="width: 40%;padding-left: 5%;">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                </div>
+                
                 <br>
 
                 <div class="text" style="padding-left: 0%;
@@ -242,14 +250,14 @@
                     <img class="profile" src="{% static 'image/olaf.jpg' %}">
                 </div>
                 <!-- 채워진 별 -->
-                <div class="starspace" style="width: 40%;padding-left: 5%;">
+                <!-- <div class="starspace" style="width: 40%;padding-left: 5%;">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                     <img src="{% static 'image/greenstar.svg' %}" class="star">
                 </div>
-                <br>
+                <br> -->
 
                 <div class="text" style="padding-left: 0%;
                 width: 70%;">
@@ -355,7 +363,6 @@
             </a>
             <!-- 위젯하나 끝 -->
 
-
             <!-- 오른쪽 부분 끝나는 div태그 -->
         </div>
 
@@ -367,10 +374,9 @@
 
     <script>
         const SHOWING_CLASS = "showing";
-       
+
         const Slides = document.querySelectorAll(".slide_item");
-       
-       
+
         const leftBtn = document.querySelector("#left");
         const rightBtn = document.querySelector("#right");
         let curIndex = 0;
@@ -383,7 +389,7 @@
                 curIndex = 0;
             }
             console.log(curIndex);
-            
+
             Slides[curIndex].classList.add(SHOWING_CLASS);
         }
 
@@ -397,11 +403,82 @@
             Slides[curIndex].classList.add(SHOWING_CLASS);
         }
 
-        leftBtn.addEventListener("click",moveLslide);
-        rightBtn.addEventListener("click",moveRslide);
+        leftBtn.addEventListener("click", moveLslide);
+        rightBtn.addEventListener("click", moveRslide);
+        let today = new Date();
+        let commentIndex = "{{ comments|length }}";
         
-    </script>
+        function make_comment(widget_id) {
+            commentIndex = commentIndex-1;
+            let body = $("#comment-input").val();
+            
 
+            $.ajax({
+                type: "POST",
+                url: "comment/write/",
+                data: {
+                    'widget_id': widget_id,  //1
+                    'body': body,
+                    'csrfmiddlewaretoken': '{{csrf_token}}'
+                },
+                dataType: "json",
+                success: function (response) {
+                    let div = document.createElement("div");
+                    let commentList = document.querySelector("#comment-list")
+                    div.className = `commentDataList${response.comments_length}`;
+                    commentList.appendChild(div)
+                    console.log(response.message);
+                   
+                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.user + "</span>&nbsp;")
+
+                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.body + "</span>&nbsp")
+
+                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.time + "</span>")
+                    
+                    $(`.commentDataList${response.comments_length}`).append("<button onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
+                    
+                    $("#comment-input").val(' ');
+                    index = index+1;
+                },
+                error: function (request, status, error) {
+                    alert(error);
+                }
+            })
+        }
+        let replyFlag = true;
+        function make_reply(comment_id, index){
+            console.log()
+            if(replyFlag === true){
+                $.ajax({
+                    type:"GET",
+                    url:"reply/write/",
+                    data: {
+                        'comment_id':comment_id,
+                        'csrfmiddlewaretoken': '{{csrf_token}}'
+                    },
+                    dataType:"json",
+                    success: function(response){
+                        console.log(response)
+                        console.log(response.length)
+                        for(let i = 0; i<response.length; i++){
+                            $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
+                        }
+                        replyFlag=false;
+                    },
+                    error: function (request, status, error) {
+                        alert(error);
+                    }
+                })
+            }
+            else {
+                $(".replyData").remove();
+                replyFlag=true;
+            }
+
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </body>
 
 </html>

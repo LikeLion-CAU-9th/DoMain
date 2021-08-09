@@ -6,5 +6,7 @@ urlpatterns = [
     path('landing', landing_page, name="landingPage"),
     path('subpage/', subpage, name="subpage"),
     path('widget/<int:id>', detailpage, name="detailpage"),
-    path('mypage/', mypage, name="mypage")
+    path('mypage/', mypage, name="mypage"),
+    path('widget/comment/write/', comment_write, name="comment_write"),
+    path('widget/reply/write/', reply_comment, name="reply_comment"),
 ]
