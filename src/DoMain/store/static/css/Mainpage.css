@@ -133,3 +133,41 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.custom-mainpage-tocustom{
+    width:50%; height: 100%;
+}
+
+.customize-image{
+    margin:15% auto 0 auto;
+    background-image: url('/static/image/customize-static.gif');
+    background-size:cover;
+    height:100px;
+    width:100px;
+}
+
+.customize-image:hover{
+    background-image: url('/static/image/customize-animated.gif');
+}
+
+.custom-mainpage-tostore{
+    width:50%; 
+    height: 100%;
+    
+}
+
+.store-image{
+    margin:15% auto 0 auto;
+    background-image: url('/static/image/store-static.gif');
+    background-size:cover;
+    height:100px;
+    width:100px;
+}
+
+.store-image:hover{
+    background-image: url('/static/image/store-active.gif');
+}
+
+.store-text{
+    text-align: center;
+}

@@ -10,11 +10,12 @@ def custom(request):
 def mainbar(request):
     return render(request, 'mainbar.html')
 
+
 def home(request):
     return render(request, 'home.html')
 
 def createData(request, table):
-    DUMMY_LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}},{"type": "dday","posX": "200px","posY": "100px","contents": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}}]'
+    DUMMY_LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}},{"type": "dday","posX": "200px","posY": "100px","contents": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}},{"type": "timer","contents": {"event": "점심시간", "time": "11:20:00", "bgColor": "#14ea18", "posX": "800px","posY": "100px", "fontSize": "28px"}}]'
     params = request.GET
     if table == "account":
         email = params['email']
@@ -29,7 +30,9 @@ def createData(request, table):
         elif params['dummy']:
             layout = params['layout']
         user = get_user_inst(request)
+        print("****************")
+        print(user)
         Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
         return redirect('login_view')
-            
+

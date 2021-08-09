@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Avg
 from account.models import User_info
 from widget.models import AbstractBaseWidget
+from django.utils import timezone
 
 
 # class AbstractWidget(AbstractBaseWidget):
@@ -43,15 +44,20 @@ class StoreWidget(AbstractBaseWidget):
     is_removed = models.BooleanField(default=False)
     like_users = models.ManyToManyField(User_info, related_name="like_widgets", blank=True)
     score = models.IntegerField(default=0)
+     
     # image = models.ImageField()
 
 
     def __str__(self):
-        return self.nname
+        return self.name
+
+    @property
+    def like_count(self):
+        return self.like_users.count()
 
     @property
     def host(self):
-        return self.user.name
+        return self.user.user_name
 
     @property
     def host_id(self):
@@ -82,3 +88,17 @@ class StoreWidget(AbstractBaseWidget):
 
 # class WidgetStarredUser(WidgetGrade):
 #     score = models.FloatField()
+
+
+class Comment(models.Model):
+    writer = models.ForeignKey(User_info, on_delete=models.CASCADE)
+    content = models.CharField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+    widget = models.ForeignKey(StoreWidget, on_delete=models.CASCADE, related_name='comments')
+   
+
+class Reply(models.Model):
+    writer = models.ForeignKey(User_info, on_delete=models.CASCADE)
+    content = models.CharField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)

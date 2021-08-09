@@ -1,6 +1,10 @@
 
-const ddayListup = (ITEMS) => { 
+const dday = (contents) => {
+    let elem = getDdayElements();
+    document.querySelector('.main-board').innerHTML += elem;
     
+    let ITEMS = contents.items;
+
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth()+1;
@@ -17,18 +21,18 @@ const ddayListup = (ITEMS) => {
     };
 
     // let contents = "";
-    let contents = [];
+    let contentsList = [];
     for(let i = 0; i < ddayList.length; i++){
         // contents = contents + "<hr><p>"+ddayList[i][0]+"</p><p>"+"D - "+ddayList[i][1].toString()+"</p>"
-        contents[i] = "<h2>"+"D-"+ddayList[i][1].toString()+"</h2>"+"<p>"+ddayList[i][0]+"</p>"
+        contentsList[i] = "<h2>"+"D-"+ddayList[i][1].toString()+"</h2>"+"<p>"+ddayList[i][0]+"</p>"
     };
-    console.log(contents[1])
+    console.log(contentsList[1])
      // ddayAdd.innerHTML = contents+"<hr>";
     const ddayFirst = document.querySelector('#ddayFirst');
-    ddayFirst.innerHTML = contents[0]
+    ddayFirst.innerHTML = contentsList[0]
 
     const ddayAdd = document.querySelector('#ddayAdd');
-    ddayAdd.innerHTML = contents[1] + contents[2];
+    ddayAdd.innerHTML = contentsList[1] + contentsList[2];
 
 
 
@@ -42,9 +46,3 @@ const ddayListHide = () => {
 const ddayListShow = () => {
     document.querySelector('#ddayAdd').style.display = 'block';
 }
-
-window.onload = () => {
-    const ITEMS = widgetJSON[1]['content']['items'];
-    document.querySelector(".background").addEventListener('load', ddayListup(ITEMS), false);
-    document.querySelector(".background").addEventListener('load', ddayListHide(), false);    
-   }
