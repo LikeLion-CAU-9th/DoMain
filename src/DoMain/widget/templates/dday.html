@@ -13,42 +13,19 @@
 </head>
 
 <body>
-  <div class="container center-middle background" id = "ddaybox" name = "ddaybox">
-    <div onmouseover=ddayListShow() onmouseout=ddayListHide()>
-      
-      <div class="center" id = "ddayFirst"></div>
-      <div class="center" id = "ddayAdd"></div>
-      <div>
-        <!-- <h3>D-day 추가</p> -->
-        <!-- <p><input type="submit" value="Add"></p> -->
-      </div>
-    </div>
-    
+  <div class="background widget widget-dday" id = "ddaybox" name = "ddaybox">
+    <input type="hidden" class="ddayHidden">
+    <div class="center" id = "ddayFirst"></div>
   </div>
   
 </body>
 </html>
 
 <style>
-  .center-middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .container {
-    display: inline-block;
-    width: 150px;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   .background {
     background-color: beige;
+    width: 150px;
+    height: auto;
     border-radius:10px;
     padding-left:30px;
     padding-right:30px;
