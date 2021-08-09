@@ -26,11 +26,10 @@ def subpage(request):
     notes = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_NOTE)
     finances = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_FINANCE)
     bookmarks = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_BOOK_MARK)
-    news = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_NEW)
 
     # image=StoreWidget.objects.get('image')
 
-    return render(request, 'subpage.html', {'widgets':widgets, 'user':user, 'layouts':layouts, 'searchbars':searchbars, 'ddays':ddays, 'notes':notes, 'finances':finances, 'bookmarks':bookmarks, 'news':news})
+    return render(request, 'subpage.html', {'widgets':widgets, 'user':user, 'layouts':layouts, 'searchbars':searchbars, 'ddays':ddays, 'notes':notes, 'finances':finances, 'bookmarks':bookmarks})
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
