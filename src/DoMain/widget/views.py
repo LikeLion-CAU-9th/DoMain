@@ -43,7 +43,16 @@ def layout_add(request):
   Layout.objects.create(creater=user, owner=user, data="[]", from_store = False)
   return redirect('test')
 
+def apply_layout(request, pk):
+  user = get_user_inst(request)
+  qs = Layout.objects.filter(owner=user, seq=pk, is_applied=False)
+  applied_qs = Layout.objects.filter(owner=user, is_applied=True)
 
+  if len(qs) == 1 and len(applied_qs) == 1:
+    applied_qs.update(is_applied=False)
+    qs.update(is_applied=True)
+    return redirect('test2')
+  return redirect('test2')  
 
 def layout_delete(request, pk):
   user = get_user_inst(request)
@@ -83,21 +92,28 @@ def get_applied_layout(request):
     json = qs[0].data
   return HttpResponse(json)
   
-  
+
+
 def is_distinct_QS(QS):
   if len(QS) == 1:
     return True
   return False
 
 
-LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}},{"type": "dday","posX": "200px","posY": "100px","contents": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}}]'
+# LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "700px","posY": "100px", "bgColor": "#14ea18", "engine": "naver"}},{"type": "dday","posX": "200px","posY": "100px","contents": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}}]'
 
 
 def insert_dummy_layout(request, apply):
   user = get_user_inst(request)
-  Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data=LAYOUT)
+  # Layout.objects.filter(owner=user).delete()
+  # Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data=LAYOUT)
   return True
 
 
 def timer_view(request):
   return render(request, 'timer.html')
+
+
+def update_main_bgcolor(request):
+  hexColor = request.GET['hexColor']
+  return HttpResponse(True)
