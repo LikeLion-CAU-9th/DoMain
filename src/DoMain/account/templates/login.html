@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="{%static 'js/login.js'%}"></script>
+
 </head>
 
 <body>
@@ -32,58 +33,64 @@
     <div id="white-box">
       <!-- 흰색 sign in -->
       <div id="white-sign-in">
-        <br><br><br><br><br>
-        <div class="bold-title">Sign in to <div style="color:#F7E461;display:inline;">D<div
-              style="color:#A2A4A6;display:inline;">oMain</div>
+        
+          <br><br><br><br><br>
+          <div class="bold-title">Sign in to <div style="color:#F7E461;display:inline;">D<div
+                style="color:#A2A4A6;display:inline;">oMain</div>
+            </div>
           </div>
-        </div>
-        <div class="text" style="color:black;">welcome to DoMain</div><br><br>
-        <!-- input부분 -->
-        <div class="input-group">
-          <input type="text" placeholder="EMAIL" name="email"><br>
-          <input type="text" placeholder="PASSWORD" name="raw_pw"><br><br>
-        </div>
-        <!-- input위의 아이콘 -->
-        <div class="icon-group">
-          <img src="{% static 'image/user.svg' %}" class="icon"><br>
+          <div class="text" style="color:black;">welcome to DoMain</div><br><br>
+          <!-- input부분 -->
+          <div class="input-group">
+            <input type="text" placeholder="EMAIL" name="email"><br>
+            <input type="text" placeholder="PASSWORD" name="raw_pw"><br><br>
+          </div>
+          <!-- input위의 아이콘 -->
+          <div class="icon-group">
+            <img src="{% static 'image/user.svg' %}" class="icon"><br>
 
-          <img src="{% static 'image/mail.svg' %}" class="icon">
-        </div>
-        <br>
-        <!-- 패스워드 잊은 경우 line -->
-        <div class="text" style="color:black;">Forgot your password?
+            <img src="{% static 'image/mail.svg' %}" class="icon">
+          </div>
           <br>
-          <hr class="line">
-        </div><br><br>
-        <div style="text-align: center;border-color: #45A685;">
-          <a href="#"><button id="button" type="button">SIGN IN</button></a>
-        </div>
+          <!-- 패스워드 잊은 경우 line -->
+          <div class="text" style="color:black;">Forgot your password?
+            <br>
+            <hr class="line">
+          </div><br><br>
+          <div style="text-align: center;border-color: #45A685;">
+            <a href="#"><button id="button" type="button">SIGN IN</button></a>
+          </div>
+        
       </div>
 
       <!-- 흰색 sign up -->
-      <div id="white-sign-up">
-        <br><br><br><br><br>
-        <div class="bold-title">Create Account</div>
-        <div class="text" style="color:black;">welcome to DoMain</div>
-        <br><br>
-        <!-- input부분 -->
-        <div class="input-group">
-          <input type="text" placeholder="NAME" name="name"><br>
-          <input type="text" placeholder="EMAIL" name="email"><br>
-          <input type="text" placeholder="PASSWORD" name="raw_pw"><br><br>
+      <form action="{% url 'join_action' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="white-sign-up">
+          <br><br><br>
+          <div class="bold-title">Create Account</div>
+          <div class="text" style="color:black;">welcome to DoMain</div>
+          <br>
+          <!-- input부분 -->
+          <div class="input-group">
+            <input type="text" id="user_name" placeholder="NAME" name="name"><br>
+            <input type="text" id="user_email" placeholder="EMAIL" name="email"><br>
+            <input type="password" id="user_pwd" placeholder="PASSWORD" name="user_pwd"><br>
+            <input type="password" id="user_pwd_check" placeholder="PASSWORD CHECK" name="user_pwd_check"><br><br>
+          </div>
+          <!-- input위의 아이콘 -->
+          <div class="icon-group">
+            <img src="{% static 'image/user.svg' %}" class="icon"><br>
+            <img src="{% static 'image/mail.svg' %}" class="icon"><br>
+            <img src="{% static 'image/pass.svg' %}" class="icon"><br>
+            <img src="{% static 'image/pass.svg' %}" class="icon"><br>
+          </div>
+          <br>
+          <div style="text-align: center;border-color: #45A685;">
+            <a href="#"><button id="joinBtn" type="submit">SIGN UP</button></a>
+          </div>
         </div>
-        <!-- input위의 아이콘 -->
-        <div class="icon-group">
-          <img src="{% static 'image/user.svg' %}" class="icon"><br>
-          <img src="{% static 'image/mail.svg' %}" class="icon"><br>
-          <img src="{% static 'image/pass.svg' %}" class="icon"><br>
-        </div>
-        <br>
-        <div style="text-align: center;border-color: #45A685;">
-          <a href="#"><button id="button" type="button">SIGN UP</button></a>
-        </div>
-      </div>
-
+      </form>
 
     </div>
 
@@ -98,7 +105,7 @@
           and start journey with us.</div>
         <br><br>
         <div style="text-align: center;">
-          <a href="#"><button id="button" type="button" onclick="changeBox1();">SIGN UP</button></a>
+          <a href="#"><button id="button" type="button" onclick="changeBox1(); joinStart();">SIGN UP</button></a>
         </div>
       </div>
       <!-- 초록 sign in -->
@@ -124,5 +131,9 @@
 
 
 </body>
+
+
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/join.js' %}"></script>
 
 </html>
