@@ -66,34 +66,30 @@ video#bgvid{
 .subnavbar_menu {
     height: 6%;
     position: absolute;
+    right:50px;
     list-style: none;
-    margin-left: 80%;
     display: flex;
     padding-top: 2%;
-    padding-right:1%;
 }
 
 .subnavbar_menu li{
-
-    float:inline-end;
+    padding-left:20px;
 }
 
 .subnavbar_menu li a{
-    padding-left:10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    font-size: 0.9em;
-    color:#888787;
+    align-items: center;
+    font-size: 0.8em;
+    color:black;
     text-decoration-line: none;
     transition: all 0.4s ease-in-out .1s;
 }
 
-.subnavbar_menu a:hover{
 
-    color: rgba(106, 184, 157,1);
-
+.subnavbar_menu a:not(user_icon):hover{
+    color: #A2A4A6;
 }
 
 button {
@@ -142,7 +138,6 @@ button:hover{
 }
 
 #body-pd {
-
     position: relative;
     margin: 0;
     padding: 2rem 0 0 6.75rem;
@@ -250,30 +245,6 @@ a {
 /* Active links menu */
 .active {
     background-color: var(--first-color);
-}
-
-/* COLLAPSE */
-.collapse {
-    grid-template-columns: 20px max-content 1fr;
-}
-
-.collapse__link {
-    justify-self: flex-end;
-    transition: .5;
-}
-
-.collapse__menu {
-    display: none;
-    padding: .75rem 2.25rem;
-}
-
-.collapse__sublink {
-    color: var(--sub-color);
-    font-size: var(--small-font-size);
-}
-
-.collapse__sublink:hover {
-    color: var(--white-color);
 }
 
 /* Show collapse */
