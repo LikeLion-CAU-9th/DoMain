@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from store.models import StoreWidget
 from store.models import Comment, Reply
 from account.models import User_info
+from widget.models import Layout
 import json
 from django.utils import timezone
 from datetime import datetime
@@ -94,5 +95,21 @@ def like(request):
     ret={
         'message':message,
         'num':int(widget.like_users.count()),
+    }
+    return HttpResponse(json.dumps(ret), content_type="application/json")      
+
+def make_download(request):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+    widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
+
+    Layout.objects.create(
+        creater=user,
+        data = widget.data,
+        from_store=True,
+        owner = widget.creater
+        )
+    ret = {
+        "download_message": "다운로드가 완료되었습니다."
     }
     return HttpResponse(json.dumps(ret), content_type="application/json")      
