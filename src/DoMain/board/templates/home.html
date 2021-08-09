@@ -32,9 +32,7 @@
 </head>
 
 <body>
-    <video autoplay muted loop id="bgvid">
-        <source src="../media/yellow2.mp4" type="video/mp4">
-    </video>
+    
     <div class="top_navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
         <ul class='subnavbar_menu'>
@@ -116,5 +114,10 @@
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
 -->
+<div class="main-board">
+    <video autoplay muted loop id="bgvid">
+        <source src="/static/image/yellow2.mp4" type="video/mp4">
+    </video>
+</div>
 </body>
 </html>
