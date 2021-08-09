@@ -113,7 +113,7 @@
         </div>
         <hr>
 
-        
+
 
         <!-- 리뷰댓글다는 부분 -->
         <div class="review-box">
@@ -143,15 +143,19 @@
                 <span class="comment-content">{{comment.content}}</span>
                 <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit"
                     class="reply-button">대댓글</button>
+                <button onClick="showReply()">답글달기</button>
+                
+                <div class="reply-container">
+                    <input class="reply-input" id="reply-input" type="text" name="content" placeholder="댓글을 달아주세요">
+                    <div class="button-container">
+                        <button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">작성하기</button>
+                    </div>
+                </div>
+
             </div>
             <hr>
             {% endfor %}
         </div>
-
-
-        
-
-        
         <!-- 왼쪽 부분 끝 div태그 -->
     </div>
 
@@ -160,71 +164,65 @@
     <!-- 오른쪽 부분:연관 위젯-->
     <div class="rightspace">
         <!-- 위젯 하나 -->
-        <a href="#">
-            <div>
-                <!-- 썸넬이미지 -->
-                <div class="card" style="flex-direction: row;border:none;">
-                    <img src="{% static 'image/recommendwidget.png' %}" class="card-img-top" id="recommend-widget"
+        <div>
+            <!-- 썸넬이미지 -->
+            <div class="extra-widget">
+                <div class="extra-image-container">
+                    <img src="{% static 'image/recommendwidget.png' %}" class="extra-image" id="recommend-widget"
                         alt="...">
+                </div>
+                <div class="extra-text">
+                    <!-- title -->
+                    <div class="extra-title">
+                        Naver Style<br>Searchbar
+                    </div>
+                    <div class="extra-score">
+                        <strong style="color:#000000">4.1</strong>
+                        (151)
+                    </div>
 
-                    <div style="line-height: 80%;">
-                        <!-- title -->
-                        <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                            Naver Style<br>Searchbar
-                        </div>
-
-                        <br>
-                        <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                            <strong style="color:#000000">&nbsp;4.1</strong>
-                            (151)
-                        </div>
-                        <br>
-
-
-                        <!-- price -->
-                        <br><br><br>
-                        <div>
-                            <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                            <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                        </div>
+                    <!-- price -->
+                    <div class="extra-price-container">
+                        <div class="extra-price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
+                        <div class="extra-saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
         <!-- 위젯하나 끝 -->
 
         <!-- 위젯 하나 -->
-        <a href="#">
-            <div style="padding-top:3%;">
-                <!-- 썸넬이미지 -->
-                <div class="card" style="flex-direction: row;border:none;">
-                    <img src="{% static 'image/recommendwidget.png' %}" class="card-img-top" id="recommend-widget"
+        <div>
+            <!-- 썸넬이미지 -->
+            <div class="extra-widget">
+                <div class="extra-image-container">
+                    <img src="{% static 'image/recommendwidget.png' %}" class="extra-image" id="recommend-widget"
                         alt="...">
+                </div>
+                <div class="extra-text">
+                    <!-- title -->
+                    <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
+                        Naver Style<br>Searchbar
+                    </div>
 
-                    <div style="line-height: 80%;">
-                        <!-- title -->
-                        <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                            Naver Style<br>Searchbar
-                        </div>
+                    <br>
+                    <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
+                        <strong style="color:#000000">&nbsp;4.1</strong>
+                        (151)
+                    </div>
+                    <br>
 
-                        <br>
-                        <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                            <strong style="color:#000000">&nbsp;4.1</strong>
-                            (151)
-                        </div>
-                        <br>
-
-
-                        <!-- price -->
-                        <br><br><br>
-                        <div>
-                            <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                            <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                        </div>
+                    <!-- price -->
+                    <br><br><br>
+                    <div>
+                        <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
+                        <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
+
+
         <!-- 위젯하나 끝 -->
 
     </div>
@@ -283,7 +281,7 @@
         if (replyFlag === true) {
             $.ajax({
                 type: "GET",
-                url: "reply/write/",
+                url: "show/reply/",
                 data: {
                     'comment_id': comment_id,
                     'csrfmiddlewaretoken': '{{csrf_token}}'
@@ -307,6 +305,37 @@
             replyFlag = true;
         }
 
+    }
+
+    function showReply() {
+        var x = document.querySelector(".reply-container")
+        
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    
+    function write_reply(comment_id){
+        let reply = $("#reply-input").val();
+        $.ajax({
+            type: "POST",
+            url: "reply/write/",
+            data: {
+                'comment_id': comment_id,
+                'reply': reply,
+                'csrfmiddlewaretoken': '{{csrf_token}}'
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response.message)
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        })
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
