@@ -74,6 +74,80 @@
         <div class="r-navbar" id="navbar">
             <nav class="nav">
                 <div>
+<<<<<<< HEAD
+                    <div class="nav__brand">
+                        <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                        <a href="#" class="nav__logo"></a>
+                    </div>
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active" id="assetstore-btn" onclick="verticalBarOn()">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Download Widget</span>
+                        </a>
+                        <a href="#" class="nav__link">
+                            <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Layout List</span>
+                        </a>
+
+                        <div href="#" class="nav__link">
+                            <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Custom Layout</span>
+                        </div>
+
+                        <div href="#" class="nav__link" >
+                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file" accept="img/*">
+                        </div>
+
+                        <div>
+                            <button> 저장하기 </button>
+                            <button> 수정하기 </button>
+                        </div>
+</div>
+</nav>
+</div>
+
+
+
+</div>
+
+<!-- vertical bar-->
+<div class="tabmenu" >
+    <ul style = "display: none;" id = "verticalbar-tab">
+        <li id="tab1" class="btnCon" class="btn first"  text-align="center" style = "background-color: #ffffff;">
+            <div class="tabCon" id = "widget-tab" 
+            >
+
+                
+                <div class="asset-content" style="width: 400px; margin: 0 20% 0 0;" >
+
+                    <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+                    <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+                    <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+
+                    <br />
+                    Calendar
+                    <br />
+
+                    <img align="absmiddle" src="{% static 'img/image 13.png' %}">
+                    <img align="absmiddle" src="{% static 'img/image 14.png' %}">
+
+                    </br>
+                    Searchbar
+
+                    <img align="absmiddle" src="{% static 'img/Group 10.png' %}">
+                    <img align="absmiddle" src="{% static 'img/Group 12.png' %}">
+                    <button onclick = "verticalBarOff()"> X </button>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+
+=======
                 <div class="nav__brand">
                     <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
                     <a href="#" class="nav__logo">DoMain</a>
@@ -107,6 +181,7 @@
         <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
         <!-- JS -->
         <script src="{% static 'js/modals.js' %}"></script>
+>>>>>>> 6e74bc5147f18d230b5382719be9a2edd11c5f55
 
 <!-- <div class="asset_box">
     <div class="asset_box_title"> <p>widget</p></div>

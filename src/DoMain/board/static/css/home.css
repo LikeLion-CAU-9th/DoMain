@@ -211,7 +211,7 @@ a {
     grid-template-columns: max-content max-content;
     align-items: center;
     column-gap: .75rem;
-    padding: .75rem;
+    padding: 0.70rem 0.65rem 0.70rem .70rem;
     color: var(--white-color);
     border-radius: .5rem;
     margin-bottom: 1rem;
@@ -224,12 +224,15 @@ a {
     background-color: var(--first-color);
 }
 
+
+
 .nav__icon {
     font-size: 3rem;
 }
 
 .nav_name {
     font-size: var(--small-font-size);
+    margin-left: 1.5rem;
 }
 
 /* Expander menu */
