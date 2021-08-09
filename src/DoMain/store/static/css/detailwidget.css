@@ -152,9 +152,7 @@
     font-family: 'ABeeZee', sans-serif;
     z-index:2;
     float:right;
-    padding:5px 10px;
-    
-    
+    padding:5px 10px;   
     
 }
 .line{
@@ -206,38 +204,8 @@
     font-family: 'ABeeZee', sans-serif;
     font-size:90%;
 }
-.star-point{
-    z-index:1;
-    float:left;
-    padding-left:10%;
-}
-.stargraph{
-    z-index:2; 
-    float:left; 
-    line-height: 200%;
-    padding-top: 0.3%;
-    padding-left:5%;
-}
-.graphstick{
-    border: 1px solid #45A685;
-    padding:10px;
-    background-color: #45A685;
-    float:left;
-}
-.starspace{
-    float: left;
-    padding-left: 2%;
-    z-index: 2;
-    width: 12%;
-}
-.star{
-    width: 20%;
-    float:left;
-}
-input{
-    padding-left:2%;
-    border:none;
-}
+
+
 .review-button{
     font-family: 'ABeeZee', sans-serif;
     float:right;
@@ -280,3 +248,47 @@ input{
     margin:5%;
     overflow:hidden;    
 }
+
+
+
+.reply-button{
+    padding:5px 10px;
+    border: 1px solid #45A685;
+    border-radius: 23px;
+    color:white;
+    background-color: #45A685;
+    float:right;
+}
+
+#comment-input{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:10%;
+    height:30px;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+#comment-input:focus{
+    outline:none;   
+    
+}
+
+.review-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-button{
+    width:10%;
+    height:50px;
+}
+
+.comment-button button{
+    border:none;
+    border-radius: 10px;
+    color:#ffffff;
+    background-color: #45A685;
+}
+
