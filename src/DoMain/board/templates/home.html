@@ -34,22 +34,37 @@
 <body>
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
-
     </video>
     <div class="top_navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
-
-        <div class="unlogin_navbar">
-            <ul class='subnavbar_menu'>
-                <li><a href="{% url 'login_view' %}">SignIn</a></li>
-                <li><a href="{% url 'join_view' %}">SignUp</a></li>
-            </ul>
-        </div>
-        
-
         <ul class='subnavbar_menu'>
-            <li><a href="{% url 'login_view' %}">SignIn</a></li>
-            <li><a href="{% url 'join_view' %}">SignUp</a></li>
+            <li>
+                <a href="{% url 'store_main' %}">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    Store
+                </a>
+            </li>
+            <li>
+                <a>
+                <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                <!--
+                <ion-icon name="lock-open-outline"></ion-icon>
+                -->   
+                Modify
+                </a>
+            </li>
+            <li>
+                <a id="user_icon">
+                <ion-icon name="person-outline"></ion-icon>
+                오지영님
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'logout' %}">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    Logout
+                </a>
+            </li>
             <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
         </ul>
     </div>
@@ -59,6 +74,7 @@
         <div class="r-navbar" id="navbar">
             <nav class="nav">
                 <div>
+<<<<<<< HEAD
                     <div class="nav__brand">
                         <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
                         <a href="#" class="nav__logo"></a>
@@ -131,6 +147,41 @@
 </div>
 
 
+=======
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">DoMain</a>
+                </div>
+                <div class="nav__list">
+                    <a href="#" class="nav__link active">
+                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Download Widget</span>
+                    </a>
+                    <a href="#" class="nav__link">
+                        <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Layout List</span>
+                    </a>
+
+                    <a href="#" class="nav__link">
+                        <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Custom Layout</span>
+                    </a>
+
+                    <a href="#" class="nav__link">
+                        <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                        <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                        <input type="file" id="ex_file">
+                    </a>
+                </div>
+            </div>
+            </nav>
+        </div>
+    </div>
+        <!-- IONICONS -->
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+        <!-- JS -->
+        <script src="{% static 'js/modals.js' %}"></script>
+>>>>>>> 6e74bc5147f18d230b5382719be9a2edd11c5f55
 
 <!-- <div class="asset_box">
     <div class="asset_box_title"> <p>widget</p></div>
@@ -139,15 +190,6 @@
         <img align="absmiddle" src="{% static 'img/App 22.png' %}">
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
-</div> -->
-
-<div class="main-board"></div>
-
+-->
 </body>
-
-<!— IONICONS —>
-<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-<!— JS —>
-<script src="{% static 'js/modals.js' %}"></script>
-
 </html>

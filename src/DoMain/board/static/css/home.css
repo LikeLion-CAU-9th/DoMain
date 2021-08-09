@@ -34,7 +34,7 @@ video#bgvid{
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
+    font-size: 27px;
     font-weight: bold;
     font-family: 'ABeeZee', sans-serif;
     padding-top: 1%;
@@ -44,7 +44,6 @@ video#bgvid{
 }
 
 .logo a{
-    
     color:#F7E461;
     text-decoration-line: none;
     transition: all 0.4s ease-in-out .1s;
@@ -53,7 +52,7 @@ video#bgvid{
 .logo a span{
     color:black;
     text-decoration-line: none;
-    font-size: 16px;
+    font-size: 27px;
 }
 
 .logo a:hover{
