@@ -15,8 +15,10 @@ def store_main(request):
     return render(request, 'AssetStoreMainPage.html')
 
 def subpage(request):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
     widgets = StoreWidget.objects.all()
-    return render(request, 'subpage.html', {'widgets':widgets})
+    return render(request, 'subpage.html', {'widgets':widgets, 'user':user})
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
@@ -74,3 +76,23 @@ def reply_comment(request):
         }
         # return HttpResponse(json.dumps(ret), content_type="application/json")
         return JsonResponse(json_replys, safe=False)
+
+      
+def like(request):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+    widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
+    
+    if user in widget.like_users.all():
+        widget.like_users.remove(user)
+        message="♡"
+
+    else:
+        widget.like_users.add(user)
+        message="♥"
+   
+    ret={
+        'message':message,
+        'num':int(widget.like_users.count()),
+    }
+    return HttpResponse(json.dumps(ret), content_type="application/json")      

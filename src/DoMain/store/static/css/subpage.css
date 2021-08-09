@@ -149,3 +149,27 @@ a{
     z-index:3;
     position:relative;
 }
+#like{
+    font-size:200%;
+}
+#like_counting{
+    padding-top:1.1%;
+    font-size:150%;
+    padding-left: 1%;
+}
+button:focus{
+    outline:0;
+    border:0;
+    outline-color: transparent;
+}
+button{
+    outline:none;
+    border:none;
+    color:#D94738;
+    z-index: 10;
+    position: absolute;
+    background-color:transparent;
+}
+span{
+    z-index: 10;position: absolute;
+}

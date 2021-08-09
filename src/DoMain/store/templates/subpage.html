@@ -19,6 +19,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script>
+    function like(widget_id){
+        $.ajax({
+            type:"POST",
+            url:"like",  
+            data:{
+                'widget_id':widget_id,
+                'csrfmiddlewaretoken':'{{csrf_token}}',
+            },
+            dataType:"json",
+            success:function(response){
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like">'+response.message+'</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">'+response.num+'</span>');
+            }, 
+            error:function(request, status, error){
+                alert(error);
+            },
+        });
+    }
+</script>
+
 {% endblock %}
 {% block contents %}
 <div class="container" id="container" style="margin: 3% 0 0 7%; width: 90%">
@@ -428,7 +455,19 @@
                     <div class="card-column column-0">
 
                         {% for widget in widgets %}
-                        <a href="{% url 'detailpage' widget.seq %}">
+                        <div style="padding-left:80%;">
+                        <button onClick="like({{widget.seq}})">
+                        {%if user in widget.like_users.all%}
+                        <span><p id="like">{{"♥"}}</p></span>
+                        {%else%}
+                        <span><p id="like">{{"♡"}}</p></span>
+                        {%endif%}
+                        </button>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span id="like_counting">{{widget.like_users.count}}</span>
+                        </div>
+
                             <div class="card-detail card-color-0">
                                 <div class="border"></div>
                                 <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
@@ -456,6 +495,7 @@
                         </a>
 
                         {% endfor %}
+                        
                         <div class="card-detail card-color-0">
                             <div class="border"></div>
                             <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
@@ -670,7 +710,7 @@
 <script src="{% static 'js/dropdown.js' %}"></script>
 <script src="{% static 'js/cardDetailModal.js' %}"></script>
 <script>
-   
+
 </script>
 
 {% endblock %}
