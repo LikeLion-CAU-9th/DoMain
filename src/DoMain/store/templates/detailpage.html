@@ -94,7 +94,7 @@
 
                 <!-- download button -->
                 <a href="#">
-                    <button id="downloadbutton" type="button">&nbsp;DOWNLOAD&nbsp;</button>
+                    <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
                 </a>
             </div>
 
@@ -474,7 +474,25 @@
                 $(".replyData").remove();
                 replyFlag=true;
             }
+        }
 
+        function makeDownload(widget_id) {
+            $.ajax({
+                type:"POST",
+                url:"download/",
+                data: {
+                    'widget_id':widget_id,
+                    'csrfmiddlewaretoken': '{{csrf_token}}'
+                },
+                dataType:"json",
+                success: function(response){
+                    
+                    alert(response.download_message);
+                },
+                error: function (request, status, error) {
+                    alert(error);
+                }
+            })
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
