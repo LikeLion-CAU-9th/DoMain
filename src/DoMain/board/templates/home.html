@@ -34,9 +34,19 @@
 <body>
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
-        </video>
-        <div class="top_navbar">
-            <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+
+    </video>
+    <div class="top_navbar">
+        <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+
+        <div class="unlogin_navbar">
+            <ul class='subnavbar_menu'>
+                <li><a href="{% url 'login_view' %}">SignIn</a></li>
+                <li><a href="{% url 'join_view' %}">SignUp</a></li>
+            </ul>
+        </div>
+        
+
         <ul class='subnavbar_menu'>
             <li><a href="{% url 'login_view' %}">SignIn</a></li>
             <li><a href="{% url 'join_view' %}">SignUp</a></li>
