@@ -40,7 +40,29 @@ def detailpage(request, id):
     return render(request, 'detailpage.html', {"widget":widget, "comments":comments})
 
 def mypage(request):
-    return render(request, 'myPage.html')
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+
+    like_layouts = StoreWidget.objects.filter(like_users=user)
+    like_count = len(like_layouts)
+
+    download_layouts = Layout.objects.filter(creater=user, from_store=True)
+    download_count = len(download_layouts)
+
+    upload_layouts = StoreWidget.objects.filter(creater=user)
+    upload_count = len(upload_layouts)
+
+    return render(
+        request, 
+        'myPage.html',
+        {
+            "download_layouts":download_layouts,
+            "download_count":download_count,
+            "upload_layouts":upload_layouts,
+            "upload_count":upload_count,
+            "like_layouts":like_layouts,
+            "like_count":like_count
+        })
 
 def comment_write(request):
     email= request.session['user_email']
