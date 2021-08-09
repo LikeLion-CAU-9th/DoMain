@@ -1,3 +1,4 @@
+from django.db.models.expressions import F
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from .finance import crawl_finance
@@ -39,12 +40,14 @@ def layout_add(request):
   return redirect('test')
 
 
+
 def layout_delete(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
   if len(qs) == 1:
     qs.delete()
     return redirect('test')
+
 
 
 def layout_clone(request, pk):
@@ -60,6 +63,7 @@ def insert_dummy_layout(request, apply):
   Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data='[{"type": "finance","posX": "300px","posY": "500px","contents": {"items": ["애플", "아마존", "구글", "마이크로소프트"]}},{"type": "d-day","posX": "300px","posY": "100px","content": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}},{"type": "searching","posX": "700px","posY": "500px","content": {"engine": "naver", "width": "500px", "height": "70px"}},{"type": "stickynote","posX": "700px","posY": "100px","contents": {"title": "다이어트 계획", "memo": "없음"}}]')
   return True
 
+
 def view_list(request):
   user = get_user_inst(request)
   layout_list = Layout.objects.filter(owner=user)
@@ -69,6 +73,7 @@ def view_list(request):
 
 
 def get_applied_layout(request):
+  # insert_dummy_layout(request, True)
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner=user, is_applied=True)
   json = "[]"
@@ -81,3 +86,16 @@ def is_distinct_QS(QS):
   if len(QS) == 1:
     return True
   return False
+
+
+LAYOUT = '[{"type": "finance","contents": {"width": "340px", "posX": "300px","posY": "500px","items": ["삼성전자", "네이버", "카카오", "JYP Ent"]}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#ee531e", "engine": "google"}},{"type": "dday","posX": "200px","posY": "100px","contents": {"items": ["헤커톤:2021-08-15", "개강:2021-09-01", "한살 더먹음:2022-01-01"]}}]'
+
+
+def insert_dummy_layout(request, apply):
+  user = get_user_inst(request)
+  Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data=LAYOUT)
+  return True
+
+
+def timer_view(request):
+  return render(request, 'timer.html')
