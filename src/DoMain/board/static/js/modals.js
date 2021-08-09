@@ -37,3 +37,12 @@ for(i=0;i<linkCollapse.length;i++) {
         rotate.classList.toggle('rotate')
     });
 }
+
+const assetStoreBtn = document.getElementById("assetstore-btn");
+
+function verticalBarOn() {
+    const verticalBar = document.getElementById("verticalbar-tab")
+    const widgetBar = document.getElementById("widget-tab")
+    verticalBar.style.display = "inline";
+    widgetBar.style.display = "block";
+    };

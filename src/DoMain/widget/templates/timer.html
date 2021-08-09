@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="{% static 'timer/timer.js' %}"></script>
+  <title>Timer</title>
+</head>
+<body>
+  <div class="container center-middle">
+    
+    <div class="widget widget-timer">
+      <span class="event"></span>
+      <span class="remain-time"></span>
+    </div>
+    
+  </div>
+</body>
+</html>
+
+<style>
+  html {
+    background-color: #6d7b8a;
+  }
+
+  .container {
+    display: inline-block;
+    /* width: 50%; */
+    /* height: 50vh; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .center-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .widget-timer {
+    background-color: #111111;
+    box-shadow: 3px 3px 3px rgb(150, 231, 168);
+    padding: 22px;
+    border-radius: 14px;
+    color: #14ea18;
+    letter-spacing: 4px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 28px;
+  }
+
+  .widget-timer .remain-time {
+    font-family: clock-font;
+    font-size: 32px;
+    letter-spacing: 6px;
+  }
+
+  @font-face {
+    font-family: clock-font;
+    src: url('/static/font/clock.ttf');
+  }
+</style>
