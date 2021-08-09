@@ -22,11 +22,22 @@ class WidgetType:
     WigetType
     - simpleWidget, LayoutWidget
     """
-    SIMPLE_WIDGET = 'simple_widget'
+    SIMPLE_WIDGET_SEARCH_BAR = 'simple_widget_search_bar'
+    SIMPLE_WIDGET_D_DAY = 'simple_widget_d_day'
+    SIMPLE_WIDGET_NOTE = 'simple_widget_note'
+    SIMPLE_WIDGET_FINANCE = 'simple_widget_finance'
+    SIMPLE_WIDGET_BOOK_MARK = 'simple_widget_book_mark'
+    SIMPLE_WIDGET_NEW= 'simple_widget_new'
+
     LAYOUT_WIDGET = 'layout_widget'
 
     WIDGET_TYPES = [
-        (SIMPLE_WIDGET, '단일 위젯'),
+        (SIMPLE_WIDGET_SEARCH_BAR, '검색창'),
+        (SIMPLE_WIDGET_D_DAY, '디데이'),
+        (SIMPLE_WIDGET_NOTE, '메모장'),
+        (SIMPLE_WIDGET_FINANCE, '주식'),
+        (SIMPLE_WIDGET_BOOK_MARK, '북마크'),
+        (SIMPLE_WIDGET_NEW, '새로운 위젯'),
         (LAYOUT_WIDGET, '레이아웃 위젯')
     ]
 
@@ -34,9 +45,9 @@ class WidgetType:
 class StoreWidget(AbstractBaseWidget):
     download = models.IntegerField(default=0)
     widget_type = models.CharField(
-        max_length=20, 
+        max_length=31, 
         choices=WidgetType.WIDGET_TYPES,
-        default=WidgetType.SIMPLE_WIDGET,
+        default=WidgetType.LAYOUT_WIDGET,
         help_text= '위젯 형식'
     )
     description = models.CharField(max_length=255, null=True, blank=True, help_text="위젯 설명")
@@ -44,11 +55,16 @@ class StoreWidget(AbstractBaseWidget):
     is_removed = models.BooleanField(default=False)
     like_users = models.ManyToManyField(User_info, related_name="like_widgets", blank=True)
     score = models.IntegerField(default=0)
-    image = models.ImageField(upload_to="storeWidget/", blank=True, null=True)
+    image=models.ImageField(upload_to="storewidgets/", blank=True, null=True)
+    # image = models.ImageField()
 
 
     def __str__(self):
         return self.name
+
+    @property
+    def like_count(self):
+        return self.like_users.count()
 
     @property
     def host(self):

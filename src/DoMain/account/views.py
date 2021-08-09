@@ -1,3 +1,4 @@
+from django.db.models import query
 from django.shortcuts import redirect, render
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.http.response import HttpResponse, JsonResponse, StreamingHttpResponse
@@ -31,6 +32,8 @@ class Activate(View):
 
 
 def login_view(request):
+  # @FIXME: Remove this after login func is implemented
+  request.session['user_email'] = 'test@naver.com'
   if 'user_email' in request.session:
     return redirect('login_success')
   return render(request, 'login.html')
@@ -96,3 +99,17 @@ def send_validation_mail(request, user, email_address):
     mail_to = email_address
     email = EmailMessage(mail_title, mail_data, to=[mail_to])
     email.send()
+
+
+def is_sess_attached(request):
+  is_sess = False
+  if 'user_email' in request.session:
+    is_sess = True
+  return is_sess
+
+
+def get_user_inst(request):
+  if is_sess_attached(request):
+    email = request.session['user_email']
+    queryset = User_info.objects.filter(user_email = email)
+    return queryset[0]
