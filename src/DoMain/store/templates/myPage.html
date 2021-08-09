@@ -23,102 +23,28 @@
 
             </header>
             <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                {% for like_layout in like_layouts %}
                 <li class="team__item" style="margin-bottom: 10px;">
                     <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
                         <div class="team__header">
                             <ul class="photo">
                                 <li class="photo__item">
+                                    {% if like_layout.image %}
+                                    <img src="{{like_layout.image.url}}">
+                                    {% else %}
                                     <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    {% endif %}
+                                    
                                 </li>
-
                             </ul>
                         </div>
                         <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+                            <p class="team__name">{{like_layout.name}}</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">{{like_layout.create_date}}</time>
                         </div>
                     </a>
                 </li>
-                <li class="team__item" style="margin-bottom: 10px;">
-                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
-                        <div class="team__header">
-                            <ul class="photo">
-                                <li class="photo__item">
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
-                        </div>
-                    </a>
-                </li>
-                <li class="team__item" style="margin-bottom: 10px;">
-                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
-                        <div class="team__header">
-                            <ul class="photo">
-                                <li class="photo__item">
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
-                        </div>
-                    </a>
-                </li>
-                <li class="team__item" style="margin-bottom: 10px;">
-                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
-                        <div class="team__header">
-                            <ul class="photo">
-                                <li class="photo__item">
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
-                        </div>
-                    </a>
-                </li>
-                <li class="team__item" style="margin-bottom: 10px;">
-                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
-                        <div class="team__header">
-                            <ul class="photo">
-                                <li class="photo__item">
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
-                        </div>
-                    </a>
-                </li>
-                <li class="team__item" style="margin-bottom: 10px;">
-                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
-                        <div class="team__header">
-                            <ul class="photo">
-                                <li class="photo__item">
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
-                        </div>
-                    </a>
-                </li>
+                {% endfor %}
             </ul>
         </section>
         <section class="section sectionEffect" id="content2" style="width:80%">
@@ -202,7 +128,7 @@
             <ul class="statistics">
                 <li class="statistics__entry">
                     <a class="tablabel" href="#content1">Likes</a><span
-                        class="statistics__entry-quantity">5</span>
+                        class="statistics__entry-quantity">{{like_count}}</span>
                 </li>
                 <li class="statistics__entry">
                     <a class="tablabel" href="#content2">Downloads</a><span

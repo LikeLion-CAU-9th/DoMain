@@ -43,12 +43,14 @@ def mypage(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
 
+    like_layouts = StoreWidget.objects.filter(like_users=user)
+    like_count = len(like_layouts)
+
     download_layouts = Layout.objects.filter(creater=user, from_store=True)
     download_count = len(download_layouts)
 
     upload_layouts = StoreWidget.objects.filter(creater=user)
     upload_count = len(upload_layouts)
-    print(download_layouts)
 
     return render(
         request, 
@@ -57,7 +59,9 @@ def mypage(request):
             "download_layouts":download_layouts,
             "download_count":download_count,
             "upload_layouts":upload_layouts,
-            "upload_count":upload_count
+            "upload_count":upload_count,
+            "like_layouts":like_layouts,
+            "like_count":like_count
         })
 
 def comment_write(request):
