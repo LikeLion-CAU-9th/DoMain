@@ -7,6 +7,10 @@ const URL_OBJ = {
 const searching = (contents, index) => {
   let elem = getSearchingElements();
   document.querySelector('.main-board').innerHTML += elem;
+  let widgetObj = {};
+  widgetObj['type'] = 'searching';
+  widgetObj['contents'] = contents;
+  document.querySelectorAll('.searchingHidden')[index].value = JSON.stringify(widgetObj);
   let engine = contents.engine;
   let width = contents.width;
   let height = contents.height;

@@ -1,6 +1,10 @@
 const stickynote = (contents, index) => {
   let elem = getStickynoteElements();
   document.querySelector('.main-board').innerHTML += elem;
+  let widgetObj = {};
+  widgetObj['type'] = 'stickynote';
+  widgetObj['contents'] = contents;
+  document.querySelectorAll('.stickynoteHidden')[index].value = JSON.stringify(widgetObj);
   document.querySelectorAll('.note')[index].style.width = contents.width;
   document.querySelectorAll('.note')[index].style.height = contents.height;
   document.querySelectorAll('.note')[index].style.left = contents.posX;

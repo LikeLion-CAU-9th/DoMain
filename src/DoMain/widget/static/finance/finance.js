@@ -2,6 +2,10 @@ const finance = (contents, index) => {
   let stockItems = contents.items;
   let elem = getFinanceElements();
   document.querySelector('.main-board').innerHTML += elem;
+  let widgetObj = {};
+  widgetObj['type'] = 'finance';
+  widgetObj['contents'] = contents;
+  document.querySelectorAll('.financeHidden')[index].value = JSON.stringify(widgetObj);
   document.querySelectorAll('.financeBoard')[index].style.width = contents.width;
   document.querySelectorAll('.financeBoard')[index].style.left = contents.posX;
   document.querySelectorAll('.financeBoard')[index].style.top = contents.posY;

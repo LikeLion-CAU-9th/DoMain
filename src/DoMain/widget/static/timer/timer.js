@@ -1,6 +1,10 @@
 const timer = (contents, index) => {
   let elem = getTimerElements();
   document.querySelector('.main-board').innerHTML += elem;
+  let widgetObj = {};
+  widgetObj['type'] = 'timer';
+  widgetObj['contents'] = contents;
+  document.querySelectorAll('.timerHidden')[index].value = JSON.stringify(widgetObj);
   const eventName = contents.event;
   document.querySelectorAll('.event')[index].innerHTML = eventName + ": ";
   document.querySelectorAll('.widget-timer')[index].style.color = contents.bgColor;
