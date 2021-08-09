@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Test2</title>
+</head>
+<body>
+  <button onclick="location.href='/widget/layout-add/'">레이아웃 생성</button>
+  <br>
+  {% for layout in layout_list %}
+    <a href="/widget/apply-layout/{{ layout.seq }}/">
+      <span>리스트 {{ layout.seq }} {{ layout.is_applied }}</span>
+    </a>
+    <br>
+  {% endfor %}
+  
+</body>
+</html>

@@ -43,7 +43,16 @@ def layout_add(request):
   Layout.objects.create(creater=user, owner=user, data="[]", from_store = False)
   return redirect('test')
 
+def apply_layout(request, pk):
+  user = get_user_inst(request)
+  qs = Layout.objects.filter(owner=user, seq=pk, is_applied=False)
+  applied_qs = Layout.objects.filter(owner=user, is_applied=True)
 
+  if len(qs) == 1 and len(applied_qs) == 1:
+    applied_qs.update(is_applied=False)
+    qs.update(is_applied=True)
+    return redirect('test2')
+  return redirect('test2')  
 
 def layout_delete(request, pk):
   user = get_user_inst(request)
@@ -83,7 +92,8 @@ def get_applied_layout(request):
     json = qs[0].data
   return HttpResponse(json)
   
-  
+
+
 def is_distinct_QS(QS):
   if len(QS) == 1:
     return True
