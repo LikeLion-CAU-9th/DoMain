@@ -22,24 +22,25 @@
 
 <script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
-    function like(widget_id){
+    function like(widget_id) {
         $.ajax({
-            type:"POST",
-            url:"like",  
-            data:{
-                'widget_id':widget_id,
-                'csrfmiddlewaretoken':'{{csrf_token}}',
+            type: "POST",
+            url: "like",
+            data: {
+                'widget_id': widget_id,
+                'csrfmiddlewaretoken': '{{csrf_token}}',
             },
-            dataType:"json",
-            success:function(response){
+            dataType: "json",
+            success: function (response) {
                 console.log(response.message);
-                $("#like").replaceWith('<p id="like">'+response.message+'</p>')
-                $("#like_counting").replaceWith('<span id="like_counting">'+response.num+'</span>');
-            }, 
-            error:function(request, status, error){
+                $("#like").replaceWith('<p id="like">' + response.message + '</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">' + response.num + '</span>');
+            },
+            error: function (request, status, error) {
                 alert(error);
             },
         });
@@ -58,613 +59,118 @@
             <input class="tabs" id="tab1" type="radio" name="tabs" checked>
             <label class="tablabel" for="tab1">BEST</label>
             <input class="tabs" id="tab2" type="radio" name="tabs">
-            <label class="tablabel" for="tab2">PACKAGE</label>
+            <label class="tablabel" for="tab2">LAYOUT</label>
             <input class="tabs" id="tab3" type="radio" name="tabs">
             <label class="tablabel" for="tab3">SEARCHBAR</label>
             <input class="tabs" id="tab4" type="radio" name="tabs">
             <label class="tablabel" for="tab4">D-DAY</label>
             <input class="tabs" id="tab5" type="radio" name="tabs">
-            <label class="tablabel" for="tab5">TODOLIST</label>
+            <label class="tablabel" for="tab5">NOTE</label>
             <input class="tabs" id="tab6" type="radio" name="tabs">
+            <label class="tablabel" for="tab5">FINANCE</label>
+            <input class="tabs" id="tab7" type="radio" name="tabs">
+            <label class="tablabel" for="tab5">BOOKMARK</label>
+            <input class="tabs" id="tab8" type="radio" name="tabs">
             <label class="tablabel" for="tab6">NEW</label>
             <input id="searchBar" class="searchbar" type="text" placeholder="Search">
             <a id="btnSearch" class="btn-search"><img src="{% static 'image/glasses.svg' %}" id="glasses"></a>
+
+
+            <section class="section" id="content1">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    {% for widget in widgets %}
+                    <!-- 기본 위젯카드 형식 -->
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if widget.image %}
+                                <img src="{{widget.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/image.png'%}" class="cardimg" alt="no image">
+                                {%endif%}
+
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{widget.name}}</div>
+                            </a>
+                            
+                            <div>
+                                <div class="likespace">
+                                    <button onClick="like({{widget.seq}})" class="heart-button">
+                                        {%if user in widget.like_users.all%}
+                                        <p id="like">{{"♥"}}</p>
+                                        {%else%}
+                                        <p id="like">{{"♡"}}</p>
+                                        {%endif%}
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{widget.like_users.count}}</div>
+                                    </button>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- 카드하나 끝 -->
+
+            </section>
+
             <section class="section" id="content2">
+
+            </section>
+
+            <section class="section" id="content3">
+
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
                     <!-- 기본 위젯카드 형식 -->
+                    {% for searchbar in searchbars %}
                     <div class="col">
                         <div class="card" id="cardlayout">
-                            <!-- 찜하기 하트 -->
-                            <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
-                            <script>
-                                var emptyheart = "{% static 'image/emptyheart.svg' %}";
-                                var fullheart = "{% static 'image/fullheart.svg' %}";
-
-                                function toggleImg() {
-                                    if (document.getElementById("heart").getAttribute('src') === emptyheart) {
-                                        document.getElementById("heart").setAttribute('src', fullheart);
-                                    }
-                                    else if (document.getElementById("heart").getAttribute === fullheart) {
-                                        document.getElementById("heart").src = emptyheart;
-                                    }
-
-                                }
-                            </script>
-                            <!-- 북마크 -->
-                            <div>
-                                <img src="{% static 'image/redbookmark.svg' %}" class="bookmark">
-                                <div class="bookmarktext"><strong>SALE</strong></div>
-                            </div>
-                            <!-- 위젯이미지 -->
-                            <a href="#">
-                                <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
-                                <!-- 카드 타이틀 -->
-                                <div class="title">Google Style Searchbar</div>
-                            </a>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <div>
-                                <div class="starspace">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-                                <div class="text" style="color:#A2A4A6;">
-                                    <strong style="color:#000000">&nbsp;4.1</strong>
-                                    (151)
-                                </div>
-
-                                <div class="smallheartspace">
-                                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                                </div>
-                                <div class="text" id="hearttext"> &nbsp;(1252)</div>
-                            </div>
-
-                            <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div style="padding-bottom:3%;">
-                                <div class="price">$0</div>
-                                <div class="saleprice">&nbsp;$0&nbsp;</div>
-                                <div class="button"><a href="#" class="btn btn-primary"
-                                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 카드하나 끝 -->
-
-
-                    <!-- 기본 위젯카드 형식 -->
-                    <div class="col">
-                        <div class="card" id="cardlayout">
-                            <!-- 찜하기 하트 -->
-                            <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
-                            <script>
-                                var emptyheart = "{% static 'image/emptyheart.svg' %}";
-                                var fullheart = "{% static 'image/fullheart.svg' %}";
-
-                                function toggleImg() {
-                                    if (document.getElementById("heart").getAttribute('src') === emptyheart) {
-                                        document.getElementById("heart").setAttribute('src', fullheart);
-                                    }
-                                    else if (document.getElementById("heart").getAttribute === fullheart) {
-                                        document.getElementById("heart").src = emptyheart;
-                                    }
-
-                                }
-                            </script>
-                            <!-- 북마크<img src="../static/image/greenbookmark.svg" class="bookmark">
-                            <div class="bookmarktext"><strong>BEST</strong></div> -->
-
 
                             <!-- 위젯이미지 -->
                             <a href="#">
-                                <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
+                                <img src="{{searchbar.image}}" class="cardimg" alt="no image">
                                 <!-- 카드 타이틀 -->
-                                <div class="title">Google Style Searchbar</div>
+                                <div class="title">{{searchbar.name}}</div>
                             </a>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <div>
-                                <div class="starspace">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}
-                                        " class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-                                <div class="text" style="color:#A2A4A6;">
-                                    <strong style="color:#000000">&nbsp;0.0</strong>
-                                    (0)
-                                </div>
 
-                                <div class="smallheartspace">
-                                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                                </div>
-                                <div class="text" id="hearttext"> &nbsp;(0)</div>
+                            <div class="likespace">
+                                <button onClick="like({{searchbar.seq}})" class="heart-button">
+                                    {%if user in searchbar.like_users.all%}
+                                    <p id="like">{{"♥"}}</p>
+                                    {%else%}
+                                    <p id="like">{{"♡"}}</p>
+                                    {%endif%}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div id="like_counting">{{searchbar.like_users.count}}</div>
+                                </button>
                             </div>
 
                             <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div style="padding-bottom:3%;">
-                                <div class="price">$0</div>
-                                <div class="saleprice"></div>
-                                <div class="button"><a href="#" class="btn btn-primary"
-                                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- 카드하나 끝 -->
-
-                    <!-- 기본 위젯카드 형식 -->
-                    <div class="col">
-                        <div class="card" id="cardlayout">
-                            <!-- 찜하기 하트 -->
-                            <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
-                            <script>
-                                var emptyheart = "{% static 'image/emptyheart.svg' %}";
-                                var fullheart = "{% static 'image/fullheart.svg' %}";
-
-                                function toggleImg() {
-                                    if (document.getElementById("heart").getAttribute('src') === emptyheart) {
-                                        document.getElementById("heart").setAttribute('src', fullheart);
-                                    }
-                                    else if (document.getElementById("heart").getAttribute === fullheart) {
-                                        document.getElementById("heart").src = emptyheart;
-                                    }
-
-                                }
-                            </script>
-                            <!-- 북마크 -->
-                            <img src="{% static 'image/redbookmark.svg' %}" class="bookmark">
-                            <div class="bookmarktext"><strong>SALE</strong></div>
-
-                            <!-- 위젯이미지 -->
-                            <a href="#">
-                                <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
-                                <!-- 카드 타이틀 -->
-                                <div class="title">Google Style Searchbar</div>
-                            </a>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <div>
-                                <div class="starspace">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}
-                                        " class="star">
-                                </div>
-                                <div class="text" style="color:#A2A4A6;">
-                                    <strong style="color:#000000">&nbsp;4.1</strong>
-                                    (151)
-                                </div>
-
-                                <div class="smallheartspace">
-                                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                                </div>
-                                <div class="text" id="hearttext"> &nbsp;(1252)</div>
+                            <div class="download-space">
+                                <a href="#">
+                                    <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                </a>
                             </div>
 
-                            <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div style="padding-bottom:3%;">
-                                <div class="price">$0</div>
-                                <div class="saleprice">&nbsp;$0&nbsp;</div>
-                                <div class="button"><a href="#" class="btn btn-primary"
-                                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- 카드하나 끝 -->
-
-
-                    <!-- 기본 위젯카드 형식 -->
-                    <div class="col">
-                        <div class="card" id="cardlayout">
-                            <!-- 찜하기 하트 -->
-                            <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
-                            <script>
-                                var emptyheart = "{% static 'image/emptyheart.svg' %}";
-                                var fullheart = "{% static 'image/fullheart.svg' %}";
-
-                                function toggleImg() {
-                                    if (document.getElementById("heart").getAttribute('src') === emptyheart) {
-                                        document.getElementById("heart").setAttribute('src', fullheart);
-                                    }
-                                    else if (document.getElementById("heart").getAttribute === fullheart) {
-                                        document.getElementById("heart").src = emptyheart;
-                                    }
-
-                                }
-                            </script>
-                            <!-- 북마크 -->
-                            <img src="{% static 'image/greenbookmark.svg' %}" class="bookmark">
-                            <div class="bookmarktext"><strong>BEST</strong></div>
-
-                            <!-- 위젯이미지 -->
-                            <a href="#">
-                                <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
-                                <!-- 카드 타이틀 -->
-                                <div class="title">Google Style Searchbar</div>
-                            </a>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <div>
-                                <div class="starspace">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-                                <div class="text" style="color:#A2A4A6;">
-                                    <strong style="color:#000000">&nbsp;0.0</strong>
-                                    (0)
-                                </div>
-
-                                <div class="smallheartspace">
-                                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                                </div>
-                                <div class="text" id="hearttext"> &nbsp;(0)</div>
-                            </div>
-
-                            <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div style="padding-bottom:3%;">
-                                <div class="price">$0</div>
-                                <div class="saleprice"></div>
-                                <div class="button"><a href="#" class="btn btn-primary"
-                                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
-                            </div>
                         </div>
                     </div>
-                    <!-- 카드하나 끝 -->
-
-                    <!-- 기본 위젯카드 형식 -->
-                    <div class="col">
-                        <div class="card" id="cardlayout">
-                            <!-- 찜하기 하트 -->
-                            <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
-                            <script>
-                                var emptyheart = "{% static 'image/emptyheart.svg' %}";
-                                var fullheart = "{% static 'image/fullheart.svg' %}";
-
-                                function toggleImg() {
-                                    if (document.getElementById("heart").getAttribute('src') === emptyheart) {
-                                        document.getElementById("heart").setAttribute('src', fullheart);
-                                    }
-                                    else if (document.getElementById("heart").getAttribute === fullheart) {
-                                        document.getElementById("heart").src = emptyheart;
-                                    }
-
-                                }
-                            </script>
-                            <!-- 북마크 -->
-                            <img src="{% static 'image/redbookmark.svg' %}" class="bookmark">
-                            <div class="bookmarktext"><strong>SALE</strong></div>
-
-                            <!-- 위젯이미지 -->
-                            <a href="#">
-                                <img src="{% static 'image/widgetimage.png' %}" class="cardimg" alt="no image">
-                                <!-- 카드 타이틀 -->
-                                <div class="title">Google Style Searchbar</div>
-                            </a>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <div>
-                                <div class="starspace">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-                                <div class="text" style="color:#A2A4A6;">
-                                    <strong style="color:#000000">&nbsp;4.1</strong>
-                                    (151)
-                                </div>
-
-                                <div class="smallheartspace">
-                                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                                </div>
-                                <div class="text" id="hearttext"> &nbsp;(1252)</div>
-                            </div>
-
-                            <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div style="padding-bottom:3%;">
-                                <div class="price">$0</div>
-                                <div class="saleprice">&nbsp;$0&nbsp;</div>
-                                <div class="button"><a href="#" class="btn btn-primary"
-                                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- 카드하나 끝 -->
-
-
-                    <!-- 기본 위젯카드 형식 -->
-                    <div class="col">
-                        <div class="card" id="cardlayout">
-                            <!-- 찜하기 하트 -->
-                            <img src="{% static 'image/emptyheart.svg' %}" id="heart" alt="" onclick="toggleImg()" />
-                            <script>
-                                var emptyheart = "{% static 'image/emptyheart.svg' %}";
-                                var fullheart = "{% static 'image/fullheart.svg' %}";
-
-                                function toggleImg() {
-                                    if (document.getElementById("heart").getAttribute('src') === emptyheart) {
-                                        document.getElementById("heart").setAttribute('src', fullheart);
-                                    }
-                                    else if (document.getElementById("heart").getAttribute === fullheart) {
-                                        document.getElementById("heart").src = emptyheart;
-                                    }
-
-                                }
-                            </script>
-                            <!-- 북마크 -->
-                            <img src="{% static 'image/greenbookmark.svg' %}" class="bookmark">
-                            <div class="bookmarktext"><strong>BEST</strong></div>
-
-                            <!-- 위젯이미지 -->
-                            <a href="#">
-                                <img src="{% static 'image/widgetimage.png' %}
-                                    " class="cardimg" alt="no image">
-                                <!-- 카드 타이틀 -->
-                                <div class="title">Google Style Searchbar</div>
-                            </a>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <div>
-                                <div class="starspace">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-                                <div class="text" style="color:#A2A4A6;">
-                                    <strong style="color:#000000">&nbsp;0.0</strong>
-                                    (0)
-                                </div>
-
-                                <div class="smallheartspace">
-                                    <div class="text" style="color:#A2A4A6;">|&nbsp;&nbsp;</div>
-                                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                                </div>
-                                <div class="text" id="hearttext"> &nbsp;(0)</div>
-                            </div>
-
-                            <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div style="padding-bottom:3%;">
-                                <div class="price">$0</div>
-                                <div class="saleprice"></div>
-                                <div class="button"><a href="#" class="btn btn-primary"
-                                        id="downloadbutton"><strong>DOWNLOAD</strong></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 카드하나 끝 -->
-                    <!-- row의 닫는 div태그 -->
+                    {% endfor %}
                 </div>
+
             </section>
-            <section class="section" id="content1">
-                <div class="container">
-                    <div class="card-column column-0">
 
-                        {% for widget in widgets %}
-                        <div style="padding-left:80%;">
-                        <button onClick="like({{widget.seq}})">
-                        {%if user in widget.like_users.all%}
-                        <span><p id="like">{{"♥"}}</p></span>
-                        {%else%}
-                        <span><p id="like">{{"♡"}}</p></span>
-                        {%endif%}
-                        </button>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span id="like_counting">{{widget.like_users.count}}</span>
-                        </div>
-
-                            <div class="card-detail card-color-0">
-                                <div class="border"></div>
-                                <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
-                                <h2>{{widget.name}}</h2>
-                                <p class="cardDescription">{{widget.description}}</p>
-                                <div class="row" style="padding: 10% 0 0 0">
-                                    <div class="col-5" style="padding:3px 0 0 40px;">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                        <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                    </div>
-
-                                    <div class="col-2">
-                                        4.1
-                                    </div>
-
-                                    <div class="col-4" style="padding: 0 0 0 30px;">
-                                        <img src="{% static 'image/smallheart.svg' %}">
-                                        1252
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        {% endfor %}
-                        
-                        <div class="card-detail card-color-0">
-                            <div class="border"></div>
-                            <img class="cardImage" src="{% static 'image/widgetimage.png' %}" />
-                            <h2>Naver Style Searchbar</h2>
-                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                            <div class="row" style="padding: 10% 0 0 0">
-                                <div class="col-5" style="padding:3px 0 0 40px;">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-
-                                <div class="col-2">
-                                    4.1
-                                </div>
-
-                                <div class="col-4" style="padding: 0 0 0 30px;">
-                                    <img src="{% static 'image/smallheart.svg' %}">
-                                    1252
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-detail card-color-2">
-                            <div class="border"></div>
-                            <img class="cardImage"
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-02.jpg" />
-                            <h2>Google Style Searchbar</h2>
-                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                            <div class="row" style="padding: 10% 0 0 0">
-                                <div class="col-5" style="padding:3px 0 0 40px;">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-
-                                <div class="col-2">
-                                    4.1
-                                </div>
-
-                                <div class="col-4" style="padding: 0 0 0 30px;">
-                                    <img src="{% static 'image/smallheart.svg' %}">
-                                    1252
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-column column-2">
-                        <div class="card-detail card-color-1">
-                            <div class="border"></div>
-                            <img class="cardImage"
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-01.jpg" />
-                            <h2>Daum Style Searchbar</h2>
-                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                            <div class="row" style="padding: 10% 0 0 0">
-                                <div class="col-5" style="padding:3px 0 0 40px;">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-
-                                <div class="col-2">
-                                    4.1
-                                </div>
-
-                                <div class="col-4" style="padding: 0 0 0 30px;">
-                                    <img src="{% static 'image/smallheart.svg' %}">
-                                    1252
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-detail card-color-3">
-                            <div class="border"></div>
-                            <img class="cardImage"
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-03.jpg" />
-                            <h2>Google Style Searchbar</h2>
-                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                            <div class="row" style="padding: 10% 0 0 0">
-                                <div class="col-5" style="padding:3px 0 0 40px;">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-
-                                <div class="col-2">
-                                    4.1
-                                </div>
-
-                                <div class="col-4" style="padding: 0 0 0 30px;">
-                                    <img src="{% static 'image/smallheart.svg' %}">
-                                    1252
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-column column-2">
-                        <div class="card-detail card-color-1">
-                            <div class="border"></div>
-                            <img class="cardImage"
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-01.jpg" />
-                            <h2>Daum Style Searchbar</h2>
-                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                            <div class="row" style="padding: 10% 0 0 0">
-                                <div class="col-5" style="padding:3px 0 0 40px;">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-
-                                <div class="col-2">
-                                    4.1
-                                </div>
-
-                                <div class="col-4" style="padding: 0 0 0 30px;">
-                                    <img src="{% static 'image/smallheart.svg' %}">
-                                    1252
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-detail card-color-3">
-
-                            <div class="border"></div>
-                            <img class="cardImage"
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-03.jpg" />
-                            <h2>Naver Style Searchbar</h2>
-                            <p class="cardDescription">심플한 디자인으로 편안함을 주는 디자인입니다.</p>
-                            <div class="row" style="padding: 10% 0 0 0">
-                                <div class="col-5" style="padding:3px 0 0 40px;">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                    <img src="{% static 'image/emptystar.svg' %}" class="star">
-                                </div>
-
-                                <div class="col-2">
-                                    4.1
-                                </div>
-
-                                <div class="col-4" style="padding: 0 0 0 30px;">
-                                    <img src="{% static 'image/smallheart.svg' %}">
-                                    1252
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div id="cover" class="cover"></div>
-                <!-- 
-                    <div id="open-content" class="open-content">
-                        <a href="#" id="close-content" class="close-content"><span class="x-1"></span><span
-                                class="x-2"></span></a>
-                        <img id="open-content-image" src="" />
-                        <div class="text" id="open-content-text">
-                        </div>
-                        <div id="test"></div>
-                    </div> -->
+            <section class="section" id="content4">
 
             </section>
         </div>
