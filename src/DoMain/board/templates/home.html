@@ -8,6 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/mainbar.css' %}" />
+    <!-- Widget related style sheet -->
+    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}"></link>
+    <!-- Widget related script files -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{% static 'finance/finance-element.js' %}"></script>
+    <script src="{% static 'finance/finance.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote-element.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote.js' %}"></script>
+    <script src="{% static 'searching/searching-element.js' %}"></script>
+    <script src="{% static 'searching/searching.js' %}"></script>
+    <script src="{% static 'dday/dday-element.js' %}"></script>
+    <script src="{% static 'dday/dday.js' %}"></script>
+    <script src="{% static 'timer/timer-element.js' %}"></script>
+    <script src="{% static 'timer/timer.js' %}"></script>
+
+    <!-- Server Request script files -->
+    <script src="{% static 'js/layout-server.js' %}"></script>
+
     <title>DoMain</title>
 
 </head>
@@ -15,45 +33,9 @@
 <body>
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
-    </video>
-    <div class="top_navbar">
-        <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
-        <!--
-        {% if user.is_authenticated %}
-        <div class="login_navbar">
-            <ul class='subnavbar_menu'>
-                <li><a href='#'>asset store</a></li>
-                <li>lock</li>
-                <li>{{user.user_name}}님 환영합니다!</li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-        </div>
-        {% else %}
-        <div class="unlogin_navbar">
-            <ul class='subnavbar_menu'>
-                <li><a href="{% url 'login_view' %}">SignIn</a></li>
-                <li><a href="{% url 'join_view' %}">SignUp</a></li>
-            </ul>
-        </div>
-        {% endif %}
-        <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
-   -->
-        <!--
-        <ul class='subnavbar_menu'>
-            
-            {% if user.is_authenticated %}
-            <li><a href='#'>asset store</a></li>
-            <li>lock</li>
-            <li>{{user.user_name}}님 환영합니다!</li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-
-            {% else %}
-            <li><a href="{% url 'login_view' %}">SignIn</a></li>
-            <li><a href="{% url 'join_view' %}">SignUp</a></li>
-            {% endif %}
-            <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
-        </ul>
-        -->
+        </video>
+        <div class="top_navbar">
+            <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
         <ul class='subnavbar_menu'>
             <li><a href="{% url 'login_view' %}">SignIn</a></li>
             <li><a href="{% url 'join_view' %}">SignUp</a></li>
@@ -185,6 +167,9 @@
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
 </div> -->
+
+<div class="main-board"></div>
+
 </body>
 
 <!-- IONICONS -->

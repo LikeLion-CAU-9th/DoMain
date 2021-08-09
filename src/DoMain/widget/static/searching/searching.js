@@ -23,8 +23,8 @@ const searching = (contents, index) => {
   document.querySelectorAll('.searching')[index].style.fontSize = (pixelToInt(height)-40) + "px";
   document.querySelectorAll('.searching')[index].style.borderColor = mainColor;
   document.querySelectorAll('.searching')[index].style.color = mainColor;
-  document.querySelectorAll('.searchBtn-container')[index].style.width = (pixelToInt(height) + 8) + "px";
-  document.querySelectorAll('.searchBtn-container')[index].style.height = (pixelToInt(height) + 8) + "px"; // height is same with width
+  document.querySelectorAll('.searchBtn-container')[index].style.width = (pixelToInt(height)+ 8) + "px";
+  document.querySelectorAll('.searchBtn-container')[index].style.height = (pixelToInt(height)+ 8) + "px"; // height is same with width
   document.querySelectorAll('.searchBtn-container')[index].style.backgroundColor = mainColor;
   document.querySelectorAll('.searchBtn-container')[index].style.borderTopRightRadius = "20px";
   document.querySelectorAll('.searchBtn-container')[index].style.borderBottomRightRadius = "20px";
