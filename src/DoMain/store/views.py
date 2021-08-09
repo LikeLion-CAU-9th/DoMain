@@ -17,6 +17,7 @@ def store_main(request):
 
 def subpage(request):
     email= request.session['user_email']
+    print(email)
     user = User_info.objects.get(user_email=email)
     widgets = StoreWidget.objects.all()
     return render(request, 'subpage.html', {'widgets':widgets, 'user':user})
