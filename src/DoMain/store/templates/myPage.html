@@ -10,14 +10,14 @@
 {% endblock %}
 
 {% block contents %}
-<div class="wrapper" style="padding: 0 0 0 100px;">
+<div class="wrapper" style="padding: 0 0 0 30px;">
     <main class="main">
         <header class="header">
             <div class="header__wrapper">
 
             </div>
         </header>
-        <section class="section">
+        <section class="section sectionEffect" id="content1" style="width:80%">
             <header class="section__header">
                 <h2 class="section__title">Like</h2>
 
@@ -121,10 +121,61 @@
                 </li>
             </ul>
         </section>
+        <section class="section sectionEffect" id="content2" style="width:80%">
+            <header class="section__header">
+                <h2 class="section__title">Downloads</h2>
+
+            </header>
+            <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                <li class="team__item" style="margin-bottom: 10px;">
+                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
+                        <div class="team__header">
+                            <ul class="photo">
+                                <li class="photo__item">
+                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="team__inform" style="margin:20% 0 0 40px;">
+                            <p class="team__name">Purple Home</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </section>
+        <section class="section sectionEffect" id="content3 "style="width:80%">
+            <header class="section__header">
+                <h2 class="section__title">Uploads</h2>
+
+            </header>
+            <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                <li class="team__item" style="margin-bottom: 10px;">
+                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
+                        <div class="team__header">
+                            <ul class="photo">
+                                <li class="photo__item">
+                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="team__inform" style="margin:20% 0 0 40px;">
+                            <p class="team__name">Purple Home</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </section>
+
+
     </main>
     <aside class="aside">
         <section class="section">
-
             <div class="profile-main">
                 <button class="profile-main__setting focus--box-shadow" type="button">
                     <img class="profile-main__photo" src="{% static 'image/anna.jpg' %}" alt="Profile photo" />
@@ -137,15 +188,15 @@
             </div>
             <ul class="statistics">
                 <li class="statistics__entry">
-                    <a class="statistics__entry-description" href="#">Like</a><span
+                    <a class="tablabel" href="#content1">Likes</a><span
                         class="statistics__entry-quantity">5</span>
                 </li>
                 <li class="statistics__entry">
-                    <a class="statistics__entry-description" href="#">Downloads</a><span
+                    <a class="tablabel" href="#content2">Downloads</a><span
                         class="statistics__entry-quantity">3</span>
                 </li>
                 <li class="statistics__entry">
-                    <a class="statistics__entry-description" href="#">Uploads</a><span
+                    <a class="tablabel" href="#content3">Uploads</a><span
                         class="statistics__entry-quantity">48</span>
                 </li>
             </ul>

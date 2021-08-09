@@ -1015,7 +1015,10 @@ button {
 /* Aside */
 
 .aside {
+  position: fixed;
+  height:100vh;
   width: 30rem;
+  left:70%;
   background-color: var(--alabaster);
   padding: 3.05rem 1.875rem;
 }
@@ -1079,13 +1082,13 @@ button {
 /* Profile main */
 
 .profile-main {
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .profile-main__setting {
   position: relative;
-  max-width: 300px;
+  max-width: 3040px;
   margin: 0 auto;
   padding: 0;
   border-radius: 50%;
@@ -1098,17 +1101,17 @@ button {
 
 @media (max-width: 1800px) {
   .profile-main__setting {
-    max-width: 250px;
+    max-width: 150px;
   }
 }
 
 @media (max-width: 1400px) {
   .profile-main {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 
   .profile-main__setting {
-    max-width: 225px;
+    max-width: 150px;
   }
 }
 
@@ -1173,7 +1176,7 @@ button {
 /* Banner */
 
 .banner {
-  padding: 3rem;
+  padding: 1rem;
   text-align: center;
   background-image: url("../img/81744.jpg");
   background-size: cover;
@@ -1187,8 +1190,8 @@ button {
 }
 
 .banner__description {
-  font-size: 1.2rem;
-  margin-bottom: 4rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.1rem;
 }
 
 .banner__button {
@@ -1218,7 +1221,7 @@ button {
   }
 
   .banner__description {
-    margin-bottom: 3rem;
+    margin-bottom: 0.1rem;
   }
 }
 
@@ -1235,7 +1238,7 @@ button {
   }
 
   .banner__description {
-    margin-bottom: 2rem;
+    margin-bottom: 0.2rem;
   }
 
   .banner__button {
@@ -1243,3 +1246,31 @@ button {
     font-size: 1rem;
   }
 }
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
+    display: block;
+}
+.tabs {
+  display: none;
+}
+
+.tablabel {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  /* margin-bottom: 0; */
+  color: #bbb;
+  border: 1px solid transparent;
+}
+.tablabel:hover {
+  color: #2A6049;
+  cursor: pointer;
+}
+/* 
+.sectionEffect {
+  display: none;
+} */
