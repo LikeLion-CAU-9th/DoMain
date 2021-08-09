@@ -34,9 +34,7 @@ def subpage(request):
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
-    # comment = get_object_or_404(Comment, id=id)
     comments = Comment.objects.filter(widget=widget)
-    
     return render(request, 'detailpage.html', {"widget":widget, "comments":comments})
 
 def mypage(request):
@@ -85,7 +83,7 @@ def comment_write(request):
     
         ret = {
             'body': comment.content,
-            'time': dt_now.strftime(f"%Y년 %#m월 %#d일 %I:%M {ampm_kr}"
+            'time': dt_now.strftime(f"%Y년 %#m월 %#d일 %#I:%M {ampm_kr}"
             .encode('unicode-escape').decode())
             .encode().decode('unicode-escape'),
             'user': comment.writer.user_name,
@@ -98,7 +96,6 @@ def comment_write(request):
 def reply_comment(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
-    
 
     if request.method == "GET":
         comment_id = request.GET.get('comment_id')
@@ -146,3 +143,22 @@ def make_download(request):
         "download_message": "다운로드가 완료되었습니다."
     }
     return HttpResponse(json.dumps(ret), content_type="application/json")      
+
+
+def make_reply(request):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+    comment = get_object_or_404(Comment, id=request.POST.get('comment_id'))
+
+    if request.method == "POST":
+        reply = Reply()
+        reply.writer = user
+        reply.comment = comment
+        reply.content = request.POST.get('reply')
+        reply.save()
+
+        ret = {
+            'message':'잘됨'
+        }
+        return HttpResponse(json.dumps(ret), content_type="application/json")
+    

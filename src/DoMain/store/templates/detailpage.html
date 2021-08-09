@@ -1,502 +1,348 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/detailwidget.css' %}">
-    <link rel="stylesheet" href="{% static 'css/commons/card.css' %}">
-    <title>Detailpage</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{%static 'js/carousel.js?ver=123' %}"></script>
-
-</head>
-
-<body>
-    <div class="all">
-        <img src="{% static 'image/bar.svg' %}">
-        <br><br>
-
-        <!-- 왼쪽 부분 -->
-        <div class="leftspace">
-            <div>
-                <div class="carouselcontainer">
-                    <div class="carousel">
-                        <i class="fa fa-chevron-left movebtn" id="left"></i>
-                        <div class="slide_item showing">
-                            <h1><img src="{% static 'image/widgetimage.png' %}"></h1>
-                        </div>
-                        <div class="slide_item">
-                            <h1><img src="{% static 'image/widget2.png' %}"></h1>
-                        </div>
-                        <div class="slide_item">
-                            <h1><img src="{% static 'image/widgetimage.png' %}"></h1>
-                        </div>
-                        <div class="slide_item">
-                            <h1><img src="{% static 'image/widget3.png' %}"></h1>
-                        </div>
-                        <div class="slide_item">
-                            <h1><img src="{% static 'image/widget2.png' %}"></h1>
-                        </div>
-                        <i class="fa fa-chevron-right movebtn" id="right"></i>
-                        <!-- <div class="carousel_page">
-                            <i class="fa fa-circle page cur-page"></i>
-                            <i class="fa fa-circle page"></i>
-                            <i class="fa fa-circle page"></i>
-                            <i class="fa fa-circle page"></i>
-                            <i class="fa fa-circle page"></i>
-                        </div> -->
-                    </div>
-                </div>
-
-            </div>
+{% block header %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/detailPage.css' %}">
 
 
+<title>Detailpage</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
+
+{% block contents %}
+<div class="all">
+    <div class="blank"></div>
+    <!-- 왼쪽 부분 -->
+    <div class="leftspace">
+        <div class="widget-image">
+            {% if widget.image %}
+            <img src="{{ widget.image.url }}" class="cardimg" alt="no image">
+            {% else %}
+            <img src="{% static 'image/image.png' %}" class="cardimg" alt="no image">
+            {% endif %}
+        </div>
+        <div class="widget-data">
             <!-- title과 price부분 -->
-            <div>
+            <div class="widget-data-1">
                 <!-- title -->
-                <div class="title">{{widget.name}}</div>
-
+                <div class="widget-title">{{widget.name}}</div>
                 <!-- price -->
-                <div class="pricespace">
-                    <div class="price">$0&nbsp;</div>
-                    <div class="saleprice">&nbsp;$0&nbsp;</div>
+                <div class="widget-pricespace">
+                    <div class="widget-price">$0&nbsp;</div>
+                    <div class="widget-saleprice">&nbsp;$0&nbsp;</div>
                 </div>
             </div>
 
-            <br><br>
             <!-- 하트랑 다운로드버튼 부분 -->
-            <div style="padding-top:5%;">
+            <div class="widget-data-2">
                 <!-- smallheart -->
-                <img src="{% static 'image/smallheart.svg' %}
-                " class="smallheart">
-                <div id="hearttext"> &nbsp;(1252)</div>
-
+                <div class="like-space">
+                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
+                    <div id="hearttext"> &nbsp;(1252)</div>
+                </div>
+                <div class="widget-data-2-blank"></div>
                 <!-- download button -->
-                <a href="#">
-                    <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
-                </a>
-            </div>
-
-            <br><br>
-            <!-- line -->
-            <hr class="line">
-            <br>
-            <!-- 업로드한 user의 정보 -->
-            <div>
-                <div class="profile-space">
-
-                    <!-- 프로필이미지 -->
-                    <div>
-                        <div class="box" style="background: #BDBDBD;">
-                            <img class="profile" src="{% static 'image/anna.jpg' %}">
-                        </div>
-                        <!-- 프로필 내용 -->
-                        <div class="text">
-                            <div style="font-size:130%; font-weight:bold;">Jisoo</div>
-                            <div>ios designer</div>
-                            <div style="color:#0275B1;">디자인의 가치를 만들어 내는 디자이너 입니다.
-                            </div>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div style="font-size:1%;">&nbsp;</div>
-                    <br>
-
-
-                    <a href="#">
-                        <div class="text" style="color:#45A685;padding-left:0%;"><b>업로더의 다른 위젯 미리보기 > </b></div>
+                <div class="download-container">
+                    <a href="#" class="download-button" onclick="makeDownload({{widget.seq}})">
+                        <b class="download-text">Download</b>
                     </a>
                 </div>
-
-                <!-- 위젯의 정보 -->
-                <div style="width:100%;">
-                    <div class="widget-inform-left">
-                        <div>Update</div>
-                        <div>Category</div>
-                        <div>Size</div>
-                        <div>User</div>
-                    </div>
-                    <div class="widget-inform-right">
-                        <div>2021.07.30</div>
-                        <div>Searchbar</div>
-                        <div>3MB</div>
-                        <div>JisooSeo</div>
-                    </div>
-                </div>
-                <br><br><br><br><br>
-                <hr class="line">
-
             </div>
-            <!-- user정보 끝 -->
-            <br><br>
+        </div>
 
-            <!-- 별점 현황 -->
-            <!-- <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div> -->
-            <!-- 별점 점수와 별점개수-->
-            <!-- <div class="star-point">
-                <div class="text" , style="position:absolute;font-size:100%;">5<br>4<br>3<br>2<br>1</div>
-                <div class="text" , style="padding-left:40%; z-index:2; color:#A2A4A6;font-size:100%; position: relative;
-                padding-left: 1000%;">
-                    (132)<br>(24)<br>(12)<br>(2)<br>(1)
+        <!-- line -->
+        <hr>
+        <!-- 업로드한 user의 정보 -->
+        <div class="upload-info">
+            <div class="profile-space">
+                <!-- 프로필 내용 -->
+                <div class="uploader-info">
+                    <div class="profile-container">
+                        <img class="profile" src="{% static 'image/anna.jpg' %}">
+                    </div>
+                    <div class="uploader-info-text">
+                        <div class="uploader-id">
+                            Jisoo
+                        </div>
+                        <div class="uploader-type">
+                            ios designer
+                        </div>
+                        <div class="uploader-intro">
+                            디자인의 가치를 만들어 내는 디자이너 입니다.
+                        </div>
+                    </div>
                 </div>
-            </div> -->
+            </div>
 
-            <!-- 별점 막대그래프:일단 임의로 width값을 주긴했는데,, 
-    이거 별점 받은 개수대로 하려면은 개수에 따른 %를 계산을 해봐야할 것 같아용-->
-            <!-- <div class="stargraph">
-                <div class="graphstick" style="width:1000%;"></div>
-                <br>
-                <div class="graphstick" style="width:500%;"></div>
-                <br>
-                <div class="graphstick" style="width:250%;"></div>
-                <br>
-                <div class="graphstick" style="width:150%;"></div>
-                <br>
-                <div class="graphstick" style="width:100%;"></div>
-            </div> -->
+            <!-- 위젯의 정보 -->
+            <div class="widget-info-space">
+                <div class="widget-inform-left">
+                    <div>Update</div>
+                    <div>Category</div>
+                    <div>Size</div>
+                    <div>User</div>
+                </div>
+                <div class="widget-inform-right">
+                    <div>2021.07.30</div>
+                    <div>Searchbar</div>
+                    <div>3MB</div>
+                    <div>JisooSeo</div>
+                </div>
+            </div>
+        </div>
+        <hr>
 
-            <!-- <br><br><br><br><br><br><br><br> -->
-            
-            <h4>댓글</h4>
-            
-            <!-- 리뷰댓글다는 부분 -->
-            <div class="review-box">
+
+
+        <!-- 리뷰댓글다는 부분 -->
+        <div class="review-box">
+            <span class="review-start">Comments</span>
             <!-- 프로필이미지 -->
-                <div class="box" style="background: #BDBDBD;">
+            <div class="review-input-container">
+                <div class="profile-container">
                     <img class="profile" src="{% static 'image/elsa.jpg' %}">
                 </div>
-                
-
 
                 <!-- Comment Form -->
-
-                <input id="comment-input" class="comment-input" type="text" name="content" style="width:90%" placeholder="댓글을 달아주세요">
-                <div class="comment-button">
-                    <button onClick="make_comment({{widget.seq}}  )" type="submit">작성하기</button>
+                <input class="comment-input" id="comment-input" type="text" name="content" placeholder="댓글을 달아주세요">
+                <div class="button-container">
+                    <button class="comment-button" onClick="make_comment({{widget.seq}})" type="submit">작성하기</button>
                 </div>
             </div>
-
-            <!-- Comment List -->
-            <div class="comment" id="comment-list" style="float:left; width:70%">
-                {% for comment in comments %}
-                <div class="commentDataList{{ forloop.counter }} commentList">
-                
-                    <span class="comment-writer">{{comment.writer.user_name}}</span>
-                    <span class="comment-content">{{comment.content}}</span>
-                    <span class="comment-time">{{comment.time}}</span>
-                    <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit" class="reply-button">대댓글</button>
-                    <hr>
-                </div>
-
-                {% endfor %}
-            </div>
+        </div>
 
 
-            <hr class="line" style="width:91%;margin-bottom: 5px;">
-            <!-- 리뷰버튼 -->
-            <div class="review-button">
-                <button class="delete-button" type="button">DELETE&nbsp;</button>
-                <button class="upload-button" type="button">&nbsp;UPLOAD&nbsp;</button>
-            </div>
-
-            <!-- 기록된 리뷰1 -->
-            <br><br><br><br><br><br>
-            <div style="float:left">
-                <!-- 프로필이미지 -->
-                <div class="box" style="background: #BDBDBD;">
-                    <img class="profile" src="{% static 'image/elsa.jpg' %}">
-                </div>
-                
+        <!-- Comment List -->
+        <div class="comment-list" id="comment-list">
+            {% for comment in comments %}
+            <div class="commentDataList{{ forloop.counter }} comment-data">
+                <span class="comment-writer">{{comment.writer.user_name}}</span>
+                <span class="comment-time">{{comment.time}}</span>
                 <br>
-
-                <div class="text" style="padding-left: 0%;
-                width: 70%;">
-                    <div class="text" style="font-weight:bold; padding-left:8%;">이성민 님 &nbsp;&nbsp;2021.07.31</div>
-                    <br>
-                    <div class="text" style="padding-left:8%;width: 400%;">디자인이 너무 예뻐요! 당장 다운받았습니다.</div>
-                    <br>
-
-                    <!-- js display이용하면 될 듯 -->
-                    <div class="text" style="padding-left:8%;color:#1C62A8;">▼ 댓글 {32}개 보기</div>
-                </div>
-            </div>
-
-            <!-- 기록된 리뷰2 -->
-            <br><br><br><br><br><br>
-            <div style="float:left">
-                <!-- 프로필이미지 -->
-                <div class="box" style="background: #BDBDBD;">
-                    <img class="profile" src="{% static 'image/olaf.jpg' %}">
-                </div>
-                <!-- 채워진 별 -->
-                <!-- <div class="starspace" style="width: 40%;padding-left: 5%;">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                    <img src="{% static 'image/greenstar.svg' %}" class="star">
-                </div>
-                <br> -->
-
-                <div class="text" style="padding-left: 0%;
-                width: 70%;">
-                    <div class="text" style="font-weight:bold; padding-left:8%;">인세훈 님 &nbsp;&nbsp;2021.07.31</div>
-                    <br>
-                    <div class="text" style="padding-left:8%;width: 400%;">디자인이 너무 예뻐요! 당장 다운받았습니다.</div>
-                    <br>
-
-                    <!-- js display이용하면 될 듯 -->
-                    <div class="text" style="padding-left:8%;color:#1C62A8;">▼ 댓글 {32}개 보기</div>
-                </div>
-            </div>
-
-            <!-- 왼쪽 부분 끝 div태그 -->
-        </div>
-
-
-
-        <!-- 오른쪽 부분:연관 위젯-->
-        <div class="rightspace">
-            <!-- 위젯 하나 -->
-            <a href="#">
-                <div>
-                    <!-- 썸넬이미지 -->
-                    <div class="card" style="flex-direction: row;border:none;">
-                        <img src="{% static 'image/recommendwidget.png' %}" class="card-img-top" id="recommend-widget"
-                            alt="...">
-
-                        <div style="line-height: 80%;">
-                            <!-- title -->
-                            <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                                Naver Style<br>Searchbar
-                            </div>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <br><br><br>
-                            <div class="starspace" style="width: 100%;">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                            </div>
-                            <br>
-                            <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                                <strong style="color:#000000">&nbsp;4.1</strong>
-                                (151)
-                            </div>
-                            <br>
-
-
-                            <!-- price -->
-                            <br><br><br>
-                            <div>
-                                <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                                <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                            </div>
-                        </div>
+                <span class="comment-content">{{comment.content}}</span>
+                <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit"
+                    class="reply-button">대댓글</button>
+                <button onClick="showReply()">답글달기</button>
+                
+                <div class="reply-container">
+                    <input class="reply-input" id="reply-input" type="text" name="content" placeholder="댓글을 달아주세요">
+                    <div class="button-container">
+                        <button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">작성하기</button>
                     </div>
                 </div>
-            </a>
-            <!-- 위젯하나 끝 -->
 
-            <!-- 위젯 하나 -->
-            <a href="#">
-                <div style="padding-top:3%;">
-                    <!-- 썸넬이미지 -->
-                    <div class="card" style="flex-direction: row;border:none;">
-                        <img src="{% static 'image/recommendwidget.png' %}" class="card-img-top" id="recommend-widget"
-                            alt="...">
-
-                        <div style="line-height: 80%;">
-                            <!-- title -->
-                            <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                                Naver Style<br>Searchbar
-                            </div>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <br><br><br>
-                            <div class="starspace" style="width: 100%;">
-                                <img src="{% static 'image/fullstar.svg' %}
-                            " class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                            </div>
-                            <br>
-                            <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                                <strong style="color:#000000">&nbsp;4.1</strong>
-                                (151)
-                            </div>
-                            <br>
-
-
-                            <!-- price -->
-                            <br><br><br>
-                            <div>
-                                <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                                <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <!-- 위젯하나 끝 -->
-
-            <!-- 오른쪽 부분 끝나는 div태그 -->
+            </div>
+            <hr>
+            {% endfor %}
         </div>
-
-        <br><br><br>
-
-        <!-- all을 닫는 div태그 -->
+        <!-- 왼쪽 부분 끝 div태그 -->
     </div>
 
 
-    <script>
-        const SHOWING_CLASS = "showing";
 
-        const Slides = document.querySelectorAll(".slide_item");
+    <!-- 오른쪽 부분:연관 위젯-->
+    <div class="rightspace">
+        <!-- 위젯 하나 -->
+        <div>
+            <!-- 썸넬이미지 -->
+            <div class="extra-widget">
+                <div class="extra-image-container">
+                    <img src="{% static 'image/recommendwidget.png' %}" class="extra-image" id="recommend-widget"
+                        alt="...">
+                </div>
+                <div class="extra-text">
+                    <!-- title -->
+                    <div class="extra-title">
+                        Naver Style<br>Searchbar
+                    </div>
+                    <div class="extra-score">
+                        <strong style="color:#000000">4.1</strong>
+                        (151)
+                    </div>
 
-        const leftBtn = document.querySelector("#left");
-        const rightBtn = document.querySelector("#right");
-        let curIndex = 0;
+                    <!-- price -->
+                    <div class="extra-price-container">
+                        <div class="extra-price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
+                        <div class="extra-saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 위젯하나 끝 -->
 
-        const moveRslide = () => {
-            Slides[curIndex].classList.remove(SHOWING_CLASS);
-            if (curIndex < Slides.length - 1) {
-                curIndex++;
-            } else {
-                curIndex = 0;
+        <!-- 위젯 하나 -->
+        <div>
+            <!-- 썸넬이미지 -->
+            <div class="extra-widget">
+                <div class="extra-image-container">
+                    <img src="{% static 'image/recommendwidget.png' %}" class="extra-image" id="recommend-widget"
+                        alt="...">
+                </div>
+                <div class="extra-text">
+                    <!-- title -->
+                    <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
+                        Naver Style<br>Searchbar
+                    </div>
+
+                    <br>
+                    <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
+                        <strong style="color:#000000">&nbsp;4.1</strong>
+                        (151)
+                    </div>
+                    <br>
+
+                    <!-- price -->
+                    <br><br><br>
+                    <div>
+                        <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
+                        <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 위젯하나 끝 -->
+
+    </div>
+
+    <br><br><br>
+
+    <!-- all을 닫는 div태그 -->
+</div>
+
+
+<script>
+    let today = new Date();
+    let commentIndex = "{{ comments|length }}";
+
+    function make_comment(widget_id) {
+        commentIndex = commentIndex - 1;
+        let body = $("#comment-input").val();
+
+
+        $.ajax({
+            type: "POST",
+            url: "comment/write/",
+            data: {
+                'widget_id': widget_id,  //1
+                'body': body,
+                'csrfmiddlewaretoken': '{{csrf_token}}'
+            },
+            dataType: "json",
+            success: function (response) {
+                let div = document.createElement("div");
+                let commentList = document.querySelector("#comment-list")
+                console.log(response)
+                div.className = `commentDataList${response.comments_length}`;
+                commentList.appendChild(div)
+                console.log(response.message);
+
+                $(`.commentDataList${response.comments_length}`).append("<span class='comment-writer'>" + response.user + "</span>&nbsp;")
+
+                $(`.commentDataList${response.comments_length}`).append("<span class='comment-time'>" + response.time + "</span><br>")
+
+                $(`.commentDataList${response.comments_length}`).append("<span class='comment-content'>" + response.body + "</span>&nbsp")
+
+                $(`.commentDataList${response.comments_length}`).append("<button class='reply-button' onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
+
+                $("#comment-input").val(' ');
+                index = index + 1;
+            },
+            error: function (request, status, error) {
+                alert(error);
             }
-            console.log(curIndex);
-
-            Slides[curIndex].classList.add(SHOWING_CLASS);
-        }
-
-        const moveLslide = () => {
-            Slides[curIndex].classList.remove(SHOWING_CLASS);
-            if (curIndex > 0) {
-                curIndex--;
-            } else {
-                curIndex = Slides.length - 1;
-            }
-            Slides[curIndex].classList.add(SHOWING_CLASS);
-        }
-
-        leftBtn.addEventListener("click", moveLslide);
-        rightBtn.addEventListener("click", moveRslide);
-        let today = new Date();
-        let commentIndex = "{{ comments|length }}";
-        
-        function make_comment(widget_id) {
-            commentIndex = commentIndex-1;
-            let body = $("#comment-input").val();
-            
-
+        })
+    }
+    let replyFlag = true;
+    function make_reply(comment_id, index) {
+        console.log()
+        if (replyFlag === true) {
             $.ajax({
-                type: "POST",
-                url: "comment/write/",
+                type: "GET",
+                url: "show/reply/",
                 data: {
-                    'widget_id': widget_id,  //1
-                    'body': body,
+                    'comment_id': comment_id,
                     'csrfmiddlewaretoken': '{{csrf_token}}'
                 },
                 dataType: "json",
                 success: function (response) {
-                    let div = document.createElement("div");
-                    let commentList = document.querySelector("#comment-list")
-                    div.className = `commentDataList${response.comments_length}`;
-                    commentList.appendChild(div)
-                    console.log(response.message);
-                   
-                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.user + "</span>&nbsp;")
-
-                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.body + "</span>&nbsp")
-
-                    $(`.commentDataList${response.comments_length}`).append("<span>" + response.time + "</span>")
-                    
-                    $(`.commentDataList${response.comments_length}`).append("<button onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
-                    
-                    $("#comment-input").val(' ');
-                    index = index+1;
-                },
-                error: function (request, status, error) {
-                    alert(error);
-                }
-            })
-        }
-        let replyFlag = true;
-        function make_reply(comment_id, index){
-            console.log()
-            if(replyFlag === true){
-                $.ajax({
-                    type:"GET",
-                    url:"reply/write/",
-                    data: {
-                        'comment_id':comment_id,
-                        'csrfmiddlewaretoken': '{{csrf_token}}'
-                    },
-                    dataType:"json",
-                    success: function(response){
-                        console.log(response)
-                        console.log(response.length)
-                        for(let i = 0; i<response.length; i++){
-                            $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
-                        }
-                        replyFlag=false;
-                    },
-                    error: function (request, status, error) {
-                        alert(error);
+                    console.log(response)
+                    console.log(response.length)
+                    for (let i = 0; i < response.length; i++) {
+                        $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
                     }
-                })
-            }
-            else {
-                $(".replyData").remove();
-                replyFlag=true;
-            }
-        }
-
-        function makeDownload(widget_id) {
-            $.ajax({
-                type:"POST",
-                url:"download/",
-                data: {
-                    'widget_id':widget_id,
-                    'csrfmiddlewaretoken': '{{csrf_token}}'
-                },
-                dataType:"json",
-                success: function(response){
-                    
-                    alert(response.download_message);
+                    replyFlag = false;
                 },
                 error: function (request, status, error) {
                     alert(error);
                 }
             })
         }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-</body>
+        else {
+            $(".replyData").remove();
+            replyFlag = true;
+        }
+
+    }
+
+    function showReply() {
+        var x = document.querySelector(".reply-container")
+        
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    
+    function write_reply(comment_id){
+        let reply = $("#reply-input").val();
+        $.ajax({
+            type: "POST",
+            url: "reply/write/",
+            data: {
+                'comment_id': comment_id,
+                'reply': reply,
+                'csrfmiddlewaretoken': '{{csrf_token}}'
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response.message)
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        })
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+{% endblock %}
 
 </html>
