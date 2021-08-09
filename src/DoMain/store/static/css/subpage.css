@@ -60,7 +60,7 @@ a{
 }
 .bookmarktext{
     z-index:4;
-    font-family: 'ABeeZee', sans-serif;
+    /*  */
     font-size: 18px;
     padding:5%;
     color:white;
@@ -75,7 +75,7 @@ a{
 }
 .title{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
+    /*  */
     text-decoration-line: none;
     padding:2% 4%;
     margin-bottom:0rem;
@@ -84,7 +84,7 @@ a{
 }
 .price{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
+    /*  */
     text-decoration-line: none;
     padding-left:6%;
     z-index:1;
@@ -93,7 +93,7 @@ a{
 }
 .saleprice{
     color:#D94738;
-    font-family: 'DM Serif Display', serif;
+    /*  */
     text-decoration:line-through;
     z-index:1;
     float:left;
@@ -118,7 +118,7 @@ a{
     height:30px;
     background-color:#F7E461;
     border-color: #F7E461;
-    font-family: 'ABeeZee', sans-serif;
+    /*  */
     z-index:2;
     float:right;
     text-decoration: none;
@@ -138,7 +138,7 @@ a{
 }
 /* .text{
     color:white;
-    font-family: 'DM Serif Display', serif;
+    
     float:left;
     z-index:1;
 } */
@@ -190,3 +190,19 @@ a{
     padding-left: 3%;
     margin-top: -2%;
 }
+body {font-family: 'NotoSansKR', 'sans-serif';}
+
+@font-face {
+    font-family: 'NotoSansKR';
+    src: url('/store/static/fonts/manrope-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: 'NotoSansKR';
+    src: url('/store/static/fonts/notosanskr-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+AC00-U+D7A3;
+} 

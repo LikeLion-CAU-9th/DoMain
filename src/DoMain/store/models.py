@@ -27,7 +27,6 @@ class WidgetType:
     SIMPLE_WIDGET_NOTE = 'simple_widget_note'
     SIMPLE_WIDGET_FINANCE = 'simple_widget_finance'
     SIMPLE_WIDGET_BOOK_MARK = 'simple_widget_book_mark'
-    SIMPLE_WIDGET_NEW= 'simple_widget_new'
 
     LAYOUT_WIDGET = 'layout_widget'
 
@@ -37,7 +36,6 @@ class WidgetType:
         (SIMPLE_WIDGET_NOTE, '메모장'),
         (SIMPLE_WIDGET_FINANCE, '주식'),
         (SIMPLE_WIDGET_BOOK_MARK, '북마크'),
-        (SIMPLE_WIDGET_NEW, '새로운 위젯'),
         (LAYOUT_WIDGET, '레이아웃 위젯')
     ]
 
