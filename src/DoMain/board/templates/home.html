@@ -1,13 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mainbar.css' %}" />
     <title>DoMain</title>
+
 </head>
+
 <body>
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
@@ -34,7 +38,7 @@
         {% endif %}
         <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
    -->
-   <!--
+        <!--
         <ul class='subnavbar_menu'>
             
             {% if user.is_authenticated %}
@@ -67,7 +71,7 @@
                         <a href="#" class="nav__logo">DoMain</a>
                     </div>
                     <div class="nav__list">
-                        <a href="#" class="nav__link active">
+                        <a href="#" class="nav__link active" id="assetstore-btn" onclick="verticalBarOn()">
                             <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Download Widget</span>
                         </a>
@@ -75,45 +79,117 @@
                             <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Layout List</span>
                         </a>
-    
+
                         <div href="#" class="nav__link">
                             <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Custom Layout</span>
                         </div>
 
-                    <div href="#" class="nav__link">
-                        <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                        <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
-                        <input type="file" id="ex_file">
-                    </div>
+                        <div href="#" class="nav__link" >
+                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                            <input type="color" id="ex_file" accept="img/*">
+                        </div>
 
 
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">Projects</span>
+                        <div href="#" class="nav__link collapse">
+                            <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Projects</span>
 
-                        <ion-icon name="chevron-down-outline" class="collapse__link" id="collapse__link"></ion-icon>
-                        <ul class="collapse__menu" id="collapse__menu">
-                            <a href="#" class="collapse__sublink">Data</a>
-                            <a href="#" class="collapse__sublink">Group</a>
-                            <a href="#" class="collapse__sublink">Members</a>
-                    </body>
-                    </div>
+                            <ion-icon name="chevron-down-outline" class="collapse__link" id="collapse__link"></ion-icon>
+                            <ul class="collapse__menu" id="collapse__menu">
+                                <a href="#" class="collapse__sublink">Data</a>
+                                <a href="#" class="collapse__sublink">Group</a>
+                                <a href="#" class="collapse__sublink">Members</a>
+</div>
+</div>
+</nav>
+</div>
 
 
+
+</div>
+
+<!-- vertical bar-->
+<div class="tabmenu" >
+    <ul style = "display: none;" id = "verticalbar-tab">
+        <li id="tab1" class="btnCon" class="btn first"  text-align="center" style = "background-color: #ffffff;">
+            <div class="tabCon" id = "widget-tab" 
+            >
+
+                
+                <div class="asset-content" style="width: 400px; margin: 0 20% 0 0;" >
+
+                    <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+                    <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+                    <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+
+                    <br />
+                    Calendar
+                    <br />
+
+                    <img align="absmiddle" src="{% static 'img/image 13.png' %}">
+                    <img align="absmiddle" src="{% static 'img/image 14.png' %}">
+
+                    </br>
+                    Searchbar
+
+                    <img align="absmiddle" src="{% static 'img/Group 10.png' %}">
+                    <img align="absmiddle" src="{% static 'img/Group 12.png' %}">
                 </div>
-            </nav>
-        </div>
-    
-        <!-- IONICONS -->
-        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-        <!-- JS -->
-        <script src="{% static 'js/modals.js' %}"></script>
+            </div>
+        </li>
 
+
+        <li id="tab2" class="btnCon" style ="background-color: #ffffff;">
+            <div class="tabCon">
+                레이아웃 top 10
+                
+            </div>
+        </li>
+
+        <li id="tab3" class="btnCon" style="background-color: #ffffff;">
+            <div class="tabCon">
+                my theme
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'img/Artboard_7.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Chaeyeon Theme.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'img/Puang.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Puang Theme.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'img/Artboard_8.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Puang with nurung.</p>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- <div class="asset_box">
+    <div class="asset_box_title"> <p>widget</p></div>
+    <div class="asset-content">
+        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
-
-
+</div> -->
 </body>
 
+<!-- IONICONS -->
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<!-- JS -->
+<script src="{% static 'js/modals.js' %}"></script>
 
 </html>

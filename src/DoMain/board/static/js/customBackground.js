@@ -13,4 +13,3 @@ var fileInput = document.getElementById("backgroundInput");
            
         };
     });
-    var file = e.target.files[0]
