@@ -83,9 +83,18 @@ span.img-text {
 
 .whole-content{
   background-color:rgba(158, 206, 190, 1)
-
+}
 
 .card-body, .card-text, .card-title{
   margin:5px;
   padding:0;
+}
+
+.static{
+  position:absolute;
+  background:white;
+}
+
+.static:hover{
+  opacity:0;
 }
