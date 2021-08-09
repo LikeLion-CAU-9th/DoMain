@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from account.models import User_info
 from widget.models import Layout
 from account.views import get_user_inst
+from widget.views import view_list
 
 def custom(request):
     return render(request, 'customPage.html')
@@ -13,6 +14,11 @@ def mainbar(request):
 
 def test(request):
     return render(request, 'test.html')
+
+def test2(request):
+    layout_list = view_list(request)
+    data = {'layout_list' : layout_list}
+    return render(request, 'test2.html', data)
 
 
 def createData(request, table):
@@ -30,9 +36,10 @@ def createData(request, table):
             layout = DUMMY_LAYOUT
         elif params['dummy']:
             layout = params['layout']
+        request.session['user_email'] = "seonyeongffhjk@ggg"
         user = get_user_inst(request)
         print("****************")
         print(user)
-        Layout.objects.filter(owner=user).delete()
+        # Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
         return redirect('login_view')
