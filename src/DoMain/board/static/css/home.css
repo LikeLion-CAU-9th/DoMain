@@ -21,7 +21,7 @@ video#bgvid{
     background-size:cover;
 }
 
-.navbar{
+.top_navbar{
     position: relative;
     width:100%;
     height:6%;
@@ -48,9 +48,9 @@ video#bgvid{
     text-decoration-line: none;
     transition: all 0.4s ease-in-out .1s;
 }
-
+/*#A2A4A6*/
 .logo a span{
-    color:#A2A4A6;
+    color:black;
     text-decoration-line: none;
     font-size: 100;
 }
@@ -69,14 +69,19 @@ video#bgvid{
     list-style: none;
     margin-left: 80%;
     display: flex;
+    padding-top: 2%;
+    padding-right:1%;
 }
 
 .subnavbar_menu li{
-    float:left;
+    float:inline-end;
 }
 
 .subnavbar_menu li a{
-    padding-left: 2em;
+    padding-left:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     font-size: 0.9em;
     color:#888787;
     text-decoration-line: none;
@@ -110,11 +115,11 @@ button:hover{
 :root {
     --nav--width: 92px;
 
-    /* Colores */
+    /* Colores rgba(250, 203, 144, 0.5)*/
     --first-color: #ffb32f;
     --bg-color: rgba(250, 203, 144, 0.5);
     --sub-color: #fcf1b6;
-    --white-color: #fff;
+    --white-color: black;
 
     /* Fuente y tipografia */
     --body-font: 'Poppins', sans-serif;
@@ -130,7 +135,7 @@ button:hover{
     box-sizing: border-box;
 }
 
-body {
+#body-pd {
     position: relative;
     margin: 0;
     padding: 2rem 0 0 6.75rem;

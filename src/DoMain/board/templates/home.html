@@ -12,13 +12,35 @@
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
     </video>
-    <div class="navbar">
+    <div class="top_navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+        <!--
+        {% if user.is_authenticated %}
+        <div class="login_navbar">
+            <ul class='subnavbar_menu'>
+                <li><a href='#'>asset store</a></li>
+                <li>lock</li>
+                <li>{{user.user_name}}님 환영합니다!</li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="unlogin_navbar">
+            <ul class='subnavbar_menu'>
+                <li><a href="{% url 'login_view' %}">SignIn</a></li>
+                <li><a href="{% url 'join_view' %}">SignUp</a></li>
+            </ul>
+        </div>
+        {% endif %}
+        <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
+   -->
+   <!--
         <ul class='subnavbar_menu'>
+            
             {% if user.is_authenticated %}
             <li><a href='#'>asset store</a></li>
             <li>lock</li>
-            <li><span>{{user.user_name}}</span>님 환영합니다!</li>
+            <li>{{user.user_name}}님 환영합니다!</li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
 
             {% else %}
@@ -27,10 +49,15 @@
             {% endif %}
             <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
         </ul>
+        -->
+        <ul class='subnavbar_menu'>
+            <li><a href="{% url 'login_view' %}">SignIn</a></li>
+            <li><a href="{% url 'join_view' %}">SignUp</a></li>
+            <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
+        </ul>
     </div>
 
-
-    <body id="body-pd">
+    <div id="body-pd">
         <div class="r-navbar" id="navbar">
             <nav class="nav">
                 <div>
@@ -81,7 +108,7 @@
         <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
         <!-- JS -->
         <script src="{% static 'js/modals.js' %}"></script>
-    </body>
+    </div>
 
 </body>
 
