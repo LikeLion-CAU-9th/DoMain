@@ -57,7 +57,7 @@
             it is composed of subtabs according to the widget style
         -->
             <input class="tabs" id="tab1" type="radio" name="tabs" checked>
-            <label class="tablabel" for="tab1">BEST</label>
+            <label class="tablabel" for="tab1">TOTAL</label>
             <input class="tabs" id="tab2" type="radio" name="tabs">
             <label class="tablabel" for="tab2">LAYOUT</label>
             <input class="tabs" id="tab3" type="radio" name="tabs">
@@ -67,11 +67,11 @@
             <input class="tabs" id="tab5" type="radio" name="tabs">
             <label class="tablabel" for="tab5">NOTE</label>
             <input class="tabs" id="tab6" type="radio" name="tabs">
-            <label class="tablabel" for="tab5">FINANCE</label>
+            <label class="tablabel" for="tab6">FINANCE</label>
             <input class="tabs" id="tab7" type="radio" name="tabs">
-            <label class="tablabel" for="tab5">BOOKMARK</label>
+            <label class="tablabel" for="tab7">BOOKMARK</label>
             <input class="tabs" id="tab8" type="radio" name="tabs">
-            <label class="tablabel" for="tab6">NEW</label>
+            <label class="tablabel" for="tab8">NEW</label>
             <input id="searchBar" class="searchbar" type="text" placeholder="Search">
             <a id="btnSearch" class="btn-search"><img src="{% static 'image/glasses.svg' %}" id="glasses"></a>
 
@@ -95,7 +95,7 @@
                                 <div class="title">{{widget.name}}</div>
                             </a>
 
-                            <div>
+                            <div  style="padding-bottom: 3%;">
                                 <div class="likespace">
                                     <div class="heart-button">
                                         <p id="like">{{"♥"}}</p>
