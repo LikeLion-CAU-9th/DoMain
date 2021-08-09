@@ -25,3 +25,4 @@ class Layout(AbstractBaseWidget):
       db_column="owner"
     )
   is_applied = models.BooleanField(null=False, default=False)
+  name = models.CharField(max_length=31, null=False, blank=True)
