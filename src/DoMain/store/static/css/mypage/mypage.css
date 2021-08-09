@@ -594,7 +594,7 @@ button {
 }
 
 .team__item {
-  width: calc(100%);
+  width: calc(90%);
   margin: 0 0.6rem;
 }
 
@@ -648,7 +648,7 @@ button {
   }
 
   .team__item {
-    width: calc(100%);
+    width: calc(90%);
   }
 
   .team__item:nth-child(3n) {
@@ -675,7 +675,7 @@ button {
 
 @media (max-width: 768px) {
   .team__item {
-    width: 100%;
+    width: 90%;
   }
 
   .team__item:nth-child(2n) {
