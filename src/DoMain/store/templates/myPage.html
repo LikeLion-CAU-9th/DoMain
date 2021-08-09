@@ -127,23 +127,29 @@
 
             </header>
             <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                {% for download_layout in download_layouts %}
                 <li class="team__item" style="margin-bottom: 10px;">
                     <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
                         <div class="team__header">
                             <ul class="photo">
                                 <li class="photo__item">
+                                    {% if download_layout.image %}
+                                    <img src="{{download_layout.image.url}}">
+
+                                    {% else %}
                                     <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    {% endif %}
                                 </li>
 
                             </ul>
                         </div>
                         <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+                            <p class="team__name">{{download_layout.name}}</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">{{download_layout.create_date}}</time>
                         </div>
                     </a>
                 </li>
-                
+                {% endfor %}
             </ul>
         </section>
         <section class="section sectionEffect" id="content3 "style="width:80%">
@@ -152,23 +158,30 @@
 
             </header>
             <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                {% for upload_layout in upload_layouts %}
                 <li class="team__item" style="margin-bottom: 10px;">
                     <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
                         <div class="team__header">
                             <ul class="photo">
+
                                 <li class="photo__item">
+                                    {% if upload_layout %}
+                                    <img src="{{upload_layout.image.url}}">
+                                    {% else %}
                                     <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    {% endif %}
+                                    
                                 </li>
 
                             </ul>
                         </div>
                         <div class="team__inform" style="margin:20% 0 0 40px;">
-                            <p class="team__name">Purple Home</p>
-                            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+                            <p class="team__name">{{upload_layout.name}}</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">{{upload_layout.create_date}}</time>
                         </div>
                     </a>
                 </li>
-                
+                {% endfor %}
             </ul>
         </section>
 
@@ -193,11 +206,11 @@
                 </li>
                 <li class="statistics__entry">
                     <a class="tablabel" href="#content2">Downloads</a><span
-                        class="statistics__entry-quantity">3</span>
+                        class="statistics__entry-quantity">{{download_count}}</span>
                 </li>
                 <li class="statistics__entry">
                     <a class="tablabel" href="#content3">Uploads</a><span
-                        class="statistics__entry-quantity">48</span>
+                        class="statistics__entry-quantity">{{upload_count}}</span>
                 </li>
             </ul>
 
