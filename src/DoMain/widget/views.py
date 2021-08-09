@@ -34,6 +34,10 @@ def searching_view(request):
   return render(request, 'searching.html')
 
 
+def todo_view(request):
+  return render(request, 'todo.html')
+
+
 def layout_add(request):
   user = get_user_inst(request)
   Layout.objects.create(creater=user, owner=user, data="[]", from_store = False)
