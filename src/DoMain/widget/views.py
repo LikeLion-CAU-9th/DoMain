@@ -117,3 +117,10 @@ def timer_view(request):
 def update_main_bgcolor(request):
   hexColor = request.GET['hexColor']
   return HttpResponse(True)
+
+
+def save_layout(request):
+  layout_JSON = request.GET['layoutJSON']
+  user = get_user_inst(request)
+  Layout.objects.filter(owner=user, is_applied=True).update(data=layout_JSON)
+  return HttpResponse(True)

@@ -21,4 +21,5 @@ urlpatterns = [
   path('get-applied-layout/', views.get_applied_layout),
   path('update-mainBGcolor/', views.update_main_bgcolor),
   path('apply-layout/<str:pk>/', views.apply_layout),
+  path('save-layout/', views.save_layout),
 ]
