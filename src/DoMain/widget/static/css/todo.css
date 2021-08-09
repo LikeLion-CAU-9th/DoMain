@@ -1,0 +1,146 @@
+    body {
+        caret-color: #02aab0;
+        color: #272341;
+    }
+    
+    #todolist {
+        text-align: left;
+        max-width: 550px;
+        margin: auto;
+        background: linear-gradient(135deg, #02aab0, #00cdac);
+    }
+    
+    .main__title {
+        margin: 0px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        text-align: center;
+        color: white;
+    }
+
+    .main__title h1 {
+        margin-bottom: 5px;
+    }
+    
+    .input__section {
+        margin: auto;
+    }
+    
+    .input__section form {
+        margin: 0px 70px 5px 70px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .item {
+        width: 300px;
+        height: 30px;
+        border-radius: 15px;
+        border: 1px solid #fbe7c6;
+        padding: 0px 30px;
+    }
+    .input__button {
+        background-color: transparent;
+        font-size: 30px;
+        line-height: 60px;
+        margin-left: 5px;
+        color: white;
+        border: 0;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    *:focus {
+        outline: none;
+    }
+
+    ul li {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 110px;
+        background: #eee;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    ul li:hover {
+        background: #ddd;
+    }
+    
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        align-items: center;
+        text-align: center;
+        margin: 8px 60px;
+        padding: 4px 8px;
+        border: none;
+        background: rgba(255, 255, 255, 0);
+    }
+    .close:hover {
+        background: linear-gradient(135deg, #02aab0, #00cdac);
+        border-radius: 100%;
+        color: white;
+    }
+
+
+    ul li.checked {
+        background: #ddd;
+        color: #272341;
+        text-decoration: line-through;
+    }
+    
+    ul li.checked::before {
+        content: "";
+        position: absolute;
+        background-color: linear-gradient(135deg, #02aab0, #00cdac);
+        border-color: #272341;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 13px;
+        left: 80px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+    }
+
+@media screen and (max-width: 768px) {
+    body {
+      margin: 0;
+    }
+
+    #todolist {
+      max-width: 100%;
+    }
+  
+    .input__section form {
+      margin: 0px 30px 5px 30px;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .item {
+      width: 200px;
+      height: 30px;
+      border-radius: 15px;
+      border: 1px solid #fbe7c6;
+      padding: 0px 30px;
+    }
+  
+    .close {
+      position: absolute;
+      align-items: center;
+      text-align: center;
+      margin: 8px 15px;
+      padding: 4px 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0);
+    }
+}

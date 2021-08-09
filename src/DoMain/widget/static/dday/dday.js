@@ -1,8 +1,12 @@
 
-const dday = (contents) => {
+const dday = (contents, index) => {
     let elem = getDdayElements();
     document.querySelector('.main-board').innerHTML += elem;
     
+    let widgetObj = {};
+    widgetObj['type'] = 'dday';
+    widgetObj['contents'] = contents;
+    document.querySelectorAll('.ddayHidden')[index].value = JSON.stringify(widgetObj);
     let ITEMS = contents.items;
 
     let now = new Date();

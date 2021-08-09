@@ -1,4 +1,4 @@
 const getDdayElements = () => {
-  elem = '<div onmouseover=ddayListShow() onmouseout=ddayListHide()><div class="center" id = "ddayFirst"></div><div class="center" id = "ddayAdd"></div><div></div></div>';
+  elem = '<div class="widget widget-dday" onmouseover=ddayListShow() onmouseout=ddayListHide()><input type="hidden" class="ddayHidden"><div class="center" id = "ddayFirst"></div><div class="center" id = "ddayAdd"></div><div></div></div>';
   return elem
 }
