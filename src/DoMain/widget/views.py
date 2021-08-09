@@ -68,8 +68,6 @@ def view_list(request):
   user = get_user_inst(request)
   layout_list = Layout.objects.filter(owner=user)
   return layout_list
-    # return redirect('layoutlist page')
-    pass
 
 
 def get_applied_layout(request):
