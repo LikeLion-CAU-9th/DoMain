@@ -19,7 +19,7 @@
     position: absolute;
     width: 26px;
     cursor: pointer;
-    top: 48% !important;
+    top: 40% !important;
 }
 
 .owl-carousel .owl-prev.disabled,
@@ -32,6 +32,7 @@
     background: no-repeat scroll 0 0;
     left: -33px;
 }
+
 .owl-carousel .next-slide{
     background: no-repeat scroll -24px 0px;
     right: -33px;
@@ -73,7 +74,7 @@ span.img-text {
 }
 
 .card-container{
-  padding:10px 15px 0 15px;
+  padding:10px 15px 0 20px;
 }
 
 .prev-icon{
@@ -90,11 +91,3 @@ span.img-text {
   padding:0;
 }
 
-.static{
-  position:absolute;
-  background:white;
-}
-
-.static:hover{
-  opacity:0;
-}

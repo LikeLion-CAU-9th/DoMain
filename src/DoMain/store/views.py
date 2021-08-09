@@ -20,9 +20,7 @@ def subpage(request):
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
-    # comment = get_object_or_404(Comment, id=id)
     comments = Comment.objects.filter(widget=widget)
-    
     return render(request, 'detailpage.html', {"widget":widget, "comments":comments})
 
 def mypage(request):

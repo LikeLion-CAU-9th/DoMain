@@ -44,7 +44,7 @@ class StoreWidget(AbstractBaseWidget):
     is_removed = models.BooleanField(default=False)
     like_users = models.ManyToManyField(User_info, related_name="like_widgets", blank=True)
     score = models.IntegerField(default=0)
-    # image = models.ImageField()
+    image = models.ImageField(upload_to="storeWidget/", blank=True, null=True)
 
 
     def __str__(self):
