@@ -8,23 +8,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mainpage asset store</title>
 
-    <style>
-        .asset_box {
-            width: 300px;
-            height: 800px;
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/owl.carousel.css' %}">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 1.3;
+}
 
-            border-style: solid;
-            border-radius: 20px;
-            border: 3px;
-            padding: 10px;
-            float: right;
-            background-color: #CAE2E1;
-            color: white;
-            overflow: auto;
-            position: relative;
+ul {
+    list-style: none;
 
-        }
+}
 
+.tabmenu{ 
+  max-width:600px; 
+  margin: 0 auto; 
+  position:relative; 
+  float: right;
+  width: 400px;
+  text-align: center;
+}
+.tabmenu ul li{
+  display:  inline-block;
+  width:33.33%; 
+  float: left;  
+  text-align: center; 
+  background :#ce8aff;
+}
+.tabmenu ul li a{
+  display: block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #f9f9f9;
+  float: right;
+  text-align: justify;
+}
+.tabCon{
+  display:none; 
+  text-align: center; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+  width: 400px;
+}
+.btnCon:target  {
+  background : #ccc;
+  text-align: center;
+}
+.btnCon:target .tabCon{
+  display: block;
+  text-align: center;
+}
+
+
+       
+/* 
         .asset_box_title {
             width: 100%;
             height: 10%;
@@ -55,23 +99,128 @@
             margin: 0;
             position: absolute;
             text-align: right;
-        }
+        } */ 
     </style>
 </head>
 
 <body>
+        <div class="tabmenu">
+            <ul>
+                <li id="tab1" class="btnCon"><a class="btn first" href="#tab1" text-align= "center">Widget</a>
+                    <div class="tabCon" >
+                        Download Widget
+                        
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="..." class="d-block w-100" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="..." class="d-block w-100" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="..." class="d-block w-100" alt="...">
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
 
-    <div class="asset_box">
+                        <div class="asset-content" >
+                        
+                            <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+                            <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+                            <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+                            
+                            <br/>
+                            Calendar
+                            <br/>
+
+                            <img align="absmiddle" src="{% static 'img/image 13.png' %}">
+                            <img align="absmiddle" src="{% static 'img/image 14.png' %}">
+                            
+                            </br>
+                            Searchbar
+
+                            <img align="absmiddle" src="{% static 'img/Group 10.png' %}" >
+                            <img align="absmiddle" src="{% static 'img/Group 12.png' %}" >
+                        </div>      
+                    </div>
+                </li>
+                <li id="tab2" class="btnCon"><a class="btn first" href="#tab2">Layout</a>
+                    <div class="tabCon" >
+                        레이아웃 top 10
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static 'img/Group 14.png' %}" height="150" width="250" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'img/예시.png' %}" height="150" width="250" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'img/main.png' %}" height="150" width="250"  class="d-block w-100" alt="...">
+                            </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="tab3" class="btnCon"><a class="btn first" href="#tab3">My theme</a>
+                    <div class="tabCon" >
+                        my theme
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'img/Artboard_7.png' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <p class="card-text">Chaeyeon Theme.</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'img/Puang.png' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <p class="card-text">Puang Theme.</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'img/Artboard_8.png' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <p class="card-text">Puang with nurung.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+
+            
+    <!-- <div class="asset_box">
         <div class="asset_box_title"> <p>widget</p></div>
         <div class="asset-content">
             <img align="absmiddle" src="{% static 'img/App 21.png' %}">
             <img align="absmiddle" src="{% static 'img/App 22.png' %}">
             <img align="absmiddle" src="{% static 'img/App 24.png' %}">
         </div>
-    </div>
-
-
-
+    </div> -->
 </body>
-
 </html>
