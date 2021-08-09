@@ -8,6 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/mainbar.css' %}" />
+    <!-- Widget related style sheet -->
+    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}"></link>
+    <!-- Widget related script files -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{% static 'finance/finance-element.js' %}"></script>
+    <script src="{% static 'finance/finance.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote-element.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote.js' %}"></script>
+    <script src="{% static 'searching/searching-element.js' %}"></script>
+    <script src="{% static 'searching/searching.js' %}"></script>
+    <script src="{% static 'dday/dday-element.js' %}"></script>
+    <script src="{% static 'dday/dday.js' %}"></script>
+    <script src="{% static 'timer/timer-element.js' %}"></script>
+    <script src="{% static 'timer/timer.js' %}"></script>
+
+    <!-- Server Request script files -->
+    <script src="{% static 'js/layout-server.js' %}"></script>
+    <script src="{% static 'js/update-request.js' %}"></script>
+
     <title>DoMain</title>
 
 </head>
@@ -15,6 +34,7 @@
 <body>
     <video autoplay muted loop id="bgvid">
         <source src="../media/yellow2.mp4" type="video/mp4">
+
     </video>
     <div class="top_navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
@@ -56,6 +76,7 @@
                     Logout
                 </a>
             </li>
+
             <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
         </ul>
     </div>
@@ -64,6 +85,58 @@
         <div class="r-navbar" id="navbar">
             <nav class="nav">
                 <div>
+
+                    <div class="nav__brand">
+                        <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                        <a href="#" class="nav__logo">DoMain</a>
+                    </div>
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active" id="assetstore-btn" onclick="verticalBarOn()">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Download Widget</span>
+                        </a>
+                        <a href="#" class="nav__link">
+                            <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Layout List</span>
+                        </a>
+
+                        <div href="#" class="nav__link">
+                            <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Custom Layout</span>
+                        </div>
+
+                        <div href="#" class="nav__link" >
+                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file" accept="img/*">
+                        </div>
+
+
+                        <div href="#" class="nav__link collapse">
+                            <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Projects</span>
+
+                            <ion-icon name="chevron-down-outline" class="collapse__link" id="collapse__link"></ion-icon>
+                            <ul class="collapse__menu" id="collapse__menu">
+                                <a href="#" class="collapse__sublink">Data</a>
+                                <a href="#" class="collapse__sublink">Group</a>
+                                <a href="#" class="collapse__sublink">Members</a>
+</div>
+</div>
+</nav>
+</div>
+
+
+
+</div>
+
+<!-- vertical bar-->
+<div class="tabmenu" >
+    <ul style = "display: none;" id = "verticalbar-tab">
+        <li id="tab1" class="btnCon" class="btn first"  text-align="center" style = "background-color: #ffffff;">
+            <div class="tabCon" id = "widget-tab" 
+            >
+
 
                 <div class="nav__brand">
                     <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
@@ -100,6 +173,12 @@
         <script src="{% static 'js/modals.js' %}"></script>
 
     </div>
+
+</div> 
+
+<div class="main-board"></div>
+
+
 </body>
 
 </html>

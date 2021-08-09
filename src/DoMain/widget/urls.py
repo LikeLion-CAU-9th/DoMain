@@ -19,5 +19,6 @@ urlpatterns = [
   path('layout-add/', views.layout_add), 
   path('delete-layout/<str:pk>/', views.layout_delete),
   path('get-applied-layout/', views.get_applied_layout),
-
+  path('update-mainBGcolor/', views.update_main_bgcolor),
+  path('apply-layout/<str:pk>/', views.apply_layout),
 ]
