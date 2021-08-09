@@ -32,7 +32,10 @@ const renderAppliedLayout = () => {
     console.log(i + "th widget");
     let type = json[i].type;
     let contents = json[i].contents;
-    if(type === "finance"){
+    if(type === "background") {
+      document.querySelector('.main-board').style.backgroundColor = contents.colorCode;
+    }
+    else if(type === "finance"){
       finance(contents, financeIndex);
       financeIndex ++;
     }

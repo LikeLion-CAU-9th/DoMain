@@ -25,6 +25,7 @@
 
     <!-- Server Request script files -->
     <script src="{% static 'js/layout-server.js' %}"></script>
+    <script src="{% static 'js/update-request.js' %}"></script>
 
     <title>DoMain</title>
 
@@ -70,7 +71,7 @@
                         <div href="#" class="nav__link" >
                             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
                             <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
-                            <input type="color" id="ex_file" accept="img/*">
+                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file" accept="img/*">
                         </div>
 
 

@@ -102,3 +102,8 @@ def insert_dummy_layout(request, apply):
 
 def timer_view(request):
   return render(request, 'timer.html')
+
+
+def update_main_bgcolor(request):
+  hexColor = request.GET['hexColor']
+  return HttpResponse(True)

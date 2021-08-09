@@ -15,6 +15,8 @@ const finance = (contents, index) => {
     obj[i] = stockItems[i];
   }
   priceStr = AjaxCall(URL, data=obj);
+  hideLoader();
+  appearContent();
   renderName(stockItems, index);
   renderPrice(priceStr, index);
 }
@@ -28,8 +30,6 @@ const AjaxCall = (url, data, method="GET", async=false) => {
     data: data,
     success: function(data) {
       returnValue = data;
-      hideLoader();
-      appearContent();
     }
   })
   return returnValue;
