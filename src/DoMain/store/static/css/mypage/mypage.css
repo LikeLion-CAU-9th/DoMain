@@ -136,7 +136,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   h1 {
     font-size: 1.6rem;
   }
@@ -162,7 +162,7 @@ button {
   min-height: 100vh;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .wrapper {
     flex-wrap: wrap;
   }
@@ -271,7 +271,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .nav {
     width: calc(100% - 2rem);
   }
@@ -315,7 +315,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .main {
     width: 100%;
     order: 2;
@@ -561,7 +561,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .section:not(:last-child) {
     margin-bottom: 2rem;
   }
@@ -666,7 +666,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .team__name {
     margin-bottom: 0.5rem;
     font-size: 1.25rem;
@@ -866,7 +866,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .project__link {
     padding: 1rem 0.5rem;
   }
@@ -1000,7 +1000,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .setting {
     width: 2rem;
     height: 2rem;
@@ -1068,7 +1068,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .aside {
     width: 100%;
     order: 1;
@@ -1154,7 +1154,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .statistics {
     max-width: 480px;
     margin: 0 auto 3rem;
@@ -1222,7 +1222,7 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   .banner {
     max-width: 480px;
     margin: auto;
