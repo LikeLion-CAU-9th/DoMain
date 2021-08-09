@@ -57,7 +57,7 @@
             it is composed of subtabs according to the widget style
         -->
             <input class="tabs" id="tab1" type="radio" name="tabs" checked>
-            <label class="tablabel" for="tab1">BEST</label>
+            <label class="tablabel" for="tab1">TOTAL</label>
             <input class="tabs" id="tab2" type="radio" name="tabs">
             <label class="tablabel" for="tab2">LAYOUT</label>
             <input class="tabs" id="tab3" type="radio" name="tabs">
@@ -67,11 +67,11 @@
             <input class="tabs" id="tab5" type="radio" name="tabs">
             <label class="tablabel" for="tab5">NOTE</label>
             <input class="tabs" id="tab6" type="radio" name="tabs">
-            <label class="tablabel" for="tab5">FINANCE</label>
+            <label class="tablabel" for="tab6">FINANCE</label>
             <input class="tabs" id="tab7" type="radio" name="tabs">
-            <label class="tablabel" for="tab5">BOOKMARK</label>
+            <label class="tablabel" for="tab7">BOOKMARK</label>
             <input class="tabs" id="tab8" type="radio" name="tabs">
-            <label class="tablabel" for="tab6">NEW</label>
+            <label class="tablabel" for="tab8">NEW</label>
             <input id="searchBar" class="searchbar" type="text" placeholder="Search">
             <a id="btnSearch" class="btn-search"><img src="{% static 'image/glasses.svg' %}" id="glasses"></a>
 
@@ -88,24 +88,20 @@
                                 {%if widget.image %}
                                 <img src="{{widget.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
-                                <img src="{%static 'image/image.png'%}" class="cardimg" alt="no image">
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
                                 {%endif%}
 
                                 <!-- 카드 타이틀 -->
                                 <div class="title">{{widget.name}}</div>
                             </a>
-                            
-                            <div>
+
+                            <div  style="padding-bottom: 3%;">
                                 <div class="likespace">
-                                    <button onClick="like({{widget.seq}})" class="heart-button">
-                                        {%if user in widget.like_users.all%}
+                                    <div class="heart-button">
                                         <p id="like">{{"♥"}}</p>
-                                        {%else%}
-                                        <p id="like">{{"♡"}}</p>
-                                        {%endif%}
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div id="like_counting">{{widget.like_users.count}}</div>
-                                    </button>
+                                    </div>
                                 </div>
 
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
@@ -126,6 +122,47 @@
             </section>
 
             <section class="section" id="content2">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    {% for layout in layouts %}
+                    <!-- 기본 위젯카드 형식 -->
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if layout.image %}
+                                <img src="{{layout.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
+
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{layout.name}}</div>
+                            </a>
+
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{layout.like_users.count}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- 카드하나 끝 -->
 
             </section>
 
@@ -139,30 +176,31 @@
 
                             <!-- 위젯이미지 -->
                             <a href="#">
-                                <img src="{{searchbar.image}}" class="cardimg" alt="no image">
+                                {%if searchbar.image %}
+                                <img src="{{searchbar.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
                                 <!-- 카드 타이틀 -->
                                 <div class="title">{{searchbar.name}}</div>
                             </a>
 
-                            <div class="likespace">
-                                <button onClick="like({{searchbar.seq}})" class="heart-button">
-                                    {%if user in searchbar.like_users.all%}
-                                    <p id="like">{{"♥"}}</p>
-                                    {%else%}
-                                    <p id="like">{{"♡"}}</p>
-                                    {%endif%}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <div id="like_counting">{{searchbar.like_users.count}}</div>
-                                </button>
-                            </div>
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{searchbar.like_users.count}}</div>
+                                    </div>
+                                </div>
 
-                            <!-- 가격(+세일가)과 다운로드 버튼 -->
-                            <div class="download-space">
-                                <a href="#">
-                                    <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                </a>
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                     {% endfor %}
@@ -171,8 +209,216 @@
             </section>
 
             <section class="section" id="content4">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    <!-- 기본 위젯카드 형식 -->
+                    {% for dday in ddays %}
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if dday.image %}
+                                <img src="{{dday.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{dday.name}}</div>
+                            </a>
+
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{dday.like_users.count}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
 
             </section>
+
+            <section class="section" id="content5">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    <!-- 기본 위젯카드 형식 -->
+                    {% for note in notes %}
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if note.image %}
+                                <img src="{{note.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{note.name}}</div>
+                            </a>
+
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{note.like_users.count}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+            </section>
+
+            <section class="section" id="content6">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    <!-- 기본 위젯카드 형식 -->
+                    {% for finance in finances %}
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if finance.image %}
+                                <img src="{{finance.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{finance.name}}</div>
+                            </a>
+
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{finance.like_users.count}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+            </section>
+
+            <section class="section" id="content7">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    <!-- 기본 위젯카드 형식 -->
+                    {% for bookmark in bookmarks %}
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if bookmark.image %}
+                                <img src="{{bookmark.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{bookmark.name}}</div>
+                            </a>
+
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{bookmark.like_users.count}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+            </section>
+
+            <section class="section" id="content8">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="row">
+                    <!-- 기본 위젯카드 형식 -->
+                    {% for new in news %}
+                    <div class="col">
+                        <div class="card" id="cardlayout">
+
+                            <!-- 위젯이미지 -->
+                            <a href="#">
+                                {%if new.image %}
+                                <img src="{{new.image.url}}" class="cardimg" alt="no image">
+                                {%else%}
+                                <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
+                                {%endif%}
+                                <!-- 카드 타이틀 -->
+                                <div class="title">{{new.name}}</div>
+                            </a>
+
+                            <div style="padding-bottom: 3%;">
+                                <div class="likespace">
+                                    <div class="heart-button">
+                                        <p id="like">{{"♥"}}</p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div id="like_counting">{{new.like_users.count}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- 가격(+세일가)과 다운로드 버튼 -->
+                                <div class="download-space">
+                                    <a href="#">
+                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+            </section>
+
+
         </div>
     </div>
 
