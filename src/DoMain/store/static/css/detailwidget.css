@@ -138,6 +138,9 @@
     z-index:1;
     font-size: 120%;
 }
+#downloadbutton:focus{
+    outline:none;
+}
 #downloadbutton{
     border: 1px solid #F7E461;
     border-radius: 5px;
@@ -148,7 +151,16 @@
     z-index:2;
     float:right;
     padding:5px 10px;   
-    
+    font-weight: bold;    
+}
+#other-widgets{
+   color:#45A685;
+   padding-left:0%;
+   font-weight: bold;
+   border:none;
+   outline: none;
+   background-color: transparent;
+   cursor:pointer;
 }
 .line{
     border: solid 1.2px #EDEDED;
@@ -215,9 +227,9 @@
     background-color: #45A685;
     float:left;
 }
-::selection{
+/* ::selection{
     background-color: #45A685;
-}
+} */
 #recommend-widget{
     width:60%;
     border-radius:10px;
@@ -298,9 +310,9 @@
     color:#D94738;
 }
 #like_counting{
-    padding-top: 13%;
+    padding-top: 18%;
     font-size: 100%;
-    padding-left: 5%;
+    padding-left: 10%;
     float: left;
 }
 .heart-button:focus{
@@ -315,6 +327,8 @@
     position: absolute;
     background-color:transparent;
     width:100px;
+    font-size: 20px;
+    margin-top: -1%;
 }
 .likespace{
     z-index: 10;

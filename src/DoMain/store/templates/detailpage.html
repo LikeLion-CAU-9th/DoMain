@@ -111,12 +111,7 @@
             <!-- 하트랑 다운로드버튼 부분 -->
             <div style="padding-top:3%;">
                 <!-- smallheart -->
-                
-                {% comment %} <img src="{% static 'image/smallheart.svg' %}
-                " class="smallheart">
-                <div id="hearttext"> &nbsp;(1252)</div> {% endcomment %}
-
-                   
+                                 
                         <div class="like space">
                             <button class="heart-button" onClick="like({{widget.seq}})" >
                                 {%if user in widget.like_users.all%}
@@ -124,15 +119,15 @@
                                 {%else%}
                                     <p id="like">{{"♡"}}</p>
                                 {%endif%}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <span id="like_counting">{{widget.like_users.count}}</span>
                             </button>
-                        </div>
+                        
 
                 <!-- download button -->
                 <a href="#">
                     <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
                 </a>
+                </div>
             </div>
 
             <br><br>
@@ -155,7 +150,7 @@
                     
                     
                     <a href="#">
-                        <div style="color:#45A685;padding-left:0%;"><b>업로더의 다른 위젯 미리보기 > </b></div>
+                        <button type="button" id="other-widgets">업로더의 다른 위젯 미리보기 ></button>
                     </a>
                     </div>
                 </div>
