@@ -291,6 +291,38 @@
     color:#ffffff;
     background-color: #45A685;
 }
+/* 좋아요 부분 */
+#like{
+    font-size:200%;
+    float:left;
+    color:#D94738;
+}
+#like_counting{
+    padding-top: 13%;
+    font-size: 100%;
+    padding-left: 5%;
+    float: left;
+}
+.heart-button:focus{
+    outline:0;
+    border:0;
+    outline-color: transparent;
+}
+.heart-button{
+    outline:none;
+    border:none;
+    z-index: 10;
+    position: absolute;
+    background-color:transparent;
+    width:100px;
+}
+.likespace{
+    z-index: 10;
+    position: absolute;
+    float: left;
+    /* padding-left: 3%;
+    margin-top: -2%; */
+}
 
 body {font-family: 'NotoSansKR', 'sans-serif';}
 
