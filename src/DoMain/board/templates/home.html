@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/mainbar.css' %}" />
     <!-- Widget related style sheet -->
-    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}"></link>
+    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}" />
     <!-- Widget related script files -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="{% static 'finance/finance-element.js' %}"></script>
@@ -23,7 +23,11 @@
     <script src="{% static 'timer/timer-element.js' %}"></script>
     <script src="{% static 'timer/timer.js' %}"></script>
 
+    <script src="{% static 'js/widget-lock.js' %}"></script>
+
     <!-- Server Request script files -->
+    <script src="{% static 'js/dragCommon.js' %}"></script>
+    <script src="{% static 'js/dragAndDrop.js' %}"></script>
     <script src="{% static 'js/layout-server.js' %}"></script>
     <script src="{% static 'js/update-request.js' %}"></script>
 
@@ -119,5 +123,9 @@
         <source src="/static/image/yellow2.mp4" type="video/mp4">
     </video>
 </div>
+</div>
+<div class="widget-lock-btn lock" onclick="widgetLockToggle()"></div>
+<div class="main-board"></div>
+
 </body>
 </html>

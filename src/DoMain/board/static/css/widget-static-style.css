@@ -16,6 +16,44 @@
   height: calc(100vh - 8%);
 }
 
+.modify-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: rgba(239, 248, 248, 0.822);
+  cursor: pointer;
+}
+
+.modify-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hide {
+  display: none;
+}
+
+.widget-lock-btn {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background: url('/static/image/modify-icon.png');
+  cursor: pointer;
+  z-index: 50;
+}
+
 /* Finance */
 
 .financeBoard {
