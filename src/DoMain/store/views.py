@@ -45,7 +45,29 @@ def detailpage(request, id):
     return render(request, 'detailpage.html', {"widget":widget,'user':user, "comments":comments, 'related_widgets':related_widgets})
 
 def mypage(request):
-    return render(request, 'myPage.html')
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+
+    like_layouts = StoreWidget.objects.filter(like_users=user)
+    like_count = len(like_layouts)
+
+    download_layouts = Layout.objects.filter(creater=user, from_store=True)
+    download_count = len(download_layouts)
+
+    upload_layouts = StoreWidget.objects.filter(creater=user)
+    upload_count = len(upload_layouts)
+
+    return render(
+        request, 
+        'myPage.html',
+        {
+            "download_layouts":download_layouts,
+            "download_count":download_count,
+            "upload_layouts":upload_layouts,
+            "upload_count":upload_count,
+            "like_layouts":like_layouts,
+            "like_count":like_count
+        })
 
 def comment_write(request):
     email= request.session['user_email']
@@ -68,7 +90,7 @@ def comment_write(request):
     
         ret = {
             'body': comment.content,
-            'time': dt_now.strftime(f"%Y년 %#m월 %#d일 %I:%M {ampm_kr}"
+            'time': dt_now.strftime(f"%Y년 %#m월 %#d일 %#I:%M {ampm_kr}"
             .encode('unicode-escape').decode())
             .encode().decode('unicode-escape'),
             'user': comment.writer.user_name,
@@ -81,7 +103,6 @@ def comment_write(request):
 def reply_comment(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
-    
 
     if request.method == "GET":
         comment_id = request.GET.get('comment_id')
@@ -129,3 +150,22 @@ def make_download(request):
         "download_message": "다운로드가 완료되었습니다."
     }
     return HttpResponse(json.dumps(ret), content_type="application/json")      
+
+
+def make_reply(request):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+    comment = get_object_or_404(Comment, id=request.POST.get('comment_id'))
+
+    if request.method == "POST":
+        reply = Reply()
+        reply.writer = user
+        reply.comment = comment
+        reply.content = request.POST.get('reply')
+        reply.save()
+
+        ret = {
+            'message':'잘됨'
+        }
+        return HttpResponse(json.dumps(ret), content_type="application/json")
+    
