@@ -8,6 +8,7 @@ import json
 from django.utils import timezone
 from datetime import datetime
 from store.models import WidgetType
+from widget.models import AbstractBaseWidget
 
 
 def landing_page(request):
@@ -34,10 +35,12 @@ def subpage(request):
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
+    related_widgets=StoreWidget.objects.filter(widget_type=widget.widget_type)
+    
     # comment = get_object_or_404(Comment, id=id)
     comments = Comment.objects.filter(widget=widget)
     
-    return render(request, 'detailpage.html', {"widget":widget, "comments":comments})
+    return render(request, 'detailpage.html', {"widget":widget, "comments":comments, 'related_widgets':related_widgets})
 
 def mypage(request):
     return render(request, 'myPage.html')
