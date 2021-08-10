@@ -102,7 +102,6 @@
 /* leftspace */
 .title{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
     text-decoration-line: none;
     margin-bottom:0rem;
     vertical-align:bottom;
@@ -116,14 +115,12 @@
 }
 .price{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
     text-decoration-line: none;
     font-size:140%;
     float:left;
 }
 .saleprice{
     color:#D94738;
-    font-family: 'DM Serif Display', serif;
     text-decoration:line-through;
     z-index:1;
     font-size:130%;
@@ -137,10 +134,12 @@
 }
 #hearttext{
     color:#A2A4A6;
-    font-family: 'ABeeZee', sans-serif;
     float:left;
     z-index:1;
     font-size: 120%;
+}
+#downloadbutton:focus{
+    outline:none;
 }
 #downloadbutton{
     border: 1px solid #F7E461;
@@ -149,11 +148,19 @@
     width:25%;
     height:10%;
     background-color:#F7E461;
-    font-family: 'ABeeZee', sans-serif;
     z-index:2;
     float:right;
     padding:5px 10px;   
-    
+    font-weight: bold;    
+}
+#other-widgets{
+   color:#45A685;
+   padding-left:0%;
+   font-weight: bold;
+   border:none;
+   outline: none;
+   background-color: transparent;
+   cursor:pointer;
 }
 .line{
     border: solid 1.2px #EDEDED;
@@ -183,7 +190,6 @@
 .text{
     float:left!important;
     padding-left:3%;
-    font-family: 'ABeeZee', sans-serif;
     font-size:90%;
     line-height: 200%;
 }
@@ -192,7 +198,6 @@
     float:left;
     padding-left:75%;
     position: relative;
-    font-family: 'ABeeZee', sans-serif;
     color:#D94738;
     font-weight: bold;
     font-size:90%;
@@ -201,13 +206,11 @@
     z-index:2;
     float:right;
     position: relative;
-    font-family: 'ABeeZee', sans-serif;
     font-size:90%;
 }
 
 
 .review-button{
-    font-family: 'ABeeZee', sans-serif;
     float:right;
 }
 .delete-button{
@@ -224,9 +227,9 @@
     background-color: #45A685;
     float:left;
 }
-::selection{
+/* ::selection{
     background-color: #45A685;
-}
+} */
 #recommend-widget{
     width:60%;
     border-radius:10px;
@@ -245,11 +248,20 @@
 /* rightspace */
 .card{
     width:100%;
-    margin:5%;
     overflow:hidden;    
 }
-
-
+.cardimg{
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+}
+.relate-title{
+    line-height: normal;
+    font-size: 120%;
+    padding-left: 10%;
+    color:black;
+    float:left;
+}
 
 .reply-button{
     padding:5px 10px;
@@ -291,4 +303,54 @@
     color:#ffffff;
     background-color: #45A685;
 }
+/* 좋아요 부분 */
+#like{
+    font-size:200%;
+    float:left;
+    color:#D94738;
+}
+#like_counting{
+    padding-top: 18%;
+    font-size: 100%;
+    padding-left: 10%;
+    float: left;
+}
+.heart-button:focus{
+    outline:0;
+    border:0;
+    outline-color: transparent;
+}
+.heart-button{
+    outline:none;
+    border:none;
+    z-index: 10;
+    position: absolute;
+    background-color:transparent;
+    width:100px;
+    font-size: 20px;
+    margin-top: -1%;
+}
+.likespace{
+    z-index: 10;
+    position: absolute;
+    float: left;
+    /* padding-left: 3%;
+    margin-top: -2%; */
+}
 
+body {font-family: 'NotoSansKR', 'sans-serif';}
+
+@font-face {
+    font-family: 'NotoSansKR';
+    src: url('/store/static/fonts/manrope-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: 'NotoSansKR';
+    src: url('/store/static/fonts/notosanskr-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+AC00-U+D7A3;
+} 

@@ -26,6 +26,34 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="{%static 'js/carousel.js?ver=123' %}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script>
+    function like(widget_id) {
+        $.ajax({
+            type: "POST",
+            url: "like",
+            data: {
+                'widget_id': widget_id,
+                'csrfmiddlewaretoken': '{{csrf_token}}',
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like">' + response.message + '</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">' + response.num + '</span>');
+            },
+            error: function (request, status, error) {
+                alert(error);
+            },
+        });
+    }
+</script>
 
 </head>
 
@@ -77,25 +105,29 @@
                 <!-- title -->
                 <div class="title">{{widget.name}}</div>
 
-                <!-- price -->
-                <div class="pricespace">
-                    <div class="price">$0&nbsp;</div>
-                    <div class="saleprice">&nbsp;$0&nbsp;</div>
-                </div>
             </div>
 
             <br><br>
             <!-- 하트랑 다운로드버튼 부분 -->
-            <div style="padding-top:5%;">
+            <div style="padding-top:3%;">
                 <!-- smallheart -->
-                <img src="{% static 'image/smallheart.svg' %}
-                " class="smallheart">
-                <div id="hearttext"> &nbsp;(1252)</div>
+                                 
+                        <div class="like space">
+                            <button class="heart-button" onClick="like({{widget.seq}})" >
+                                {%if user in widget.like_users.all%}
+                                    <p id="like">{{"♥"}}</p>
+                                {%else%}
+                                    <p id="like">{{"♡"}}</p>
+                                {%endif%}
+                            <span id="like_counting">{{widget.like_users.count}}</span>
+                            </button>
+                        
 
                 <!-- download button -->
                 <a href="#">
                     <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
                 </a>
+                </div>
             </div>
 
             <br><br>
@@ -107,26 +139,20 @@
                 <div class="profile-space">
 
                     <!-- 프로필이미지 -->
-                    <div>
+                    
                         <div class="box" style="background: #BDBDBD;">
                             <img class="profile" src="{% static 'image/anna.jpg' %}">
                         </div>
                         <!-- 프로필 내용 -->
                         <div class="text">
-                            <div style="font-size:130%; font-weight:bold;">Jisoo</div>
-                            <div>ios designer</div>
-                            <div style="color:#0275B1;">디자인의 가치를 만들어 내는 디자이너 입니다.
-                            </div>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div style="font-size:1%;">&nbsp;</div>
-                    <br>
-
-
+                            <div style="font-size:130%; font-weight:bold;">{{widget.creater.user_name}}</div>
+                        
+                    
+                    
                     <a href="#">
-                        <div class="text" style="color:#45A685;padding-left:0%;"><b>업로더의 다른 위젯 미리보기 > </b></div>
+                        <button type="button" id="other-widgets">업로더의 다른 위젯 미리보기 ></button>
                     </a>
+                    </div>
                 </div>
 
                 <!-- 위젯의 정보 -->
@@ -134,17 +160,15 @@
                     <div class="widget-inform-left">
                         <div>Update</div>
                         <div>Category</div>
-                        <div>Size</div>
                         <div>User</div>
                     </div>
                     <div class="widget-inform-right">
-                        <div>2021.07.30</div>
-                        <div>Searchbar</div>
-                        <div>3MB</div>
-                        <div>JisooSeo</div>
+                        <div>{{widget.create_date}}</div>
+                        <div>{{widget.get_widget_type_display}}</div>
+                        <div>{{widget.creater.user_name}}</div>
                     </div>
                 </div>
-                <br><br><br><br><br>
+                <br><br><br><br>
                 <hr class="line">
 
             </div>
@@ -279,89 +303,30 @@
         <!-- 오른쪽 부분:연관 위젯-->
         <div class="rightspace">
             <!-- 위젯 하나 -->
+            {%for related_widget in related_widgets%}
             <a href="#">
-                <div>
+                <div style="padding-bottom:3%;">
                     <!-- 썸넬이미지 -->
                     <div class="card" style="flex-direction: row;border:none;">
-                        <img src="{% static 'image/recommendwidget.png' %}" class="card-img-top" id="recommend-widget"
-                            alt="...">
-
+                        {%if related_widget.image %}
+                        <img src="{{related_widget.image.url}}" class="cardimg" id="recommend-widget" alt="no image">
+                        {%else%}
+                        <img src="{%static 'image/anna.jpg'%}" class="cardimg" id="recommend-widget" alt="no image">
+                        {%endif%}
                         <div style="line-height: 80%;">
                             <!-- title -->
-                            <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                                Naver Style<br>Searchbar
+                            <div class="relate-title">
+                                {{related_widget.name}}
                             </div>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <br><br><br>
-                            <div class="starspace" style="width: 100%;">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                            </div>
-                            <br>
-                            <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                                <strong style="color:#000000">&nbsp;4.1</strong>
-                                (151)
-                            </div>
-                            <br>
-
-
-                            <!-- price -->
-                            <br><br><br>
-                            <div>
-                                <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                                <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </a>
+            
+            {%endfor%}
             <!-- 위젯하나 끝 -->
 
-            <!-- 위젯 하나 -->
-            <a href="#">
-                <div style="padding-top:3%;">
-                    <!-- 썸넬이미지 -->
-                    <div class="card" style="flex-direction: row;border:none;">
-                        <img src="{% static 'image/recommendwidget.png' %}" class="card-img-top" id="recommend-widget"
-                            alt="...">
-
-                        <div style="line-height: 80%;">
-                            <!-- title -->
-                            <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                                Naver Style<br>Searchbar
-                            </div>
-                            <!-- 별점이랑 좋아요 개수 부분 -->
-                            <br><br><br>
-                            <div class="starspace" style="width: 100%;">
-                                <img src="{% static 'image/fullstar.svg' %}
-                            " class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/fullstar.svg' %}" class="star">
-                                <img src="{% static 'image/emptystar.svg' %}" class="star">
-                            </div>
-                            <br>
-                            <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                                <strong style="color:#000000">&nbsp;4.1</strong>
-                                (151)
-                            </div>
-                            <br>
-
-
-                            <!-- price -->
-                            <br><br><br>
-                            <div>
-                                <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                                <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <!-- 위젯하나 끝 -->
 
             <!-- 오른쪽 부분 끝나는 div태그 -->
         </div>
