@@ -22,8 +22,8 @@
     <script src="{% static 'dday/dday.js' %}"></script>
     <script src="{% static 'timer/timer-element.js' %}"></script>
     <script src="{% static 'timer/timer.js' %}"></script>
-
     <script src="{% static 'js/widget-lock.js' %}"></script>
+    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
     <!-- Server Request script files -->
     <script src="{% static 'js/layout-server.js' %}"></script>
@@ -47,13 +47,13 @@
                 </a>
             </li>
             <li>
-                <a>
-                <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                <div onclick="widgetLockToggle()" style="text-align:center; font-size:11px; cursor: pointer;">
+                <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon><br>
                 <!--
                 <ion-icon name="lock-open-outline"></ion-icon>
                 -->   
                 Modify
-                </a>
+                </div>
             </li>
             <li>
                 <a id="user_icon">
@@ -181,7 +181,6 @@
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
 </div> -->
-<div class="widget-lock-btn lock" onclick="widgetLockToggle()"></div>
 <div class="main-board"></div>
 
 </body>
