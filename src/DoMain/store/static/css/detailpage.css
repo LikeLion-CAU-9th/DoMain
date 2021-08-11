@@ -1,42 +1,25 @@
+body {font-family: 'NotoSansKR', 'sans-serif';}
+
 .leftspace{
     width: 75%;
-    margin-right:3%;
+    margin-right:1%;
 }
 
 .rightspace{
-    width: auto;
+    width: 25%;
     float: right;
-}
-/* carousel */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-
-.carousel-container {
-    width:100%;
-    height:auto;
-    display: flex;
-    align-items: center;
-}
-
-.carousel {
-    width: 100%;
-    height:auto;
-}
-
-.carousel-item{
-    max-height:530px;
-}
-
-.carousel-item img{
-    max-height:530px;
 }
 
 /* leftspace */
-.cardimg{
+.card{
     width:100%;
-    height: 530px;
-    object-fit: cover;
+    overflow:hidden;    
 }
-
+.cardimg{
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+}
 .widget-data{
     display:flex;
     flex-direction: column;
@@ -51,7 +34,6 @@
 
 .widget-title{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
     text-decoration-line: none;
     margin-bottom:0rem;
     vertical-align:bottom;
@@ -66,7 +48,6 @@
 
 .widget-price{
     color:#000000;
-    font-family: 'DM Serif Display', serif;
     text-decoration-line: none;
     font-size:27px;
     float:left;
@@ -74,7 +55,6 @@
 
 .widget-saleprice{
     color:#D94738;
-    font-family: 'DM Serif Display', serif;
     text-decoration:line-through;
     font-size:27px;
     float:left;
@@ -86,49 +66,57 @@
     display:flex;
     flex-direction: row;
 }
-
-.like-space{
-    width:50%;
-    height: 70%;
-    padding-top:7px;
-}
-
-.smallheart{
-    float: left;
-    width:20px;
-}
-
-#hearttext{
-    color:#A2A4A6;
-    font-family: 'ABeeZee', sans-serif;
+/* 좋아요 부분 */
+#like{
+    font-size:200%;
     float:left;
-    font-size: 18px;
+    color:#D94738;
+    margin-left: -12%;
 }
-
+#like_counting{
+    padding-top: 10%;
+    font-size: 150%;
+padding-left: 10%;
+float: left;
+}
+.heart-button:focus{
+outline:0;
+border:0;
+outline-color: transparent;
+}
+.heart-button{
+outline:none;
+border:none;
+z-index: 10;
+position: absolute;
+background-color:transparent;
+width:100px;
+}
+.likespace{
+    z-index: 10;
+    position: absolute;
+    float: left;
+    /* padding-left: 3%;
+    margin-top: -2%; */
+}
 .widget-data-2-blank{
     width:45%
 }
 
-.download-container{
-    width:120px;
-    height:35px;
-
+#downloadbutton:focus{
+    outline:none;
 }
-
-.download-button{
-    width:120px;
-    height:35px;
-    float:right;
-    background-color:#F7E461;
-    text-decoration: none;
-    border-radius: 10px;
-    text-align: center;
-    padding-top:3px;
-}
-
-.download-text{
+#downloadbutton{
+    border: 1px solid #F7E461;
+    border-radius: 5px;
     color:black;
-    vertical-align: middle;
+    width:250px;
+    margin-right: -3%;
+    background-color:#F7E461;
+    z-index:2;
+    float:right;
+    padding:10px;   
+    font-weight: bold;  
 }
 
 /* widget-info */
@@ -140,10 +128,6 @@
 .profile-space{ 
     width:75%;
     height:auto;
-}
-
-.uploader-info{
-    font-family: 'ABeeZee', sans-serif;
 }
 
 .profile-container {
@@ -187,7 +171,6 @@
 .widget-inform-left{
     float:left;
     position: relative;
-    font-family: 'ABeeZee', sans-serif;
     color:#D94738;
     font-weight: bold;
     font-size:15px;
@@ -195,7 +178,6 @@
 .widget-inform-right{
     float:right;
     position: relative;
-    font-family: 'ABeeZee', sans-serif;
     font-size:15px;
 }
 
@@ -218,7 +200,6 @@
 }
 
 .review-button{
-    font-family: 'ABeeZee', sans-serif;
     float:right;
 }
 .delete-button{
@@ -383,4 +364,15 @@
 /* ReplyComment show toggle */
 .reply-container{
     display:none;
+}
+.big-img{
+    width: 100%;
+    border-radius: 5px;
+}
+.relate-title{
+    line-height: normal;
+    font-size: 100%;
+    padding-left: 10%;
+    color:black;
+    float:left;
 }

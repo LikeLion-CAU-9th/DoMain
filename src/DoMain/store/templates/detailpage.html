@@ -5,13 +5,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 {% block header %}
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'css/detailwidget.css' %}">
+<link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
 
 
 <title>Detailpage</title>
@@ -28,30 +26,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
-<script>
-    function like(widget_id) {
-        $.ajax({
-            type: "POST",
-            url: "like",
-            data: {
-                'widget_id': widget_id,
-                'csrfmiddlewaretoken': '{{csrf_token}}',
-            },
-            dataType: "json",
-            success: function (response) {
-                console.log(response.message);
-                $("#like").replaceWith('<p id="like">' + response.message + '</p>')
-                $("#like_counting").replaceWith('<span id="like_counting">' + response.num + '</span>');
-            },
-            error: function (request, status, error) {
-                alert(error);
-            },
-        });
-    }
-</script>
 
 {% endblock %}
 
@@ -62,24 +39,24 @@
     <div class="leftspace">
         <div class="widget-image">
             {% if widget.image %}
-            <img src="{{ widget.image.url }}" class="cardimg" alt="no image">
+            <img src="{{ widget.image.url }}" class="big-img" alt="no image">
             {% else %}
-            <img src="{% static 'image/image.png' %}" class="cardimg" alt="no image">
+            <img src="{% static 'image/image.png' %}" class="big-img" alt="no image">
             {% endif %}
         </div>
         <div class="widget-data">
             <!-- title과 price부분 -->
             <div class="widget-data-1">
                 <!-- title -->
-                <div class="title">{{widget.name}}</div>
-
+                <div class="widget-title">{{widget.name}}</div>
+                <!-- price -->
+                
             </div>
 
             <!-- 하트랑 다운로드버튼 부분 -->
-            <div style="padding-top:3%;">
+            <div>
                 <!-- smallheart -->
-                                 
-                        <div class="like space">
+                        <div class="likespace">
                             <button class="heart-button" onClick="like({{widget.seq}})" >
                                 {%if user in widget.like_users.all%}
                                     <p id="like">{{"♥"}}</p>
@@ -88,70 +65,44 @@
                                 {%endif%}
                             <span id="like_counting">{{widget.like_users.count}}</span>
                             </button>
-                        
+                        </div>
 
                 <!-- download button -->
                 <a href="#">
                     <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
                 </a>
-                </div>
+                
             </div>
+
         </div>
 
-            <br><br>
-            <!-- line -->
-            <hr class="line">
-            <br>
-            <!-- 업로드한 user의 정보 -->
-            <div>
-                <div class="profile-space">
-
-                    <!-- 프로필이미지 -->
-                    
-                        <div class="box" style="background: #BDBDBD;">
-                            <img class="profile" src="{% static 'image/anna.jpg' %}">
-                        </div>
-                        <!-- 프로필 내용 -->
-                        <div class="text">
-                            <div style="font-size:130%; font-weight:bold;">{{widget.creater.user_name}}</div>
-                        
-                    
-                    
-                    <a href="#">
-                        <button type="button" id="other-widgets">업로더의 다른 위젯 미리보기 ></button>
-                    </a>
+        <!-- line -->
+        <hr>
+        <!-- 업로드한 user의 정보 -->
+        <div class="upload-info">
+            <div class="profile-space">
+                <!-- 프로필 내용 -->
+                <div class="uploader-info">
+                    <div class="profile-container">
+                        <img class="profile" src="{% static 'image/anna.jpg' %}">
+                    </div>
+                    <div class="uploader-info-text">
+                        <div style="font-size:130%; font-weight:bold;">{{widget.creater.user_name}}</div>
                     </div>
                 </div>
             </div>
 
-                <!-- 위젯의 정보 -->
-                <div style="width:100%;">
-                    <div class="widget-inform-left">
-                        <div>Update</div>
-                        <div>Category</div>
-                        <div>User</div>
-                    </div>
-                    <div class="widget-inform-right">
-                        <div>{{widget.create_date}}</div>
-                        <div>{{widget.get_widget_type_display}}</div>
-                        <div>{{widget.creater.user_name}}</div>
-                    </div>
+            <!-- 위젯의 정보 -->
+            <div class="widget-info-space">
+                <div class="widget-inform-left">
+                    <div>Update</div>
+                    <div>Category</div>
+                    <div>User</div>
                 </div>
-                <br><br><br><br>
-                <hr class="line">
-
-            </div>
-            <!-- user정보 끝 -->
-            <br><br>
-
-            <!-- 별점 현황 -->
-            <!-- <div class="text" , style="font-size:250%;color:#45A685;padding-top:2%;padding-left:8%;">4.1</div> -->
-            <!-- 별점 점수와 별점개수-->
-            <!-- <div class="star-point">
-                <div class="text" , style="position:absolute;font-size:100%;">5<br>4<br>3<br>2<br>1</div>
-                <div class="text" , style="padding-left:40%; z-index:2; color:#A2A4A6;font-size:100%; position: relative;
-                padding-left: 1000%;">
-                    (132)<br>(24)<br>(12)<br>(2)<br>(1)
+                <div class="widget-inform-right">
+                    <div>{{widget.create_date}}</div>
+                    <div>{{widget.get_widget_type_display}}</div>
+                    <div>{{widget.creater.user_name}}</div>
                 </div>
             </div>
         </div>
@@ -159,7 +110,7 @@
 
 
 
-         리뷰댓글다는 부분 -->
+        <!-- 리뷰댓글다는 부분 -->
         <div class="review-box">
             <span class="review-start">Comments</span>
             <!-- 프로필이미지 -->
@@ -205,71 +156,8 @@
 
 
 
-    {% comment %} <!-- 오른쪽 부분:연관 위젯-->
-    <div class="rightspace">
-        <!-- 위젯 하나 -->
-        <div>
-            <!-- 썸넬이미지 -->
-            <div class="extra-widget">
-                <div class="extra-image-container">
-                    <img src="{% static 'image/recommendwidget.png' %}" class="extra-image" id="recommend-widget"
-                        alt="...">
-                </div>
-                <div class="extra-text">
-                    <!-- title -->
-                    <div class="extra-title">
-                        Naver Style<br>Searchbar
-                    </div>
-                    <div class="extra-score">
-                        <strong style="color:#000000">4.1</strong>
-                        (151)
-                    </div>
 
-                    <!-- price -->
-                    <div class="extra-price-container">
-                        <div class="extra-price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                        <div class="extra-saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 위젯하나 끝 -->
-
-        <!-- 위젯 하나 -->
-        <div>
-            <!-- 썸넬이미지 -->
-            <div class="extra-widget">
-                <div class="extra-image-container">
-                    <img src="{% static 'image/recommendwidget.png' %}" class="extra-image" id="recommend-widget"
-                        alt="...">
-                </div>
-                <div class="extra-text">
-                    <!-- title -->
-                    <div class="title" style="line-height:normal;font-size: 120%; padding:0% 3%;">
-                        Naver Style<br>Searchbar
-                    </div>
-
-                    <br>
-                    <div class="text" style="color:#A2A4A6;font-size:80%;padding-left:0%;">
-                        <strong style="color:#000000">&nbsp;4.1</strong>
-                        (151)
-                    </div>
-                    <br>
-
-                    <!-- price -->
-                    <br><br><br>
-                    <div>
-                        <div class="price" style="font-size:100%; padding-left:2%;">$0&nbsp;</div>
-                        <div class="saleprice" style="font-size:100%; padding-top:0%;">&nbsp;$0&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- 위젯하나 끝 --> {% endcomment %}
-
-        <!-- 오른쪽 부분:연관 위젯-->
+<!-- 오른쪽 부분:연관 위젯-->
         <div class="rightspace">
             <!-- 위젯 하나 -->
             {%for related_widget in related_widgets%}
@@ -295,7 +183,11 @@
             
             {%endfor%}
             <!-- 위젯하나 끝 -->
+
+
+            <!-- 오른쪽 부분 끝나는 div태그 -->
         </div>
+
 
     <br><br><br>
 
@@ -413,6 +305,31 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script>
+    function like(widget_id) {
+        $.ajax({
+            type: "POST",
+            url: "like",
+            data: {
+                'widget_id': widget_id,
+                'csrfmiddlewaretoken': '{{csrf_token}}',
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like">' + response.message + '</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">' + response.num + '</span>');
+            },
+            error: function (request, status, error) {
+                alert(error);
+            },
+        });
+    }
+</script>
+
 {% endblock %}
 
 </html>
