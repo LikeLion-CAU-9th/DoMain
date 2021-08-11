@@ -17,26 +17,24 @@ def home(request):
 
 
 def createData(request, table):
-    DUMMY_LAYOUT = '[{"type": "background","contents": {"colorCode": "#efefef"}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "0px", "bgColor": "#ee531e", "engine": "google"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#14ea18", "engine": "naver"}},{"type": "timer","contents": {"event": "점심시간", "time": "11:20:00", "bgColor": "#14ea18", "posX": "800px","posY": "100px", "fontSize": "28px"}},{"type": "timer","contents": {"event": "스터디룸 체크아웃", "time": "10:00:00", "bgColor": "#FF99FF", "posX": "800px","posY": "400px", "fontSize": "28px"}}]'
+    DUMMY_LAYOUT = '[{"type": "background","contents": {"colorCode": "#efefef"}},{"type": "stickynote","contents": {"width": "160px", "height": "160px", "posX": "700px","posY": "500px", "title": "Sticky Note", "memo": "내용을 작성하세요!"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "0px", "bgColor": "#ee531e", "engine": "google"}},{"type": "searching","contents": {"width": "500px", "height": "70px", "posX": "100px","posY": "100px", "bgColor": "#14ea18", "engine": "naver"}},{"type": "dday","contents": {"width": "150px","height": "100px","posX": "200px","posY": "100px","items": "헤커톤:2021-08-15"}},{"type": "timer","contents": {"event": "점심시간", "time": "11:20:00", "bgColor": "#14ea18", "posX": "800px","posY": "100px", "fontSize": "28px"}},{"type": "timer","contents": {"event": "스터디룸 체크아웃", "time": "10:00:00", "bgColor": "#FF99FF", "posX": "800px","posY": "400px", "fontSize": "28px"}}]'
     params = request.GET
     if table == "account":
         email = params['email']
         pw = params['pw']
         name = params['name']
         User_info.objects.create(user_email=email, user_pwd=pw, user_name=name)
-        return redirect('login_view')
+        return redirect('home')
     if table == "layout":
         layout = "[]"
         if params['dummy']:
             layout = DUMMY_LAYOUT
         elif params['dummy']:
             layout = params['layout']
-        # @FIXME: Below Email
-        request.session['user_email'] = "jeeyoung9907@naver.com"
         user = get_user_inst(request)
         print("****************")
         print(user)
         Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
-        return redirect('login_view')
+        return redirect('home')
 

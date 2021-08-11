@@ -87,7 +87,6 @@ def view_list(request):
 
 
 def get_applied_layout(request):
-  # insert_dummy_layout(request, True)
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner=user, is_applied=True)
   json = "[]"

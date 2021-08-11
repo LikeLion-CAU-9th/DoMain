@@ -59,5 +59,4 @@ const renderAppliedLayout = () => {
 
 window.onload = () => {
   renderAppliedLayout();
-  drag();
 };

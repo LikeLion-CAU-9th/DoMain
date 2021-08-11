@@ -32,10 +32,8 @@ class Activate(View):
 
 
 def login_view(request):
-  # @FIXME: Remove this after login func is implemented
-  request.session['user_email'] = 'jeeyoung9907@naver.com'
-  if 'user_email' in request.session:
-    return redirect('login_success')
+  # if 'user_email' in request.session:
+  #   return redirect('login_success')
   return render(request, 'login.html')
 
 
@@ -65,7 +63,9 @@ def login_action(request):
   
   if len(queryset) == 1 :
     request.session['user_email'] = email
-    return render(request, 'success.html')
+    print("#################Login Session################")
+    print(request.session['user_email'])
+    return redirect('home')
     # if queryset[0]['is_active'] :
     #   # return redirect('main')
     #   pass

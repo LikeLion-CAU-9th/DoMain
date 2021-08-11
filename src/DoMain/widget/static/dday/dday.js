@@ -9,6 +9,8 @@ const dday = (contents, index) => {
     document.querySelectorAll('.ddayHidden')[index].value = JSON.stringify(widgetObj);
     let ITEMS = contents.items;
 
+    document.querySelectorAll('.widget-dday')[index].style.width = contents.width;
+    document.querySelectorAll('.widget-dday')[index].style.height = contents.height;
     document.querySelectorAll('.widget-dday')[index].style.left = contents.posX;
     document.querySelectorAll('.widget-dday')[index].style.top = contents.posY;
 

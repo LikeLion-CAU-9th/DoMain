@@ -46,3 +46,10 @@ function verticalBarOn() {
     verticalBar.style.display = "inline";
     widgetBar.style.display = "block";
     };
+
+function verticalBarOff() {
+    const verticalBar = document.getElementById("verticalbar-tab")
+    const widgetBar = document.getElementById("widget-tab")
+    verticalBar.style.display = "none";
+    widgetBar.style.display = "none";
+    };
