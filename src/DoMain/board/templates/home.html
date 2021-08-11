@@ -19,6 +19,9 @@
     <script src="{% static 'stickynote/stickynote.js' %}"></script>
     <script src="{% static 'searching/searching-element.js' %}"></script>
     <script src="{% static 'searching/searching.js' %}"></script>
+    <script src="{% static 'github/github.js' %}"></script>
+    <script src="{% static 'github/github-element.js' %}"></script>
+
     <script src="{% static 'dday/dday-element.js' %}"></script>
     <script src="{% static 'dday/dday.js' %}"></script>
     <script src="{% static 'timer/timer-element.js' %}"></script>
@@ -27,6 +30,8 @@
     <script src="{% static 'js/widget-contents-data.js' %}"></script>
 
     <!-- Server Request script files -->
+    <script src="{% static 'js/dragCommon.js' %}"></script>
+    <script src="{% static 'js/dragAndDrop.js' %}"></script>
     <script src="{% static 'js/layout-server.js' %}"></script>
     <script src="{% static 'js/update-request.js' %}"></script>
 
@@ -38,9 +43,7 @@
 </head>
 
 <body>
-    <video autoplay muted loop id="bgvid">
-        <source src="../media/yellow2.mp4" type="video/mp4">
-    </video>
+    
     <div class="top_navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
         <ul class='subnavbar_menu'>
