@@ -33,7 +33,7 @@ const renderAppliedLayout = () => {
     let type = json[i].type;
     let contents = json[i].contents;
     if(type === "background") {
-      document.querySelector('.main-board').style.backgroundColor = contents.colorCode;
+      // document.querySelector('.main-board').style.backgroundColor = contents.colorCode;
     }
     else if(type === "finance"){
       finance(contents, financeIndex);
