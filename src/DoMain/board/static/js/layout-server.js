@@ -16,6 +16,7 @@ const getAppliedLayoutJSON = () => {
     }
   };
   http.send(params);
+  console.log(json);
   return json;
 };
 
@@ -28,6 +29,8 @@ const renderAppliedLayout = () => {
   let searchingIndex = 0;
   let ddayIndex = 0;
   let timerIndex = 0;
+  let githubIndex = 0;
+
   for (let i = 0; i < json.length; i++) {
     console.log(i + "th widget");
     let type = json[i].type;
@@ -49,6 +52,8 @@ const renderAppliedLayout = () => {
     } else if (type === "timer") {
       timer(contents, timerIndex);
       timerIndex++;
+    } else if (type === "github") {
+      github(contents, githubIndex);
     }
   }
   console.log("All widgets are rendered");
