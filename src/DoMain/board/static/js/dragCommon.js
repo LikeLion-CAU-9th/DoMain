@@ -1,5 +1,5 @@
 const drag = () => {
-  let balls = document.querySelectorAll(".modify-btn");
+  let balls = document.querySelectorAll(".widget");
   console.log(balls);
 
   balls.forEach(function(ball, idx) {

@@ -42,7 +42,7 @@ function handleMouseDown(event) {
 function handleMouseMove(event) {
   event.preventDefault();
 
-  const el = document.querySelector(".widget.hold");
+  const el = document.querySelector(".widget");
   if (el) {
     // 움직이는 마우스 커서의 XY좌표
     const mouseX = event.clientX;
@@ -65,7 +65,7 @@ function handleMouseMove(event) {
 function handleMouseUp(event) {
   event.preventDefault();
 
-  const el = document.querySelector(".widget.hold");
+  const el = document.querySelector(".widget");
   if (el) {
     // 움직이면 적용된 속성 및 class를 삭제
     el.removeAttribute("gap-x");

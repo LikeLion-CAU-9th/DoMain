@@ -52,8 +52,6 @@ const renderAppliedLayout = () => {
     } else if (type === "timer") {
       timer(contents, timerIndex);
       timerIndex++;
-    } else if (type === "github") {
-      github(contents, githubIndex);
     }
   }
   console.log("All widgets are rendered");

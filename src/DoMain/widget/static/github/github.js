@@ -9,7 +9,6 @@ const github = (contents, index) => {
 
   widgetObj["type"] = "github";
   widgetObj["contents"] = contents;
-  data = AjaxCall("https://api.github.com/users/oereo");
   console.log(data);
   let ITEMS = contents.items;
 };
@@ -28,3 +27,4 @@ const AjaxCall = (url, data, method = "GET", async = false) => {
   });
   return returnValue;
 };
+data = AjaxCall("https://api.github.com/users/oereo");
