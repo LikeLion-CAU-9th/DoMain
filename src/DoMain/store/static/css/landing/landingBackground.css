@@ -19,3 +19,52 @@ canvas {
     max-height: 100vh;
     margin:0 0 0 0;
 }
+
+.landingVideo{
+    margin:0;
+}
+
+video{
+    display: block;
+    z-index:8;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.chaeyeon{
+    padding: 0 15px 15px 0;
+}
+
+.sehoon{
+    padding: 0 15px 15px 15px;
+}
+
+.jisoo{
+    padding: 15px 15px 0 0;
+}
+
+.jiyeong{
+    padding: 15px 15px 0 15px;
+}
+
+.youngkwon{
+    padding: 0 15px 15px 15px;
+}
+
+.yunhan{
+    padding: 0 15px 15px 15px;
+}
+
+.seonyeong{
+    padding: 15px 15px 0 15px;
+}
+
+.seongmin{
+    padding: 0 0 15px 15px;
+}
+
+.myeongjun{
+    padding: 15px 0 0 15px;
+}
+

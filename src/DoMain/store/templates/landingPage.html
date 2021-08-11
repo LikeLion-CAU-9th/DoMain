@@ -23,69 +23,55 @@
 </head>
 
 <body>
-  <div style="position: absolute; z-index: 4; width: 90%; height: 100%; color: white;">
-    <div class="row">
-      <div class="col-4">
-        <video muted autoplay loop
-          style="max-width: 100%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 purple); margin: 0 0 20px 0;"
-          src="{% static 'image/landingHeader/seonyoung(2).mp4' %}" type="video/ogg">
-        </video>
-        <video muted autoplay loop
-          style="max-width: 100%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 gray);"
-          src="{% static 'image/landingHeader/KakaoTalk_20210714_041500971.mp4' %}" type="video/mp4">
-        </video>
-      </div>
-      <div class="col-4">
-          <video muted autoplay loop
-          style="max-width: 100%; display: block;z-index:8; filter:opacity(.8) drop-shadow(0 0 0 yellow); max-height:40%;margin: 0 0 20px 0;"
-          src="{% static 'image/landingHeader/seongminLanding.mp4' %}" type="video/mp4">
-        </video>
-        <video muted autoplay loop
-          style="max-width: 90%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 #50BCDF);"
-          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
-        </video>
-        
-
-      </div>
-      <div class="col-4">
-        <div class = "row">
-        <div class = "col-6">
-            <video muted autoplay loop
-            style="max-width: 180%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 red); margin: 0 0 20px -110%;"
-            src="{% static 'image/landingHeader/KakaoTalk_20210714_041500971.mp4' %}" type="video/mp4">
-          </video>
-          <video muted autoplay loop
-            style="max-width: 90%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 gray); margin: -38% 0 0 82%;"
-            src="{% static 'image/landingHeader/KakaoTalk_20210714_041500971.mp4' %}" type="video/mp4">
-          </video>
-          <video muted autoplay loop
-            style="max-width: 190%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 green); margin: 10px 0 20px -18%;"
-            src="{% static 'image/landingHeader/seonyoung(2).mp4' %}" type="video/ogg">
+  <div class="landingVideo" style="display: flex; flex-direction: row; width:100%; height:80%; z-index:4; position:absolute;">
+    <div class="1-col" style="display: flex; flex-direction: column; width:40%;">
+      <div class="1-1-row" style="display: flex; flex-direction: row; height: 50%;">
+        <div class="1-1-row-content-1" style="width:44%">
+          <video muted autoplay loop src="{% static 'image/landingVideo/chaeyeon.mp4' %}" type="video/ogg" class="chaeyeon">
           </video>
         </div>
-        <div class = "col-6">
-            <video muted autoplay loop
-            style="max-width: 210%; display: block;z-index:8; filter:opacity(.4) drop-shadow(0 0 0 orange); margin: 0 0 20px -40%;"
-            src="{% static 'image/landingHeader/seonyoung(2).mp4' %}" type="video/ogg">
+        <div class="1-1-row-content-2" style="width:56%">
+          <video muted autoplay loop src="{% static 'image/landingVideo/sehoon.mp4' %}" type="video/ogg" class="sehoon">
           </video>
-          <video muted autoplay loop
-          style="max-width: 100%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 #50BCDF);  margin: 0 0 20px 70%;"
-          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
-        </video>
-        <video muted autoplay loop
-          style="max-width: 100%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 pink);  margin: 0 0 20px 70%;"
-          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
-        </video>
-        <video muted autoplay loop
-          style="max-width: 100%; display: block;z-index:8; filter:opacity(.3) drop-shadow(0 0 0 purple);  margin: 0 0 20px 70%;"
-          src="{% static 'image/landingHeader/jisoo.mp4' %}" type="video/mp4">
-        </video>
-        
         </div>
       </div>
+      <div class="1-2-row" style="display: flex; flex-direction: row; height: 50%;">
+        <div class="1-2-row-content-1" style="width:58%">
+          <video muted autoplay loop src="{% static 'image/landingVideo/jisoo.mp4' %}" type="video/ogg" class="jisoo">
+          </video>
+        </div>
+        <div class="1-2-row-content-2" style="width:42%">
+          <video muted autoplay loop src="{% static 'image/landingVideo/jiyeong.mp4' %}" type="video/ogg" class="jiyeong">
+          </video>
+        </div>
       </div>
     </div>
-    
+    <div class="2-col" style="display: flex; flex-direction: column; width:35%;">
+      <div class="2-1-row" style="display: flex; flex-direction: row; height: 65%;">
+        <div class="2-1-row-content-1" style="width:52%">
+          <video muted autoplay loop src="{% static 'image/landingVideo/youngkwon(2).mp4' %}" type="video/ogg" class="youngkwon">
+          </video>
+        </div>
+        <div class="2-1-row-content-2" style="width:48%">
+          <video muted autoplay loop src="{% static 'image/landingVideo/yunhan.mp4' %}" type="video/ogg" class="yunhan">
+          </video>
+        </div>
+      </div>
+      <div class="2-2-row-content" style="height: 35%;">
+        <video muted autoplay loop src="{% static 'image/landingVideo/seonyeong(2).mp4' %}" type="video/ogg" class="seonyeong">
+        </video>
+      </div>
+    </div>
+    <div class="3-col" style="display: flex; flex-direction: column; width:25%;">
+      <div class="3-1-row-content" style="height:45%;">
+        <video muted autoplay loop src="{% static 'image/landingVideo/seongmin(2).mp4' %}" type="video/ogg" class="seongmin">
+        </video>
+      </div>
+      <div class="3-2-row-content" style="height:55%;">
+        <video muted autoplay loop src="{% static 'image/landingVideo/myeongjun(2).mp4' %}" type="video/ogg" class="myeongjun">
+        </video>
+      </div>
+    </div>
   </div>
 
   <div class="sticky">
@@ -107,127 +93,7 @@
       최고의 순간은 이제부터 시작입니다.
     </div>
   </div>
-  <div class="landingContent2">
-    <div class="contents">
-      <div>원하는 대로 편집할 때</div>
-      <div class='master-container-scroller'>
-        <div class='master-container-scroller_item'>
-          빛나는
-        </div>
-        <div class='master-container-scroller_item'>
-          즐기는
-        </div>
-        <div class='master-container-scroller_item'>
-          멋있는
-        </div>
-        <div class='master-container-scroller_item'>
-          감각적인
-        </div>
-        <div class='master-container-scroller_item'>
-          재미있는
-        </div>
-        <div class='master-container-scroller_item'>
-          나만의
-        </div>
-        <div class='master-container-scroller_item'>
-          신나는
-        </div>
-        <div class='master-container-scroller_item'>
-          즐기는
-        </div>
-        <div class='master-container-scroller_item'>
-          감각적인
-        </div>
-        <div class='master-container-scroller_item'>
-          빛나는
-        </div>
-      </div>
-      <div>모든 순간</div>
-    </div>
-  </div>
-
-  <div class="landingContent3">
-    페이지 안에 두뇌를 달다. <br>
-    <div class="landingSubText">
-      페이지 안으로 들어온
-      <span class="specificLetterYellow">Sticky Note</span> 로 <br>
-      기록을 콤팩트하게. <br>
-      <span class="specificLetter">디데이 알림</span>으로 중요한 일을 잊지 않고
-      해낼 수 있습니다.
-    </div>
-  </div>
-
-  <div class="landingContent4">
-    지칠 줄 모르는 다양성. <br>
-    <div class="landingSubText">
-      <span class="specificLetterYellow">Asset Store</span> 가
-      매주 업데이트 됩니다. <br>
-      다양한 위젯과 레이아웃을 <br>
-      업로드, 다운로드할 수 있죠
-    </div>
-  </div>
-
-  <div class="landingContent5">
-    보지 못한 페이지를 연결하다. <br>
-    <div class="landingSubText">
-      원하는 페이지를
-      <span class="specificLetterGreen">북마크</span> 로 <br>
-      연결할 수 있습니다.<br>
-      원하는 방식으로 페이지를 연결하는 <br>
-      최적화된 방법, 색다른 경험을 제공하죠.
-    </div>
-  </div>
-
-  <div class="landingContent6">
-    자신만의 이야기를 새기다. <br>
-    <div class="landingSubText">
-      사용자를 위한 다양한
-      <span class="specificLetterYellow">위젯 옵션</span><br>
-      기록을 콤팩트하게. <br>
-      텍스트, 아이콘, 이미지 조합으로 <br>
-      더욱 개성있게.
-    </div>
-  </div>
-
-  <div class="landingContent7">
-    <div class="contents">
-      Just <span class="specificLetter">D</span>o main
-      <div class='master-container-scroller'>
-
-        <div class='master-container-scroller_item'>
-          D-DAY
-        </div>
-        <div class='master-container-scroller_item'>
-          STICKY NOTE
-        </div>
-        <div class='master-container-scroller_item'>
-          BOOKMARK
-        </div>
-        <div class='master-container-scroller_item'>
-          NAVER
-        </div>
-        <div class='master-container-scroller_item'>
-          TODO LIST
-        </div>
-        <div class='master-container-scroller_item'>
-          YOUTUBE
-        </div>
-        <div class='master-container-scroller_item'>
-          MAIL
-        </div>
-        <div class='master-container-scroller_item'>
-          GOOGLE
-        </div>
-        <div class='master-container-scroller_item'>
-          LAYOUT
-        </div>
-        <div class='master-container-scroller_item'>
-          CUSTOM
-        </div>
-      </div>
-      <div>시작해 보세요</div>
-    </div>
-  </div>
+  
 
   <div class="footer">
     <div class="headline">
@@ -251,7 +117,7 @@
     </div>
   </div>
 
-  <canvas id="apple" />
+  <canvas id="apple">
 
   <script src="{% static 'js/landingBackgroundEffect.js' %}"></script>
   <script src="{% static 'js/sticky.js' %}"></script>
