@@ -5,7 +5,7 @@ body{
   overflow:hidden; 
 }
 ::placeholder{
-  
+  font-family: 'Manrope', sans-serif;  
 }
 input{
   width: 56%;
@@ -105,7 +105,7 @@ input{
   transition-duration: 0.4s;
 }
 .italic-title{
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Manrope', sans-serif;
   font-size:200%;
   color:white;
   text-align: center;
