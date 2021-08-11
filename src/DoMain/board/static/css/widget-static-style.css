@@ -1,5 +1,9 @@
 /* Common */
 
+.widget {
+  position: absolute;
+}
+
 .container {
   display: inline-block;
   width: 50%;
