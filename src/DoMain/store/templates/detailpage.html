@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'css/detailPage.css' %}">
+<link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
 
 
 <title>Detailpage</title>
@@ -39,9 +39,9 @@
     <div class="leftspace">
         <div class="widget-image">
             {% if widget.image %}
-            <img src="{{ widget.image.url }}" class="cardimg" alt="no image">
+            <img src="{{ widget.image.url }}" class="big-img" alt="no image">
             {% else %}
-            <img src="{% static 'image/image.png' %}" class="cardimg" alt="no image">
+            <img src="{% static 'image/image.png' %}" class="big-img" alt="no image">
             {% endif %}
         </div>
         <div class="widget-data">
@@ -50,32 +50,30 @@
                 <!-- title -->
                 <div class="widget-title">{{widget.name}}</div>
                 <!-- price -->
-                <div class="widget-pricespace">
-                    <div class="widget-price">$0&nbsp;</div>
-                    <div class="widget-saleprice">&nbsp;$0&nbsp;</div>
-                </div>
+                
             </div>
 
             <!-- 하트랑 다운로드버튼 부분 -->
-            <div class="widget-data-2">
+            <div style="padding-top:3%;">
                 <!-- smallheart -->
-                <button class="heart-button" onClick="like({{widget.seq}})" >
+                        <div class="likespace">
+                            <button class="heart-button" onClick="like({{widget.seq}})" >
                                 {%if user in widget.like_users.all%}
                                     <p id="like">{{"♥"}}</p>
                                 {%else%}
                                     <p id="like">{{"♡"}}</p>
                                 {%endif%}
                             <span id="like_counting">{{widget.like_users.count}}</span>
-                </button>
+                            </button>
+                        
 
-                <div class="widget-data-2-blank"></div>
                 <!-- download button -->
-                <div class="download-container">
-                    <a href="#" class="download-button" onclick="makeDownload({{widget.seq}})">
-                        <b class="download-text">Download</b>
-                    </a>
+                <a href="#">
+                    <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
+                </a>
                 </div>
             </div>
+
         </div>
 
         <!-- line -->
@@ -89,15 +87,7 @@
                         <img class="profile" src="{% static 'image/anna.jpg' %}">
                     </div>
                     <div class="uploader-info-text">
-                        <div class="uploader-id">
-                            Jisoo
-                        </div>
-                        <div class="uploader-type">
-                            ios designer
-                        </div>
-                        <div class="uploader-intro">
-                            디자인의 가치를 만들어 내는 디자이너 입니다.
-                        </div>
+                        <div style="font-size:130%; font-weight:bold;">{{widget.creater.user_name}}</div>
                     </div>
                 </div>
             </div>
