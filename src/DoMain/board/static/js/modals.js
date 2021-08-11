@@ -38,18 +38,26 @@ for(i=0;i<linkCollapse.length;i++) {
     });
 }
 
-const assetStoreBtn = document.getElementById("assetstore-btn");
 
-function verticalBarOn() {
-    const verticalBar = document.getElementById("verticalbar-tab")
-    const widgetBar = document.getElementById("widget-tab")
-    verticalBar.style.display = "inline";
-    widgetBar.style.display = "block";
-    };
+const tab = document.querySelector(".content li")
+const tabList = document.querySelectorAll('.modal-tab .list li');
+for (var i = 0; i < tabList.length; i++) {
+  tabList[i].querySelector('.btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    for (var j = 0; j < tabList.length; j++) {
+      tabList[j].classList.remove('is_on');
+    }
+    this.parentNode.classList.add('is_on');
+  });
+}
 
-function verticalBarOff() {
-    const verticalBar = document.getElementById("verticalbar-tab")
-    const widgetBar = document.getElementById("widget-tab")
-    verticalBar.style.display = "none";
-    widgetBar.style.display = "none";
-    };
+
+const modal = document.querySelector('.modal-window');
+function modalOn() {
+
+    modal.style.display = "block";    
+}
+
+function modalOff() {
+    modal.style.display = "none";
+}
