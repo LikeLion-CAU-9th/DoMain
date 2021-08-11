@@ -354,3 +354,7 @@ body {font-family: 'NotoSansKR', 'sans-serif';}
     font-style: normal;
     unicode-range:U+AC00-U+D7A3;
 } 
+.big-image{
+    width: 100%;
+    border-radius: 5px;
+}
