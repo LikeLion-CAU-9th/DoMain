@@ -54,7 +54,7 @@
             </div>
 
             <!-- 하트랑 다운로드버튼 부분 -->
-            <div style="padding-top:3%;">
+            <div>
                 <!-- smallheart -->
                         <div class="likespace">
                             <button class="heart-button" onClick="like({{widget.seq}})" >
@@ -65,13 +65,13 @@
                                 {%endif%}
                             <span id="like_counting">{{widget.like_users.count}}</span>
                             </button>
-                        
+                        </div>
 
                 <!-- download button -->
                 <a href="#">
                     <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;DOWNLOAD&nbsp;</button>
                 </a>
-                </div>
+                
             </div>
 
         </div>
