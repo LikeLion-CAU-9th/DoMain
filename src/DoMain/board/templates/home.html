@@ -71,7 +71,7 @@
 }
 
 .btn {
-  width: 140px;
+  width: 100px;
   height: 30px;
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
@@ -95,6 +95,24 @@
   color: #fff;
   margin : 0 0 0 0;
   transform: translateY(-3px);
+}
+
+#modal-off-btn {
+    margin : 100px 0 0 240px;
+    justify-content: center;
+    position: absolute;
+    bottom:10%;
+    width:100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #fff;
+    border: none;
+
+}
+
+#modal-off-btn:hover{
+    background-color: #6d4ea7;
+    color:#fff
 }
     </style>
     
@@ -213,7 +231,7 @@
 
                         </li>
                         <li id="todolist-tab-button">
-                            <button class="btn"> To Do list</button>
+                            <button class="btn" style = "width: 110px;"> To Do list</button>
                             <div class="cont">
                                 <button> To-Do list </button>
                             </div>
@@ -222,10 +240,11 @@
 
                 </div>
 
+                
                 <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
-
                
             </div>
+            
         </div>
 
 
