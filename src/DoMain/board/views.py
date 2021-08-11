@@ -31,8 +31,6 @@ def createData(request, table):
             layout = DUMMY_LAYOUT
         elif params['dummy']:
             layout = params['layout']
-        # @FIXME: Below Email
-        request.session['user_email'] = "ilikerunning22@gmail.com"
         user = get_user_inst(request)
         print("****************")
         print(user)
