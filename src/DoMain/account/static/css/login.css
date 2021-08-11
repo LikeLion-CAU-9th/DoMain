@@ -47,6 +47,7 @@ input{
   position: relative;
   color:white;
   z-index: 5;
+  text-align: center;
 }
 
 #joinBtn{

@@ -39,33 +39,32 @@
       <div id="white-sign-in">
         
           <br><br><br><br><br>
-          <div class="bold-title">Sign in to <div style="color:#F7E461;display:inline;">D<div
-                style="color:#A2A4A6;display:inline;">oMain</div>
-            </div>
+          <div class="bold-title">Sign in to 
+          <div style="color:#F7E461;display:inline;">D<div style="color:#A2A4A6;display:inline;">oMain</div>
+          
+          </div>
           </div>
 
-        </div>
+        <!--</div> -->
         <div class="text" style="color:black;">welcome to DoMain</div><br><br>
         <!-- input부분 -->
         <div class="input-group">
-        <form method = "POST" action= "../loginAction/">
-      {% csrf_token %}
-      <input type="text" placeholder="EMAIL" name="email"><br>
-      <input type="pasword" placeholder="PASSWORD" name="raw_pw"><br><br>
-    
+          <form method="POST" action="../loginAction/">
+            {% csrf_token %}
+            <input type="text" placeholder="EMAIL" name="email"><br>
+            <input type='pasword' placeholder="PASSWORD" name="raw_pw"><br><br>
+        
         </div>
         <!-- input위의 아이콘 -->
         <div class="icon-group">
           <img src="{% static 'image/mail.svg' %}" class="icon"><br>
             <img src="{% static 'image/pass.svg' %}" class="icon">
-          </div>
+          <!-- </div> -->
           <br>
 
-          <hr class="line">
         </div><br><br>
         <div style="text-align: center;border-color: #45A685;">
-
-          <input class="login-submit" id="button" type="submit" value="SIGN IN">
+          <input class="login-submit" id="button" type="submit" value="SIGN IN" style="padding-left:1%;">
         </div>
 
       </div>
@@ -90,7 +89,7 @@
             <img src="{% static 'image/user.svg' %}" class="icon"><br>
             <img src="{% static 'image/mail.svg' %}" class="icon"><br>
             <img src="{% static 'image/pass.svg' %}" class="icon"><br>
-            <img src="{% static 'image/pass.svg' %}" class="icon"><br>
+            <img src="{% static 'image/pass.svg' %}" class="icon" style="margin-top: 3%;"><br>
           </div>
           <br>
           <div style="text-align: center;border-color: #45A685;">
@@ -142,5 +141,6 @@
 
 <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/join.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
 
 </html>
