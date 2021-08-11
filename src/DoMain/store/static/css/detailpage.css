@@ -1,0 +1,378 @@
+body {font-family: 'NotoSansKR', 'sans-serif';}
+
+.leftspace{
+    width: 75%;
+    margin-right:1%;
+}
+
+.rightspace{
+    width: 25%;
+    float: right;
+}
+
+/* leftspace */
+.card{
+    width:100%;
+    overflow:hidden;    
+}
+.cardimg{
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+}
+.widget-data{
+    display:flex;
+    flex-direction: column;
+    margin: 0 3% 0 3%;
+}
+
+.widget-data-1{
+    margin-top:10px;
+    width:100%;
+    height:50px;
+}
+
+.widget-title{
+    color:#000000;
+    text-decoration-line: none;
+    margin-bottom:0rem;
+    vertical-align:bottom;
+    font-size: 30px;
+    float:left;
+}
+
+.widget-pricespace{
+    float:right;
+    margin-right:2%
+}
+
+.widget-price{
+    color:#000000;
+    text-decoration-line: none;
+    font-size:27px;
+    float:left;
+}
+
+.widget-saleprice{
+    color:#D94738;
+    text-decoration:line-through;
+    font-size:27px;
+    float:left;
+}
+
+.widget-data-2{
+    width:100%;
+    height:40px;
+    display:flex;
+    flex-direction: row;
+}
+/* 좋아요 부분 */
+#like{
+    font-size:200%;
+    float:left;
+    color:#D94738;
+    margin-left: -12%;
+}
+#like_counting{
+    padding-top: 10%;
+    font-size: 150%;
+padding-left: 10%;
+float: left;
+}
+.heart-button:focus{
+outline:0;
+border:0;
+outline-color: transparent;
+}
+.heart-button{
+outline:none;
+border:none;
+z-index: 10;
+position: absolute;
+background-color:transparent;
+width:100px;
+}
+.likespace{
+    z-index: 10;
+    position: absolute;
+    float: left;
+    /* padding-left: 3%;
+    margin-top: -2%; */
+}
+.widget-data-2-blank{
+    width:45%
+}
+
+#downloadbutton:focus{
+    outline:none;
+}
+#downloadbutton{
+    border: 1px solid #F7E461;
+    border-radius: 5px;
+    color:black;
+    width:250px;
+    margin-right: -3%;
+    background-color:#F7E461;
+    z-index:2;
+    float:right;
+    padding:10px;   
+    font-weight: bold;  
+}
+
+/* widget-info */
+.upload-info{
+    display:flex;
+    flex-direction: row;
+}
+
+.profile-space{ 
+    width:75%;
+    height:auto;
+}
+
+.profile-container {
+    width:75px;
+    height:75px;
+    float:left;
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.uploader-info-text{
+    width:auto;
+    font-size:16px;
+    margin:0;
+    padding-left:100px;
+}
+
+.uploader-id{
+    width:100%;
+    font-weight:bolder;
+    font-size:20px;
+}
+
+.uploader-type{
+    margin-bottom:5px;
+}
+
+.uploader-intro{
+    color:#0275B1;
+}
+
+.widget-info-space{
+    width:25%;
+}
+
+.widget-inform-left{
+    float:left;
+    position: relative;
+    color:#D94738;
+    font-weight: bold;
+    font-size:15px;
+}
+.widget-inform-right{
+    float:right;
+    position: relative;
+    font-size:15px;
+}
+
+/* review part */
+.review-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-start{
+    margin-left:30px;
+    font-size:25px;
+    font-weight: 400;
+    margin-bottom:15px;
+}
+
+.review-input-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.review-button{
+    float:right;
+}
+.delete-button{
+    padding:5px 10px;
+    border: 1px solid #ffffff;
+    float:left;
+    background-color: #ffffff;
+}
+.upload-button{
+    padding:5px 10px;
+    border: 1px solid #45A685;
+    border-radius: 23px;
+    color:white;
+    background-color: #45A685;
+    float:left;
+}
+::selection{
+    background-color: #45A685;
+}
+#recommend-widget{
+    
+    border-radius:10px;
+    float:left;
+}
+@media screen and (max-width: 1200px) {
+    .rightspace{
+        display:none;
+    }
+    .leftspace{
+        width:100%;
+    }
+}
+
+/* rightspace */
+.extra-widget{
+    display: flex;
+    flex-direction: row;
+    border:none;
+}
+
+.extra-image-container{
+    width: 60%;
+}
+
+.extra-image{
+    width:100%;
+}
+
+.extra-text{
+    width:40%;
+    text-decoration: none;
+    padding-left:8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.extra-title{
+    line-height:normal;
+    font-size: 120%; 
+}
+
+.extra-score{
+    color:#A2A4A6;
+    font-size:14px;
+    padding-left:0%;
+    padding-top:5px;
+}
+
+.extra-price-container{
+
+}
+
+/*  */
+
+.comment-input{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:80%;
+    height:30px;
+    margin:18px 10px 0 10px;
+    padding:0;
+}
+
+.comment-input:focus{
+    outline:none; 
+    border-color:#45A685;
+}
+
+.button-container{
+    margin-top:13px;
+}
+
+.comment-button{
+    width:80px;
+    height:35px;
+    border-radius:20px;
+    border:none;
+    color:#ffffff;
+    background-color: #45A685;
+}
+
+.all{
+    margin:60px 0 0 0;
+    padding:0;
+    display:flex;
+    flex-direction: row;
+}
+
+.blank{
+    width:90px;
+}
+
+
+
+
+/* Comment - Django */
+.comment-list{
+    width: 90%;
+    margin-left:85px;
+}
+
+.comment-data{
+    width:100%;
+}
+
+.comment-writer{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.comment-time{
+    font-size: 14px;
+    color:rgb(99, 99, 99)
+}
+
+.comment-content{
+    float:inline-end;
+}
+
+
+.reply-button{
+    padding:5px 10px;
+    border: 1px solid #45A685;
+    border-radius: 23px;
+    color:white;
+    background-color: #45A685;
+    
+}
+
+.comment-list hr{
+    margin:24px 0;
+}
+
+
+/* Comment - Ajax */
+#comment-list{
+    width: 90%;
+    margin-left:85px;
+}
+
+/* ReplyComment show toggle */
+.reply-container{
+    display:none;
+}
+.big-img{
+    width: 100%;
+    border-radius: 5px;
+}
+.relate-title{
+    line-height: normal;
+    font-size: 100%;
+    padding-left: 10%;
+    color:black;
+    float:left;
+}

@@ -3,90 +3,144 @@
 {% load static %}
 
 {% block header %}
-<link rel="stylesheet" href="{% static 'css/mypage/profile.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/mypage/mypage.css' %}">
+<link rel="stylesheet" href="{% static 'css/mypage/profileNomalize.css' %}">
 
 {% endblock %}
 
 {% block contents %}
-<div class="mypage-background">
-    <header class="header" style="background: url('/static/image/anna.jpg') no-repeat center center scroll;   background-size: cover;
-">
-        <div class="text-vertical-center">
-            <h1 class="title">Oereo</h1>
-            <a href="#about">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-angle-double-down fa-stack-1x"></i>
-                </span>
-            </a>
-        </div>
-    </header>
+<div class="wrapper" style="padding: 0 0 0 30px;">
+    <main class="main">
+        <header class="header">
+            <div class="header__wrapper">
 
-    <div id="about" class="myprofile-body">
-        <div class="row">
-            <h1 class="page-header">Introduce</h1>
-            <div class="col-md-8">
-                <div>
-                    <p> <strong> 디자이너로 일하고 있는 Oereo 입니다! </strong></p>
-                    <p>좋은 프로젝트와 디자인을 앞으로 많이 올릴 예정이에요! 위젯과 레이아웃 많이 공유하면서 지내요!</p>
+            </div>
+        </header>
+        <section class="section sectionEffect" id="content1" style="width:80%">
+            <header class="section__header">
+                <h2 class="section__title">Like</h2>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div id="discography" class="myprofile-body">
-        <h1 class="page-header">Custom Widget</h1>
+            </header>
+            <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                {% for like_layout in like_layouts %}
+                <li class="team__item" style="margin-bottom: 10px;">
+                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
+                        <div class="team__header">
+                            <ul class="photo">
+                                <li class="photo__item">
+                                    {% if like_layout.image %}
+                                    <img src="{{like_layout.image.url}}">
+                                    {% else %}
+                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    {% endif %}
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="team__inform" style="margin:20% 0 0 40px;">
+                            <p class="team__name">{{like_layout.name}}</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">{{like_layout.create_date}}</time>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="section sectionEffect" id="content2" style="width:80%">
+            <header class="section__header">
+                <h2 class="section__title">Downloads</h2>
 
-        <div class="row" style="flex-direction:row; display: grid; grid-template-columns: 1fr 1fr 1fr;">
-            <div class="margin-bottom">
-                <h4><strong>Widget1</strong></h4>
-                <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}"
-                    alt="Can't load image">
-            </div>
-            <div class="margin-bottom">
-                <h4><strong>Widget2</strong></h4>
-                <img class="album-photo img-responsive" src="{% static 'image/Desktop - 9.png' %}"
-                    alt="Can't load image">
-            </div>
-            <div class="margin-bottom ">
-                <h4><strong>Widget3</strong></h4>
-                <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}"
-                    alt="Can't load image">
-            </div>
-            <div class="margin-bottom ">
-                <h4><strong>Widget4</strong></h4>
-                <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}"
-                    alt="Can't load image">
-            </div>
-        </div>
-    </div>
-    <div id="discography" class="myprofile-body">
-            <h1 class="page-header">Download Widget</h1>
-    
-            <div class="row" style="flex-direction:row; display: grid; grid-template-columns: 1fr 1fr 1fr;">
-                <div class="margin-bottom">
-                    <h4><strong>Widget1</strong></h4>
-                    <img class="album-photo img-responsive" src="{% static 'image/Desktop - 9.png' %}"
-                        alt="Can't load image">
-                </div>
-                <div class="margin-bottom">
-                    <h4><strong>Widget2</strong></h4>
-                    <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}"
-                        alt="Can't load image">
-                </div>
-                <div class="margin-bottom ">
-                    <h4><strong>Widget3</strong></h4>
-                    <img class="album-photo img-responsive" src="{% static 'image/Desktop - 9.png' %}"
-                        alt="Can't load image">
-                </div>
-                <div class="margin-bottom ">
-                    <h4><strong>Widget4</strong></h4>
-                    <img class="album-photo img-responsive" src="{% static 'image/Desktop - 8.png' %}"
-                        alt="Can't load image">
-                </div>
-            </div>
-        </div>
+            </header>
+            <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                {% for download_layout in download_layouts %}
+                <li class="team__item" style="margin-bottom: 10px;">
+                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
+                        <div class="team__header">
+                            <ul class="photo">
+                                <li class="photo__item">
+                                    {% if download_layout.image %}
+                                    <img src="{{download_layout.image.url}}">
 
-    <br>
+                                    {% else %}
+                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    {% endif %}
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="team__inform" style="margin:20% 0 0 40px;">
+                            <p class="team__name">{{download_layout.name}}</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">{{download_layout.create_date}}</time>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="section sectionEffect" id="content3 "style="width:80%">
+            <header class="section__header">
+                <h2 class="section__title">Uploads</h2>
+
+            </header>
+            <ul class="team" style="display: grid;grid-template-columns: 1fr; padding:5px;">
+                {% for upload_layout in upload_layouts %}
+                <li class="team__item" style="margin-bottom: 10px;">
+                    <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
+                        <div class="team__header">
+                            <ul class="photo">
+
+                                <li class="photo__item">
+                                    {% if upload_layout %}
+                                    <img src="{{upload_layout.image.url}}">
+                                    {% else %}
+                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    {% endif %}
+                                    
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="team__inform" style="margin:20% 0 0 40px;">
+                            <p class="team__name">{{upload_layout.name}}</p>
+                            <time class="date" datetime="2020-05-05T10:00:00">{{upload_layout.create_date}}</time>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+
+    </main>
+    <aside class="aside">
+        <section class="section">
+            <div class="profile-main">
+                <button class="profile-main__setting focus--box-shadow" type="button">
+                    <img class="profile-main__photo" src="{% static 'image/anna.jpg' %}" alt="Profile photo" />
+                </button>
+                <h1 class="profile-main__name">Jisoo</h1>
+            </div>
+            <div class="banner">
+                <p class="banner__description">심플한 디자인을 좋아하는 웹개발자 입니다!</p>
+
+            </div>
+            <ul class="statistics">
+                <li class="statistics__entry">
+                    <a class="tablabel" href="#content1">Likes</a><span
+                        class="statistics__entry-quantity">{{like_count}}</span>
+                </li>
+                <li class="statistics__entry">
+                    <a class="tablabel" href="#content2">Downloads</a><span
+                        class="statistics__entry-quantity">{{download_count}}</span>
+                </li>
+                <li class="statistics__entry">
+                    <a class="tablabel" href="#content3">Uploads</a><span
+                        class="statistics__entry-quantity">{{upload_count}}</span>
+                </li>
+            </ul>
+
+        </section>
+    </aside>
 </div>
 {% endblock %}

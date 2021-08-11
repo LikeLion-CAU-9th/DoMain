@@ -65,7 +65,9 @@ def login_action(request):
   
   if len(queryset) == 1 :
     request.session['user_email'] = email
-    return render(request, 'success.html')
+    print("#################Login Session################")
+    print(request.session['user_email'])
+    return redirect('home')
     # if queryset[0]['is_active'] :
     #   # return redirect('main')
     #   pass

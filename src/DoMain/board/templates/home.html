@@ -31,6 +31,8 @@
     <script src="{% static 'dday/dday.js' %}"></script>
     <script src="{% static 'timer/timer-element.js' %}"></script>
     <script src="{% static 'timer/timer.js' %}"></script>
+    <script src="{% static 'js/widget-lock.js' %}"></script>
+    <script src="{% static 'js/widget-contents-data.js' %}"></script>
 
     <!-- Server Request script files -->
     <script src="{% static 'js/layout-server.js' %}"></script>
@@ -177,9 +179,14 @@
                             <span class="nav_name">Layout List</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="#" class="nav__link" onclick="preparePageNoti()">
                             <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Custom Layout</span>
+                            <script>
+                            function preparePageNoti() {
+                                alert("현재 페이지 준비중 입니다!")
+                            }
+                            </script>
                         </a>
 
                         <a href="#" class="nav__link">
@@ -193,7 +200,7 @@
                 </div>
             </nav>
         </div>
-
+    </div>
         <!-- vertical bar-->
 
         <div id="modal">
@@ -326,6 +333,7 @@
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
 </div> -->
+<div class="main-board"></div>
 
 
 
