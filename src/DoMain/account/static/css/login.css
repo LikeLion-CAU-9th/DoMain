@@ -47,21 +47,25 @@ input{
   position: relative;
   color:white;
   z-index: 5;
+  text-align: center;
 }
 
-#joinBtn{
+#joinbtn{
   cursor: pointer;
   width: 125px;
   height: 40px;
   border:solid 1.5px;
-  border-color: white;
+  border-color: rgba(106, 184, 157,1);
   border-radius: 40px;
 
   background-color: rgba(106, 184, 157,1);
+  background: rgba(106, 184, 157,1);
 
   position: relative;
   color:white;
   z-index: 5;
+
+
 }
 
 

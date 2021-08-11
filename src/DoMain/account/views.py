@@ -32,8 +32,8 @@ class Activate(View):
 
 
 def login_view(request):
-  if 'user_email' in request.session:
-    return redirect('login_success')
+  # if 'user_email' in request.session:
+  #   return redirect('login_success')
   return render(request, 'login.html')
 
 
