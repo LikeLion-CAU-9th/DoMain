@@ -24,11 +24,14 @@
     <script src="{% static 'timer/timer-element.js' %}"></script>
     <script src="{% static 'timer/timer.js' %}"></script>
     <script src="{% static 'js/widget-lock.js' %}"></script>
-    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
+    <script src="{% static 'js/widget-contents-data.js' %}"></script>
 
     <!-- Server Request script files -->
     <script src="{% static 'js/layout-server.js' %}"></script>
     <script src="{% static 'js/update-request.js' %}"></script>
+
+    <!-- Widget Modify Modal -->
+    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
     <title>DoMain</title>
 
@@ -184,7 +187,16 @@
 </div> -->
 <div class="main-board"></div>
 
-<div class="widget-modify-modal"></div>
+<div class="modal-full-bg"></div>
+<div class="widget-modify-modal">
+    <h2 style="text-align: center;">위젯 내용 수정하기</h2>
+    <div class="widget-modal-body">
+    </div>
+    <div class="widget-modal-btn center">
+        <div class="widget-modal-modify-btn">수정</div>
+        <div class="widget-modal-close-btn" onclick="widgetModalOff()">취소</div>
+    </div>
+</div>
 
 </body>
     </div>
