@@ -24,9 +24,9 @@ input{
 }
 .icon{
   width: 25px;
-  margin-top: 10%;
-  margin-bottom: 35%;
-  padding: 20%;
+  margin-top: 5px;
+  margin-bottom: 13px;
+  padding: 7px;
 }
 .icon-group{
   width: 38px;
@@ -113,7 +113,7 @@ input{
   font-size:200%;
   color:white;
   text-align: center;
-
+  font-weight: bold;
 }
 .text{
   
@@ -162,3 +162,12 @@ input{
   transition-delay:all 2s;
   display:none;
 } 
+@media screen and (max-width: 1200px) {
+  .icon {
+    margin-top:5px;
+    padding:5px;
+  }
+  ::placeholder{
+    padding-left:10px;
+  }
+}
