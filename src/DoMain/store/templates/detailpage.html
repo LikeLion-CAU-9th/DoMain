@@ -26,6 +26,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
 
 {% endblock %}
@@ -57,10 +59,15 @@
             <!-- 하트랑 다운로드버튼 부분 -->
             <div class="widget-data-2">
                 <!-- smallheart -->
-                <div class="like-space">
-                    <img src="{% static 'image/smallheart.svg' %}" class="smallheart">
-                    <div id="hearttext"> &nbsp;(1252)</div>
-                </div>
+                <button class="heart-button" onClick="like({{widget.seq}})" >
+                                {%if user in widget.like_users.all%}
+                                    <p id="like">{{"♥"}}</p>
+                                {%else%}
+                                    <p id="like">{{"♡"}}</p>
+                                {%endif%}
+                            <span id="like_counting">{{widget.like_users.count}}</span>
+                </button>
+
                 <div class="widget-data-2-blank"></div>
                 <!-- download button -->
                 <div class="download-container">
@@ -100,14 +107,12 @@
                 <div class="widget-inform-left">
                     <div>Update</div>
                     <div>Category</div>
-                    <div>Size</div>
                     <div>User</div>
                 </div>
                 <div class="widget-inform-right">
-                    <div>2021.07.30</div>
-                    <div>Searchbar</div>
-                    <div>3MB</div>
-                    <div>JisooSeo</div>
+                    <div>{{widget.create_date}}</div>
+                    <div>{{widget.get_widget_type_display}}</div>
+                    <div>{{widget.creater.user_name}}</div>
                 </div>
             </div>
         </div>
@@ -310,6 +315,31 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script>
+    function like(widget_id) {
+        $.ajax({
+            type: "POST",
+            url: "like",
+            data: {
+                'widget_id': widget_id,
+                'csrfmiddlewaretoken': '{{csrf_token}}',
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response.message);
+                $("#like").replaceWith('<p id="like">' + response.message + '</p>')
+                $("#like_counting").replaceWith('<span id="like_counting">' + response.num + '</span>');
+            },
+            error: function (request, status, error) {
+                alert(error);
+            },
+        });
+    }
+</script>
+
 {% endblock %}
 
 </html>
