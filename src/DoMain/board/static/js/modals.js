@@ -61,3 +61,7 @@ function modalOn() {
 function modalOff() {
     modal.style.display = "none";
 }
+
+function preparePageNoti() {
+    alert("현재 페이지 준비중 입니다!")
+}
