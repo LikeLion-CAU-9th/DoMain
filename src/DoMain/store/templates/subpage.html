@@ -63,7 +63,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' widget.seq %}">
                                 {%if widget.image %}
                                 <img src="{{widget.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -108,7 +108,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' layout.seq %}">
                                 {%if layout.image %}
                                 <img src="{{layout.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -154,7 +154,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' searchbar.seq %}">
                                 {%if searchbar.image %}
                                 <img src="{{searchbar.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -195,7 +195,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' dday.seq %}">
                                 {%if dday.image %}
                                 <img src="{{dday.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -237,7 +237,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' note.seq %}">
                                 {%if note.image %}
                                 <img src="{{note.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -279,7 +279,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' finance.seq %}">
                                 {%if finance.image %}
                                 <img src="{{finance.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -321,7 +321,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' bookmark.seq %}">
                                 {%if bookmark.image %}
                                 <img src="{{bookmark.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -363,7 +363,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' new.seq %}">
                                 {%if new.image %}
                                 <img src="{{new.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
