@@ -9,13 +9,14 @@ from django.utils import timezone
 from datetime import datetime
 from store.models import WidgetType
 from widget.models import AbstractBaseWidget
-
+import json
 
 def landing_page(request):
     return render(request, 'landingPage.html')
 
 def store_main(request):
-    return render(request, 'AssetStoreMainPage.html')
+    suggestedStoreWidgets = StoreWidget.objects.all()[:5]
+    return render(request, 'AssetStoreMainPage.html', {"suggestedStoreWidgets": suggestedStoreWidgets})
 
 def subpage(request):
     email= request.session['user_email']
@@ -64,7 +65,8 @@ def mypage(request):
             "upload_layouts":upload_layouts,
             "upload_count":upload_count,
             "like_layouts":like_layouts,
-            "like_count":like_count
+            "like_count":like_count,
+            "user": user
         })
 
 def comment_write(request):
