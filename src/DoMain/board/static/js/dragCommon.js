@@ -1,4 +1,4 @@
-const drag = () => {
+const drag = (isUnLocked) => {
   let balls = document.querySelectorAll(".widget");
   console.log(balls);
 
@@ -13,7 +13,11 @@ const drag = () => {
 
     // 공 선택 이벤트 바인딩
     console.log(ball);
-    ball.addEventListener("mousedown", handleMouseDown);
+    if(isUnLocked) {
+      ball.addEventListener("mousedown", handleMouseDown);
+    } else {
+      ball.removeEventListener("mousedown", handleMouseDown);
+    }
   });
 
   // 마우스 이벤트 바인딩
