@@ -127,7 +127,7 @@ width:100px;
 }
 
 .profile-space{ 
-    width:75%;
+    width:85%;
     height:auto;
 }
 
@@ -166,7 +166,7 @@ width:100px;
 }
 
 .widget-info-space{
-    width:25%;
+    width:40%;
 }
 
 .widget-inform-left{
@@ -289,6 +289,7 @@ width:100px;
 
 .button-container{
     margin-top:13px;
+    display:inline;
 }
 
 .comment-button{
@@ -315,13 +316,13 @@ width:100px;
 
 
 /* Comment - Django */
-.comment-list{
+#comment-list{
     width: 100%;
-    margin-left:85px;
 }
 
 .comment-data{
     width:100%;
+    padding-left:1%;
 }
 
 .comment-writer{
@@ -347,21 +348,31 @@ width:100px;
     background-color: #45A685;
     
 }
-
+#reply-input{
+    border:none;
+    width:85%;
+    height:30px;
+    margin:18px 10px 0 10px;
+    padding:0;
+    outline:0;
+    display:inline;
+}
 .comment-list hr{
     margin:24px 0;
 }
 
 
 /* Comment - Ajax */
-#comment-list{
+/* #comment-list{
     width: 90%;
     margin-left:85px;
-}
+} */
 
 /* ReplyComment show toggle */
 .reply-container{
     display:none;
+    padding-left:3%;
+    flex-direction: row;
 }
 .big-img{
     width: 100%;
@@ -376,4 +387,21 @@ width:100px;
     float: left;
     padding-top: 5%;
     font-weight: normal;
+}
+.write-comment{
+    padding:3px;
+    border: 1px solid #E4E4E4;
+    border-radius: 23px;
+    color:black;
+    background-color: #E4E4E4;
+    font-size:12px;
+}
+.see-comment{
+    color:blue;
+    border:none;
+    background-color: transparent;
+    font-size:12px;
+}
+hr{
+    width:100%;
 }
