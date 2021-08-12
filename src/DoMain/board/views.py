@@ -1,21 +1,30 @@
 from django.shortcuts import render, redirect
+from board.models import WallPaper
 from account.models import User_info
 from widget.models import Layout
 from account.views import get_user_inst
 from widget.views import view_list
 from widget.views import get_download_widget
 
-def custom(request):
-    return render(request, 'customPage.html')
-
-    
-def mainbar(request):
-    return render(request, 'mainbar.html')
-
 
 def home(request):
+    email= request.session['user_email']
+    user = User_info.objects.get(user_email=email)
+    
+    wallpaper = WallPaper.objects.get(user=user)
+    
+    if wallpaper == None:
+        wallpaper = WallPaper()
+    
+    wallpaper.user = user
+    if(request.method == 'POST'):
+        if 'image' in request.FILES:
+            wallpaper.image = request.FILES['image']
+            wallpaper.save()
+
     download_qs = get_download_widget(request)
-    return render(request, 'home.html', {'download_widget': download_qs})
+
+    return render(request, 'home.html', { 'wallpaper': wallpaper, 'download_widget': download_qs})
 
 
 def createData(request, table):
@@ -37,4 +46,3 @@ def createData(request, table):
         Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
         return redirect('home')
-
