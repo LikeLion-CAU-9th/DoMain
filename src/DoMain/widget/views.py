@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from .finance import crawl_finance
 from .models import Layout
 from account.views import get_user_inst
+import json
 
 
 def finance_view(request):
@@ -129,5 +130,20 @@ def save_layout(request):
 
 def get_download_widget(request):
   user = get_user_inst(request)
-  Layout.objects.filter(owner=user, is_widget=True, from_store=True)
-  pass
+  QS = Layout.objects.filter(owner=user, is_widget=True, from_store=True)
+  return QS
+
+
+def widget_append(request):
+  widget_seq = request.GET['widgetSEQ']
+  user = get_user_inst(request)
+  QS = Layout.objects.filter(owner=user, is_applied=True)
+  origin = json.loads(QS[0].data)
+  new_widget_QS = Layout.objects.filter(owner=user, seq=widget_seq)
+  if len(new_widget_QS) == 1:
+    new_list = json.loads(new_widget_QS[0].data)
+    origin += new_list
+  print("Merged Layout!!!")
+  print(origin)
+  QS.update(data=json.dumps(origin))
+  return HttpResponse(True)
