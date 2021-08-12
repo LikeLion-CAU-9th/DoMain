@@ -52,6 +52,9 @@ const widgetModifyRequest = (index) => {
 $(document).ready(function(){
   setTimeout(()=>{
     let modify = document.querySelectorAll('.modify-btn');
+    
+
+
     for(let i = 0; i < modify.length; i++) {
       modify[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
     }
