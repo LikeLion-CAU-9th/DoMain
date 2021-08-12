@@ -4,9 +4,11 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from board.views import createData
+from store.views import landing_page
 
 
 urlpatterns = [
+    path('', landing_page, name="landingPage"),
     path('account/', include('account.urls')),
     path('store/', include('store.urls')),
     path('widget/', include('widget.urls')),
