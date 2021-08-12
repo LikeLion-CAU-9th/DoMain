@@ -42,16 +42,38 @@
   transform: translate(-50%, -50%);
 }
 
-.moving-btn {
+.delete-btn {
   position: absolute;
-  top:100%;
-  left: 0;
+  top: 0;
+  right: -38px;
   transform: translate(-30%, -50%);
   display: inline-block;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   z-index: 10;
+  background-color: rgba(236, 141, 129, 0.822);
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moving-btn {
+  position: absolute;
+  top:100%;
+  left: -2%;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: -1;
   background-color: rgba(239, 248, 248, 0.822);
   cursor: pointer;
 }
