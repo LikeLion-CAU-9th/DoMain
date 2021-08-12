@@ -2,6 +2,7 @@
 
 .widget {
   position: absolute;
+  padding: 10px;
 }
 
 .container {
@@ -247,7 +248,7 @@
 
 .searchBtn-container {
   position: absolute;
-  top: 0;
+  top: 12px;
   text-align: center;
   cursor: pointer;
 }
