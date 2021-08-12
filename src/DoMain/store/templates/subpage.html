@@ -86,9 +86,9 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
 
-                                    <a href="#">
+                                    <!-- <a onclick="makeDownload({{widget.seq}})"> -->
                                         <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <!-- </a> -->
                                 </div>
                             </div>
                         </div>
@@ -131,9 +131,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
 
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{layout.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +174,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{searchbar.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -217,7 +215,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{dday.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -259,7 +257,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{note.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -301,7 +299,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{finance.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -343,7 +341,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{bookmark.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -385,7 +383,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{new.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -441,13 +439,12 @@
 
 <script src="{% static 'js/dropdown.js' %}"></script>
 <script src="{% static 'js/cardDetailModal.js' %}"></script>
-<script src="{% static 'js/makeDownload.js'%}"></script>
 
 <script>
     function makeDownload(widget_id) {
         $.ajax({
           type: "POST",
-          url: "download/",
+          url: "/store/widget/download/",
           data: {
             widget_id: widget_id,
             csrfmiddlewaretoken: "{{csrf_token}}"
@@ -460,8 +457,9 @@
             alert(error);
           }
         });
-      }
-      
+      } 
 </script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 {% endblock %}

@@ -155,7 +155,7 @@ def make_download(request):
             data = widget.data,
             from_store=True,
             owner = user,
-            name=name,
+            name=widget.name,
             image=widget.image,
             is_applied=False
             )
