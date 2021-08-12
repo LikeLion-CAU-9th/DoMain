@@ -1,18 +1,24 @@
-const finance = (contents) => {
+const finance = (contents, index) => {
   let stockItems = contents.items;
   let elem = getFinanceElements();
   document.querySelector('.main-board').innerHTML += elem;
-  document.querySelector('.financeBoard').style.width = contents.width;
-  document.querySelector('.financeBoard').style.left = contents.posX;
-  document.querySelector('.financeBoard').style.top = contents.posY;
+  let widgetObj = {};
+  widgetObj['type'] = 'finance';
+  widgetObj['contents'] = contents;
+  document.querySelectorAll('.financeHidden')[index].value = JSON.stringify(widgetObj);
+  document.querySelectorAll('.financeBoard')[index].style.width = contents.width;
+  document.querySelectorAll('.financeBoard')[index].style.left = contents.posX;
+  document.querySelectorAll('.financeBoard')[index].style.top = contents.posY;
   const URL = "/widget/getFinance/";
   let obj = {};
   for(let i = 0; i < stockItems.length; i++) {
     obj[i] = stockItems[i];
   }
   priceStr = AjaxCall(URL, data=obj);
-  renderName(stockItems);
-  renderPrice(priceStr);
+  hideLoader();
+  appearContent();
+  renderName(stockItems, index);
+  renderPrice(priceStr, index);
 }
 
 const AjaxCall = (url, data, method="GET", async=false) => {
@@ -24,22 +30,20 @@ const AjaxCall = (url, data, method="GET", async=false) => {
     data: data,
     success: function(data) {
       returnValue = data;
-      hideLoader();
-      appearContent();
     }
   })
   return returnValue;
 }
 
-const renderName = (items) => {
-  let target = document.querySelectorAll('.stock-name');
+const renderName = (items, index) => {
+  let target = document.querySelectorAll('.financeBoard')[index].querySelectorAll('.stock-name');
   for(let i = 0; i < target.length; i++) {
     target[i].innerHTML = items[i];
   }
 }
 
-const renderPrice = (priceStr) => {
-  let target = document.querySelectorAll('.price');
+const renderPrice = (priceStr, index) => {
+  let target = document.querySelectorAll('.financeBoard')[index].querySelectorAll('.price');
   priceList = priceStr.split('/');
   for(let i = 0; i < target.length; i++) {
     try {

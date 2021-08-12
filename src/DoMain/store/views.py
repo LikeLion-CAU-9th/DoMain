@@ -140,15 +140,30 @@ def make_download(request):
     user = User_info.objects.get(user_email=email)
     widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
 
-    Layout.objects.create(
-        creater=user,
-        data = widget.data,
-        from_store=True,
-        owner = widget.creater
-        )
-    ret = {
-        "download_message": "다운로드가 완료되었습니다."
-    }
+    if Layout.objects.filter(
+        creater=widget.creater,
+        data=widget.data,
+        name=widget.name,
+        owner=user
+        ).exists():
+        ret = {
+            "download_message":"이미 다운로드가 되었습니다."
+        }
+    else:
+        layout = Layout.objects.create(
+            creater=widget.creater,
+            data = widget.data,
+            from_store=True,
+            owner = user,
+            name=widget.name,
+            image=widget.image,
+            is_applied=False
+            )
+        if widget.widget_type != WidgetType.LAYOUT_WIDGET:
+            layout.is_widget=True
+        ret = {
+            "download_message": "다운로드가 완료되었습니다."
+        }
     return HttpResponse(json.dumps(ret), content_type="application/json")      
 
 

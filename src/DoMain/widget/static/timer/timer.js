@@ -1,29 +1,33 @@
-const timer = (contents) => {
+const timer = (contents, index) => {
   let elem = getTimerElements();
   document.querySelector('.main-board').innerHTML += elem;
+  let widgetObj = {};
+  widgetObj['type'] = 'timer';
+  widgetObj['contents'] = contents;
+  document.querySelectorAll('.timerHidden')[index].value = JSON.stringify(widgetObj);
   const eventName = contents.event;
-  document.querySelector('.event').innerHTML = eventName + ": ";
-  document.querySelector('.widget-timer').style.color = contents.bgColor;
-  document.querySelector('.widget-timer').style.left = contents.posX;
-  document.querySelector('.widget-timer').style.top = contents.posY;
-  document.querySelector('.widget-timer').style.fontSize = contents.fontSize;
-  document.querySelector('.widget-timer .remain-time').style.fontSize = (pixelToInt(contents.fontSize)+4) + "px";;
+  document.querySelectorAll('.event')[index].innerHTML = eventName + ": ";
+  document.querySelectorAll('.widget-timer')[index].style.color = contents.bgColor;
+  document.querySelectorAll('.widget-timer')[index].style.left = contents.posX;
+  document.querySelectorAll('.widget-timer')[index].style.top = contents.posY;
+  document.querySelectorAll('.widget-timer')[index].style.fontSize = contents.fontSize;
+  document.querySelectorAll('.widget-timer .remain-time')[index].style.fontSize = (pixelToInt(contents.fontSize)+4) + "px";;
   const time = contents.time;
   let hours = time.split(':')[0];
   let minutes = time.split(':')[1];
   let seconds = time.split(':')[2];
-  renderRemainTime(hours, minutes, seconds);
+  renderRemainTime(index, hours, minutes, seconds);
   const renderTimeInterveral = setInterval(()=>{
-    renderRemainTime(hours, minutes, seconds);
+    renderRemainTime(index, hours, minutes, seconds);
   }, 1000);
 }
 
-const renderRemainTime = (hours, minutes, seconds) => {
+const renderRemainTime = (index, hours, minutes, seconds) => {
   let now = new Date();
   let targetTime = getTargetDate(hours, minutes, seconds);
   let timeleft = targetTime - now;
   if (timeleft <= 0) {
-    document.querySelector('.remain-time').innerHTML = "It's over! 🌟";
+    document.querySelectorAll('.remain-time')[index].innerHTML = "It's over! 🌟";
     return true;
   }
   let remainHour = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -34,7 +38,7 @@ const renderRemainTime = (hours, minutes, seconds) => {
   let twoDigitSec = intToTwoDigit(remainSec);
 
   let timeStr = twoDigitHour + ":" + twoDigitMin + ":" + twoDigitSec;
-  document.querySelector('.remain-time').innerHTML = timeStr;
+  document.querySelectorAll('.remain-time')[index].innerHTML = timeStr;
 }
 
 const getTargetDate = (hours, minutes, seconds) => {

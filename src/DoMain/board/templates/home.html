@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <!-- Widget related style sheet -->
+    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/widget-modal.css' %}">
+    </link>
+    <link rel="stylesheet" href="{% static 'css/customPage.css' %}">
+    </link>
+
+    <!-- IONICONS -->
+<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
+    <!-- Widget related script files -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{% static 'finance/finance-element.js' %}"></script>
+    <script src="{% static 'finance/finance.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote-element.js' %}"></script>
+    <script src="{% static 'stickynote/stickynote.js' %}"></script>
+    <script src="{% static 'searching/searching-element.js' %}"></script>
+    <script src="{% static 'searching/searching.js' %}"></script>
+    <script src="{% static 'github/github.js' %}"></script>
+    <script src="{% static 'github/github-element.js' %}"></script>
+
+    <script src="{% static 'dday/dday-element.js' %}"></script>
+    <script src="{% static 'dday/dday.js' %}"></script>
+    <script src="{% static 'timer/timer-element.js' %}"></script>
+    <script src="{% static 'timer/timer.js' %}"></script>
+    <script src="{% static 'js/widget-lock.js' %}"></script>
+    <script src="{% static 'js/widget-contents-data.js' %}"></script>
+
+    <!-- Server Request script files -->
+    <script src="{% static 'js/dragCommon.js' %}"></script>
+    <script src="{% static 'js/dragAndDrop.js' %}"></script>
+    <script src="{% static 'js/layout-server.js' %}"></script>
+    <script src="{% static 'js/update-request.js' %}"></script>
+    
+    <!-- Widget Delete and Modify Modal -->
+    <script src="{% static 'js/widget-delete.js' %}"></script>
+    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
+
+    <script type = "text/javascript">
+        $(document).ready(function(){
+
+        $('#finance-tab-button .cont button').on('click', function(){
+            $("#finance-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#dday-tab-button .cont button').on('click', function(){
+            $("#dday-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#searchbar-tab-button .cont button').on('click', function(){
+            $("#searchbar-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#sticky-tab-button .cont button').on('click', function(){
+            $("#sticky-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#todolist-tab-button .cont button').on('click', function(){
+            $("#todolist-tab-button .cont button").clone().appendTo("body");
+        });
+    });
+      
+    </script>
+  
+    <title>DoMain</title>
+
+</head>
+
+<body>
+
+    <div class="top_navbar">
+        <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+        <ul class='subnavbar_menu'>
+            <li>
+                <a href="{% url 'store_main' %}">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    Store
+                </a>
+            </li>
+
+            <li>
+                <a onclick="widgetLockToggle()">
+                    <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                    <!--<ion-icon name="lock-open-outline"></ion-icon>-->
+                    Modify
+                </a>
+            </li>
+
+            <li>
+                <a id="user_icon">
+                    <ion-icon name="person-outline"></ion-icon>
+                    오지영님
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'logout' %}">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    Logout
+                </a>
+            </li>
+
+            <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
+        </ul>
+    </div>
+
+    <div id="body-pd">
+
+        <div class="r-navbar" id="navbar">
+            <nav class="nav">
+                <div>
+                    <div class="nav__brand">
+                        <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+
+                    </div>
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active" id="assetstore-btn" onclick="modalOn()">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Download Widget</span>
+                        </a>
+                        <a href="#" class="nav__link">
+                            <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Layout List</span>
+                        </a>
+
+                        <a href="#" class="nav__link" onclick="preparePageNoti()">
+                            <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Custom Layout</span>
+            
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file"
+                                accept="img/*">
+
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+        <!-- vertical bar-->
+
+        <div id="modal">
+            <div class="modal-window" style = "background-color: rgba(250, 203, 144, 0.5); margin: 0 15.5% 0 0; display: none;">
+                <div class="title">
+                    <h2 style="display: flex; justify-content: center;"> </h2>
+                </div>
+
+                <!-- modal Tab -->
+                <div class="modal-tab" style="display: inline;">
+                    <ul class="list">
+                        <li id="finance-tab-button" class="is_on">
+                            <button class="btn"> 주식</button>
+                            <div class="cont">
+                                <button> 주식 </button>
+                            </div>
+                        </li>
+                        <li id="dday-tab-button">
+                            <button class="btn"> 디데이</button>
+                            <div class="cont">
+                                <button> 디데이 </button>
+                            </div>
+                        </li>
+                        <li id="searchbar-tab-button">
+                            <button class="btn"> 서치바</button>
+                            <div class="cont">
+                                <button> 서치바</button>
+                            </div>
+                        </li>
+                        <li id="sticky-tab-button">
+                            <button class="btn"> 스티키</button>
+                            <div class="cont">
+                                <button> 스티키</button>
+                            </div>
+
+                        </li>
+                        <li id="todolist-tab-button">
+                            <button class="btn" style = "width: 110px;"> To Do list</button>
+                            <div class="cont">
+                                <button> To-Do list </button>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                
+                <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
+               
+            </div>
+            
+        </div>
+
+ <div class="main-board" style = "z-index: -5;"></div>
+
+    </div>
+</body>
+
+
+<!-- JS -->
+<script src="{% static 'js/modals.js' %}"></script>
+
+<div class="modal-full-bg"></div>
+<div class="widget-modify-modal">
+    <div class="widget-modal-top">
+         <label for="modal" class="close" onclick="widgetModalOff()">X</label>
+        <div class = "widget-modal-title">위젯 내용 수정하기</div>
+    </div>
+    <div class="widget-modal-body">
+    </div>
+    <div class="widget-modal-btn center">
+        <div class="widget-modal-modify-btn">수정</div>
+    </div>
+</div>
+
+</html>
+

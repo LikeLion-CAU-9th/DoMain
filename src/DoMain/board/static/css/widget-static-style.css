@@ -1,7 +1,7 @@
 /* Common */
 
-html {
-  background-color: dimgrey;
+.widget {
+  position: absolute;
 }
 
 .container {
@@ -15,12 +15,93 @@ html {
 }
 
 .main-board {
+  position: absolute;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 8%);
+}
+
+.modify-btn {
   position: absolute;
   top: 0;
   left: 0;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: rgba(239, 248, 248, 0.822);
+  cursor: pointer;
 }
+
+.modify-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: -38px;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: rgba(236, 141, 129, 0.822);
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moving-btn {
+  position: absolute;
+  top:100%;
+  left: -2%;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: rgba(239, 248, 248, 0.822);
+  cursor: pointer;
+}
+
+.moving-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hide {
+  display: none;
+}
+
+.widget-lock-btn {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background: url('/static/image/modify-icon.png');
+  cursor: pointer;
+  z-index: 50;
+}
+
 
 /* Finance */
 
@@ -147,6 +228,10 @@ html {
   transform:scale(1.25);
   position: relative;
   z-index: 5;
+}
+
+.widget-search {
+  position: absolute;
 }
 
 .searching {
