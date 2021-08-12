@@ -37,6 +37,7 @@
     <script src="{% static 'timer/timer.js' %}"></script>
     <script src="{% static 'js/widget-lock.js' %}"></script>
     <script src="{% static 'js/widget-contents-data.js' %}"></script>
+    <script src="{% static 'js/widget-append.js' %}"></script>
 
     <!-- Server Request script files -->
     <script src="{% static 'js/dragCommon.js' %}"></script>
@@ -167,38 +168,72 @@
                         <li id="finance-tab-button" class="is_on">
                             <button class="btn"> 주식</button>
                             <div class="cont">
-                                <button> 주식 </button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_finance" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                         <li id="dday-tab-button">
                             <button class="btn"> 디데이</button>
                             <div class="cont">
-                                <button> 디데이 </button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_d_day" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                         <li id="searchbar-tab-button">
                             <button class="btn"> 서치바</button>
                             <div class="cont">
-                                <button> 서치바</button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_search_bar" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                         <li id="sticky-tab-button">
-                            <button class="btn"> 스티키</button>
+                            <button class="btn">메모</button>
                             <div class="cont">
-                                <button> 스티키</button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_note" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
 
                         </li>
-                        <li id="todolist-tab-button">
-                            <button class="btn" style = "width: 110px;"> To Do list</button>
+                        <li id="timer-tab-button">
+                            <button class="btn" style = "width: 110px;">타이머</button>
                             <div class="cont">
-                                <button> To-Do list </button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_timer" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                     </ul>
 
                 </div>
-
                 
                 <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
                
@@ -230,3 +265,15 @@
 
 </html>
 
+<style>
+    .cont div {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;    
+    }
+
+    .cont div img {
+        width: 100px;
+        border-radius: 30px;
+    }
+</style>

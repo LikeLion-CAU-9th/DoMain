@@ -23,4 +23,6 @@ urlpatterns = [
   path('update-mainBGcolor/', views.update_main_bgcolor),
   path('apply-layout/<str:pk>/', views.apply_layout),
   path('save-layout/', views.save_layout),
+  path('get-download-widget-list/', views.get_download_widget),
+  path('widget-append/', views.widget_append),
 ]
