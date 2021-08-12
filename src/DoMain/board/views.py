@@ -15,7 +15,8 @@ def mainbar(request):
 
 def home(request):
     download_qs = get_download_widget(request)
-    return render(request, 'home.html', {'download_widget': download_qs})
+    user = get_user_inst(request)
+    return render(request, 'home.html', {'download_widget': download_qs, 'user': user.user_name})
 
 
 def createData(request, table):

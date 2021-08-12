@@ -25,7 +25,7 @@ video#bgvid{
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 27px;
+    font-size: 38px;
     font-weight: bold;
     font-family: 'ABeeZee', sans-serif;
     padding-top: 1%;
@@ -43,7 +43,6 @@ video#bgvid{
 .logo a span{
     color:black;
     text-decoration-line: none;
-    font-size: 27px;
 }
 
 .logo a:hover{
@@ -56,11 +55,12 @@ video#bgvid{
 
 .subnavbar_menu {
     height: 6%;
+    font-size: 18px;
     position: fixed;
     right:50px;
     list-style: none;
     display: flex;
-    padding-top: 2%;
+    padding-top: 2.6%;
     top: 6.5%;
 }
 
@@ -69,7 +69,7 @@ video#bgvid{
 }
 
 .subnavbar_menu li a{
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
     align-items: center;

@@ -82,7 +82,7 @@
 <body>
 
     <div class="top_navbar">
-        <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+        <div class="logo"><a href="{% url 'home' %}">Do<span>Main</span></a></div>
         <ul class='subnavbar_menu'>
             <li>
                 <a href="{% url 'store_main' %}">
@@ -93,16 +93,17 @@
 
             <li>
                 <a onclick="widgetLockToggle()">
-                    <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
-                    <!--<ion-icon name="lock-open-outline"></ion-icon>-->
-                    Modify
+                    <ion-icon class="lock-icon" name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                    <ion-icon class="unlock-icon" name="lock-open-outline" style="display: none;"></ion-icon>
+                    <span class="lock-text">Unlock</span>
+                    <span class="unlock-text" style="display: none;">Lock</span>
                 </a>
             </li>
 
             <li>
-                <a id="user_icon">
+                <a id="user_icon" href="/store/mypage/">
                     <ion-icon name="person-outline"></ion-icon>
-                    오지영님
+                    {{user}}님
                 </a>
             </li>
 
@@ -192,7 +193,7 @@
                             </div>
                         </li>
                         <li id="searchbar-tab-button">
-                            <button class="btn"> 서치바</button>
+                            <button class="btn">서치바</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
                                     {% if widget.widget_type == "simple_widget_search_bar" %}
