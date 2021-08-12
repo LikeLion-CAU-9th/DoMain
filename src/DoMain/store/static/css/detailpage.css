@@ -39,6 +39,7 @@ body {font-family: 'NotoSansKR', 'sans-serif';}
     vertical-align:bottom;
     font-size: 30px;
     float:left;
+    font-weight: bold;
 }
 
 .widget-pricespace{
@@ -190,7 +191,7 @@ width:100px;
 .review-start{
     margin-left:30px;
     font-size:25px;
-    font-weight: 400;
+    font-weight: bold;
     margin-bottom:15px;
 }
 
@@ -216,9 +217,7 @@ width:100px;
     background-color: #45A685;
     float:left;
 }
-::selection{
-    background-color: #45A685;
-}
+
 #recommend-widget{
     
     border-radius:10px;
@@ -259,6 +258,7 @@ width:100px;
 .extra-title{
     line-height:normal;
     font-size: 120%; 
+    font-weight: bold;
 }
 
 .extra-score{
@@ -372,7 +372,9 @@ width:100px;
 .relate-title{
     line-height: normal;
     font-size: 100%;
-    padding-left: 10%;
-    color:black;
-    float:left;
+    padding-left: 5%;
+    color: black;
+    float: left;
+    padding-top: 5%;
+    font-weight: normal;
 }

@@ -115,9 +115,7 @@
             <span class="review-start">Comments</span>
             <!-- 프로필이미지 -->
             <div class="review-input-container">
-                <div class="profile-container">
-                    <img class="profile" src="{% static 'image/elsa.jpg' %}">
-                </div>
+                
 
                 <!-- Comment Form -->
                 <input class="comment-input" id="comment-input" type="text" name="content" placeholder="댓글을 달아주세요">
@@ -151,7 +149,7 @@
             <hr>
             {% endfor %}
         </div>
-        <!-- 왼쪽 부분 끝 div태그 -->
+        <!-- 왼쪽 부분 끝 div태그 --> 
     </div>
 
 
@@ -170,11 +168,9 @@
                         {%else%}
                         <img src="{%static 'image/anna.jpg'%}" class="cardimg" id="recommend-widget" alt="no image">
                         {%endif%}
-                        <div style="line-height: 80%;">
+                        <div style="line-height: 80%;width:100%">
                             <!-- title -->
-                            <div class="relate-title">
-                                {{related_widget.name}}
-                            </div>
+                            <div class="relate-title">{{related_widget.name}}</div>
                             
                         </div>
                     </div>
