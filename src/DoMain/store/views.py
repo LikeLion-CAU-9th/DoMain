@@ -35,7 +35,7 @@ def subpage(request):
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
-    related_widgets=StoreWidget.objects.filter(widget_type=widget.widget_type)
+    related_widgets=StoreWidget.objects.filter(widget_type=widget.widget_type).exclude(seq=id)
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
 
