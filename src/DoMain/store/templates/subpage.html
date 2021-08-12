@@ -63,7 +63,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' widget.seq %}">
                                 {%if widget.image %}
                                 <img src="{{widget.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -86,9 +86,9 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
 
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <!-- <a onclick="makeDownload({{widget.seq}})"> -->
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{widget.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    <!-- </a> -->
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' layout.seq %}">
                                 {%if layout.image %}
                                 <img src="{{layout.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -131,9 +131,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
 
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{layout.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +152,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' searchbar.seq %}">
                                 {%if searchbar.image %}
                                 <img src="{{searchbar.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -176,7 +174,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{searchbar.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -195,7 +193,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' dday.seq %}">
                                 {%if dday.image %}
                                 <img src="{{dday.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -217,7 +215,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{dday.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -237,7 +235,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' note.seq %}">
                                 {%if note.image %}
                                 <img src="{{note.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -259,7 +257,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{note.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -279,7 +277,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' finance.seq %}">
                                 {%if finance.image %}
                                 <img src="{{finance.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -301,7 +299,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{finance.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -321,7 +319,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' bookmark.seq %}">
                                 {%if bookmark.image %}
                                 <img src="{{bookmark.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -343,7 +341,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{bookmark.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -363,7 +361,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="#">
+                            <a href="{% url 'detailpage' new.seq %}">
                                 {%if new.image %}
                                 <img src="{{new.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -385,7 +383,7 @@
                                 <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
                                     <a href="#">
-                                        <button id="downloadbutton" type="button">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                        <button id="downloadbutton" type="button" onclick="makeDownload({{new.seq}})">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                     </a>
                                 </div>
                             </div>
@@ -441,8 +439,27 @@
 
 <script src="{% static 'js/dropdown.js' %}"></script>
 <script src="{% static 'js/cardDetailModal.js' %}"></script>
-<script>
 
+<script>
+    function makeDownload(widget_id) {
+        $.ajax({
+          type: "POST",
+          url: "/store/widget/download/",
+          data: {
+            widget_id: widget_id,
+            csrfmiddlewaretoken: "{{csrf_token}}"
+          },
+          dataType: "json",
+          success: function(response) {
+            alert(response.download_message);
+          },
+          error: function(request, status, error) {
+            alert(error);
+          }
+        });
+      } 
 </script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 {% endblock %}
