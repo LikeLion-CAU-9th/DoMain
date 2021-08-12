@@ -1,4 +1,3 @@
-// @TODO: Backend modifying logic
 const updateBGcolor = () => {
   let hexColor = document.querySelector('.mainBGcolor').value;
   const URL = "/widget/update-mainBGcolor/";
