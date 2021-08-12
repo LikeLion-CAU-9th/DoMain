@@ -148,7 +148,7 @@
                                 <span class="nav_name">Change Wallpaper</span>
                             </label>
 
-                            <form method="POST" action = "{% url 'home' %}" enctype="multipart/form-data" name="bg">
+                            <form method="POST" action = "{% url 'home' %}" enctype="multipart/form-data">
                             {% csrf_token %}
                             <input type="file" id="ex_file" name="image" onchange="form.submit()">
                             </form>
