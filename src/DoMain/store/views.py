@@ -157,7 +157,9 @@ def make_download(request):
             owner = user,
             name=widget.name,
             image=widget.image,
-            is_applied=False
+            is_applied=False,
+            is_widget=True,
+            widget_type=widget.widget_type
             )
         if widget.widget_type != WidgetType.LAYOUT_WIDGET:
             layout.is_widget=True

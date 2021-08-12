@@ -3,6 +3,7 @@ from account.models import User_info
 from widget.models import Layout
 from account.views import get_user_inst
 from widget.views import view_list
+from widget.views import get_download_widget
 
 def custom(request):
     return render(request, 'customPage.html')
@@ -13,7 +14,8 @@ def mainbar(request):
 
 
 def home(request):
-    return render(request, 'home.html')
+    download_qs = get_download_widget(request)
+    return render(request, 'home.html', {'download_widget': download_qs})
 
 
 def createData(request, table):

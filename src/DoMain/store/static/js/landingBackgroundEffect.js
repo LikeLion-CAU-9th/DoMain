@@ -18,7 +18,7 @@ const preloadImages = () => {
 
 const img = new Image();
 img.src = currentFrame(1);
-canvas.width = canvas.offsetWidth;
+canvas.width = 1500;
 canvas.height = 500;
 img.onload = function() {
   context.drawImage(img, 0, 0);
