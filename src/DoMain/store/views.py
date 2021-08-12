@@ -65,7 +65,8 @@ def mypage(request):
             "upload_layouts":upload_layouts,
             "upload_count":upload_count,
             "like_layouts":like_layouts,
-            "like_count":like_count
+            "like_count":like_count,
+            "user": user
         })
 
 def comment_write(request):
