@@ -11,6 +11,7 @@ urlpatterns = [
   path('searching/', views.searching_view, name="searching"),
   path('github/', views.github_view, name="github"),
   path('todo/', views.todo_view,name="todo-list"),
+  path('webtoon/', views.webtoon_view, name="webtoon"),
   path('delete-layout/<str:pk>/', views.layout_delete), 
   path('delete-layout/<str:pk>/', views.layout_delete),
   path('get-applied-layout/', views.get_applied_layout),

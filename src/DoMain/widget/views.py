@@ -40,6 +40,9 @@ def todo_view(request):
 def github_view(request):
   return render(request, 'github.html')
 
+def webtoon_view(request):
+  return render(request, 'webtoon.html')
+
 
 def layout_add(request):
   user = get_user_inst(request)
