@@ -4,7 +4,7 @@ html {
 
 body {
     height: 4500vh;
-    background: black;
+    background: rgb(4, 8, 10);
     margin:0
 }
 
@@ -13,11 +13,12 @@ canvas {
     position: fixed;
     left: 50%;
     top: 50%;
-    width:100%;
+    width:100vw;
     transform: translate(-50%, -50%);
     max-width: 100vw;
     max-height: 100vh;
     margin:0 0 0 0;
+    
 }
 
 .landingVideo{
@@ -30,41 +31,5 @@ video{
     width:100%;
     height:100%;
     object-fit:cover;
-}
-
-.chaeyeon{
-    padding: 0 15px 15px 0;
-}
-
-.sehoon{
-    padding: 0 15px 15px 15px;
-}
-
-.jisoo{
-    padding: 15px 15px 0 0;
-}
-
-.jiyeong{
-    padding: 15px 15px 0 15px;
-}
-
-.youngkwon{
-    padding: 0 15px 15px 15px;
-}
-
-.yunhan{
-    padding: 0 15px 15px 15px;
-}
-
-.seonyeong{
-    padding: 15px 15px 0 15px;
-}
-
-.seongmin{
-    padding: 0 0 15px 15px;
-}
-
-.myeongjun{
-    padding: 15px 0 0 15px;
 }
 
