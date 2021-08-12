@@ -13,18 +13,4 @@ const github = (contents, index) => {
   let ITEMS = contents.items;
 };
 
-const AjaxCall = (url, data, method = "GET", async = false) => {
-  let returnValue = "";
-  $.ajax({
-    url: url,
-    type: method,
-    async: async,
-    data: {},
-    success: function(data) {
-      returnValue = data;
-      console.log(data);
-    }
-  });
-  return returnValue;
-};
 data = AjaxCall("https://api.github.com/users/oereo");
