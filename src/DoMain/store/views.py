@@ -15,7 +15,9 @@ def landing_page(request):
     return render(request, 'landingPage.html')
 
 def store_main(request):
-    return render(request, 'AssetStoreMainPage.html')
+    suggestedStoreWidgets = StoreWidget.objects.all()[:5]
+
+    return render(request, 'AssetStoreMainPage.html', {"suggestedStoreWidgets": suggestedStoreWidgets})
 
 def subpage(request):
     email= request.session['user_email']

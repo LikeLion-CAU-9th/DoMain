@@ -96,17 +96,22 @@
             <div class="mainpage-content-3" style="padding-bottom:20px;">
                 <div class="carousel-title">개발자가 추천하는 테마</div>
                 <div class="owl-carousel owl-theme card-container">
+                    {% for suggestedStoreWidget in suggestedStoreWidgets %}
                     <div class="item card">
-                        <img src="/static/image/custompage-1.jpg" class="item-img-top card-image" alt="...">
+                            {%if suggestedStoreWidget.image %}
+                            <img src="{{suggestedStoreWidget.image.url}}" class="cardimg" id="recommend-widget" alt="no image">
+                            {%else%}
+                            <img src="/static/image/custompage-1.jpg" class="item-img-top card-image" alt="...">
+                            {%endif%}
+                        
                         <div class="item-body card-body">
-                            <h5 class="item-title card-title">asfesf</h5>
-                            <p class="item-text card-text">Some quick example text to build on the item title and make
-                                up
-                                the bulk of the item's content.</p>
-                            <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                            <h5 class="item-title card-title">{{suggestedStoreWidget.name}}</h5>
+                            <p class="item-text card-text">{{suggestedStoreWidget.description}}</p>
+                            <a href="{% url 'detailpage' suggestedStoreWidget.seq %}" class="btn btn-primary card-btn">둘러보기</a>
                         </div>
                     </div>
-                    <div class="item card">
+                    {% endfor %}
+                    <!-- <div class="item card">
                         <img src="/static/image/custompage-2.png" class="item-img-top card-image" alt="...">
                         <div class="item-body card-body">
                             <h5 class="item-title card-title">item title</h5>
@@ -135,7 +140,7 @@
                                 the bulk of the item's content.</p>
                             <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
