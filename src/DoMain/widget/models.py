@@ -25,3 +25,6 @@ class Layout(AbstractBaseWidget):
       db_column="owner"
     )
   is_applied = models.BooleanField(null=False, default=False)
+  name = models.CharField(max_length=31, null=False, blank=True)
+  image = models.ImageField(upload_to='layouts/', null=True, blank=True)
+  is_widget = models.BooleanField(null=False, default=False)

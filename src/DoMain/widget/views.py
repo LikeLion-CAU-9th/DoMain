@@ -37,6 +37,9 @@ def searching_view(request):
 def todo_view(request):
   return render(request, 'todo.html')
 
+def github_view(request):
+  return render(request, 'github.html')
+
 
 def layout_add(request):
   user = get_user_inst(request)
@@ -84,7 +87,6 @@ def view_list(request):
 
 
 def get_applied_layout(request):
-  # insert_dummy_layout(request, True)
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner=user, is_applied=True)
   json = "[]"

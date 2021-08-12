@@ -61,26 +61,26 @@
                     <div class="custom-mainpage-top" style="height: 15%;">
                     </div>
                     <div class="custom-mainpage-content"
-                        style="padding-right:2%; background-color:rgba(222, 105, 93,0.8); height:30%">
+                        style="padding-right:2%; background-color:rgba(222, 105, 93,0.8); height:auto; padding-bottom:20px;">
                         <div class="custom-mainpage-title"
                             style="font-weight: 600; text-align: right; font-size: 36px; color: white;">
                             Customize Your <span style="color: rgba(250, 239, 162, 1);">M</span>ainpage
                         </div>
-                        <div class="custom-mainpage-detail" style="color:white; text-align: right; font-size: px; ">
+                        <div class="custom-mainpage-detail" style="color:white; text-align: right; ">
                             메인 페이지를 나만의 취향으로 꾸며보세요
                         </div>
                     </div>
                     <div class="custom-mainpage-buttons" style="height:55%; display:flex; flex-direction: row;">
                         <div class="custom-mainpage-tocustom">
-                            <a href="{% url 'subpage' %}" class="customize-button">
-                                <div class="customize-image"> </div>
+                            <a href="{% url 'subpage' %}" class="tocustomize-button">
+                                <div class="tocustomize-image"></div>
+                                <h3 class="tocustomize-text">Customize</h3>   
                             </a>
                         </div>
                         <div class="custom-mainpage-tostore">
-                            <a href="{% url 'subpage' %}" class="store-button">
-                                <div class="store-image"></div>
-                                <h3 class="store-text">Go Store</h3>
-                                
+                            <a href="{% url 'subpage' %}" class="tostore-button">
+                                <div class="tostore-image"></div>
+                                <h3 class="tostore-text">Go Store</h3>    
                             </a>
                         </div>
                     </div>
@@ -93,7 +93,8 @@
                 </div>
             </div>
 
-            <div class="mainpage-content-3">
+            <div class="mainpage-content-3" style="padding-bottom:20px;">
+                <div class="carousel-title">개발자가 추천하는 테마</div>
                 <div class="owl-carousel owl-theme card-container">
                     <div class="item card">
                         <img src="/static/image/custompage-1.jpg" class="item-img-top card-image" alt="...">
