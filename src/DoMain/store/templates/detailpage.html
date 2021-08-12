@@ -161,7 +161,7 @@
         <div class="rightspace">
             <!-- 위젯 하나 -->
             {%for related_widget in related_widgets%}
-            <a href="#">
+            <a href="{% url 'detailpage' related_widget.seq %}">
                 <div style="padding-bottom:3%;">
                     <!-- 썸넬이미지 -->
                     <div class="card" style="flex-direction: row;border:none;">
@@ -329,7 +329,25 @@
         });
     }
 </script>
-
+<script>
+    function makeDownload(widget_id) {
+        $.ajax({
+          type: "POST",
+          url: "download/",
+          data: {
+            widget_id: widget_id,
+            csrfmiddlewaretoken: "{{csrf_token}}"
+          },
+          dataType: "json",
+          success: function(response) {
+            alert(response.download_message);
+          },
+          error: function(request, status, error) {
+            alert(error);
+          }
+        });
+      } 
+</script>
 {% endblock %}
 
 </html>

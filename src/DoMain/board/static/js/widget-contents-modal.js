@@ -51,13 +51,14 @@ const widgetModifyRequest = (index) => {
 
 $(document).ready(function(){
   setTimeout(()=>{
-    let modify = document.querySelectorAll('.modify-btn');
-    
-
-
-    for(let i = 0; i < modify.length; i++) {
-      modify[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
+    let modifyBtn = document.querySelectorAll('.modify-btn');
+    let deleteBtn = document.querySelectorAll('.delete-btn');
+    for(let i = 0; i < modifyBtn.length; i++) {
+      modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
+    }
+    for(let i = 0; i < deleteBtn.length; i++) {
+      deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
     }
     console.log("TIME OUT!");
-  }, 1000)
+  }, 1000);
 });
