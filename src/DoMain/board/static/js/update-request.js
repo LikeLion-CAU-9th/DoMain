@@ -10,7 +10,9 @@ const saveHiddenData = () => {
   jsonStr = "[";
   for(let i = 0; i < widgetList.length; i++) {
     let widgetStr = widgetList[i].querySelector('input').value;
-    jsonStr += widgetStr + ",";
+    if(widgetStr != ""){
+      jsonStr += widgetStr + ",";
+    }
   }
   jsonStr = jsonStr.replaceAt(jsonStr.length-1, "]");
   const URL = '/widget/save-layout/';
