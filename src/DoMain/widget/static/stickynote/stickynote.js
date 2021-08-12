@@ -9,6 +9,7 @@ const stickynote = (contents, index) => {
   document.querySelectorAll('.note')[index].style.height = contents.height;
   document.querySelectorAll('.note')[index].style.left = contents.posX;
   document.querySelectorAll('.note')[index].style.top = contents.posY;
+  document.querySelectorAll('.note')[index].querySelector('a').style.backgroundColor = contents.bgColor;
   let notetitle =  document.querySelectorAll('.note-title')[index];
   notetitle.innerHTML = contents.title;
   let notecontent = document.querySelectorAll('.note-content')[index];

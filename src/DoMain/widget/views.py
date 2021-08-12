@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from .finance import crawl_finance
 from .models import Layout
 from account.views import get_user_inst
+import json
 
 
 def finance_view(request):
@@ -36,6 +37,9 @@ def searching_view(request):
 
 def todo_view(request):
   return render(request, 'todo.html')
+
+def github_view(request):
+  return render(request, 'github.html')
 
 
 def layout_add(request):
@@ -84,7 +88,6 @@ def view_list(request):
 
 
 def get_applied_layout(request):
-  # insert_dummy_layout(request, True)
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner=user, is_applied=True)
   json = "[]"
@@ -92,7 +95,6 @@ def get_applied_layout(request):
     json = qs[0].data
   return HttpResponse(json)
   
-
 
 def is_distinct_QS(QS):
   if len(QS) == 1:
@@ -123,4 +125,25 @@ def save_layout(request):
   layout_JSON = request.GET['layoutJSON']
   user = get_user_inst(request)
   Layout.objects.filter(owner=user, is_applied=True).update(data=layout_JSON)
+  return HttpResponse(True)
+
+
+def get_download_widget(request):
+  user = get_user_inst(request)
+  QS = Layout.objects.filter(owner=user, is_widget=True, from_store=True)
+  return QS
+
+
+def widget_append(request):
+  widget_seq = request.GET['widgetSEQ']
+  user = get_user_inst(request)
+  QS = Layout.objects.filter(owner=user, is_applied=True)
+  origin = json.loads(QS[0].data)
+  new_widget_QS = Layout.objects.filter(owner=user, seq=widget_seq)
+  if len(new_widget_QS) == 1:
+    new_list = json.loads(new_widget_QS[0].data)
+    origin += new_list
+  print("Merged Layout!!!")
+  print(origin)
+  QS.update(data=json.dumps(origin))
   return HttpResponse(True)

@@ -2,6 +2,7 @@
 
 .widget {
   position: absolute;
+  padding: 10px;
 }
 
 .container {
@@ -42,6 +43,50 @@
   transform: translate(-50%, -50%);
 }
 
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: -38px;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: rgba(236, 141, 129, 0.822);
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moving-btn {
+  position: absolute;
+  top:100%;
+  left: -2%;
+  transform: translate(-30%, -50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: rgba(239, 248, 248, 0.822);
+  cursor: pointer;
+}
+
+.moving-btn img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .hide {
   display: none;
 }
@@ -57,6 +102,7 @@
   cursor: pointer;
   z-index: 50;
 }
+
 
 /* Finance */
 
@@ -157,7 +203,6 @@
 .note a{
   text-decoration: none;
   color : #000;
-  background: #FFC;
   display: block;
   height : 100%;
   width: 100%;
@@ -202,7 +247,7 @@
 
 .searchBtn-container {
   position: absolute;
-  top: 0;
+  top: 12px;
   text-align: center;
   cursor: pointer;
 }
@@ -249,6 +294,45 @@
   letter-spacing: 6px;
 }
 
+/* timer2 */
+.widget-timer2 {
+  
+  background-color: #eec0c6;
+  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+
+  
+  box-shadow: 2px 2px 5px #999;
+  padding: 5px 15px 20px 15px;
+  border-radius: 14px;
+  letter-spacing: 4px;
+  width:auto;
+  height: auto;
+  line-height: 60px;
+  font-size: 28px;
+
+  font-family: 'BMJUA';
+  font-size: 20px;
+  letter-spacing: 6px;
+}
+
+.event2 {
+  color:white;
+
+}
+
+.remain-time2{
+  width: 30px;
+  height: 50px;
+  padding:0px 5px 10px 5px;
+  background-color: white;
+  color:#7ee8fa;
+  box-shadow: 1px 1px 3px #999;
+  border-radius: 10px;
+  text-align:center;
+  vertical-align:middle;
+  display:inline-block ; 
+}
+
 @font-face {
   font-family: clock-font;
   src: url('/static/font/clock.ttf');
@@ -262,3 +346,4 @@
   font-style: normal;
   
 }
+
