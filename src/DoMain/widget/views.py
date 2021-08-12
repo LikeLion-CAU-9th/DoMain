@@ -95,7 +95,6 @@ def get_applied_layout(request):
   return HttpResponse(json)
   
 
-
 def is_distinct_QS(QS):
   if len(QS) == 1:
     return True
@@ -126,3 +125,9 @@ def save_layout(request):
   user = get_user_inst(request)
   Layout.objects.filter(owner=user, is_applied=True).update(data=layout_JSON)
   return HttpResponse(True)
+
+
+def get_download_widget(request):
+  user = get_user_inst(request)
+  Layout.objects.filter(owner=user, is_widget=True, from_store=True)
+  pass
