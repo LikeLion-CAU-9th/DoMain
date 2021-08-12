@@ -260,13 +260,18 @@
 /* D-Day */
 
 .background {
-  background-color: beige;
+  background-image: url('../image/dday.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   border-radius:10px;
   padding-left:30px;
   padding-right:30px;
-  padding-top:5px;
-  padding-bottom:5px;
-  box-shadow: 5px 5px 5px;
+  padding-top:50px;
+  line-height:20px;
+  text-align: center;
+  font-family: 'BMJUA';
+  font-size: 20px;
+  font-weight: 50;
 }
 
 /* Timer */
@@ -331,5 +336,14 @@
 @font-face {
   font-family: clock-font;
   src: url('/static/font/clock.ttf');
+  
+}
+
+@font-face {
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  
 }
 
