@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="{% static 'timer/timer.js' %}"></script>
+  <title>Timer</title>
+</head>
+<body>
+  <div class="container center-middle">
+    
+    <div class="widget widget-timer2">
+      <input type="hidden" class="hiddenObj timer2Hidden">
+      <div class="event2">일출일몰</div>
+      <div class="remain-time_H remain-time2">00</div><span style="color:white;"> :</span>
+      <div class="remain-time_M remain-time2">11</div><span style="color:white;"> :</span>
+      <div class="remain-time_S remain-time2">88</div>
+    </div>
+    
+  </div>
+</body>
+</html>
+
+<style>
+  html {
+    background-color: #6d7b8a;
+  }
+
+  .container {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .widget-timer2 {
+    
+    background-color: #eec0c6;
+    background-image: linear-gradient(315deg, 0%, #e58c8a 74%);
+    box-shadow: 2px 2px 5px #999;
+    padding: 5px 15px 20px 15px;
+    border-radius: 14px;
+    letter-spacing: 4px;
+    width:auto;
+    height: auto;
+    line-height: 60px;
+    font-size: 28px;
+
+    font-family: 'BMJUA';
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+
+
+
+  .event2 {
+    color:white;
+  
+  }
+
+  .remain-time2{
+    width: 30px;
+    height: 50px;
+    padding:0px 5px 10px 5px;
+    background-color: white;
+    color:#eec0c6;
+    border-radius: 10px;
+    text-align:center;
+    vertical-align:middle;
+    display:inline-block ; 
+  }
+
+  @font-face {
+    font-family: clock-font;
+    src: url('/static/font/clock.ttf');
+  }
+
+  @font-face {
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+
+</style>
