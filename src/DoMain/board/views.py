@@ -10,17 +10,20 @@ from widget.views import get_download_widget
 def home(request):
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
-    
-    wallpaper = WallPaper.objects.get(user=user)
-    
-    if wallpaper == None:
+
+    wallpaper_check = WallPaper.objects.filter(user=user).exists()
+
+    if wallpaper_check == False:
         wallpaper = WallPaper()
-    
-    wallpaper.user = user
-    if(request.method == 'POST'):
-        if 'image' in request.FILES:
-            wallpaper.image = request.FILES['image']
-            wallpaper.save()
+        wallpaper.user = user
+        wallpaper.save()
+
+    if wallpaper_check == True:
+        wallpaper = WallPaper.objects.get(user=user)
+        if(request.method == 'POST'):
+            if 'image' in request.FILES:
+                wallpaper.image = request.FILES['image']
+                wallpaper.save()
 
     download_qs = get_download_widget(request)
 
