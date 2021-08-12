@@ -316,7 +316,7 @@ input[type="file"] {
   }
   
   #modal-off-btn {
-      margin : 100px 0 0 240px;
+      margin : 100px 0 0 150px;
       justify-content: center;
       position: absolute;
       bottom:10%;
