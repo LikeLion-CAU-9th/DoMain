@@ -316,15 +316,16 @@ input[type="file"] {
   }
   
   #modal-off-btn {
-      margin : 100px 0 0 150px;
+      margin : 100px 0 1rem 150px;
       justify-content: center;
       position: absolute;
-      bottom:10%;
+      bottom: 0;
       width:100px;
       height: 50px;
       border-radius: 50px;
       background-color: #fff;
       border: none;
+      
   
   }
   
