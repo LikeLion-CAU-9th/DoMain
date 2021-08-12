@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <!-- Widget related style sheet -->
     <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/widget-modal.css' %}">
     </link>
     <link rel="stylesheet" href="{% static 'css/customPage.css' %}">
     </link>
@@ -43,7 +44,8 @@
     <script src="{% static 'js/layout-server.js' %}"></script>
     <script src="{% static 'js/update-request.js' %}"></script>
     
-
+    <!-- Widget Modify Modal -->
+    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
     <script type = "text/javascript">
         $(document).ready(function(){
@@ -203,7 +205,7 @@
             
         </div>
 
- <div class="main-board"></div>
+ <div class="main-board" style = "z-index: -5;"></div>
 
     </div>
 </body>
@@ -212,6 +214,18 @@
 <!-- JS -->
 <script src="{% static 'js/modals.js' %}"></script>
 
+<div class="modal-full-bg"></div>
+<div class="widget-modify-modal">
+    <div class="widget-modal-top">
+         <label for="modal" class="close" onclick="widgetModalOff()">X</label>
+        <div class = "widget-modal-title">위젯 내용 수정하기</div>
+    </div>
+    <div class="widget-modal-body">
+    </div>
+    <div class="widget-modal-btn center">
+        <div class="widget-modal-modify-btn">수정</div>
+    </div>
+</div>
 
 </html>
 
