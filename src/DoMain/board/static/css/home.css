@@ -133,7 +133,7 @@ video#bgvid{
 #body-pd {
     position: relative;
     margin: 0;
-    padding: 2rem 0 0 6.75rem;
+    padding: 2rem 0 0 6.0rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
@@ -159,12 +159,13 @@ a {
 
     top:10%;
     right: 0;
-    height:70%;
+    height:65%;
     width: var(--nav--width);
+    margin : 0 0 0 1rem;
 
     background-color: var(--bg-color);
     color: var(--white-color);
-    padding: 1.5rem 1.5rem 2rem;
+    padding: 1rem 0rem 2rem 0;
     transition: .5s;
     z-index: var(--z-fixed);
     border-radius: 30px 0px 0px 30px ;
@@ -178,6 +179,7 @@ a {
     justify-content: space-between;
     overflow: hidden;
     opacity: 1;
+    margin:  0 0 0 1rem;
 }
 
 .nav__brand {
@@ -204,12 +206,13 @@ a {
     grid-template-columns: max-content max-content;
     align-items: center;
     column-gap: .75rem;
-    padding: 0.70rem 0.65rem 0.70rem .70rem;
+    padding: 0.70rem 0.5rem 0.70rem .80rem;
     color: var(--white-color);
     border-radius: .5rem;
     margin-bottom: 1rem;
     transition: .3s;
     cursor: pointer;
+    
 }
 
 
@@ -217,20 +220,27 @@ a {
     background-color: var(--first-color);
 }
 
+.nav__list {
+    padding-left: 1rem;
+    
+}
+
 
 
 .nav__icon {
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-left: 0.14rem;
 }
 
 .nav_name {
-    font-size: var(--small-font-size);
-    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    margin-right: 1.0rem;
 }
 
 /* Expander menu */
 .expander {
-    width: calc(var(--nav--width) + 9.25rem);
+    width: calc(var(--nav--width) + 8.35rem);
 }
 
 /* Add padding body*/
@@ -323,3 +333,6 @@ input[type="file"] {
       color:#fff
   }
 
+.mainBGcolor{
+    width: 1.5rem;
+}

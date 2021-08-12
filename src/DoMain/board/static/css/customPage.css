@@ -55,7 +55,10 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 } */
 
-
+#modal {
+    display: flex;
+    height: 0;
+}
 #modal .modal-window {
     background: #ffb32f;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -63,12 +66,14 @@
     -webkit-backdrop-filter: blur(13.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
     position: relative;
     padding: 10px;
-    float: right;
-    margin : 0 0 0 400px;
+    margin : 0 0 0 0;
+    left: 40%;
+    
+    
 }
 
 #modal .title {
