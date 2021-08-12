@@ -16,6 +16,7 @@ const widgetLockToggle = () => {
 
   $(".modify-btn").toggleClass("hide");
   $(".moving-btn").toggleClass("hide");
+  $(".delete-btn").toggleClass("hide");
   widgets = document.querySelectorAll("widgets");
   isUnLocked = !isUnLocked;
   drag(isUnLocked);
