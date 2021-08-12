@@ -143,20 +143,24 @@ def make_download(request):
     if Layout.objects.filter(
         creater=widget.creater,
         data=widget.data,
+        name=widget.name,
         owner=user
         ).exists():
         ret = {
             "download_message":"이미 다운로드가 되었습니다."
         }
     else:
-        Layout.objects.create(
+        layout = Layout.objects.create(
             creater=widget.creater,
             data = widget.data,
             from_store=True,
             owner = user,
+            name=name,
             image=widget.image,
-            is_widget=True
+            is_applied=False
             )
+        if widget.widget_type != WidgetType.LAYOUT_WIDGET:
+            layout.is_widget=True
         ret = {
             "download_message": "다운로드가 완료되었습니다."
         }
