@@ -115,16 +115,14 @@
             <span class="review-start">Comments</span>
             <!-- 프로필이미지 -->
             <div class="review-input-container">
-                <div class="profile-container">
-                    <img class="profile" src="{% static 'image/elsa.jpg' %}">
-                </div>
-
-                <!-- Comment Form -->
+                            <!-- Comment Form -->
                 <input class="comment-input" id="comment-input" type="text" name="content" placeholder="댓글을 달아주세요">
+                
                 <div class="button-container">
-                    <button class="comment-button" onClick="make_comment({{widget.seq}})" type="submit">작성하기</button>
-                </div>
+                    <button class="comment-button" onClick="make_comment({{widget.seq}})" type="submit" style="display:inline">댓글</button>
+                </div>                
             </div>
+                <hr style="width:100%;line-height:50%;margin-top:1%;">
         </div>
 
 
@@ -134,24 +132,28 @@
             <div class="commentDataList{{ forloop.counter }} comment-data">
                 <span class="comment-writer">{{comment.writer.user_name}}</span>
                 <span class="comment-time">{{comment.time}}</span>
-                <br>
+                <div style="margin-top:-2%;"><br></div>
                 <span class="comment-content">{{comment.content}}</span>
+
+                <br>
+
                 <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit"
-                    class="reply-button">대댓글</button>
-                <button onClick="showReply()">답글달기</button>
-                
+                    class="see-comment">▼ 답글보기</button> 
+                <button onClick="showReply()" class="write-comment">답글</button>
+
                 <div class="reply-container">
-                    <input class="reply-input" id="reply-input" type="text" name="content" placeholder="댓글을 달아주세요">
-                    <div class="button-container">
-                        <button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">작성하기</button>
-                    </div>
+                    <input class="reply-input" id="reply-input" type="text" name="content" placeholder="답글을 달아주세요">
+                    <div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">답글</button></div>
+                    <hr style="float:right;width:100%;margin-top:1%;">
                 </div>
 
+        
             </div>
             <hr>
             {% endfor %}
         </div>
-        <!-- 왼쪽 부분 끝 div태그 -->
+        <!-- 왼쪽 부분 끝 div태그 --> 
+        <br><br><br>
     </div>
 
 
@@ -170,17 +172,14 @@
                         {%else%}
                         <img src="{%static 'image/anna.jpg'%}" class="cardimg" id="recommend-widget" alt="no image">
                         {%endif%}
-                        <div style="line-height: 80%;">
+                        <div style="line-height: 80%;width:100%">
                             <!-- title -->
-                            <div class="relate-title">
-                                {{related_widget.name}}
-                            </div>
+                            <div class="relate-title">{{related_widget.name}}</div>
                             
                         </div>
                     </div>
                 </div>
             </a>
-            
             {%endfor%}
             <!-- 위젯하나 끝 -->
 
