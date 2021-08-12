@@ -9,14 +9,13 @@ from django.utils import timezone
 from datetime import datetime
 from store.models import WidgetType
 from widget.models import AbstractBaseWidget
-
+import json
 
 def landing_page(request):
     return render(request, 'landingPage.html')
 
 def store_main(request):
     suggestedStoreWidgets = StoreWidget.objects.all()[:5]
-
     return render(request, 'AssetStoreMainPage.html', {"suggestedStoreWidgets": suggestedStoreWidgets})
 
 def subpage(request):

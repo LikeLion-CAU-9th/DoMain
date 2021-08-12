@@ -33,7 +33,7 @@
                     <div class="weekly-best-content">
                         <b class="weekly-best-title">금주 BEST11</b>
                         <div class="weekly-best-detail">
-                            Gmail, Naver Search, Google Map 등 다양한 위젯을
+                            Gmail, Naver Search, Google Map <br/>등 다양한 위젯을
                             이용해보세요!
                         </div>
                         <div class="weekly-best-image">
@@ -109,40 +109,11 @@
                             <h5 class="item-title card-title">{{suggestedStoreWidget.name}}</h5>
                             <p class="item-text card-text">{{suggestedStoreWidget.description}}</p>
                             <a href="{% url 'detailpage' suggestedStoreWidget.seq %}"
-                                class="btn btn-primary card-btn">둘러보기</a>
+                                class="btn card-btn" style="background-color:rgba(69, 166, 134, 0.959); color: white">둘러보기</a>
                         </div>
                     </div>
                     {% endfor %}
-                    <!-- <div class="item card">
-                        <img src="/static/image/custompage-2.png" class="item-img-top card-image" alt="...">
-                        <div class="item-body card-body">
-                            <h5 class="item-title card-title">item title</h5>
-                            <p class="item-text card-text">Some quick example text to build on the item title and make
-                                up
-                                the bulk of the item's content.</p>
-                            <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="item card">
-                        <img src="/static/image/custompage-3.png" class="item-img-top card-image" alt="...">
-                        <div class="item-body card-body">
-                            <h5 class="item-title card-title">item title</h5>
-                            <p class="item-text card-text">Some quick example text to build on the item title and make
-                                up
-                                the bulk of the item's content.</p>
-                            <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="item card">
-                        <img src="/static/image/custompage-4.png" class="item-img-top card-image" alt="...">
-                        <div class="item-body card-body">
-                            <h5 class="item-title card-title">item title</h5>
-                            <p class="item-text card-text">Some quick example text to build on the item title and make
-                                up
-                                the bulk of the item's content.</p>
-                            <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
-                        </div>
-                    </div> -->
+                    
                 </div>
             </div>
         </div>
