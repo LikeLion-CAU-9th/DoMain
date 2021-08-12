@@ -74,13 +74,13 @@
                         <div class="custom-mainpage-tocustom">
                             <a href="{% url 'subpage' %}" class="tocustomize-button">
                                 <div class="tocustomize-image"></div>
-                                <h3 class="tocustomize-text">Customize</h3>   
+                                <h3 class="tocustomize-text">Customize</h3>
                             </a>
                         </div>
                         <div class="custom-mainpage-tostore">
                             <a href="{% url 'subpage' %}" class="tostore-button">
                                 <div class="tostore-image"></div>
-                                <h3 class="tostore-text">Go Store</h3>    
+                                <h3 class="tostore-text">Go Store</h3>
                             </a>
                         </div>
                     </div>
@@ -98,16 +98,18 @@
                 <div class="owl-carousel owl-theme card-container">
                     {% for suggestedStoreWidget in suggestedStoreWidgets %}
                     <div class="item card">
-                            {%if suggestedStoreWidget.image %}
-                            <img src="{{suggestedStoreWidget.image.url}}" class="cardimg" id="recommend-widget" alt="no image">
-                            {%else%}
-                            <img src="/static/image/custompage-1.jpg" class="item-img-top card-image" alt="...">
-                            {%endif%}
-                        
+                        {%if suggestedStoreWidget.image %}
+                        <img src="{{suggestedStoreWidget.image.url}}" class="cardimg" id="recommend-widget"
+                            alt="no image">
+                        {%else%}
+                        <img src="/static/image/custompage-1.jpg" class="item-img-top card-image" alt="...">
+                        {%endif%}
+
                         <div class="item-body card-body">
                             <h5 class="item-title card-title">{{suggestedStoreWidget.name}}</h5>
                             <p class="item-text card-text">{{suggestedStoreWidget.description}}</p>
-                            <a href="{% url 'detailpage' suggestedStoreWidget.seq %}" class="btn btn-primary card-btn">둘러보기</a>
+                            <a href="{% url 'detailpage' suggestedStoreWidget.seq %}"
+                                class="btn btn-primary card-btn">둘러보기</a>
                         </div>
                     </div>
                     {% endfor %}
