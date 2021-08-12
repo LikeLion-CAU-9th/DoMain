@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{%static 'book/book.js'%}"></script>
+    <script src="{% static 'utils/widget.js' %}"></script>
+    <title>book</title>
+</head>
+
+
+<body>
+    <div id="addBook">
+
+    </div>
+    <br><br>
+    <div>
+        <div>
+            <a id="linkTage" href="#"><div id="realLink" class="realLink" style="display:none"></div></a>
+            <input id="plus" type="button" class="plus" />
+            <p id="bookName">북마크 추가</p>
+        </div>
+
+        <!-- 모달 -->
+        <div id="modal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">북마크</h5>
+                  <!-- x버튼 -->
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- imput -->
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">URL</span>
+                        <input id="url" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">NAME</span>
+                        <input id="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="clickBook();" data-bs-dismiss="modal">Save</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+
+<style>
+.plus{
+    background-image: url("{% static 'image/plus.png' %}");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+    border: 0px;
+    outline: 0px;
+    width: 70px;
+    height: 70px;
+    
+}
+.realLink{
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+    border: 0px;
+    outline: 0px;
+    width: 70px;
+    height: 70px;
+}
+
+
+
+</style>
+<script>
+    $('#plus').click(function(e){
+			e.preventDefault();
+			$('#modal').modal("show");
+		});
+</script>
+</html>
