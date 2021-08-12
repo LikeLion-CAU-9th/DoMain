@@ -139,11 +139,11 @@
 
                 <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit"
                     class="see-comment">▼ 답글보기</button> 
-                <button onClick="showReply()" class="write-comment">답글</button>
+                <button onClick="showReply(this)" class="write-comment">답글</button>
 
                 <div class="reply-container">
                     <input class="reply-input" id="reply-input" type="text" name="content" placeholder="답글을 달아주세요">
-                    <div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">답글</button></div>
+                    <div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}}, self)" type="submit">답글</button></div>
                     <hr style="float:right;width:100%;margin-top:1%;">
                 </div>
 
@@ -224,9 +224,15 @@
 
                 $(`.commentDataList${response.comments_length}`).append("<span class='comment-time'>" + response.time + "</span><br>")
 
-                $(`.commentDataList${response.comments_length}`).append("<span class='comment-content'>" + response.body + "</span>&nbsp")
+                $(`.commentDataList${response.comments_length}`).append("<span class='comment-content'>&nbsp" + response.body + "</span>&nbsp<br>")
 
-                $(`.commentDataList${response.comments_length}`).append("<button class='reply-button' onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
+               // $(`.commentDataList${response.comments_length}`).append//("<button class='reply-button' onClick=\"make_reply(`$//{response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
+
+                $(`.commentDataList${response.comments_length}`).append("<button onClick=\"make_reply({{response.id}}, {{ forloop.counter }})\" type=\"submit\" class=\"see-comment\">▼ 답글보기</button><button onClick=\"showReply()\" class=\"write-comment\">답글</button>")
+                $(`.commentDataList${response.comments_length}`).append(
+                    '<div class="reply-container"><input class="reply-input" id="reply-input" type="text" name="content" placeholder="답글을 달아주세요"><div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">답글</button></div><hr style="float:right;width:100%;margin-top:1%;"></div><hr>'
+                )
+                
 
                 $("#comment-input").val(' ');
                 index = index + 1;
@@ -251,8 +257,8 @@
                 success: function (response) {
                     console.log(response)
                     console.log(response.length)
-                    for (let i = 0; i < response.length; i++) {
-                        $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
+                    for (let i = 0; i < response.reply_data.length; i++) {
+                        $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response.reply_user_name[i] +" : "+ response.reply_data[i]+ "</div>")
                     }
                     replyFlag = false;
                 },
@@ -268,19 +274,33 @@
 
     }
 
-    function showReply() {
-        var x = document.querySelector(".reply-container")
-        
-        if (x.style.display === "none") {
-            x.style.display = "block";
+    function showReply(self) {
+        var x = document.querySelectorAll(".write-comment")
+        var y = document.querySelectorAll(".reply-container")
+        let replyForm = y[Array.from(x).indexOf(self)];
+        console.log(replyForm)
+        if (replyForm.style.display === "none") {
+            replyForm.style.display = "block";
         } else {
-            x.style.display = "none";
+            replyForm.style.display = "none";
         }
     }
 
     
-    function write_reply(comment_id){
-        let reply = $("#reply-input").val();
+    function write_reply(comment_id, self){
+        let replys = document.querySelectorAll(".reply-input");
+        // console.log(replys)
+        let replyForm = replys[Array.from(replys).indexOf(self)];
+        // console.log(replyForm)
+        // let replyFormClassName = replyForm.attr('class')
+        var inputs = $('input[name="content[]"]');
+
+        inputs.click(function() {
+            console.log(inputs.index(this));
+        });
+        let reply = $(replyForm).val();
+        // console.log(reply)
+        // console.log(reply)
         $.ajax({
             type: "POST",
             url: "reply/write/",
@@ -297,6 +317,7 @@
                 alert(error);
             }
         })
+        $("#reply-input").val(' ');
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -350,3 +371,6 @@
 {% endblock %}
 
 </html>
+
+asdfasdfdf
+asdfasdfdf
