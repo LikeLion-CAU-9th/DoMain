@@ -7,12 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/mainbar.css' %}" />
     <!-- Widget related style sheet -->
-    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}"></link>
-    <link rel="stylesheet" href="{% static 'css/widget-modal.css' %}"></link>
+    <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}">
+    </link>
+    <link rel="stylesheet" href="{% static 'css/customPage.css' %}">
+    </link>
+
+    <!-- IONICONS -->
+<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
     <!-- Widget related script files -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="{% static 'finance/finance-element.js' %}"></script>
     <script src="{% static 'finance/finance.js' %}"></script>
     <script src="{% static 'stickynote/stickynote-element.js' %}"></script>
@@ -34,16 +42,41 @@
     <script src="{% static 'js/dragAndDrop.js' %}"></script>
     <script src="{% static 'js/layout-server.js' %}"></script>
     <script src="{% static 'js/update-request.js' %}"></script>
+    
 
-    <!-- Widget Modify Modal -->
-    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
+    <script type = "text/javascript">
+        $(document).ready(function(){
+
+        $('#finance-tab-button .cont button').on('click', function(){
+            $("#finance-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#dday-tab-button .cont button').on('click', function(){
+            $("#dday-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#searchbar-tab-button .cont button').on('click', function(){
+            $("#searchbar-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#sticky-tab-button .cont button').on('click', function(){
+            $("#sticky-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#todolist-tab-button .cont button').on('click', function(){
+            $("#todolist-tab-button .cont button").clone().appendTo("body");
+        });
+    });
+      
+    </script>
+  
     <title>DoMain</title>
 
 </head>
 
 <body>
-    
+
     <div class="top_navbar">
         <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
         <ul class='subnavbar_menu'>
@@ -53,27 +86,29 @@
                     Store
                 </a>
             </li>
+
             <li>
-                <div onclick="widgetLockToggle()" style="text-align:center; font-size:11px; cursor: pointer;">
-                <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon><br>
-                <!--
-                <ion-icon name="lock-open-outline"></ion-icon>
-                -->   
-                Modify
-                </div>
-            </li>
-            <li>
-                <a id="user_icon">
-                <ion-icon name="person-outline"></ion-icon>
-                오지영님
+                <a>
+                    <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                    <!--<ion-icon name="lock-open-outline"></ion-icon>-->
+                    Modify
                 </a>
             </li>
+
+            <li>
+                <a id="user_icon">
+                    <ion-icon name="person-outline"></ion-icon>
+                    오지영님
+                </a>
+            </li>
+
             <li>
                 <a href="{% url 'logout' %}">
                     <ion-icon name="log-out-outline"></ion-icon>
                     Logout
                 </a>
             </li>
+
             <li><a href="{% url 'landingPage' %}"><button>Help</button></a></li>
         </ul>
     </div>
@@ -83,62 +118,121 @@
         <div class="r-navbar" id="navbar">
             <nav class="nav">
                 <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    
+                    <div class="nav__brand">
+                        <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+
+                    </div>
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active" id="assetstore-btn" onclick="modalOn()">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Download Widget</span>
+                        </a>
+                        <a href="#" class="nav__link">
+                            <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Layout List</span>
+                        </a>
+
+                        <a href="#" class="nav__link" onclick="preparePageNoti()">
+                            <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">Custom Layout</span>
+            
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
+                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file"
+                                accept="img/*">
+
+                        </a>
+                    </div>
                 </div>
-                <div class="nav__list">
-                    <a href="#" class="nav__link active" id="assetstore-btn" onclick="verticalBarOn()">
-                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">Download Widget</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">Layout List</span>
-                    </a>
-
-                    <a href="#" class="nav__link">
-                        <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">Custom Layout</span>
-                    </a>
-
-                    <a href="#" class="nav__link">
-                        <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                        <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
-                        <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file" accept="img/*">
-
-                    </a>
-                </div>
-            </div>
             </nav>
         </div>
     </div>
         <!-- vertical bar-->
-<div class="tabmenu" >
+
+        <div id="modal">
+            <div class="modal-window" style = "background-color: rgba(250, 203, 144, 0.5); margin: 0 15.5% 0 0; display: none;">
+                <div class="title">
+                    <h2 style="display: flex; justify-content: center;"> </h2>
+                </div>
+
+                <!-- modal Tab -->
+                <div class="modal-tab" style="display: inline;">
+                    <ul class="list">
+                        <li id="finance-tab-button" class="is_on">
+                            <button class="btn"> 주식</button>
+                            <div class="cont">
+                                <button> 주식 </button>
+                            </div>
+                        </li>
+                        <li id="dday-tab-button">
+                            <button class="btn"> 디데이</button>
+                            <div class="cont">
+                                <button> 디데이 </button>
+                            </div>
+                        </li>
+                        <li id="searchbar-tab-button">
+                            <button class="btn"> 서치바</button>
+                            <div class="cont">
+                                <button> 서치바</button>
+                            </div>
+                        </li>
+                        <li id="sticky-tab-button">
+                            <button class="btn"> 스티키</button>
+                            <div class="cont">
+                                <button> 스티키</button>
+                            </div>
+
+                        </li>
+                        <li id="todolist-tab-button">
+                            <button class="btn" style = "width: 110px;"> To Do list</button>
+                            <div class="cont">
+                                <button> To-Do list </button>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                
+                <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
+               
+            </div>
+            
+        </div>
+
+
+        <!-- <div class="tabmenu" >
     <ul style = "display: none;" id = "verticalbar-tab">
         <li id="tab1" class="btnCon" class="btn first"  text-align="center" style = "background-color: #ffffff;">
-            <div class="tabCon" id = "widget-tab" 
-            >
+            <div class="tabCon" id = "widget-tab"style ="width:600px; overflow: scroll; max-height: 60vh; border: 1px solid #ffb32f;">
 
                 
                 <div class="asset-content" style="width: 400px; margin: 0 20% 0 0;" >
 
-                    <img align="absmiddle" src="{% static 'img/App 21.png' %}">
-                    <img align="absmiddle" src="{% static 'img/App 22.png' %}">
-                    <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+                   
 
-                    <br />
-                    Calendar
-                    <br />
+                    <img align="absmiddle" src="{% static 'img/App 21.png' %}"  onclick = "cloneWidget()">
+                    <img align="absmiddle" src="{% static 'img/App 22.png' %}" onclick = "cloneBody()">
+                    <img align="absmiddle" src="{% static 'img/App 24.png' %}" onclick = "cloneBody()">
+
+                    <hr / style = "height:5px; background-color: #ffb32f;">
+                    
+                    <hr />
 
                     <img align="absmiddle" src="{% static 'img/image 13.png' %}">
                     <img align="absmiddle" src="{% static 'img/image 14.png' %}">
 
-                    </br>
-                    Searchbar
+                    <hr />
+                    <hr />
+                    
 
                     <img align="absmiddle" src="{% static 'img/Group 10.png' %}">
                     <img align="absmiddle" src="{% static 'img/Group 12.png' %}">
+
+                    <button onclick="verticalBarOff()" style = "width: 100px; height: 50px;"> X </button>
                 </div>
             </div>
         </li>
@@ -176,11 +270,11 @@
             </div>
         </li>
     </ul>
-</div>
+</div> -->
 
 
 
-<!-- <div class="asset_box">
+        <!-- <div class="asset_box">
     <div class="asset_box_title"> <p>widget</p></div>
     <div class="asset-content">
         <img align="absmiddle" src="{% static 'img/App 21.png' %}">
@@ -188,23 +282,23 @@
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
 </div> -->
-<div class="main-board"></div>
+ <div class="main-board"></div>
 
-<div class="modal-full-bg"></div>
-<div class="widget-modify-modal">
-    <h2 style="text-align: center;">위젯 내용 수정하기</h2>
-    <div class="widget-modal-body">
-    </div>
-    <div class="widget-modal-btn center">
-        <div class="widget-modal-modify-btn">수정</div>
-        <div class="widget-modal-close-btn" onclick="widgetModalOff()">취소</div>
-    </div>
-</div>
+<!--
 
+        <div class="asset_box">
+    <div class="asset_box_title"> <p>widget</p></div>
+    <div class="asset-content">
+        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+    </div>
+-->
+    </div>
 </body>
-    </div>
-        <!-- IONICONS -->
-        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-        <!-- JS -->
-        <script src="{% static 'js/modals.js' %}"></script>
+<script src="{% static 'js/modals.js' %}"></script>
+
+
 </html>
+
+<!-- JS -->
