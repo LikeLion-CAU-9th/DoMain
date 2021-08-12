@@ -2,6 +2,7 @@ a{
     z-index: 1;
     text-decoration:none;
 }
+
 #container{
     max-width: 97%;
 }
@@ -66,13 +67,7 @@ a{
     color:white;
     position:absolute;
 }
-#heart{
-    cursor: pointer;
-    z-index:3;
-    position:absolute;
-    padding-left:84%;
-    padding-top:3%;
-}
+
 .title{
     color:#000000;
     /*  */
@@ -80,8 +75,18 @@ a{
     padding:2% 4%;
     margin-bottom:0rem;
     vertical-align:bottom;
-    font-size: 130%;
+    font-size: 20px;
 }
+
+.to-widget:hover {
+    text-decoration: none;
+}
+
+.card:hover{
+    transition-duration: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .price{
     color:#000000;
     /*  */
@@ -91,40 +96,28 @@ a{
     float:left;
     font-size:140%;
 }
-.saleprice{
-    color:#D94738;
-    /*  */
-    text-decoration:line-through;
-    z-index:1;
-    float:left;
-    font-size:130%;
-    padding-left:3%;
-    padding-top:0.5%;
-}
+
 .button{
     padding-top:2%;
     padding-right:5%;
     text-decoration: none;
 }
+
 .download-space{
-    padding-bottom: 3%;
-    padding-right: 3%;
-    padding-top: 2%;
+    padding-top:5px;
+    padding-right:10px;
+    width:50%;
 }
+
 #downloadbutton{
-    font-size: 5%;
+    font-size: 15px;
     color:black;
-    width:40%;
     height:30px;
     background-color:#F7E461;
-    border-color: #F7E461;
-    /*  */
-    z-index:2;
     float:right;
     text-decoration: none;
-    border: 1px solid #F7E461;
+    border: none;
     border-radius: 5px; 
-
 }
 .starspace{
     float:left;
@@ -142,47 +135,35 @@ a{
     float:left;
     z-index:1;
 } */
-.smallheartspace{
-    float:right;
-    padding-left:66%;
-    z-index:2;
-    position:absolute
-}
-.smallheart{
-    float: left;
-    padding-top: 10%;
-}
-#hearttext{
-    color:#A2A4A6;
-    float:right;
-    padding-right:5%;
-    z-index:3;
-    position:relative;
-}
+
 #like{
-    font-size:200%;
+    font-size:25px;
     float:left;
     color:#D94738;
+    margin:0;
+    padding-right:5px;
 }
 #like_counting{
-    padding-top: 13%;
-    font-size: 100%;
-    padding-left: 5%;
+    font-size: 21px;
     float: left;
+    padding-top:4px;
 }
+
+.like-download-space{
+    display: flex;
+    flex-direction: row;
+    padding-bottom:5px;
+}
+
 .heart-button:focus{
-    outline:0;
-    border:0;
     outline-color: transparent;
 }
 .heart-button{
-    outline:none;
-    border:none;
-    z-index: 10;
-    position: absolute;
-    background-color:transparent;
-    width:150px;
+    padding-left:10px;
+    width:50%;
     font-size: 20px;
+    display: flex;
+    flex-direction: row;
 }
 .likespace{
     z-index: 10;
