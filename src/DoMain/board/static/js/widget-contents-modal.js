@@ -12,7 +12,12 @@ const widgetModalOn = (index) => {
   for(let i=0; i<contents.length; i++) {
     let dataKey = Object.keys(contents[i]);
     let dataValue = contents[i][dataKey];
-    let htmlData = '<div class="widget-modal-row"><div class="text-left">' + dataKey + '</div><div><input type="text" class="' + dataValue + 'Class" value="' + widgetObj['contents'][dataValue] + '"></div></div>';
+    let htmlData = "";
+    if (dataValue === "memo") {
+      htmlData = '<div class="widget-modal-row"><div class="text-left">' + dataKey + '</div><div><textarea class="' + dataValue + 'Class" >"' + widgetObj['contents'][dataValue] + '</textarea>';
+    } else {
+      htmlData = '<div class="widget-modal-row"><div class="text-left">' + dataKey + '</div><div><input type="text" class="' + dataValue + 'Class" value="' + widgetObj['contents'][dataValue] + '"></div></div>';
+    }
     modalBody.innerHTML += htmlData;
   } 
 }

@@ -6,7 +6,6 @@ const stickynote = (contents, index) => {
   widgetObj['contents'] = contents;
   document.querySelectorAll('.stickynoteHidden')[index].value = JSON.stringify(widgetObj);
   document.querySelectorAll('.note')[index].style.width = contents.width;
-  document.querySelectorAll('.note')[index].style.height = contents.height;
   document.querySelectorAll('.note')[index].style.left = contents.posX;
   document.querySelectorAll('.note')[index].style.top = contents.posY;
   document.querySelectorAll('.note')[index].querySelector('a').style.backgroundColor = contents.bgColor;
