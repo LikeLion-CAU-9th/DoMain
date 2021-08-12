@@ -167,7 +167,7 @@
                 <!-- modal Tab -->
                 <div class="modal-tab" style="display: inline;">
                     <ul class="list">
-                        <li id="finance-tab-button" class="is_on">
+                        <!-- <li id="finance-tab-button" class="is_on">
                             <button class="btn"> 주식</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
@@ -179,20 +179,8 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                        </li>
-                        <li id="dday-tab-button">
-                            <button class="btn"> 디데이</button>
-                            <div class="cont">
-                                {% for widget in download_widget %}
-                                    {% if widget.widget_type == "simple_widget_d_day" %}
-                                    <div onclick="widgetAppend('{{widget.seq}}')">
-                                        <input type="hidden" value="{{widget.data}}">
-                                        <img src="{{widget.image.url}}">
-                                    </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </li>
+                        </li> -->
+                        
                         <li id="searchbar-tab-button">
                             <button class="btn"> 서치바</button>
                             <div class="cont">
@@ -233,11 +221,32 @@
                                 {% endfor %}
                             </div>
                         </li>
+
+                        <li id="dday-tab-button">
+                            <button class="btn"> 디데이</button>
+                            <div class="cont">
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_d_day" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </li>
+
+                        <li id="github-tab-button">
+                            <button class="btn" onclick="alert('서비스 준비중입니다')"> GitHub</button>
+                            <div class="cont">
+                                
+                            </div>
+                        </li>
                     </ul>
 
                 </div>
                 
-                <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
+                <button id = "modal-off-btn" onclick="modalOff()"> 닫기 </button>
                
             </div>
             
