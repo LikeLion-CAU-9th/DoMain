@@ -92,11 +92,12 @@
     top: 10%;
     position: fixed;
     width: 99%;
-    max-width: 530px;
+    max-width: 531px;
     height: 500px;
     display: block;
     max-height: 371px;
     overflow-y: scroll;
+    cursor: pointer;
 }
 
 .layout-modal-list{
