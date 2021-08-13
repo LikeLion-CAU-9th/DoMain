@@ -8,6 +8,11 @@ const timer = (contents, index) => {
   const eventName = contents.event;
   document.querySelectorAll('.event')[index].innerHTML = eventName + ": ";
   document.querySelectorAll('.widget-timer')[index].style.color = contents.bgColor;
+  if(contents.mode === "dark") {
+    document.querySelectorAll('.widget-timer')[index].style.backgroundColor = "black";
+  } else {
+    document.querySelectorAll('.widget-timer')[index].style.backgroundColor = "white";
+  }
   document.querySelectorAll('.widget-timer')[index].style.left = contents.posX;
   document.querySelectorAll('.widget-timer')[index].style.top = contents.posY;
   document.querySelectorAll('.widget-timer')[index].style.fontSize = contents.fontSize;
