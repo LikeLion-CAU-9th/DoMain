@@ -79,6 +79,7 @@ input{
   border: 1px solid none;
   border-radius: 5px;
   width:65%;
+  height: 80%;
   background-color:#ffffff;
   z-index:2;
   position:absolute;
