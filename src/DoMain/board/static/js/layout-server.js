@@ -36,6 +36,7 @@ const renderAppliedLayout = () => {
   let timerIndex = 0;
   let timer2Index = 0;
   let weatherIndex = 0;
+  let bookIndex =0;
   let githubIndex = 0;
 
   for (let i = 0; i < json.length; i++) {
@@ -63,6 +64,9 @@ const renderAppliedLayout = () => {
     } else if (type === "timer2") {
       timer2(contents, timer2Index);
       timer2Index++;
+    } else if (type === "book") {
+      book(contents, bookIndex);
+      bookIndex++;
     }
       else if (type === "weather") {
       weather(contents, weatherIndex);

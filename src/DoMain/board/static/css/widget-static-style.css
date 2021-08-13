@@ -53,7 +53,7 @@
   height: 40px;
   border-radius: 50%;
   z-index: 10;
-  background-color: rgba(236, 141, 129, 0.822);
+  background-color: rgba(239, 248, 248, 0.822);
   cursor: pointer;
 }
 
@@ -328,6 +328,41 @@
   vertical-align:middle;
   display:inline-block ; 
 }
+
+
+/* book */
+.plus{
+  background-image: url("/static/image/plus.png");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  border: 0px;
+  border-radius: 20px;
+  outline: 0px;
+  width: 70px;
+  height: 70px;
+  
+}
+.realLink{
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  border: 0px;
+  border-radius: 20px;
+  outline: 0px;
+  width: 70px;
+  height: 70px;
+}
+.bookName{
+    font-family: 'BMJUA';
+}
+
+.widget-book{
+  display :block;
+  
+}
+
+
 
 @font-face {
   font-family: clock-font;
