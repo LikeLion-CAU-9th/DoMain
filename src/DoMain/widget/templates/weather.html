@@ -15,7 +15,7 @@
             height: 100%;
         }
 
-        #weather {
+        .widget-weather {
             width: 200px;
             height: 100px;
             padding: 10px;
@@ -29,14 +29,14 @@
             
         }
 
-        #weather :first-child {
+        .weather-state {
             color: #fff;
-            font-size: 19px;
+            font-size: 20px;
         }
 
-        #weather :last-child {
+        .weather-city {
             color: #ffeda2;
-            font-size: 12px;
+            font-size: 14px;
         }
 
     </style>
@@ -51,15 +51,12 @@
 <body>
 
 
-    <div id="weather">
-        <div>
-            <p> </p>
-            <img src = {% static 'image/>
-        </div>
-        <div>
-
+    <div class="widget widget-weather">
+        <div class = "weather-state">
         </div>
 
+        <div class ="weather-city">
+        </div>
     </div>
 
     

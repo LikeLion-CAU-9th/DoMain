@@ -334,17 +334,34 @@
 @font-face {
   font-family: clock-font;
   src: url('/static/font/clock.ttf');
-<<<<<<< HEAD
-  
 }
 
-@font-face {
-  font-family: 'BMJUA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  
-=======
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+/* weather */
+
+.body,html {
+  width: 100%;
+  height: 100%;
 }
 
+#weather {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #172a5e;
+  font-family: Monaco;
+  box-shadow: darkgrey 5px 5px 8px 5px;
+  border: 1px solid;
+  border-radius: 15px;
+  linear 
+}
+
+#weather :first-child {
+  color: #fff;
+  font-size: 20px;
+}
+
+#weather :last-child {
+  color: #ffeda2;
+  font-size: 14px;
+}

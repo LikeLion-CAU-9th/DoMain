@@ -11,9 +11,8 @@ function onGeoOk(position) {
     fetch(url)
         .then((response => response.json()))
         .then((data) => {
-            const weather = document.querySelector("#weather div:first-child");
-            const city = document.querySelector("#weather div:last-child");
-            const date = document.querySelector("#date");
+            const weather = document.querySelector(".weather-state");
+            const city = document.querySelector(".weather-city");
             city.innerText = data.name;
             const templateCelcius = data.main.temp -273;
             const templateCelciusRound = Math.round(templateCelcius)
