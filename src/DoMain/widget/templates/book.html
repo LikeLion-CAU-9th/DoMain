@@ -19,19 +19,20 @@
 
 
 <body>
-    <div id="addBook">
-
-    </div>
+    
     <br><br>
     <div>
 
 
         <div class="container center-middle">
+
             <div class ="widget widget-book">
-                <a id="linkTage" href="#" style="display:block;"><div id="realLink" class="realLink" style="display:none"></div></a>
+                <input type="hidden" class="hiddenObj bookHidden"><div class="modify-btn hide"><img src="/static/image/modify-icon.png"></div><div class="delete-btn hide"><img src="/static/image/delete-icon.png"></div>
+                <a id="linkTage" href="#"><div id="realLink" class="realLink" style="display:none"></div></a>
                 <input id="plus" type="button" class="plus"/>
-                <p class="bookName" id="bookName">북마크 추가</p>
+                <p class="bookName" id="bookName">북마크</p>
             </div>
+
         </div>
         
 
@@ -79,7 +80,6 @@
     outline: 0px;
     width: 70px;
     height: 70px;
-    display:block
     
 }
 .realLink{
@@ -98,7 +98,7 @@
 
 .widget-book{
     display :block;
-    line-height: 50px;
+    
 }
 
 

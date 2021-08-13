@@ -331,6 +331,41 @@
   display:inline-block ; 
 }
 
+
+/* book */
+.plus{
+  background-image: url("{% static 'image/plus.png' %}");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  border: 0px;
+  border-radius: 20px;
+  outline: 0px;
+  width: 70px;
+  height: 70px;
+  
+}
+.realLink{
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  border: 0px;
+  border-radius: 20px;
+  outline: 0px;
+  width: 70px;
+  height: 70px;
+}
+.bookName{
+    font-family: 'BMJUA';
+}
+
+.widget-book{
+  display :block;
+  
+}
+
+
+
 @font-face {
   font-family: clock-font;
   src: url('/static/font/clock.ttf');
