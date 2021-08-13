@@ -275,7 +275,6 @@
 .widget-timer {
   display: inline-block;
   position: absolute;
-  background-color: #111111;
   box-shadow: 3px 3px 3px rgb(150, 231, 168);
   padding: 22px;
   border-radius: 14px;
