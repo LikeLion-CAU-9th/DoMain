@@ -20,7 +20,12 @@ const getAppliedLayoutJSON = () => {
   return json;
 };
 
+const initMainBoard = () => {
+  document.querySelector('.main-board').innerHTML ="";
+}
+
 const renderAppliedLayout = () => {
+  initMainBoard();
   const JSON_STR = getAppliedLayoutJSON();
   console.log(JSON_STR);
   let json = JSON.parse(JSON_STR);
