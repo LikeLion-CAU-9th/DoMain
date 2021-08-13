@@ -212,7 +212,7 @@
 
                         </li>
                         <li id="timer-tab-button">
-                            <button class="btn" style = "width: 110px;">타이머</button>
+                            <button class="btn">타이머</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
                                     {% if widget.widget_type == "simple_widget_timer" %}
@@ -239,8 +239,15 @@
                             </div>
                         </li>
 
-                        <li id="github-tab-button">
-                            <button class="btn" onclick="alert('서비스 준비중입니다')"> GitHub</button>
+                        <li id="weather-tab-button">
+                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 날씨 </button>
+                            <div class="cont">
+                                
+                            </div>
+                        </li>
+
+                        <li id="bookmark-tab-button">
+                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 북마크 </button>
                             <div class="cont">
                                 
                             </div>
@@ -259,8 +266,7 @@
             <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
                 <div class="layout-modal-tab" style="display: inline;">
                     {% for layout in download_layout %}
-                        <div >
-                            <input type="hidden" value="{{layout.data}}">
+                        <div onclick="location.href='apply-layout/{{layout.seq}}/'">
                             <img src="{{layout.image.url}}">
                         </div>
                 
@@ -268,7 +274,6 @@
                 </div>
                 <button id = "modal-off-btn" onclick="layoutModalOff()"> 닫기 </button> 
             </div>
-            
         </div>                   
 
  <div class="main-board" style = "z-index: -5;"></div>

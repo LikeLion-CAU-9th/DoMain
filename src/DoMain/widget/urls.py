@@ -11,6 +11,7 @@ urlpatterns = [
   path('searching/', views.searching_view, name="searching"),
   path('github/', views.github_view, name="github"),
   path('todo/', views.todo_view,name="todo-list"),
+  path('weather/', views.weather, name = 'weather'),
   path('delete-layout/<str:pk>/', views.layout_delete), 
   path('delete-layout/<str:pk>/', views.layout_delete),
   path('get-applied-layout/', views.get_applied_layout),
@@ -25,5 +26,5 @@ urlpatterns = [
   path('save-layout/', views.save_layout),
   path('get-download-widget-list/', views.get_download_widget),
   path('widget-append/', views.widget_append),
-  path('book/', views.book_view)
+  path('book/', views.book_view),
 ]
