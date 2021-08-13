@@ -28,11 +28,11 @@
                     <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
                         <div class="team__header">
                             <ul class="photo">
-                                <li class="photo__item">
+                                <li class="photo__item" style="border: none;">
                                     {% if like_layout.image %}
-                                    <img src="{{like_layout.image.url}}">
+                                    <img src="{{like_layout.image.url}}" style="width:100%;" >
                                     {% else %}
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    <img src="{% static 'image/custompage-2.png' %}" style="width:100%;" alt="Jack's photo" />
                                     {% endif %}
                                     
                                 </li>
@@ -58,12 +58,12 @@
                     <a class="team__link focus--box-shadow" href="#" style="margin-bottom: 10px; display:grid; grid-template-columns: 1fr 1fr; ">
                         <div class="team__header">
                             <ul class="photo">
-                                <li class="photo__item">
+                                <li class="photo__item" style="border: none;">
                                     {% if download_layout.image %}
-                                    <img src="{{download_layout.image.url}}">
+                                    <img src="{{download_layout.image.url}}" style="width:100%;" >
 
                                     {% else %}
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    <img src="{% static 'image/custompage-2.png' %}" style="width:100%;"  alt="Jack's photo" />
                                     {% endif %}
                                 </li>
 
@@ -90,11 +90,11 @@
                         <div class="team__header">
                             <ul class="photo">
 
-                                <li class="photo__item">
+                                <li class="photo__item" style="border: none;">
                                     {% if upload_layout %}
-                                    <img src="{{upload_layout.image.url}}">
+                                    <img src="{{upload_layout.image.url}}" style="width:100%;" >
                                     {% else %}
-                                    <img src="{% static 'image/custompage-2.png' %}" alt="Jack's photo" />
+                                    <img src="{% static 'image/custompage-2.png' %}" style="width:100%;"  alt="Jack's photo" />
                                     {% endif %}
                                     
                                 </li>
@@ -119,7 +119,7 @@
                 <button class="profile-main__setting focus--box-shadow" type="button">
                     <img class="profile-main__photo" src="{% static 'image/anna.jpg' %}" alt="Profile photo" />
                 </button>
-                <h1 class="profile-main__name">Jisoo</h1>
+                <h1 class="profile-main__name">{{user.user_name}}</h1>
             </div>
             <div class="banner">
                 <p class="banner__description">심플한 디자인을 좋아하는 웹개발자 입니다!</p>

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Do-main</title>
     <link href="{% static 'css/commons/navbar.css' %}" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     {% block header %}
     {% endblock %}
 </head>
@@ -24,16 +24,30 @@
                         Home
                     </span>
                 </a>
-
             </li>
             <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-laptop fa-2x"></i>
+                <a href="{% url 'landingPage' %}">
+                    <i class="fa fa-laptop" aria-hidden="true"></i>
                     <span class="nav-text">
                         Introduce
                     </span>
                 </a>
-
+            </li>
+            <li class="has-subnav">
+                <a href="{% url 'home' %}">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <span class="nav-text">
+                        Customize
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href="{% url 'subpage' %}">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="nav-text">
+                        Store
+                    </span>
+                </a>
             </li>
             <li class="has-subnav">
                 <a href="{% url 'mypage' %}">
@@ -42,25 +56,24 @@
                         My Page
                     </span>
                 </a>
-
             </li>
-
+        </ul>
+        <ul class="logout">
             <li>
-                <a href="#">
-                    <i class="fa fa-info fa-2x"></i>
+                <a href="{% url 'logout' %}">
+                    <i class="fa fa-power-off fa-2x"></i>
                     <span class="nav-text">
-                        Help
+                        Logout
                     </span>
                 </a>
             </li>
         </ul>
-
-        <ul class="logout">
+        <ul class="login">
             <li>
-                <a href="#">
+                <a href="{% url 'login_view' %}">
                     <i class="fa fa-power-off fa-2x"></i>
                     <span class="nav-text">
-                        Logout
+                        Login
                     </span>
                 </a>
             </li>
@@ -71,3 +84,27 @@
 </body>
 
 </html>
+<script>
+    const AjaxCall = (url, data, method="GET", async=false) => {
+    let returnValue = "false";
+    $.ajax({
+        url: url,
+        type: method,
+        async: async,
+        data: data,
+        success: function(data) {
+        returnValue = data;
+        }
+    })
+    return returnValue;
+    }
+
+    URL = "/account/is-login/"
+    let is_login = AjaxCall(url=URL, data=null);
+
+    if(is_login === "true") {
+        document.querySelector('.login').style.display = 'none';
+    } else {
+        document.querySelector('.logout').style.display = 'none';
+    }
+</script>

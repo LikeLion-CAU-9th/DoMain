@@ -20,7 +20,12 @@ const getAppliedLayoutJSON = () => {
   return json;
 };
 
+const initMainBoard = () => {
+  document.querySelector('.main-board').innerHTML ="";
+}
+
 const renderAppliedLayout = () => {
+  initMainBoard();
   const JSON_STR = getAppliedLayoutJSON();
   console.log(JSON_STR);
   let json = JSON.parse(JSON_STR);
@@ -29,6 +34,7 @@ const renderAppliedLayout = () => {
   let searchingIndex = 0;
   let ddayIndex = 0;
   let timerIndex = 0;
+  let timer2Index = 0;
   let githubIndex = 0;
 
   for (let i = 0; i < json.length; i++) {
@@ -53,6 +59,9 @@ const renderAppliedLayout = () => {
     } else if (type === "timer") {
       timer(contents, timerIndex);
       timerIndex++;
+    } else if (type === "timer2") {
+      timer2(contents, timer2Index);
+      timer2Index++;
     }
   }
   console.log("All widgets are rendered");

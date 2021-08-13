@@ -28,13 +28,15 @@
     <script src="{% static 'stickynote/stickynote.js' %}"></script>
     <script src="{% static 'searching/searching-element.js' %}"></script>
     <script src="{% static 'searching/searching.js' %}"></script>
-    <script src="{% static 'github/github.js' %}"></script>
     <script src="{% static 'github/github-element.js' %}"></script>
+    <script src="{% static 'github/github.js' %}"></script>
 
     <script src="{% static 'dday/dday-element.js' %}"></script>
     <script src="{% static 'dday/dday.js' %}"></script>
     <script src="{% static 'timer/timer-element.js' %}"></script>
     <script src="{% static 'timer/timer.js' %}"></script>
+    <script src="{% static 'timer2/timer2-element.js' %}"></script>
+    <script src="{% static 'timer2/timer2.js' %}"></script>
     <script src="{% static 'js/widget-lock.js' %}"></script>
     <script src="{% static 'js/widget-contents-data.js' %}"></script>
     <script src="{% static 'js/widget-append.js' %}"></script>
@@ -82,7 +84,7 @@
 <body>
 
     <div class="top_navbar">
-        <div class="logo"><a href="{% url 'home' %}">D<span>oMain</span></a></div>
+        <div class="logo"><a href="{% url 'home' %}">Do<span>Main</span></a></div>
         <ul class='subnavbar_menu'>
             <li>
                 <a href="{% url 'store_main' %}">
@@ -93,16 +95,17 @@
 
             <li>
                 <a onclick="widgetLockToggle()">
-                    <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
-                    <!--<ion-icon name="lock-open-outline"></ion-icon>-->
-                    Modify
+                    <ion-icon class="lock-icon" name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                    <ion-icon class="unlock-icon" name="lock-open-outline" style="display: none;"></ion-icon>
+                    <span class="lock-text">Unlock</span>
+                    <span class="unlock-text" style="display: none;">Lock</span>
                 </a>
             </li>
 
             <li>
-                <a id="user_icon">
+                <a id="user_icon" href="/store/mypage/">
                     <ion-icon name="person-outline"></ion-icon>
-                    오지영님
+                    {{user}}님
                 </a>
             </li>
 
@@ -174,7 +177,7 @@
                 <!-- modal Tab -->
                 <div class="modal-tab" style="display: inline;">
                     <ul class="list">
-                        <li id="finance-tab-button" class="is_on">
+                        <!-- <li id="finance-tab-button" class="is_on">
                             <button class="btn"> 주식</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
@@ -186,29 +189,19 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                        </li>
-                        <li id="dday-tab-button">
-                            <button class="btn"> 디데이</button>
-                            <div class="cont">
-                                {% for widget in download_widget %}
-                                    {% if widget.widget_type == "simple_widget_d_day" %}
-                                    <div onclick="widgetAppend('{{widget.seq}}')">
-                                        <input type="hidden" value="{{widget.data}}">
-                                        <img src="{{widget.image.url}}">
-                                    </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </li>
+                        </li> -->
+                        
                         <li id="searchbar-tab-button">
-                            <button class="btn"> 서치바</button>
+                            <button class="btn">서치바</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
                                     {% if widget.widget_type == "simple_widget_search_bar" %}
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
                                         <img src="{{widget.image.url}}">
+                                        
                                     </div>
+                                    
                                     {% endif %}
                                 {% endfor %}
                             </div>
@@ -240,11 +233,32 @@
                                 {% endfor %}
                             </div>
                         </li>
+
+                        <li id="dday-tab-button">
+                            <button class="btn"> 디데이</button>
+                            <div class="cont">
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_d_day" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </li>
+
+                        <li id="github-tab-button">
+                            <button class="btn" onclick="alert('서비스 준비중입니다')"> GitHub</button>
+                            <div class="cont">
+                                
+                            </div>
+                        </li>
                     </ul>
 
                 </div>
                 
-                <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
+                <button id = "modal-off-btn" onclick="modalOff()"> 닫기 </button>
                
             </div>
             
@@ -282,7 +296,7 @@
     }
 
     .cont div img {
-        width: 100px;
+        width: 60px;
         border-radius: 30px;
     }
 </style>

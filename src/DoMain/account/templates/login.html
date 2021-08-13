@@ -7,8 +7,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Login.css' %}">
   <title>DoMain-login</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,123 +16,121 @@
   <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="{%static 'js/login.js'%}"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap"
+    rel="stylesheet">
 
 </head>
 
 <body>
-<div class="container">
-  <div class="back-ground-shape">
-    <img src="{% static 'image/tri.svg' %}" class="tri">
-    <img src="{% static 'image/cir.svg' %}" class="cir">
-  </div>
+  <div class="container">
+    <div class="back-ground-shape">
+      <img src="{% static 'image/tri.svg' %}" class="tri">
+      <img src="{% static 'image/cir.svg' %}" class="cir">
+    </div>
 
 
-  <!-- 흰색 박스와 초록 박스 -->
-  <div style="margin-top:4%;position:relative;"></div>
-  <div class="box">
-    <!-- 흰색 박스 -->
-    <div id="white-box">
-      <!-- 흰색 sign in -->
-      <div id="white-sign-in">
-        
-          <br><br><br><br><br>
-          <div class="bold-title">Sign in to 
-          <div style="color:#F7E461;display:inline;">D<div style="color:#A2A4A6;display:inline;">oMain</div>
-          
-          </div>
-          </div>
-
-        <!--</div> -->
-        <div class="text" style="color:black;">welcome to DoMain</div><br><br>
-        <!-- input부분 -->
-        <div class="input-group">
+    <!-- 흰색 박스와 초록 박스 -->
+    <div style="margin-top:4%;position:relative;"></div>
+    <div class="box">
+      <!-- 흰색 박스 -->
+      <div id="white-box">
+        <!-- 흰색 sign in -->
+        <div id="white-sign-in">
           <form method="POST" action="../loginAction/">
-            {% csrf_token %}
-            <input type="text" placeholder="EMAIL" name="email"><br>
-            <input type='password' placeholder="PASSWORD" name="raw_pw"><br><br>
-        
-        </div>
-        <!-- input위의 아이콘 -->
-        <div class="icon-group" style="padding-top: 0.7%;">
-          <img src="{% static 'image/mail.svg' %}" class="icon"><br>
-            <img src="{% static 'image/pass.svg' %}" class="icon">
-          <!-- </div> -->
-          <br>
-
-        </div><br><br>
-        <div style="text-align: center;border-color: #45A685;">
-          <input class="login-submit" id="button" type="submit" value="SIGN IN" style="padding-left:1%;">
-        </div>
-
-      </div>
-</form>
-      <!-- 흰색 sign up -->
-      <form action="{% url 'join_action' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div id="white-sign-up">
-          <br><br><br>
-          <div class="bold-title">Create Account</div>
-          <div class="text" style="color:black;">welcome to DoMain</div>
-          <br>
+          <div class="signin-bold-title">Sign in to
+            <div style="color:#F7E461;display:inline;">Do<div style="color:#A2A4A6;display:inline;">Main</div>
+            </div>
+          </div>
+          <!--</div> -->
+          <div class="welcome-text">welcome to DoMain</div>
           <!-- input부분 -->
           <div class="input-group">
-            <input type="text" id="user_name" placeholder="NAME" name="user_name"><br>
-            <input type="text" id="user_email" placeholder="EMAIL" name="user_email"><br>
-            <input type="password" id="user_pwd" placeholder="PASSWORD" name="user_pwd"><br>
-            <input type="password" id="user_pwd_check" placeholder="PASSWORD CHECK" name="user_pwd_check"><br><br>
+            
+              {% csrf_token %}
+              <div class="signin-container">
+                <img src="{% static 'image/mail.svg' %}" class="icon">
+                <input class="signin-username" type="text" placeholder="EMAIL" name="email">
+              </div>
+              <div class="signin-container">
+                <img src="{% static 'image/pass.svg' %}" class="icon">
+                <input class="signin-password" type='password' placeholder="PASSWORD" name="raw_pw">
+              </div>
           </div>
-          <!-- input위의 아이콘 -->
-          <div class="icon-group">
-            <img src="{% static 'image/user.svg' %}" class="icon"><br>
-            <img src="{% static 'image/mail.svg' %}" class="icon"><br>
-            <img src="{% static 'image/pass.svg' %}" class="icon"><br>
-            <img src="{% static 'image/pass.svg' %}" class="icon" style="margin-top: 3%;"><br>
+          <div style="text-align: center;border-color: #45A685; margin-top:23%;">
+            <input class="login-submit" id="button" type="submit" value="SIGN IN" style="padding-left:1%;">
           </div>
-          <br>
-          <div style="text-align: center;border-color: #45A685;">
-            <a href="#"><button id="joinbtn" type="submit">SIGN UP</button></a>
-          </div>
+          </form>
         </div>
-      </form>
+        <!-- 흰색 sign up -->
+        <form action="{% url 'join_action' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div id="white-sign-up">
+            <div class="signup-title">
+              <div class="signup-bold-title">Create Account</div>
+              <div class="text" style="color:black;">Welcome to DoMain</div>
+            </div>
+            <!-- input부분 -->
+            <div class="input-group">
+              <div class="user_info_container">
+                <img src="{% static 'image/user.svg' %}" class="icon">
+                <input type="text" id="user_name" placeholder="NAME" name="user_name">
+              </div>
+              <div class="user_info_container">
+                <img src="{% static 'image/mail.svg' %}" class="icon">
+                <input type="text" id="user_email" placeholder="EMAIL" name="user_email">
+              </div>
+              <div class="user_info_container">
+                <img src="{% static 'image/pass.svg' %}" class="icon">
+                <input type="password" id="user_pwd" placeholder="PASSWORD" name="user_pwd">
+              </div>
+              <div class="user_info_container">
+                <img src="{% static 'image/pass.svg' %}" class="icon">
+                <input type="password" id="user_pwd_check" placeholder="PASSWORD CHECK" name="user_pwd_check">
+              </div>
+            </div>
 
-    </div>
-
-
-    <!-- 초록 박스 -->
-    <div id="green-box">
-      <!-- 초록 sign up -->
-      <div id="green-sign-up">
-        <br><br><br><br><br><br><br><br>
-        <div class="italic-title">Hello, friends!</div>
-        <div class="text">Enter your personal details<br>
-          and start journey with us.</div>
-        <br><br>
-        <div style="text-align: center;">
-          <a href="#"><button id="button" type="button" onclick="changeBox1(); joinStart();">SIGN UP</button></a>
-        </div>
+            <div style="text-align: center;border-color: #45A685; margin-top:38%">
+              <a href="#"><button id="joinBtn" type="submit">SIGN UP</button></a>
+            </div>
+          </div>
+        </form>
       </div>
-      <!-- 초록 sign in -->
-      <div id="green-sign-in">
-        <br><br><br><br><br><br><br><br>
-        <div class="italic-title">Welcome back!</div>
-        <div class="text">To keep connected with us please<br>
-          login with your personal info</div>
-        <br><br>
-        <div style="text-align: center;">
-          <a href="#"><button id="button" type="button" onclick="changeBox2();">SIGN IN</button></a>
+
+
+      <!-- 초록 박스 -->
+      <div id="green-box">
+        <!-- 초록 sign up -->
+        <div id="green-sign-up">
+
+          <div class="italic-title">Hello, friends!</div>
+          <div class="signup-intro-text" class="margin-bottom:50px">Enter your personal details
+            and start journey with us.</div>
+
+          <div style="text-align: center;">
+            <a href="#"><button id="button" type="button" onclick="changeBox1(); joinStart();">SIGN UP</button></a>
+          </div>
         </div>
+        <!-- 초록 sign in -->
+        <div id="green-sign-in">
+
+          <div class="italic-title">Welcome back!</div>
+          <div class="signin-intro-text">To keep connected with us please
+            login with your personal info</div>
+
+          <div style="text-align: center;">
+            <a href="#"><button id="button" type="button" onclick="changeBox2();">SIGN IN</button></a>
+          </div>
+        </div>
+
       </div>
 
+
+
+
+      <!-- 전체 박스 끝 -->
     </div>
-
-
-
-
-    <!-- 전체 박스 끝 -->
-  </div>
 
 
 

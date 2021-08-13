@@ -9,13 +9,14 @@ from django.utils import timezone
 from datetime import datetime
 from store.models import WidgetType
 from widget.models import AbstractBaseWidget
-
+import json
 
 def landing_page(request):
     return render(request, 'landingPage.html')
 
 def store_main(request):
-    return render(request, 'AssetStoreMainPage.html')
+    suggestedStoreWidgets = StoreWidget.objects.all()[:5]
+    return render(request, 'AssetStoreMainPage.html', {"suggestedStoreWidgets": suggestedStoreWidgets})
 
 def subpage(request):
     email= request.session['user_email']
@@ -33,7 +34,7 @@ def subpage(request):
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
-    related_widgets=StoreWidget.objects.filter(widget_type=widget.widget_type)
+    related_widgets=StoreWidget.objects.filter(widget_type=widget.widget_type).exclude(seq=id)
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
 
@@ -64,7 +65,8 @@ def mypage(request):
             "upload_layouts":upload_layouts,
             "upload_count":upload_count,
             "like_layouts":like_layouts,
-            "like_count":like_count
+            "like_count":like_count,
+            "user": user
         })
 
 def comment_write(request):
@@ -107,11 +109,27 @@ def reply_comment(request):
         comment = Comment.objects.get(id=comment_id)
         reply_comments = Reply.objects.filter(comment=comment)
         json_replys = list(reply_comments.values())
-        ret = {
-            "reply_comments": list(reply_comments.values())
+        
+        reply_user_name_data = []
+
+        for user_id in json_replys:
+            reply_user = User_info.objects.get(user_seq=user_id['writer_id']) 
+            reply_user_name_data.append(reply_user.user_name)
+        
+        reply_data=[]
+
+        for comment_id in json_replys:
+            reply = Reply.objects.get(id=comment_id['id']) 
+            reply_data.append(reply.content)      
+
+
+        ret = {            
+            "reply_user_name": reply_user_name_data,
+            # "reply_comments": list(reply_comments.values()),
+            "reply_data":reply_data
         }
-        # return HttpResponse(json.dumps(ret), content_type="application/json")
-        return JsonResponse(json_replys, safe=False)
+        return HttpResponse(json.dumps(ret), content_type="application/json")
+        # return JsonResponse(json_replys, safe=False)
 
       
 def like(request):

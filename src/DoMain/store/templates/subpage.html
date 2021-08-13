@@ -5,10 +5,9 @@
 {% block header %}
 <link rel="stylesheet" href="{% static 'css/subpage.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/upperSubPage.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/commons/search.css' %}">
 <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/tabMenuBar.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/subPage/cardSubPage.css' %}">
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -19,8 +18,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=DM+Serif+Display&display=swap" rel="stylesheet">
-
-<script src="https://kit.fontawesome.com/b5d920659e.js" crossorigin="anonymous"></script>
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,9 +47,6 @@
             <label class="tablabel" for="tab6">TIMER</label>
             <input class="tabs" id="tab7" type="radio" name="tabs">
             <label class="tablabel" for="tab7">BOOKMARK</label>
-            
-            <input id="searchBar" class="searchbar" type="text" placeholder="Search">
-            <a id="btnSearch" class="btn-search"><img src="{% static 'image/glasses.svg' %}" id="glasses"></a>
 
 
             <section class="section" id="content1">
@@ -63,32 +57,22 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-                            <a href="{% url 'detailpage' widget.seq %}">
+                            <a class="to-widget" href="{% url 'detailpage' widget.seq %}">
                                 {%if widget.image %}
                                 <img src="{{widget.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
                                 <img src="{%static 'image/anna.jpg'%}" class="cardimg" alt="no image">
                                 {%endif%}
-
                                 <!-- 카드 타이틀 -->
                                 <div class="title">{{widget.name}}</div>
                             </a>
-
-                            <div  style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{widget.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{widget.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-
-                                    <!-- <a onclick="makeDownload({{widget.seq}})"> -->
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    <!-- </a> -->
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -119,19 +103,13 @@
                                 <div class="title">{{layout.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{layout.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{layout.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{layout.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{layout.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -162,20 +140,13 @@
                                 <div class="title">{{searchbar.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{searchbar.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{searchbar.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{searchbar.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{searchbar.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -203,20 +174,13 @@
                                 <div class="title">{{dday.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{dday.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{dday.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{dday.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{dday.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -245,20 +209,13 @@
                                 <div class="title">{{note.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{note.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{note.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{note.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{note.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -287,19 +244,13 @@
                                 <div class="title">{{timer.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{timer.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{timer.like_users.count}}</div>
                                 </div>
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{timer.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{timer.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -328,20 +279,13 @@
                                 <div class="title">{{bookmark.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{bookmark.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{bookmark.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{bookmark.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{bookmark.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -370,73 +314,23 @@
                                 <div class="title">{{new.name}}</div>
                             </a>
 
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{new.like_users.count}}</div>
-                                    </div>
+                            <div class="like-download-space">
+                                <div class="heart-button">
+                                    <p id="like">♥</p>
+                                    <div id="like_counting">{{new.like_users.count}}</div>
                                 </div>
-
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
                                 <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{new.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{new.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-
-
             </section>
-
-
         </div>
     </div>
-
-    <!-- container의 닫는 div태그 -->
-</div>
-
-<div class="upper-section">
-    <div class="row">
-        <div class="col-9">
-            <img src="{% static 'image/bannerSubPage.png' %}">
-        </div>
-        <div class="col-3">
-            <div class="row">
-                <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
-            </div>
-            <div class="row">
-                <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
-            </div>
-            <div class="row">
-                <img src="{% static 'image/bannerSubPage1.png' %}" style="width:65%; margin-bottom:10px;">
-            </div>
-            <div class="row">
-                <img src="{% static 'image/bannerSubPage.png' %}" style="width:65%; margin-bottom:10px;">
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- <dropdown>
-                    <input id="toggle3" type="checkbox">
-                    <label for="toggle3" class="animate">인기순<i class="fa fa-bars float-right"></i></label>
-                    <ul class="animate" style="margin: 0 0 0 -17%">
-                        <li class="animate">별점순<i class="fa fa-code float-right"></i></li>
-                        <li class="animate">다운로드순<i class="fa fa-arrows-alt float-right"></i></li>
-                        <li class="animate">신규순<i class="fa fa-cog float-right"></i></li>
-                        <li class="animate">낮은 가격순<i class="fa fa-cog float-right"></i></li>
-                        <li class="animate">높은 가격순<i class="fa fa-cog float-right"></i></li>
-                    </ul>
-                </dropdown> -->
-
-<script src="{% static 'js/dropdown.js' %}"></script>
+{% comment %} <script src="{% static 'js/dropdown.js' %}"></script> {% endcomment %}
 <script src="{% static 'js/cardDetailModal.js' %}"></script>
 
 <script>

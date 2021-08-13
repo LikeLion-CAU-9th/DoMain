@@ -184,7 +184,6 @@
   font-family:  Arial;
   font-size: 16px;
   margin : 12px;
-  background: #666;
   color: #fff;
   word-break: break-all;
   position: absolute;
@@ -207,7 +206,7 @@
   height : 100%;
   width: 100%;
   padding: 16px;
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px rgb(33 33 33 / 25%);
   transition: transform .15s linear;
 }
 
@@ -260,20 +259,22 @@
 /* D-Day */
 
 .background {
-  background-color: beige;
+  background-image: url('../image/dday.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   border-radius:10px;
-  padding-left:30px;
-  padding-right:30px;
-  padding-top:5px;
-  padding-bottom:5px;
-  box-shadow: 5px 5px 5px;
+  padding:60px 30px 0px 30px;
+  line-height:20px;
+  text-align: center;
+  font-family: 'BMJUA';
+  font-size: 20px;
+  font-weight: 50;
 }
 
 /* Timer */
 .widget-timer {
   display: inline-block;
   position: absolute;
-  background-color: #111111;
   box-shadow: 3px 3px 3px rgb(150, 231, 168);
   padding: 22px;
   border-radius: 14px;
@@ -289,7 +290,56 @@
   letter-spacing: 6px;
 }
 
+/* timer2 */
+.widget-timer2 {
+  
+  background-color: #eec0c6;
+  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+
+  
+  box-shadow: 2px 2px 5px #999;
+  padding: 5px 15px 20px 15px;
+  border-radius: 14px;
+  letter-spacing: 4px;
+  width:auto;
+  height: auto;
+  line-height: 60px;
+  font-size: 28px;
+
+  font-family: 'BMJUA';
+  font-size: 20px;
+  letter-spacing: 6px;
+}
+
+.event2 {
+  color:white;
+
+}
+
+.remain-time2{
+  width: 30px;
+  height: 50px;
+  padding:0px 5px 10px 5px;
+  background-color: white;
+  color:#7ee8fa;
+  box-shadow: 1px 1px 3px #999;
+  border-radius: 10px;
+  text-align:center;
+  vertical-align:middle;
+  display:inline-block ; 
+}
+
 @font-face {
   font-family: clock-font;
   src: url('/static/font/clock.ttf');
+  
 }
+
+@font-face {
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+

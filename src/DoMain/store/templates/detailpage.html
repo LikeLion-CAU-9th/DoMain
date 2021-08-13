@@ -10,12 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
-
-
 <title>Detailpage</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
@@ -115,16 +110,14 @@
             <span class="review-start">Comments</span>
             <!-- 프로필이미지 -->
             <div class="review-input-container">
-                <div class="profile-container">
-                    <img class="profile" src="{% static 'image/elsa.jpg' %}">
-                </div>
-
-                <!-- Comment Form -->
+                            <!-- Comment Form -->
                 <input class="comment-input" id="comment-input" type="text" name="content" placeholder="댓글을 달아주세요">
+                
                 <div class="button-container">
-                    <button class="comment-button" onClick="make_comment({{widget.seq}})" type="submit">작성하기</button>
-                </div>
+                    <button class="comment-button" onClick="make_comment({{widget.seq}})" type="submit" style="display:inline">댓글</button>
+                </div>                
             </div>
+                <hr style="width:100%;line-height:50%;margin-top:1%;">
         </div>
 
 
@@ -134,24 +127,24 @@
             <div class="commentDataList{{ forloop.counter }} comment-data">
                 <span class="comment-writer">{{comment.writer.user_name}}</span>
                 <span class="comment-time">{{comment.time}}</span>
-                <br>
+                <div style="margin-top:-2%;"><br></div>
                 <span class="comment-content">{{comment.content}}</span>
+                <br>
                 <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit"
-                    class="reply-button">대댓글</button>
-                <button onClick="showReply()">답글달기</button>
-                
-                <div class="reply-container">
-                    <input class="reply-input" id="reply-input" type="text" name="content" placeholder="댓글을 달아주세요">
-                    <div class="button-container">
-                        <button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">작성하기</button>
-                    </div>
-                </div>
+                    class="see-comment">▼ 답글보기</button> 
+                <button onClick="showReply(this)" class="write-comment">답글</button>
 
+                <div class="reply-container">
+                    <input class="reply-input" id="reply-input" type="text" name="content" placeholder="답글을 달아주세요">
+                    <div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}}, self)" type="submit">답글</button></div>
+                    <hr style="float:right;width:100%;margin-top:1%;">
+                </div>
             </div>
             <hr>
             {% endfor %}
         </div>
-        <!-- 왼쪽 부분 끝 div태그 -->
+        <!-- 왼쪽 부분 끝 div태그 --> 
+        <br><br><br>
     </div>
 
 
@@ -170,17 +163,14 @@
                         {%else%}
                         <img src="{%static 'image/anna.jpg'%}" class="cardimg" id="recommend-widget" alt="no image">
                         {%endif%}
-                        <div style="line-height: 80%;">
+                        <div style="line-height: 80%;width:100%">
                             <!-- title -->
-                            <div class="relate-title">
-                                {{related_widget.name}}
-                            </div>
+                            <div class="relate-title">{{related_widget.name}}</div>
                             
                         </div>
                     </div>
                 </div>
             </a>
-            
             {%endfor%}
             <!-- 위젯하나 끝 -->
 
@@ -225,9 +215,15 @@
 
                 $(`.commentDataList${response.comments_length}`).append("<span class='comment-time'>" + response.time + "</span><br>")
 
-                $(`.commentDataList${response.comments_length}`).append("<span class='comment-content'>" + response.body + "</span>&nbsp")
+                $(`.commentDataList${response.comments_length}`).append("<span class='comment-content'>&nbsp" + response.body + "</span>&nbsp<br>")
 
-                $(`.commentDataList${response.comments_length}`).append("<button class='reply-button' onClick=\"make_reply(`${response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
+               // $(`.commentDataList${response.comments_length}`).append//("<button class='reply-button' onClick=\"make_reply(`$//{response.id}`)\" type=\"submit\">대댓글" + "</button><hr>")
+
+                $(`.commentDataList${response.comments_length}`).append("<button onClick=\"make_reply({{response.id}}, {{ forloop.counter }})\" type=\"submit\" class=\"see-comment\">▼ 답글보기</button><button onClick=\"showReply()\" class=\"write-comment\">답글</button>")
+                $(`.commentDataList${response.comments_length}`).append(
+                    '<div class="reply-container"><input class="reply-input" id="reply-input" type="text" name="content" placeholder="답글을 달아주세요"><div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}})" type="submit">답글</button></div><hr style="float:right;width:100%;margin-top:1%;"></div><hr>'
+                )
+                
 
                 $("#comment-input").val(' ');
                 index = index + 1;
@@ -252,8 +248,8 @@
                 success: function (response) {
                     console.log(response)
                     console.log(response.length)
-                    for (let i = 0; i < response.length; i++) {
-                        $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response[i].content + "</div>")
+                    for (let i = 0; i < response.reply_data.length; i++) {
+                        $(`.commentDataList${index}`).append("<div class=\"replyData\"> &nbsp&nbsp&nbsp" + response.reply_user_name[i] +" : "+ response.reply_data[i]+ "</div>")
                     }
                     replyFlag = false;
                 },
@@ -269,19 +265,33 @@
 
     }
 
-    function showReply() {
-        var x = document.querySelector(".reply-container")
-        
-        if (x.style.display === "none") {
-            x.style.display = "block";
+    function showReply(self) {
+        var x = document.querySelectorAll(".write-comment")
+        var y = document.querySelectorAll(".reply-container")
+        let replyForm = y[Array.from(x).indexOf(self)];
+        console.log(replyForm)
+        if (replyForm.style.display === "none") {
+            replyForm.style.display = "block";
         } else {
-            x.style.display = "none";
+            replyForm.style.display = "none";
         }
     }
 
     
-    function write_reply(comment_id){
-        let reply = $("#reply-input").val();
+    function write_reply(comment_id, self){
+        let replys = document.querySelectorAll(".reply-input");
+        // console.log(replys)
+        let replyForm = replys[Array.from(replys).indexOf(self)];
+        // console.log(replyForm)
+        // let replyFormClassName = replyForm.attr('class')
+        var inputs = $('input[name="content[]"]');
+
+        inputs.click(function() {
+            console.log(inputs.index(this));
+        });
+        let reply = $(replyForm).val();
+        // console.log(reply)
+        // console.log(reply)
         $.ajax({
             type: "POST",
             url: "reply/write/",
@@ -298,6 +308,7 @@
                 alert(error);
             }
         })
+        $("#reply-input").val(' ');
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -351,3 +362,6 @@
 {% endblock %}
 
 </html>
+
+asdfasdfdf
+asdfasdfdf
