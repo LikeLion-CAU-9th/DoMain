@@ -6,7 +6,11 @@
   display: none;
   width: 250px;
   height: 400px;
+<<<<<<< HEAD
   background-color: #fce5c7;
+=======
+  background-color: #fcf1b6;
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
   z-index: 50;
   border-radius: 10px;
   overflow: hidden;
@@ -38,7 +42,11 @@
   height: 48px;
   top: 0;
   right: 0;
+<<<<<<< HEAD
   background: #fce5c7;
+=======
+  background: #fcf1b6;
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
   text-align: center;
   line-height: 44px;
   font-size: 18px;
@@ -71,6 +79,7 @@
   margin: 10px;
   cursor: pointer;
   font-family: 'BMHANNAAir';
+<<<<<<< HEAD
   opacity: 0.5;
   
 }
@@ -87,6 +96,10 @@
 .widget-modal-modify-btn:hover {
   opacity: 1.0;
 }
+=======
+}
+
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
 
 .modal-full-bg {
   display: inline-block;

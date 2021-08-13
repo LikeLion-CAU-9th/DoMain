@@ -1,0 +1,23 @@
+.select {
+	width: 200px;
+}
+
+.tableTd {
+	width: 141;
+	height: 24;
+	border: 1px solid #ccc;
+}
+
+.txc-table {
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+	width: 80%;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 20px 10px;
+}
+
+#copyTag {
+	visibility: hidden;
+}

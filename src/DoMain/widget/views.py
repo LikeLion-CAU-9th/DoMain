@@ -41,6 +41,9 @@ def todo_view(request):
 def github_view(request):
   return render(request, 'github.html')
 
+def webtoon_view(request):
+  return render(request, 'webtoon.html')
+
 
 def layout_add(request):
   user = get_user_inst(request)
@@ -148,3 +151,7 @@ def widget_append(request):
     origin += new_list
   QS.update(data=json.dumps(origin))
   return HttpResponse(True)
+  
+
+def weather(request):
+  return render(request, 'weather.html')
