@@ -53,30 +53,7 @@
     <script src="{% static 'js/widget-delete.js' %}"></script>
     <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
-    <script type = "text/javascript">
-        $(document).ready(function(){
-
-        $('#finance-tab-button .cont button').on('click', function(){
-            $("#finance-tab-button .cont button").clone().appendTo("body");
-        });
-
-        $('#dday-tab-button .cont button').on('click', function(){
-            $("#dday-tab-button .cont button").clone().appendTo("body");
-        });
-
-        $('#searchbar-tab-button .cont button').on('click', function(){
-            $("#searchbar-tab-button .cont button").clone().appendTo("body");
-        });
-
-        $('#sticky-tab-button .cont button').on('click', function(){
-            $("#sticky-tab-button .cont button").clone().appendTo("body");
-        });
-
-        $('#todolist-tab-button .cont button').on('click', function(){
-            $("#todolist-tab-button .cont button").clone().appendTo("body");
-        });
-    });
-      
+   
     </script>
   
     <title>DoMain</title>
@@ -209,7 +186,7 @@
 
                         </li>
                         <li id="timer-tab-button">
-                            <button class="btn" style = "width: 110px;">타이머</button>
+                            <button class="btn">타이머</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
                                     {% if widget.widget_type == "simple_widget_timer" %}
@@ -236,8 +213,15 @@
                             </div>
                         </li>
 
-                        <li id="github-tab-button">
-                            <button class="btn" onclick="alert('서비스 준비중입니다')"> GitHub</button>
+                        <li id="weather-tab-button">
+                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 날씨 </button>
+                            <div class="cont">
+                                
+                            </div>
+                        </li>
+
+                        <li id="bookmark-tab-button">
+                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 북마크 </button>
                             <div class="cont">
                                 
                             </div>
