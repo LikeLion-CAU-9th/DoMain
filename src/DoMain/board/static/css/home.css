@@ -62,6 +62,7 @@ video#bgvid{
     display: flex;
     padding-top: 2.6%;
     top: 6.5%;
+    z-index: 10;
 }
 
 .subnavbar_menu li{
@@ -137,6 +138,7 @@ video#bgvid{
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
+    z-index: 1;
 }
 
 h1 {
