@@ -40,14 +40,6 @@ def login_view(request):
   return render(request, 'login.html')
 
 
-def login_success(request):
-  return render(request, 'success.html')
-
-
-def login_fail(request):
-  return render(request, 'fail.html')
-
-
 def logout(request):
   del request.session['user_email']
   return redirect('login_view')
@@ -72,7 +64,8 @@ def login_action(request):
     #   pass
     # # is_active == False : email 인증 단계로 
     #   pass
-  return render(request, 'fail.html')
+
+  return render(request, 'login.html',{'message':True})
 
 
 def join_action(request):
