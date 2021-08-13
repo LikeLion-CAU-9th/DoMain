@@ -264,7 +264,7 @@
 
         <div id="modal">
             <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
-                <div class="cont" style="margin: 30px;">
+                <div class="layout-modal-cont">
                     {% for layout in download_layout %}
                         <div onclick="location.href='/widget/apply-layout/{{layout.seq}}/'">
                             <img src="{{layout.image.url}}">
