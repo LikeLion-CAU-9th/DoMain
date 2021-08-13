@@ -122,7 +122,6 @@ def reply_comment(request):
             reply = Reply.objects.get(id=comment_id['id']) 
             reply_data.append(reply.content)      
 
-        print(reply_user_name_data)
 
         ret = {            
             "reply_user_name": reply_user_name_data,

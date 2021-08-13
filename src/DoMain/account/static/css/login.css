@@ -112,6 +112,7 @@ input:focus{
 }
 #white-box{
   width:64%;
+  height: 80%;
   /* white-box가 왼쪽에 있을 때 */
   float:left;
   /* white-box가 오른쪽에 있을 때 */
