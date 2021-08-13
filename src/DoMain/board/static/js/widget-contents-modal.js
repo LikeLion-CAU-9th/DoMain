@@ -50,20 +50,45 @@ const widgetModifyRequest = (index) => {
   }
   widgetObj = {'type': type, 'contents': widgetContents};
   document.querySelectorAll('.hiddenObj')[index].value = JSON.stringify(widgetObj);
+  widgetModalOff();
+  movedPostionSave();
   saveHiddenData();
-  location.reload();
+  renderAppliedLayout();
+}
+
+const btnEventSet = () => {
+  let modifyBtn = document.querySelectorAll('.modify-btn');
+  let deleteBtn = document.querySelectorAll('.delete-btn');
+  for(let i = 0; i < modifyBtn.length; i++) {
+    modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
+  }
+  for(let i = 0; i < deleteBtn.length; i++) {
+    deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
+  }
+  console.log("btnEventSet")
+}
+
+const movedPostionSave = () => {
+  let widget = document.querySelectorAll('.widget');
+    for(let i = 0; i < widget.length; i++) {
+      let hiddenStr = widget[i].querySelector('input').value;
+      let hiddenJSON = JSON.parse(hiddenStr);
+      hiddenJSON['contents']['posX'] = widget[i].style.left;
+      hiddenJSON['contents']['posY'] = widget[i].style.top;
+      widget[i].querySelector('input').value = JSON.stringify(hiddenJSON);
+    }
+    document.querySelector('.lock-icon').style.display = "block";
+    document.querySelector('.unlock-icon').style.display = "none";
+    document.querySelector('.lock-text').style.display = "block";
+    document.querySelector('.unlock-text').style.display = "none";
+    saveHiddenData();
+    renderAppliedLayout();
+    btnEventSet();
 }
 
 $(document).ready(function(){
   setTimeout(()=>{
-    let modifyBtn = document.querySelectorAll('.modify-btn');
-    let deleteBtn = document.querySelectorAll('.delete-btn');
-    for(let i = 0; i < modifyBtn.length; i++) {
-      modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
-    }
-    for(let i = 0; i < deleteBtn.length; i++) {
-      deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
-    }
+    btnEventSet();
     console.log("TIME OUT!");
-  }, 1000);
+  }, 700);
 });

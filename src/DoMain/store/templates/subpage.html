@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block header %}
-<link rel="stylesheet" href="{% static 'css/subPage.css' %}">
+<link rel="stylesheet" href="{% static 'css/subpage.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/upperSubPage.css' %}">
 <link rel="stylesheet" href="{% static 'css/commons/dropdown.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/subPage/tabMenuBar.css' %}">
@@ -57,11 +57,7 @@
                         <div class="card" id="cardlayout">
 
                             <!-- 위젯이미지 -->
-<<<<<<< HEAD
                             <a class="to-widget" href="{% url 'detailpage' widget.seq %}">
-=======
-                            <a href="{% url 'detailpage' widget.seq %}">
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                 {%if widget.image %}
                                 <img src="{{widget.image.url}}" class="cardimg" alt="no image">
                                 {%else%}
@@ -76,14 +72,7 @@
                                     <div id="like_counting">{{widget.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
                                     <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-
-                                    <!-- <a onclick="makeDownload({{widget.seq}})"> -->
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    <!-- </a> -->
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                 </div>
                             </div>
                         </div>
@@ -120,12 +109,7 @@
                                     <div id="like_counting">{{layout.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{layout.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{layout.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -162,13 +146,7 @@
                                     <div id="like_counting">{{searchbar.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{searchbar.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{searchbar.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -202,13 +180,7 @@
                                     <div id="like_counting">{{dday.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{dday.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{dday.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -243,13 +215,7 @@
                                     <div id="like_counting">{{note.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{note.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{note.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -278,29 +244,13 @@
                                 <div class="title">{{timer.name}}</div>
                             </a>
 
-<<<<<<< HEAD
                             <div class="like-download-space">
                                 <div class="heart-button">
                                     <p id="like">♥</p>
                                     <div id="like_counting">{{timer.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-                            <div style="padding-bottom: 3%;">
-                                <div class="likespace">
-                                    <div class="heart-button">
-                                        <p id="like">{{"♥"}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div id="like_counting">{{timer.like_users.count}}</div>
-                                    </div>
-                                </div>
-                                <!-- 가격(+세일가)과 다운로드 버튼 -->
-                                <div class="download-space">
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{timer.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{timer.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -335,13 +285,7 @@
                                     <div id="like_counting">{{bookmark.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{bookmark.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{bookmark.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -376,13 +320,7 @@
                                     <div id="like_counting">{{new.like_users.count}}</div>
                                 </div>
                                 <div class="download-space">
-<<<<<<< HEAD
-                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{widget.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-=======
-                                    <a href="#">
-                                        <button id="downloadbutton" type="button" onclick="makeDownload('{{new.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
-                                    </a>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
+                                    <button id="downloadbutton" type="button" onclick="makeDownload('{{new.seq}}')">&nbsp;<b>DOWNLOAD</b>&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -392,7 +330,7 @@
             </section>
         </div>
     </div>
-<script src="{% static 'js/dropdown.js' %}"></script>
+{% comment %} <script src="{% static 'js/dropdown.js' %}"></script> {% endcomment %}
 <script src="{% static 'js/cardDetailModal.js' %}"></script>
 
 <script>

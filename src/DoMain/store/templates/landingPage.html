@@ -1,13 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Do-Main</title>
+  <title>DoMain</title>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -18,12 +18,30 @@
   <link href="{% static 'css/landing/textEffect.css' %}" rel="stylesheet">
   <link href="{% static 'css/landing/landingService.css' %}" rel="stylesheet">
   <link href="{% static 'css/landing/landingVideo.css' %}" rel="stylesheet">
+  <link href="{% static 'css/landing/footer.css' %}" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
 
 
 </head>
 
 <body>
+  <div class="sticky">
+    <nav class='sticky_navbar'>
+      <ul class='subnavbar_menu'>
+        <li>
+            <div onclick="window.scrollTo(0,0)" id="main_icon" style="float:left; cursor: pointer;"><span style="color:#F7E461;">Do</span><span style="color: #EFEFEF;">Main</span></div>
+        </li>
+        <li></li>
+        <li></li>
+        
+        <li><a href="{%url 'login_view'%}" style="float:right; padding-bottom: 0;">Start to Design !</a></li>
+      </ul>
+    </nav>
+  </div>
   <div class="landingVideo" style="display: flex; flex-direction: row; width:100%; height:80%; z-index:4; position:absolute;">
     <div class="1-col" style="display: flex; flex-direction: column; width:40%;">
       <div class="1-1-row" style="display: flex; flex-direction: row; height: 50%;">
@@ -74,21 +92,8 @@
       </div>
     </div>
   </div>
-
-  <div class="sticky">
-    <nav class='sticky_navbar'>
-      <ul class='subnavbar_menu'>
-        <li><a href='#'>
-            <div id="main_icon">Do main</div>
-          </a></li>
-        <li><a href='#'>Sign In</a></li>
-        <li><a href='#'>Sign Up</a></li>
-        <li><a href='#'><button>Help</button></a></li>
-      </ul>
-    </nav>
-  </div>
   <div class="landingContent1">
-    Just <span class="specificLetter">D</span>o main
+    Just <span class="specificLetter" style="color:#F7E461;">Do</span>Main
     <div class="landingSubcontent1">
       웹 페이지가 선사하는 가장 멋지고, 환상적인,<br>
       최고의 순간은 이제부터 시작입니다.
@@ -219,22 +224,31 @@
 
   <div class="footer">
     <div class="headline">
-      Domain <br>
+      DoMain <br>
       <button onclick="location.href='{% url 'store_main' %}'" style="font-size: 25px; width:30%">시작하기</button>
     </div>
     <br>
     <div class="row" style="margin:15% 0 0 0">
       <div class="col-2"></div>
-      <div class="col-3">
-        team IE9 Company <br>
-        중앙대 멋쟁이사자처럼 9th
+      <div class="col-3 footer-text-eng">
+      <!--왼쪽-->
+        Better than<br><b>Naver</b>, <br>More suitable than<br><b>Google!</b>
+        <div class="footer-domain" style="color:#F7E461;"><b>Do<div style="color:white;display:inline">Main</b></div></div>
       </div>
-      <div class="col-3">
-        copyright(c)
+      <div class="col-3 footer-text-kor">
+      <!--중간-->
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(주) IE9 ©</b><br>
+        중앙대 멋쟁이사자처럼 9th<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;광고 및 제휴 문의<br>
+        &nbsp;&nbsp;&nbsp;domain@domain.com
       </div>
-      <div class="col-3">
-        (주) IE9 Company <br>
-        중앙대 멋쟁이사자처럼 9th
+      <div class="col-3 footer-text-kor" style="padding-left:50px;">
+      <!--끝-->
+        <b>Do<div style="color:#D22657;display:inline;">Main</div></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;김영권<br>
+        김명준&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;박채연<br>
+        서지수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;오지영<br>
+        윤선영&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이성민<br>
+        인세훈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최윤한<br>
       </div>
     </div>
   </div>

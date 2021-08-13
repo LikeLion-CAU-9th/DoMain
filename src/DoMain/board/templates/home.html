@@ -37,6 +37,8 @@
     <script src="{% static 'timer/timer.js' %}"></script>
     <script src="{% static 'timer2/timer2-element.js' %}"></script>
     <script src="{% static 'timer2/timer2.js' %}"></script>
+    <script src="{% static 'book/book-element.js' %}"></script>
+    <script src="{% static 'book/book.js' %}"></script>
     <script src="{% static 'js/widget-lock.js' %}"></script>
     <script src="{% static 'js/widget-contents-data.js' %}"></script>
     <script src="{% static 'js/widget-append.js' %}"></script>
@@ -93,18 +95,12 @@
                 </a>
             </li>
 
-            <li>
-                <a onclick="widgetLockToggle()">
-<<<<<<< HEAD
+            <li onclick="widgetLockToggle()">
+                <a>
                     <ion-icon class="lock-icon" name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
                     <ion-icon class="unlock-icon" name="lock-open-outline" style="display: none;"></ion-icon>
                     <span class="lock-text">Unlock</span>
                     <span class="unlock-text" style="display: none;">Lock</span>
-=======
-                    <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
-                    <!--<ion-icon name="lock-open-outline"></ion-icon>-->
-                    Modify
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                 </a>
             </li>
 
@@ -140,7 +136,7 @@
                             <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Download Widget</span>
                         </a>
-                        <a href="#" class="nav__link">
+                        <a href="#" class="nav__link" id="download-layout", onclick="layoutModalOn()">
                             <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Layout List</span>
                         </a>
@@ -152,21 +148,30 @@
                         </a>
 
                         <a href="#" class="nav__link">
-                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
-                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file"
-                                accept="img/*">
+                            <label for="ex_file">
+                                <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                                <span class="nav_name">Change Wallpaper</span>
+                            </label>
 
+                            <form method="POST" action = "{% url 'home' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" id="ex_file" name="image" onchange="form.submit()">
+                            </form>
                         </a>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
+
+    <div class="backimg">
+        <img src = {{wallpaper.image.url}}>
+    </div>
+
         <!-- vertical bar-->
 
         <div id="modal">
-            <div class="modal-window" style = "background-color: rgba(250, 203, 144, 0.5); margin: 0 15.5% 0 0; display: none;">
+            <div class="modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
                 <div class="title">
                     <h2 style="display: flex; justify-content: center;"> </h2>
                 </div>
@@ -174,25 +179,10 @@
                 <!-- modal Tab -->
                 <div class="modal-tab" style="display: inline;">
                     <ul class="list">
-                        <!-- <li id="finance-tab-button" class="is_on">
-                            <button class="btn"> 주식</button>
-                            <div class="cont">
-                                {% for widget in download_widget %}
-                                    {% if widget.widget_type == "simple_widget_finance" %}
-                                    <div onclick="widgetAppend('{{widget.seq}}')">
-                                        <input type="hidden" value="{{widget.data}}">
-                                        <img src="{{widget.image.url}}">
-                                    </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </li> -->
-                        
                         <li id="searchbar-tab-button">
                             <button class="btn">서치바</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
-<<<<<<< HEAD
                                     {% if widget.widget_type == "simple_widget_search_bar" %}
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
@@ -200,13 +190,6 @@
                                         
                                     </div>
                                     
-=======
-                                    {% if widget.widget_type == "simple_widget_d_day" %}
-                                    <div onclick="widgetAppend('{{widget.seq}}')">
-                                        <input type="hidden" value="{{widget.data}}">
-                                        <img src="{{widget.image.url}}">
-                                    </div>
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                     {% endif %}
                                 {% endfor %}
                             </div>
@@ -215,11 +198,7 @@
                             <button class="btn">메모</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
-<<<<<<< HEAD
                                     {% if widget.widget_type == "simple_widget_note" %}
-=======
-                                    {% if widget.widget_type == "simple_widget_search_bar" %}
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
                                         <img src="{{widget.image.url}}">
@@ -229,19 +208,11 @@
                             </div>
 
                         </li>
-<<<<<<< HEAD
                         <li id="timer-tab-button">
                             <button class="btn" style = "width: 110px;">타이머</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
                                     {% if widget.widget_type == "simple_widget_timer" %}
-=======
-                        <li id="sticky-tab-button">
-                            <button class="btn">메모</button>
-                            <div class="cont">
-                                {% for widget in download_widget %}
-                                    {% if widget.widget_type == "simple_widget_note" %}
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
                                         <img src="{{widget.image.url}}">
@@ -264,25 +235,11 @@
                                 {% endfor %}
                             </div>
                         </li>
-<<<<<<< HEAD
 
                         <li id="github-tab-button">
                             <button class="btn" onclick="alert('서비스 준비중입니다')"> GitHub</button>
                             <div class="cont">
                                 
-=======
-                        <li id="timer-tab-button">
-                            <button class="btn" style = "width: 110px;">타이머</button>
-                            <div class="cont">
-                                {% for widget in download_widget %}
-                                    {% if widget.widget_type == "simple_widget_timer" %}
-                                    <div onclick="widgetAppend('{{widget.seq}}')">
-                                        <input type="hidden" value="{{widget.data}}">
-                                        <img src="{{widget.image.url}}">
-                                    </div>
-                                    {% endif %}
-                                {% endfor %}
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                             </div>
                         </li>
                     </ul>
@@ -295,9 +252,24 @@
             
         </div>
 
+        <div id="modal">
+            <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
+                <div class="layout-modal-tab" style="display: inline;">
+                    {% for layout in download_layout %}
+                        <div >
+                            <input type="hidden" value="{{layout.data}}">
+                            <img src="{{layout.image.url}}">
+                        </div>
+                
+                    {% endfor %}
+                </div>
+                <button id = "modal-off-btn" onclick="layoutModalOff()"> 닫기 </button> 
+            </div>
+            
+        </div>                   
+
  <div class="main-board" style = "z-index: -5;"></div>
 
-    </div>
 </body>
 
 
@@ -310,25 +282,7 @@
          <label for="modal" class="close" onclick="widgetModalOff()">X</label>
         <div class = "widget-modal-title">위젯 내용 수정하기</div>
     </div>
-<<<<<<< HEAD
     <div class="widget-modal-body">
-=======
-<<<<<<< HEAD
-</div> -->
- <div class="main-board" style = 'z-index: -1;'></div>
-
-<!--
-
-        <div class="asset_box">
-    <div class="asset_box_title"> <p>widget</p></div>
-    <div class="asset-content">
-        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
-        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
-        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
-=======
-    <div class="widget-modal-body">
->>>>>>> 1796d0ef607e46436a47eeae293c8ca434500089
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
     </div>
     <div class="widget-modal-btn center">
         <div class="widget-modal-modify-btn">수정</div>
@@ -345,11 +299,7 @@
     }
 
     .cont div img {
-<<<<<<< HEAD
         width: 60px;
-=======
-        width: 100px;
->>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
         border-radius: 30px;
     }
 </style>

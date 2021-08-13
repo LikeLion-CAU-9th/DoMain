@@ -9,6 +9,11 @@ const timer2 = (contents, index) => {
   document.querySelectorAll('.event2')[index].innerHTML = eventName;
   document.querySelectorAll('.widget-timer2')[index].style.left = contents.posX;
   document.querySelectorAll('.widget-timer2')[index].style.top = contents.posY;
+  
+  document.querySelectorAll('.widget-timer2')[index].style.backgroundColor = contents.bgColor;
+  document.querySelectorAll('.widget-timer2')[index].style.backgroundImage = contents.bgImage;
+  document.querySelectorAll('.remain-time2')[index].style.color = contents.bgColor;
+
   const time = contents.time;
   let hours = time.split(':')[0];
   let minutes = time.split(':')[1];

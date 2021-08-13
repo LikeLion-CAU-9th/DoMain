@@ -54,7 +54,7 @@ for (var i = 0; i < tabList.length; i++) {
 
 const modal = document.querySelector('.modal-window');
 function modalOn() {
-
+    layoutModalOff();
     modal.style.display = "block";    
 }
 
@@ -65,3 +65,19 @@ function modalOff() {
 function preparePageNoti() {
     alert("현재 페이지 준비중 입니다!")
 }
+
+
+const layout_modal = document.querySelector('.layout-modal-window');
+function layoutModalOn(){
+    layout_modal.style.display = "block";
+    modalOff();
+}
+
+function layoutModalOff(){
+    layout_modal.style.display = "none";
+}
+
+// 배경화면 자동제출
+document.getElementById("file").onchange = function() {
+document.getElementById("form").submit();
+};

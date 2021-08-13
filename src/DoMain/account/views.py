@@ -66,8 +66,6 @@ def login_action(request):
   
   if len(queryset) == 1 :
     request.session['user_email'] = email
-    print("#################Login Session################")
-    print(request.session['user_email'])
     return redirect('home')
     # if queryset[0]['is_active'] :
     #   # return redirect('main')
@@ -116,3 +114,9 @@ def get_user_inst(request):
     email = request.session['user_email']
     queryset = User_info.objects.filter(user_email = email)
     return queryset[0]
+
+
+def is_login(request):
+  if 'user_email' in request.session:
+    return HttpResponse('true')
+  return HttpResponse('false')

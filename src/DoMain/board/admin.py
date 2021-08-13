@@ -1,3 +1,4 @@
 from django.contrib import admin
+from board.models import WallPaper
 
-# Register your models here.
+admin.site.register(WallPaper)

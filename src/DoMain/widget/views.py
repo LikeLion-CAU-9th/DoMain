@@ -69,7 +69,6 @@ def layout_delete(request, pk):
     return redirect('test')
 
 
-
 def layout_clone(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
@@ -86,7 +85,7 @@ def insert_dummy_layout(request, apply):
 
 def view_list(request):
   user = get_user_inst(request)
-  layout_list = Layout.objects.filter(owner=user)
+  layout_list = Layout.objects.filter(owner=user, widget_type='LAYOUT_WIDGET')
   return layout_list
 
 
@@ -114,6 +113,8 @@ def insert_dummy_layout(request, apply):
   # Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data=LAYOUT)
   return True
 
+def book_view(request):
+  return render(request, 'book.html')
 
 def timer_view(request):
   return render(request, 'timer.html')
@@ -146,8 +147,6 @@ def widget_append(request):
   if len(new_widget_QS) == 1:
     new_list = json.loads(new_widget_QS[0].data)
     origin += new_list
-  print("Merged Layout!!!")
-  print(origin)
   QS.update(data=json.dumps(origin))
   return HttpResponse(True)
   
