@@ -67,8 +67,7 @@ const renderAppliedLayout = () => {
     } else if (type === "book") {
       book(contents, bookIndex);
       bookIndex++;
-    }
-      else if (type === "weather") {
+    } else if (type === "weather") {
       weather(contents, weatherIndex);
       weatherIndex++;
     }
