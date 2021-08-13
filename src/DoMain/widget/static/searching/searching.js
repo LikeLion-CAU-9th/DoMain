@@ -41,8 +41,8 @@ const searching = (contents, index) => {
   document.querySelectorAll(".searchBtn-container")[
     index
   ].style.borderBottomRightRadius = "20px";
-  document.querySelectorAll(".searchBtn-container")[index].style.left =
-    pixelToInt(width) - 50 + "px";
+  document.querySelectorAll(".searchBtn-container")[index].style.right =
+    "-14px";
   document.querySelectorAll(".searchBtn-container img")[index].style.top =
     "50%";
   document.querySelectorAll(".searchBtn-container img")[index].style.left =

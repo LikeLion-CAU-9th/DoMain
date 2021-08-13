@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <script>
+
+function onGeoOk(position) {
+    const lati = position.coords.latitude;
+    const lng = position.coords.longitude;
+    const url = `api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={{WEATHER_API}}`
+    fetch(url)
+        .then((response => response.json())
+        .then((data) => {
+                const weather = document.querySelector("#weather span:first-child")
+                const city = document.querySelector("#weather span:last-child")
+            city.innerText = data.name;
+            weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+});
+
+function onGeoError() {
+    alert("Can't find you. No weather for you.");
+}
+navigator.geolocation.location(onGeoOk, onGeoError);
+    </script>
+</body>
+</html>

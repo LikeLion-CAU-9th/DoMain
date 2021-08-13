@@ -26,12 +26,10 @@ def subpage(request):
     searchbars = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_SEARCH_BAR)
     ddays = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_D_DAY)
     notes = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_NOTE)
-    finances = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_FINANCE)
+    timers = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_TIMER)
     bookmarks = StoreWidget.objects.filter(widget_type=WidgetType.SIMPLE_WIDGET_BOOK_MARK)
-
     # image=StoreWidget.objects.get('image')
-
-    return render(request, 'subpage.html', {'widgets':widgets, 'user':user, 'layouts':layouts, 'searchbars':searchbars, 'ddays':ddays, 'notes':notes, 'finances':finances, 'bookmarks':bookmarks})
+    return render(request, 'subpage.html', {'widgets':widgets, 'user':user, 'layouts':layouts, 'searchbars':searchbars, 'ddays':ddays, 'notes':notes, 'timers':timers, 'bookmarks':bookmarks})
 
 def detailpage(request, id):
     widget = get_object_or_404(StoreWidget, seq=id)
@@ -140,15 +138,32 @@ def make_download(request):
     user = User_info.objects.get(user_email=email)
     widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
 
-    Layout.objects.create(
-        creater=user,
-        data = widget.data,
-        from_store=True,
-        owner = widget.creater
-        )
-    ret = {
-        "download_message": "다운로드가 완료되었습니다."
-    }
+    if Layout.objects.filter(
+        creater=widget.creater,
+        data=widget.data,
+        name=widget.name,
+        owner=user
+        ).exists():
+        ret = {
+            "download_message":"이미 다운로드가 되었습니다."
+        }
+    else:
+        layout = Layout.objects.create(
+            creater=widget.creater,
+            data = widget.data,
+            from_store=True,
+            owner = user,
+            name=widget.name,
+            image=widget.image,
+            is_applied=False,
+            is_widget=True,
+            widget_type=widget.widget_type
+            )
+        if widget.widget_type != WidgetType.LAYOUT_WIDGET:
+            layout.is_widget=True
+        ret = {
+            "download_message": "다운로드가 완료되었습니다."
+        }
     return HttpResponse(json.dumps(ret), content_type="application/json")      
 
 

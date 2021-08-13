@@ -1,107 +1,12 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="{% static 'webtoon/webtoon.js' %}"></script>
-    <!-- <script src="//code.jquery.com/jquery-1.12.0.min.js"></script> -->
-
-    <script src="{% static 'webtoon/totalListGet.js' %}"></script>
-    <script src="{% static 'webtoon/newWebtoon.js' %}" defer></script>
-    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <title>Webtoon</title>
 </head>
-
 <body>
-    <div>
-        <div>
-            <select id="brand" class="select">
-                <option value="네이버웹툰">네이버웹툰</option>
-                <option value="다음웹툰">다음웹툰</option>
-                <option value="카카오페이지웹툰">카카오페이지웹툰</option>
-
-            </select>
-            <select id="sub_brand" class="select">
-                <option value="1">선택</option>
-            </select> <input type="button" value="추가" id="inputBtn" />
-
-        </div>
-
-        <div>
-            즐겨찾기
-        </div>
-        <table class="txc-table">
-            <tbody id="bookmarkWebtoontbody">
-
-
-
-            </tbody>
-        </table>
-
-
-        <div>
-            오늘 나온 웹툰
-        </div>
-        <table class="txc-table">
-            <tbody id="newWebtoonTbody">
-            </tbody>
-        </table>
-
-        <table id="copyTag">
-            <tbody>
-                <tr class="trTag">
-                    <td class="tdTag">
-                        <div class="thumb" style="float: left;">
-                            <a href="" class="mainImgHref"><img src="" width="83" height="90" class="mainImg"> <span
-                                    class="mask"></span> </a>
-                        </div>
-                        <dl>
-                            <dt>
-                                <a href="" class="mainTitle"></a>
-                            </dt>
-                            <dd class="desc">
-                                <a href="#" class="mainArtist"></a>
-                            </dd>
-                        </dl>
-                    </td>
-
-                    <td class="tdTag">
-                        <div class="thumb" style="float: left;">
-                            <a href="" class="mainImgHref"><img src="" width="83" height="90" class="mainImg"> <span
-                                    class="mask"></span> </a>
-                        </div>
-                        <dl>
-                            <dt>
-                                <a href="" class="mainTitle"></a>
-                            </dt>
-                            <dd class="desc">
-                                <a href="#" class="mainArtist"></a>
-                            </dd>
-                        </dl>
-                    </td>
-
-                    <td class="tdTag">
-                        <div class="thumb" style="float: left;">
-                            <a href="" class="mainImgHref"><img src="" width="83" height="90" class="mainImg"> <span
-                                    class="mask"></span> </a>
-                        </div>
-                        <dl>
-                            <dt>
-                                <a href="" class="mainTitle"></a>
-                            </dt>
-                            <dd class="desc">
-                                <a href="#" class="mainArtist"></a>
-                            </dd>
-                        </dl>
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
-        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-
+    
 </body>
+</html>

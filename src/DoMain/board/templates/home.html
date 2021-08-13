@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <!-- Widget related style sheet -->
     <link rel="stylesheet" href="{% static 'css/widget-static-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/widget-modal.css' %}">
     </link>
     <link rel="stylesheet" href="{% static 'css/customPage.css' %}">
     </link>
@@ -27,15 +28,18 @@
     <script src="{% static 'stickynote/stickynote.js' %}"></script>
     <script src="{% static 'searching/searching-element.js' %}"></script>
     <script src="{% static 'searching/searching.js' %}"></script>
-    <script src="{% static 'github/github.js' %}"></script>
     <script src="{% static 'github/github-element.js' %}"></script>
+    <script src="{% static 'github/github.js' %}"></script>
 
     <script src="{% static 'dday/dday-element.js' %}"></script>
     <script src="{% static 'dday/dday.js' %}"></script>
     <script src="{% static 'timer/timer-element.js' %}"></script>
     <script src="{% static 'timer/timer.js' %}"></script>
+    <script src="{% static 'timer2/timer2-element.js' %}"></script>
+    <script src="{% static 'timer2/timer2.js' %}"></script>
     <script src="{% static 'js/widget-lock.js' %}"></script>
     <script src="{% static 'js/widget-contents-data.js' %}"></script>
+    <script src="{% static 'js/widget-append.js' %}"></script>
 
     <!-- Server Request script files -->
     <script src="{% static 'js/dragCommon.js' %}"></script>
@@ -43,7 +47,9 @@
     <script src="{% static 'js/layout-server.js' %}"></script>
     <script src="{% static 'js/update-request.js' %}"></script>
     
-
+    <!-- Widget Delete and Modify Modal -->
+    <script src="{% static 'js/widget-delete.js' %}"></script>
+    <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
     <script type = "text/javascript">
         $(document).ready(function(){
@@ -164,38 +170,72 @@
                         <li id="finance-tab-button" class="is_on">
                             <button class="btn"> 주식</button>
                             <div class="cont">
-                                <button> 주식 </button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_finance" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                         <li id="dday-tab-button">
                             <button class="btn"> 디데이</button>
                             <div class="cont">
-                                <button> 디데이 </button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_d_day" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                         <li id="searchbar-tab-button">
                             <button class="btn"> 서치바</button>
                             <div class="cont">
-                                <button> 서치바</button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_search_bar" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                         <li id="sticky-tab-button">
-                            <button class="btn"> 스티키</button>
+                            <button class="btn">메모</button>
                             <div class="cont">
-                                <button> 스티키</button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_note" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
 
                         </li>
-                        <li id="todolist-tab-button">
-                            <button class="btn" style = "width: 110px;"> To Do list</button>
+                        <li id="timer-tab-button">
+                            <button class="btn" style = "width: 110px;">타이머</button>
                             <div class="cont">
-                                <button> To-Do list </button>
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_timer" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
                     </ul>
 
                 </div>
-
                 
                 <button id = "modal-off-btn" onclick="modalOff()"> 선택완료 </button>
                
@@ -203,84 +243,22 @@
             
         </div>
 
+ <div class="main-board" style = "z-index: -5;"></div>
 
-        <!-- <div class="tabmenu" >
-    <ul style = "display: none;" id = "verticalbar-tab">
-        <li id="tab1" class="btnCon" class="btn first"  text-align="center" style = "background-color: #ffffff;">
-            <div class="tabCon" id = "widget-tab"style ="width:600px; overflow: scroll; max-height: 60vh; border: 1px solid #ffb32f;">
-
-                
-                <div class="asset-content" style="width: 400px; margin: 0 20% 0 0;" >
-
-                   
-
-                    <img align="absmiddle" src="{% static 'img/App 21.png' %}"  onclick = "cloneWidget()">
-                    <img align="absmiddle" src="{% static 'img/App 22.png' %}" onclick = "cloneBody()">
-                    <img align="absmiddle" src="{% static 'img/App 24.png' %}" onclick = "cloneBody()">
-
-                    <hr / style = "height:5px; background-color: #ffb32f;">
-                    
-                    <hr />
-
-                    <img align="absmiddle" src="{% static 'img/image 13.png' %}">
-                    <img align="absmiddle" src="{% static 'img/image 14.png' %}">
-
-                    <hr />
-                    <hr />
-                    
-
-                    <img align="absmiddle" src="{% static 'img/Group 10.png' %}">
-                    <img align="absmiddle" src="{% static 'img/Group 12.png' %}">
-
-                    <button onclick="verticalBarOff()" style = "width: 100px; height: 50px;"> X </button>
-                </div>
-            </div>
-        </li>
-
-
-        <li id="tab2" class="btnCon" style ="background-color: #ffffff;">
-            <div class="tabCon">
-                레이아웃 top 10
-                
-            </div>
-        </li>
-
-        <li id="tab3" class="btnCon" style="background-color: #ffffff;">
-            <div class="tabCon">
-                my theme
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'img/Artboard_7.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Chaeyeon Theme.</p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'img/Puang.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Puang Theme.</p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'img/Artboard_8.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Puang with nurung.</p>
-                    </div>
-                </div>
-
-            </div>
-        </li>
-    </ul>
-</div> -->
-
-
-
-        <!-- <div class="asset_box">
-    <div class="asset_box_title"> <p>widget</p></div>
-    <div class="asset-content">
-        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
-        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
-        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
     </div>
+</body>
+
+
+<!-- JS -->
+<script src="{% static 'js/modals.js' %}"></script>
+
+<div class="modal-full-bg"></div>
+<div class="widget-modify-modal">
+    <div class="widget-modal-top">
+         <label for="modal" class="close" onclick="widgetModalOff()">X</label>
+        <div class = "widget-modal-title">위젯 내용 수정하기</div>
+    </div>
+<<<<<<< HEAD
 </div> -->
  <div class="main-board" style = 'z-index: -1;'></div>
 
@@ -292,13 +270,26 @@
         <img align="absmiddle" src="{% static 'img/App 21.png' %}">
         <img align="absmiddle" src="{% static 'img/App 22.png' %}">
         <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+=======
+    <div class="widget-modal-body">
+>>>>>>> 1796d0ef607e46436a47eeae293c8ca434500089
     </div>
--->
+    <div class="widget-modal-btn center">
+        <div class="widget-modal-modify-btn">수정</div>
     </div>
-</body>
-<script src="{% static 'js/modals.js' %}"></script>
-
+</div>
 
 </html>
 
-<!-- JS -->
+<style>
+    .cont div {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;    
+    }
+
+    .cont div img {
+        width: 100px;
+        border-radius: 30px;
+    }
+</style>
