@@ -17,7 +17,6 @@ const widgetLockToggle = () => {
     document.querySelector('.unlock-text').style.display = "none";
     saveHiddenData();
     renderAppliedLayout();
-    btnEventSet();
   }else {
     document.querySelector('.lock-icon').style.display = "none";
     document.querySelector('.unlock-icon').style.display = "block";
@@ -27,5 +26,6 @@ const widgetLockToggle = () => {
   $(".modify-btn").toggleClass("hide");
   $(".moving-btn").toggleClass("hide");
   $(".delete-btn").toggleClass("hide");
+  btnEventSet();
   drag(isUnLocked);
 };
