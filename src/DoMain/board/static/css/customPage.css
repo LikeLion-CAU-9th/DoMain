@@ -87,6 +87,23 @@
     margin: 0 0 0 0;
     left: 40%;
 }
+.layout-modal-cont{
+    margin: 30px;
+    top: 10%;
+    position: fixed;
+    width: 99%;
+    max-width: 531px;
+    height: 500px;
+    display: block;
+    max-height: 371px;
+    overflow-y: scroll;
+    cursor: pointer;
+}
+
+.layout-modal-list{
+    float: left;
+    margin: 20px;
+}
 #modal .title {
     padding-left: 10px;
     display: inline;

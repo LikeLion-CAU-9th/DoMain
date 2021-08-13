@@ -24,9 +24,20 @@ function onGeoOk(position) {
 }
 
 function onGeoError() {
-    alert("Can't find you. No weather for you.");
+    alert("크롬창에서 날씨에 대한 위치정보를 허용해주세요!");
 };
 
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+const weather = (contents, index) => {
+    let elem = getWeatherElements();
+    document.querySelector('.main-board').innerHTML += elem;
+    let widgetObj = {};
+    widgetObj['type'] = 'weather';
+    widgetObj['contents'] = contents;
+    document.querySelectorAll('.weatherHidden')[index].value = JSON.stringify(widgetObj);
+
+    navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+}
+
+
 

@@ -32,5 +32,11 @@ const widgetJSON = [
     "posX": "400px",
     "posY": "300px",
     "contents": {"url": "https://www.naver.com", "name": "네이버"}
+  },
+  {
+    "type": "weather",
+    "posX": "200px",
+    "posY": "300px",
+    "contents": {"bgColor": "", "color": ""}
   }
 ]

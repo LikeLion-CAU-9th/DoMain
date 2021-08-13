@@ -39,6 +39,9 @@
     <script src="{% static 'timer2/timer2.js' %}"></script>
     <script src="{% static 'book/book-element.js' %}"></script>
     <script src="{% static 'book/book.js' %}"></script>
+    <script src="{% static 'weather/weatherSecretKey.js' %}"></script>
+    <script src="{% static 'weather/weather-element.js' %}"></script>
+    <script src="{% static 'weather/weather.js' %}"></script>
     <script src="{% static 'js/widget-lock.js' %}"></script>
     <script src="{% static 'js/widget-contents-data.js' %}"></script>
     <script src="{% static 'js/widget-append.js' %}"></script>
@@ -238,17 +241,32 @@
                                 {% endfor %}
                             </div>
                         </li>
-
+                        
                         <li id="weather-tab-button">
-                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 날씨 </button>
+                            <button class="btn"> 날씨 </button>
                             <div class="cont">
-                                
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_weather"%}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
 
                         <li id="bookmark-tab-button">
-                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 북마크 </button>
+                            <button class="btn" onclick=> 북마크 </button>                                
                             <div class="cont">
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_book_mark"%}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                                 
                             </div>
                         </li>
@@ -264,9 +282,9 @@
 
         <div id="modal">
             <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
-                <div class="cont" style="margin: 30px;">
+                <div class="layout-modal-cont">
                     {% for layout in download_layout %}
-                        <div onclick="location.href='/widget/apply-layout/{{layout.seq}}/'">
+                        <div class = "layout-modal-list" onclick="location.href='/widget/apply-layout/{{layout.seq}}/'">
                             <img src="{{layout.image.url}}">
                         </div>
                 
