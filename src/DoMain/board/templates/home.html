@@ -56,7 +56,33 @@
     <script src="{% static 'js/widget-delete.js' %}"></script>
     <script src="{% static 'js/widget-contents-modal.js' %}"></script>
 
-   
+    <!-- Device Checker -->
+    <script src="{% static 'js/device-checker.js' %}"></script>
+
+    <script type = "text/javascript">
+        $(document).ready(function(){
+
+        $('#finance-tab-button .cont button').on('click', function(){
+            $("#finance-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#dday-tab-button .cont button').on('click', function(){
+            $("#dday-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#searchbar-tab-button .cont button').on('click', function(){
+            $("#searchbar-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#sticky-tab-button .cont button').on('click', function(){
+            $("#sticky-tab-button .cont button").clone().appendTo("body");
+        });
+
+        $('#todolist-tab-button .cont button').on('click', function(){
+            $("#todolist-tab-button .cont button").clone().appendTo("body");
+        });
+    });
+      
     </script>
   
     <title>DoMain</title>
@@ -243,7 +269,7 @@
             <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
                 <div class="layout-modal-tab" style="display: inline;">
                     {% for layout in download_layout %}
-                        <div onclick="location.href='apply-layout/{{layout.seq}}/'">
+                        <div onclick="location.href='/widget/apply-layout/{{layout.seq}}/'">
                             <img src="{{layout.image.url}}">
                         </div>
                 
