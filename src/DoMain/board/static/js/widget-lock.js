@@ -3,9 +3,9 @@ let isUnLocked = false;
 const widgetLockToggle = (makeUnlock=false) => {
   if(makeUnlock) {
     isUnLocked = false;
-    // $(".modify-btn").toggleClass("hide");
-    // $(".moving-btn").toggleClass("hide");
-    // $(".delete-btn").toggleClass("hide");
+    $(".modify-btn").toggleClass("hide");
+    $(".moving-btn").toggleClass("hide");
+    $(".delete-btn").toggleClass("hide");
   }
   if(isUnLocked) { // isUnLocked가 True일때, 화면을 lock으로 바꿀때만 실행
     let widget = document.querySelectorAll('.widget');
