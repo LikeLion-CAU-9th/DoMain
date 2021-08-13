@@ -30,7 +30,7 @@ nav ul li a {
     font-size: 0.85em;
     display: flex;
     align-items: center;
-    color:#D3D3D3;
+    color:#bbbbbb;
     text-decoration-line: none;
     transition: all 0.4s ease-in-out .1s;
 }
@@ -40,13 +40,14 @@ nav ul li a:hover {
 }
 
 #main_icon {
-    font-size:20px;
+    font-size:40px;
     font-weight: bold;
     padding: 0 350px 0 0;
 }
 
 .subnavbar_menu li a {
     padding: 0.7em;
+    font-size: 20px;
 }
 
 .sticky {
@@ -55,10 +56,11 @@ nav ul li a:hover {
     top:0px;
     width: 60%;
     left:20%;
-    height: 40px;
-    margin:5% 0 0 0;
-    padding: 10px 0 0 0;
+    height: 60px;
+    padding:2.4% 0 2.4% 0;
+    margin-bottom: 50px;
     border-bottom: rgb(77, 77, 77) 0.2px solid;
+    transition: all .4s ease-in;
 }
 
 button {
