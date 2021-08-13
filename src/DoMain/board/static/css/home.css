@@ -318,17 +318,17 @@ input[type="file"] {
   }
   
   #modal-off-btn {
-      margin : 100px 0 1rem 150px;
-      justify-content: center;
-      position: absolute;
-      bottom: 0;
-      width:100px;
-      height: 50px;
-      border-radius: 50px;
-      background-color: #fff;
-      border: none;
-      
-  
+    margin : 100px 0 1rem 150px;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width:100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    
   }
   
   #modal-off-btn:hover{

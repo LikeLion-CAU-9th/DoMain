@@ -131,6 +131,10 @@ ul {
     list-style: none;
     position: fixed;
     top : 5%;
+    width: 400px;
+    padding-left: 36px;
+    
+
 }
 
 .modal-tab {
@@ -178,7 +182,7 @@ ul {
     top: 30%;
     position: fixed;
     width: 99%;
-    max-width: 400px;
+    max-width: 386px;
     height: 220px;
     display: block;
     max-height: 220px;
