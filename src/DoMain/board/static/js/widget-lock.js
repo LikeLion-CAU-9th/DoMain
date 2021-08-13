@@ -11,17 +11,26 @@ const widgetLockToggle = () => {
       hiddenJSON['contents']['posY'] = widget[i].style.top;
       widget[i].querySelector('input').value = JSON.stringify(hiddenJSON);
     }
-    document.querySelector('.lock-icon').style.display = "block";
-    document.querySelector('.unlock-icon').style.display = "none";
-    document.querySelector('.lock-text').style.display = "block";
-    document.querySelector('.unlock-text').style.display = "none";
-    saveHiddenData();
-    renderAppliedLayout();
-  }else {
     document.querySelector('.lock-icon').style.display = "none";
     document.querySelector('.unlock-icon').style.display = "block";
     document.querySelector('.lock-text').style.display = "none";
     document.querySelector('.unlock-text').style.display = "block";
+    saveHiddenData();
+    renderAppliedLayout();
+  }else {
+    let widget = document.querySelectorAll('.widget');
+    for(let i = 0; i < widget.length; i++) {
+      let hiddenStr = widget[i].querySelector('input').value;
+      let hiddenJSON = JSON.parse(hiddenStr);
+      hiddenJSON['contents']['posX'] = widget[i].style.left;
+      hiddenJSON['contents']['posY'] = widget[i].style.top;
+      widget[i].querySelector('input').value = JSON.stringify(hiddenJSON);
+    }
+    saveHiddenData();
+    document.querySelector('.lock-icon').style.display = "block";
+    document.querySelector('.unlock-icon').style.display = "none";
+    document.querySelector('.lock-text').style.display = "block";
+    document.querySelector('.unlock-text').style.display = "none";
   }
 
   $(".modify-btn").toggleClass("hide");
