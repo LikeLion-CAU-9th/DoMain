@@ -23,6 +23,7 @@ const widgetLockToggle = () => {
     document.querySelector('.lock-text').style.display = "none";
     document.querySelector('.unlock-text').style.display = "block";
   }
+
   $(".modify-btn").toggleClass("hide");
   $(".moving-btn").toggleClass("hide");
   $(".delete-btn").toggleClass("hide");
