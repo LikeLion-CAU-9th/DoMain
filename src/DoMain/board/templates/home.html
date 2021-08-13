@@ -95,10 +95,16 @@
 
             <li>
                 <a onclick="widgetLockToggle()">
+<<<<<<< HEAD
                     <ion-icon class="lock-icon" name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
                     <ion-icon class="unlock-icon" name="lock-open-outline" style="display: none;"></ion-icon>
                     <span class="lock-text">Unlock</span>
                     <span class="unlock-text" style="display: none;">Lock</span>
+=======
+                    <ion-icon name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
+                    <!--<ion-icon name="lock-open-outline"></ion-icon>-->
+                    Modify
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                 </a>
             </li>
 
@@ -186,6 +192,7 @@
                             <button class="btn">서치바</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
+<<<<<<< HEAD
                                     {% if widget.widget_type == "simple_widget_search_bar" %}
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
@@ -193,6 +200,13 @@
                                         
                                     </div>
                                     
+=======
+                                    {% if widget.widget_type == "simple_widget_d_day" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                     {% endif %}
                                 {% endfor %}
                             </div>
@@ -201,7 +215,11 @@
                             <button class="btn">메모</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
+<<<<<<< HEAD
                                     {% if widget.widget_type == "simple_widget_note" %}
+=======
+                                    {% if widget.widget_type == "simple_widget_search_bar" %}
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
                                         <img src="{{widget.image.url}}">
@@ -211,11 +229,19 @@
                             </div>
 
                         </li>
+<<<<<<< HEAD
                         <li id="timer-tab-button">
                             <button class="btn" style = "width: 110px;">타이머</button>
                             <div class="cont">
                                 {% for widget in download_widget %}
                                     {% if widget.widget_type == "simple_widget_timer" %}
+=======
+                        <li id="sticky-tab-button">
+                            <button class="btn">메모</button>
+                            <div class="cont">
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_note" %}
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                                     <div onclick="widgetAppend('{{widget.seq}}')">
                                         <input type="hidden" value="{{widget.data}}">
                                         <img src="{{widget.image.url}}">
@@ -238,11 +264,25 @@
                                 {% endfor %}
                             </div>
                         </li>
+<<<<<<< HEAD
 
                         <li id="github-tab-button">
                             <button class="btn" onclick="alert('서비스 준비중입니다')"> GitHub</button>
                             <div class="cont">
                                 
+=======
+                        <li id="timer-tab-button">
+                            <button class="btn" style = "width: 110px;">타이머</button>
+                            <div class="cont">
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_timer" %}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
                             </div>
                         </li>
                     </ul>
@@ -270,7 +310,25 @@
          <label for="modal" class="close" onclick="widgetModalOff()">X</label>
         <div class = "widget-modal-title">위젯 내용 수정하기</div>
     </div>
+<<<<<<< HEAD
     <div class="widget-modal-body">
+=======
+<<<<<<< HEAD
+</div> -->
+ <div class="main-board" style = 'z-index: -1;'></div>
+
+<!--
+
+        <div class="asset_box">
+    <div class="asset_box_title"> <p>widget</p></div>
+    <div class="asset-content">
+        <img align="absmiddle" src="{% static 'img/App 21.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 22.png' %}">
+        <img align="absmiddle" src="{% static 'img/App 24.png' %}">
+=======
+    <div class="widget-modal-body">
+>>>>>>> 1796d0ef607e46436a47eeae293c8ca434500089
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
     </div>
     <div class="widget-modal-btn center">
         <div class="widget-modal-modify-btn">수정</div>
@@ -287,7 +345,11 @@
     }
 
     .cont div img {
+<<<<<<< HEAD
         width: 60px;
+=======
+        width: 100px;
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
         border-radius: 30px;
     }
 </style>

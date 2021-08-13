@@ -135,4 +135,7 @@ EMAIL_HOST_PASSWORD = get_secret("SMTP_PASSWORD")
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+#Weather API key
+WEATHER_API = get_secret("API_KEY") 
+
 STATIC_URL = '/static/'

@@ -334,6 +334,7 @@
 @font-face {
   font-family: clock-font;
   src: url('/static/font/clock.ttf');
+<<<<<<< HEAD
   
 }
 
@@ -343,5 +344,7 @@
   font-weight: normal;
   font-style: normal;
   
+=======
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
 }
 

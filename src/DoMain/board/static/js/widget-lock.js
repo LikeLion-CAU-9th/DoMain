@@ -13,10 +13,13 @@ const widgetLockToggle = () => {
     saveHiddenData();
     location.reload();
   }
+<<<<<<< HEAD
   document.querySelector('.lock-icon').style.display = "none";
   document.querySelector('.unlock-icon').style.display = "block";
   document.querySelector('.lock-text').style.display = "none";
   document.querySelector('.unlock-text').style.display = "block";
+=======
+>>>>>>> be11e8fea515cd25a2f43dccea4284955cf1fd19
 
   $(".modify-btn").toggleClass("hide");
   $(".moving-btn").toggleClass("hide");
