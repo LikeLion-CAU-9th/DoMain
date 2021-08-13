@@ -111,6 +111,8 @@ def insert_dummy_layout(request, apply):
   # Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data=LAYOUT)
   return True
 
+def book_view(request):
+  return render(request, 'book.html')
 
 def timer_view(request):
   return render(request, 'timer.html')

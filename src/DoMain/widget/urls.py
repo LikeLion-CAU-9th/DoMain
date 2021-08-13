@@ -25,4 +25,5 @@ urlpatterns = [
   path('save-layout/', views.save_layout),
   path('get-download-widget-list/', views.get_download_widget),
   path('widget-append/', views.widget_append),
+  path('book/', views.book_view)
 ]
