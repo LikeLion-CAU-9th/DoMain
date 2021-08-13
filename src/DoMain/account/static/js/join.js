@@ -57,7 +57,7 @@ const bothCheck = () => {
         }
     }
     joinBtn.style.pointerEvents = 'none';
-    joinBtn.style.background = 'darkslategray';
+    joinBtn.style.background = '#D22657';
     return false;
 
 }
@@ -74,7 +74,7 @@ const joinStart = () => {
     const joinBtn = document.querySelector('#joinBtn');
     setTimeout(check = ()=>{
         joinBtn.style.pointerEvents = 'none';
-        joinBtn.style.background = 'darkslategray';
+        joinBtn.style.background = '#D22657';
     },100);
     document.querySelector('#user_name').addEventListener('keyup', bothCheck, false);
     document.querySelector('#user_email').addEventListener('keyup', bothCheck, false);

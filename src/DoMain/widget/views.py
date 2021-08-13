@@ -145,7 +145,5 @@ def widget_append(request):
   if len(new_widget_QS) == 1:
     new_list = json.loads(new_widget_QS[0].data)
     origin += new_list
-  print("Merged Layout!!!")
-  print(origin)
   QS.update(data=json.dumps(origin))
   return HttpResponse(True)

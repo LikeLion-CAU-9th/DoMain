@@ -12,7 +12,12 @@ const widgetModalOn = (index) => {
   for(let i=0; i<contents.length; i++) {
     let dataKey = Object.keys(contents[i]);
     let dataValue = contents[i][dataKey];
-    let htmlData = '<div class="widget-modal-row"><div class="text-left">' + dataKey + '</div><div><input type="text" class="' + dataValue + 'Class" value="' + widgetObj['contents'][dataValue] + '"></div></div>';
+    let htmlData = "";
+    if (dataValue === "memo") {
+      htmlData = '<div class="widget-modal-row"><div class="text-left">' + dataKey + '</div><div><textarea class="' + dataValue + 'Class" >"' + widgetObj['contents'][dataValue] + '</textarea>';
+    } else {
+      htmlData = '<div class="widget-modal-row"><div class="text-left">' + dataKey + '</div><div><input type="text" class="' + dataValue + 'Class" value="' + widgetObj['contents'][dataValue] + '"></div></div>';
+    }
     modalBody.innerHTML += htmlData;
   } 
 }
@@ -45,20 +50,24 @@ const widgetModifyRequest = (index) => {
   }
   widgetObj = {'type': type, 'contents': widgetContents};
   document.querySelectorAll('.hiddenObj')[index].value = JSON.stringify(widgetObj);
-  saveHiddenData();
-  location.reload();
+  widgetModalOff();
+  widgetLockToggle();
+}
+
+const btnEventSet = () => {
+  let modifyBtn = document.querySelectorAll('.modify-btn');
+  let deleteBtn = document.querySelectorAll('.delete-btn');
+  for(let i = 0; i < modifyBtn.length; i++) {
+    modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
+  }
+  for(let i = 0; i < deleteBtn.length; i++) {
+    deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
+  }
 }
 
 $(document).ready(function(){
   setTimeout(()=>{
-    let modifyBtn = document.querySelectorAll('.modify-btn');
-    let deleteBtn = document.querySelectorAll('.delete-btn');
-    for(let i = 0; i < modifyBtn.length; i++) {
-      modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
-    }
-    for(let i = 0; i < deleteBtn.length; i++) {
-      deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
-    }
+    btnEventSet();
     console.log("TIME OUT!");
-  }, 1000);
+  }, 700);
 });

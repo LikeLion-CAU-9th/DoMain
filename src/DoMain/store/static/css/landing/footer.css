@@ -1,0 +1,26 @@
+.footer-text-eng{
+    font-family: 'Manrope', sans-serif;
+    color:white;
+    font-size: 15px;
+}
+.footer-text-kor{
+    font-family: 'NotoSansKR', sans-serif;  
+    color:white;   
+    font-size: 15px;
+
+}
+.footer-domain{
+    font-size:50px;
+    
+}
+@media screen and (max-width: 800px) {
+    .footer-text-eng{
+        font-size:8px;
+    }
+    .footer-text-kor{
+        font-size:8px;
+    }
+    .footer-domain{
+        font-size:25px;
+    }
+}

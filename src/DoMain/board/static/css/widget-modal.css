@@ -6,7 +6,7 @@
   display: none;
   width: 250px;
   height: 400px;
-  background-color: #fcf1b6;
+  background-color: #fce5c7;
   z-index: 50;
   border-radius: 10px;
   overflow: hidden;
@@ -38,7 +38,7 @@
   height: 48px;
   top: 0;
   right: 0;
-  background: #fcf1b6;
+  background: #fce5c7;
   text-align: center;
   line-height: 44px;
   font-size: 18px;
@@ -71,8 +71,22 @@
   margin: 10px;
   cursor: pointer;
   font-family: 'BMHANNAAir';
+  opacity: 0.5;
+  
 }
 
+.memoClass {
+  text-align: left;
+  padding: 8px;
+  height: 73px;
+  border-radius: 6px;
+  outline: none;
+  border : none;
+  resize: none;
+}
+.widget-modal-modify-btn:hover {
+  opacity: 1.0;
+}
 
 .modal-full-bg {
   display: inline-block;
