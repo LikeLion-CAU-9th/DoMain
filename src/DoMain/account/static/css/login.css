@@ -89,6 +89,7 @@ input{
 }
 #white-box{
   width:64%;
+  height: 80%;
   /* white-box가 왼쪽에 있을 때 */
   float:left;
   /* white-box가 오른쪽에 있을 때 */
@@ -96,7 +97,7 @@ input{
 } 
 #green-box{
   width: 35%;
-  height:500px;
+  height: 100%;
   /*green-box가 오른쪽에 있을 때 */ 
   margin-left:64.8%;
    /*green-box가 왼쪽에 있을 때 */
