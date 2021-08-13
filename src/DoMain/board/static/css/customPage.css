@@ -72,9 +72,6 @@
     padding: 10px;
     margin : 0 0 0 0;
     left: 40%;
-    overflow-y: scroll;
-    
-    
 }
 
 #modal .title {
@@ -164,11 +161,11 @@ ul {
     
     left: 0;
     color: rgb(187, 116, 116);
-    text-align: center;
     width: 10rem;
     height: 100px;
     line-height: 100px;
     border-radius: 10px;
+    padding-left : 35px;
 
 }
 
@@ -178,12 +175,14 @@ ul {
 }
 
 .modal-tab .list li.is_on .cont {
-    top:30%;
+    top: 30%;
     position: fixed;
-    width:  99%;
+    width: 99%;
     max-width: 400px;
-    height: auto;
+    height: 220px;
     display: block;
+    max-height: 220px;
+    overflow-y: scroll;
    
 }
 
