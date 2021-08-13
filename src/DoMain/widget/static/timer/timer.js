@@ -7,11 +7,11 @@ const timer = (contents, index) => {
   document.querySelectorAll('.timerHidden')[index].value = JSON.stringify(widgetObj);
   const eventName = contents.event;
   document.querySelectorAll('.event')[index].innerHTML = eventName + ": ";
-  document.querySelectorAll('.widget-timer')[index].style.color = contents.bgColor;
+  document.querySelectorAll('.widget-timer')[index].style.backgroundColor = contents.bgColor;
   if(contents.mode === "dark") {
-    document.querySelectorAll('.widget-timer')[index].style.backgroundColor = "black";
+    document.querySelectorAll('.widget-timer')[index].style.color = "black";
   } else {
-    document.querySelectorAll('.widget-timer')[index].style.backgroundColor = "white";
+    document.querySelectorAll('.widget-timer')[index].style.color = "white";
   }
   document.querySelectorAll('.widget-timer')[index].style.left = contents.posX;
   document.querySelectorAll('.widget-timer')[index].style.top = contents.posY;
