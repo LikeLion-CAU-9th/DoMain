@@ -13,10 +13,13 @@ function onGeoOk(position) {
         .then((data) => {
             const weather = document.querySelector("#weather div:first-child");
             const city = document.querySelector("#weather div:last-child");
+            const date = document.querySelector("#date");
             city.innerText = data.name;
             const templateCelcius = data.main.temp -273;
             const templateCelciusRound = Math.round(templateCelcius)
-            weather.innerText = `${data.weather[0].main} , ${templateCelciusRound}` 
+            weather.innerText = `${data.weather[0].main} 
+            
+            ${templateCelciusRound}ºc` 
             
         });
 }
