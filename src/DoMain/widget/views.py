@@ -82,7 +82,9 @@ def insert_dummy_layout(request, apply):
 
 def view_list(request):
   user = get_user_inst(request)
-  layout_list = Layout.objects.filter(owner=user, widget_type='LAYOUT_WIDGET')
+  layout_list = Layout.objects.filter(owner=user, widget_type='layout_widget')
+  print("LAYOUT LIST")
+  print(layout_list)
   return layout_list
 
 
