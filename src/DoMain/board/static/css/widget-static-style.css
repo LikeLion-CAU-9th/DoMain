@@ -332,7 +332,7 @@
 
 /* book */
 .plus{
-  background-image: url("{% static 'image/plus.png' %}");
+  background-image: url("/static/image/plus.png");
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center;
