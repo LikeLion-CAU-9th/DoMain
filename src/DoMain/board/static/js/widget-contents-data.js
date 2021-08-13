@@ -5,5 +5,6 @@ const WIDGET_CONTENTS = {
   'timer': [{'제목': 'event'},{'시간': 'time'},{'글씨 크기':'fontSize'}],
   'timer2':[{'제목': 'event'},{'시간': 'time'}],
   'dday': [{'날짜': 'items'}],
-  'book': [{'url': 'url'},{'name':'name'}]
+  'book': [{'url': 'url'},{'name':'name'}],
+  'weather' : [{'배경색': 'bgImage'},{'글씨색':'color'}]
 }
