@@ -80,11 +80,17 @@ width:190px;
   font-family: 'Titillium Web', sans-serif;
 }
 
-.main-menu>ul.logout {
+.main-menu.logout {
 position:absolute;
 left:0;
 bottom:0;
 }
+
+.main-menu.login {
+  position:absolute;
+  left:0;
+  bottom:0;
+  }
 
 .no-touch .scrollable.hover {
 overflow-y:hidden;

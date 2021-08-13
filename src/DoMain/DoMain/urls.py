@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from board.views import createData
 from store.views import landing_page
+from account.views import logout
 
 
 urlpatterns = [
@@ -15,6 +16,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('board.urls')),
     path('createData/<str:table>/', createData, name="createData"),
+    path('logout/', logout, name="logout")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

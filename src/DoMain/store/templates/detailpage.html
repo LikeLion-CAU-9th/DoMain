@@ -10,12 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{% static 'css/detailpage.css' %}">
-
-
 <title>Detailpage</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
@@ -134,9 +129,7 @@
                 <span class="comment-time">{{comment.time}}</span>
                 <div style="margin-top:-2%;"><br></div>
                 <span class="comment-content">{{comment.content}}</span>
-
                 <br>
-
                 <button onClick="make_reply({{comment.id}}, {{ forloop.counter }})" type="submit"
                     class="see-comment">▼ 답글보기</button> 
                 <button onClick="showReply(this)" class="write-comment">답글</button>
@@ -146,8 +139,6 @@
                     <div class="button-container"><button class="comment-button" onClick="write_reply({{comment.id}}, self)" type="submit">답글</button></div>
                     <hr style="float:right;width:100%;margin-top:1%;">
                 </div>
-
-        
             </div>
             <hr>
             {% endfor %}
