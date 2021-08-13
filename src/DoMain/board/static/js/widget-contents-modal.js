@@ -50,19 +50,24 @@ const widgetModifyRequest = (index) => {
   }
   widgetObj = {'type': type, 'contents': widgetContents};
   document.querySelectorAll('.hiddenObj')[index].value = JSON.stringify(widgetObj);
+  widgetModalOff();
   widgetLockToggle();
+}
+
+const btnEventSet = () => {
+  let modifyBtn = document.querySelectorAll('.modify-btn');
+  let deleteBtn = document.querySelectorAll('.delete-btn');
+  for(let i = 0; i < modifyBtn.length; i++) {
+    modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
+  }
+  for(let i = 0; i < deleteBtn.length; i++) {
+    deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
+  }
 }
 
 $(document).ready(function(){
   setTimeout(()=>{
-    let modifyBtn = document.querySelectorAll('.modify-btn');
-    let deleteBtn = document.querySelectorAll('.delete-btn');
-    for(let i = 0; i < modifyBtn.length; i++) {
-      modifyBtn[i].setAttribute("onClick", "widgetModalOn(" + i + ")");
-    }
-    for(let i = 0; i < deleteBtn.length; i++) {
-      deleteBtn[i].setAttribute("onClick", "widgetDeleteAlert(" + i + ")");
-    }
+    btnEventSet();
     console.log("TIME OUT!");
-  }, 1000);
+  }, 700);
 });
