@@ -149,7 +149,8 @@ body {
     padding-bottom:10px;
 }
 
-.tocustomize-button, .tostore-button{
+.tocustomize-button-on, .tostore-button-on,
+.tocustomize-button-off, .tostore-button-off{
     text-decoration: none;
     color:black;
 }
@@ -160,8 +161,19 @@ body {
     width:130px;
 }
 
-.tostore-button:hover, 
-.tocustomize-button:hover {
+.tostore-button-on:focus, 
+.tocustomize-button-on:focus,
+.tostore-button-off:focus, 
+.tocustomize-button-off:focus{
+    text-decoration: none;
+    color:white;
+}
+
+
+.tostore-button-on:hover, 
+.tocustomize-button-on:hover,
+.tostore-button-off:hover, 
+.tocustomize-button-off:hover{
     text-decoration: none;
     color:white;
 }

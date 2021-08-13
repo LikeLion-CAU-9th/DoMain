@@ -84,13 +84,15 @@ width:190px;
 position:absolute;
 left:0;
 bottom:0;
+display: block;
 }
 
 .main-menu.login {
-  position:absolute;
-  left:0;
-  bottom:0;
-  }
+position:absolute;
+left:0;
+bottom:0;
+display: block;
+}
 
 .no-touch .scrollable.hover {
 overflow-y:hidden;
