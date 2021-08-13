@@ -57,7 +57,7 @@ const bothCheck = () => {
         }
     }
     joinBtn.style.pointerEvents = 'none';
-    joinBtn.style.background = 'darkslategray';
+    joinBtn.style.background = '#D22657';
     return false;
 
 }
