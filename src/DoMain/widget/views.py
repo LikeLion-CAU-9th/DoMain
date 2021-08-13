@@ -58,8 +58,8 @@ def apply_layout(request, pk):
   if len(qs) == 1 and len(applied_qs) == 1:
     applied_qs.update(is_applied=False)
     qs.update(is_applied=True)
-    return redirect('test2')
-  return redirect('test2')  
+    return redirect('home')
+  return redirect('home')  
 
 def layout_delete(request, pk):
   user = get_user_inst(request)
@@ -89,7 +89,6 @@ def view_list(request):
   print("LAYOUT LIST")
   print(layout_list)
   return layout_list
-
 
 def get_applied_layout(request):
   user = get_user_inst(request)

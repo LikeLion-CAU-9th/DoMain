@@ -256,8 +256,7 @@
             <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
                 <div class="layout-modal-tab" style="display: inline;">
                     {% for layout in download_layout %}
-                        <div >
-                            <input type="hidden" value="{{layout.data}}">
+                        <div onclick="location.href='apply-layout/{{layout.seq}}/'">
                             <img src="{{layout.image.url}}">
                         </div>
                 
