@@ -95,8 +95,8 @@
                 </a>
             </li>
 
-            <li>
-                <a onclick="widgetLockToggle()">
+            <li onclick="widgetLockToggle()">
+                <a>
                     <ion-icon class="lock-icon" name="lock-closed-outline" viewBox="0 0 512 512"></ion-icon>
                     <ion-icon class="unlock-icon" name="lock-open-outline" style="display: none;"></ion-icon>
                     <span class="lock-text">Unlock</span>
@@ -148,21 +148,30 @@
                         </a>
 
                         <a href="#" class="nav__link">
-                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                            <label for="ex_file"><span class="nav_name">Change Wallpaper</span></label>
-                            <input type="color" class="mainBGcolor" onchange="updateBGcolor()" id="ex_file"
-                                accept="img/*">
+                            <label for="ex_file">
+                                <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                                <span class="nav_name">Change Wallpaper</span>
+                            </label>
 
+                            <form method="POST" action = "{% url 'home' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" id="ex_file" name="image" onchange="form.submit()">
+                            </form>
                         </a>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
+
+    <div class="backimg">
+        <img src = {{wallpaper.image.url}}>
+    </div>
+
         <!-- vertical bar-->
 
         <div id="modal">
-            <div class="modal-window" style = "background-color: rgba(250, 203, 144, 0.5); margin: 0 15.5% 0 0; display: none;">
+            <div class="modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
                 <div class="title">
                     <h2 style="display: flex; justify-content: center;"> </h2>
                 </div>

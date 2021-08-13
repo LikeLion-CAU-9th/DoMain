@@ -65,3 +65,8 @@ function modalOff() {
 function preparePageNoti() {
     alert("현재 페이지 준비중 입니다!")
 }
+
+// 배경화면 자동제출
+document.getElementById("file").onchange = function() {
+document.getElementById("form").submit();
+};

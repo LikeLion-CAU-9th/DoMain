@@ -12,6 +12,7 @@ const timer2 = (contents, index) => {
   
   document.querySelectorAll('.widget-timer2')[index].style.backgroundColor = contents.bgColor;
   document.querySelectorAll('.widget-timer2')[index].style.backgroundImage = contents.bgImage;
+  document.querySelectorAll('.remain-time2')[index].style.color = contents.bgColor;
 
   const time = contents.time;
   let hours = time.split(':')[0];
