@@ -18,9 +18,8 @@
   <script type="text/javascript" src="{%static 'js/login.js'%}"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Noto+Sans+KR:wght@300&display=swap"rel="stylesheet">
+  
 </head>
 
 <body>
@@ -120,23 +119,22 @@
             login with your personal info</div>
 
           <div style="text-align: center;">
-            <a href="#"><button id="button" type="button" onclick="changeBox2();">SIGN IN</button></a>
+            <a href="#">
+              <button id="button" type="button" onclick="changeBox2();">SIGN IN</button>
+            </a>
+            
           </div>
         </div>
-
       </div>
-
-
-
-
       <!-- 전체 박스 끝 -->
     </div>
-
-
-
 </body>
 
-
+{% if message %}
+  <script>
+    alert("로그인 실패")
+  </script>
+{% endif %}
 <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/join.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/login.js' %}"></script>

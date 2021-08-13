@@ -23,7 +23,6 @@ def subpage(request):
         return redirect('login_view')
 
     email= request.session['user_email']
-    
     user = User_info.objects.get(user_email=email)
     widgets = StoreWidget.objects.all()
     layouts = StoreWidget.objects.filter(widget_type=WidgetType.LAYOUT_WIDGET)

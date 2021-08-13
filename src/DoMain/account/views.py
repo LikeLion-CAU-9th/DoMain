@@ -8,6 +8,7 @@ from django.core.mail import EmailMessage
 from django.views.generic import View
 from django.contrib.sites.shortcuts import get_current_site
 from .models import User_info
+from widget.models import Layout
 from .tokens import account_activation_token
 from .text import message
 import hashlib
@@ -41,14 +42,6 @@ def login_view(request):
   return render(request, 'login.html')
 
 
-def login_success(request):
-  return render(request, 'success.html')
-
-
-def login_fail(request):
-  return render(request, 'fail.html')
-
-
 def logout(request):
   del request.session['user_email']
   return redirect('login_view')
@@ -73,7 +66,8 @@ def login_action(request):
     #   pass
     # # is_active == False : email 인증 단계로 
     #   pass
-  return render(request, 'fail.html')
+
+  return render(request, 'login.html',{'message':True})
 
 
 def join_action(request):
@@ -81,6 +75,8 @@ def join_action(request):
   # HashedPasswordObj =hashlib.sha1(data.get('user_pwd', False).encode('UTF-8'))
   # HashedPassword = HashedPasswordObj.hexdigest()
   User_info.objects.create(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd'), user_name=data.get('user_name', False))
+  QS = User_info.objects.filter(user_email=data.get('user_email', False), user_pwd=data.get('user_pwd'), user_name=data.get('user_name', False))
+  Layout.objects.create(creater=QS[0], owner=QS[0], is_applied=True, data="[]", from_store=False)
   return redirect('login_view')
 
 
