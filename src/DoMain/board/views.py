@@ -26,9 +26,9 @@ def home(request):
                 wallpaper.save()
 
     download_qs = get_download_widget(request)
-
+    download_layout = view_list(request)
     user = get_user_inst(request)
-    return render(request, 'home.html', {'wallpaper': wallpaper, 'download_widget': download_qs, 'user': user.user_name})
+    return render(request, 'home.html', {'wallpaper': wallpaper, 'download_widget': download_qs, 'user': user.user_name, 'download_layout':download_layout})
 
 
 def createData(request, table):
@@ -52,3 +52,7 @@ def createData(request, table):
         Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
         return redirect('home')
+
+
+def mob_warning(request):
+  return render(request, 'mob-warning.html') 

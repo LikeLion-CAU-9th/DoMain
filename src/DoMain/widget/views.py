@@ -41,6 +41,9 @@ def todo_view(request):
 def github_view(request):
   return render(request, 'github.html')
 
+def webtoon_view(request):
+  return render(request, 'webtoon.html')
+
 
 def layout_add(request):
   user = get_user_inst(request)
@@ -55,8 +58,8 @@ def apply_layout(request, pk):
   if len(qs) == 1 and len(applied_qs) == 1:
     applied_qs.update(is_applied=False)
     qs.update(is_applied=True)
-    return redirect('test2')
-  return redirect('test2')  
+    return redirect('home')
+  return redirect('home')  
 
 def layout_delete(request, pk):
   user = get_user_inst(request)
@@ -64,7 +67,6 @@ def layout_delete(request, pk):
   if len(qs) == 1:
     qs.delete()
     return redirect('test')
-
 
 
 def layout_clone(request, pk):
@@ -83,9 +85,10 @@ def insert_dummy_layout(request, apply):
 
 def view_list(request):
   user = get_user_inst(request)
-  layout_list = Layout.objects.filter(owner=user)
+  layout_list = Layout.objects.filter(owner=user, widget_type='layout_widget')
+  print("LAYOUT LIST")
+  print(layout_list)
   return layout_list
-
 
 def get_applied_layout(request):
   user = get_user_inst(request)
@@ -111,6 +114,8 @@ def insert_dummy_layout(request, apply):
   # Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=apply,data=LAYOUT)
   return True
 
+def book_view(request):
+  return render(request, 'book.html')
 
 def timer_view(request):
   return render(request, 'timer.html')
@@ -145,3 +150,7 @@ def widget_append(request):
     origin += new_list
   QS.update(data=json.dumps(origin))
   return HttpResponse(True)
+  
+
+def weather(request):
+  return render(request, 'weather.html')

@@ -329,17 +329,69 @@
   display:inline-block ; 
 }
 
-@font-face {
-  font-family: clock-font;
-  src: url('/static/font/clock.ttf');
+
+/* book */
+.plus{
+  background-image: url("/static/image/plus.png");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  border: 0px;
+  border-radius: 20px;
+  outline: 0px;
+  width: 70px;
+  height: 70px;
+  
+}
+.realLink{
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  border: 0px;
+  border-radius: 20px;
+  outline: 0px;
+  width: 70px;
+  height: 70px;
+}
+.bookName{
+    font-family: 'BMJUA';
+}
+
+.widget-book{
+  display :block;
   
 }
 
+
+
 @font-face {
-  font-family: 'BMJUA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  font-family: clock-font;
+  src: url('/static/font/clock.ttf');
+}
+
+/* weather */
+
+.widget-weather {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #172a5e;
+  font-family: Monaco;
+  box-shadow: darkgrey 5px 5px 8px 5px;
+  border: 1px solid;
+  border-radius: 15px;
+  /* linear */
   
+}
+
+.weather-state {
+  color: #fff;
+  font-size: 20px;
+}
+
+.weather-city {
+  color: #ffeda2;
+  font-size: 14px;
 }
 

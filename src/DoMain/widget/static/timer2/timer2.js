@@ -9,10 +9,12 @@ const timer2 = (contents, index) => {
   document.querySelectorAll('.event2')[index].innerHTML = eventName;
   document.querySelectorAll('.widget-timer2')[index].style.left = contents.posX;
   document.querySelectorAll('.widget-timer2')[index].style.top = contents.posY;
-
+  
   document.querySelectorAll('.widget-timer2')[index].style.backgroundColor = contents.bgColor;
   document.querySelectorAll('.widget-timer2')[index].style.backgroundImage = contents.bgImage;
-  document.querySelectorAll('.remain-time2')[index].style.color = contents.bgColor;
+  document.querySelectorAll('.remain-time_H')[index].style.Color = contents.bgColor;
+  document.querySelectorAll('.remain-time_M')[index].style.Color = contents.bgColor;
+  document.querySelectorAll('.remain-time_S')[index].style.Color = contents.bgColor;
 
   const time = contents.time;
   let hours = time.split(':')[0];
@@ -29,7 +31,7 @@ const renderRemainTime2 = (index, hours, minutes, seconds) => {
   let targetTime = getTargetDate(hours, minutes, seconds);
   let timeleft = targetTime - now;
   if (timeleft <= 0) {
-    document.querySelectorAll('.remain-time_H')[index].innerHTML = "It's";
+    document.querySelectorAll('.remain-time_H')[index].innerHTML = "It'";
     document.querySelectorAll('.remain-time_M')[index].innerHTML = "ov";
     document.querySelectorAll('.remain-time_S')[index].innerHTML = "er";
     return true;

@@ -10,6 +10,15 @@ window.addEventListener("scroll", () => {
   const scrollTop = html.scrollTop;
   const maxScrollTop = html.scrollHeight - window.innerHeight;
   console.log(scrollTop);
+  if(scrollTop>40) {
+    document.querySelector('.sticky').style.width = "100%";
+    document.querySelector('.sticky').style.left = "0";
+    document.querySelector('.sticky').style.backgroundColor = "rgba(0, 0, 0, .8)";
+  } else {
+    document.querySelector('.sticky').style.width = "60%";
+    document.querySelector('.sticky').style.left = "20%";
+    document.querySelector('.sticky').style.backgroundColor = "transparent";
+  }
 
   if (scrollTop > 1790 && scrollTop < 3300) {
       landingContents.style.position = "sticky";
@@ -86,4 +95,5 @@ window.addEventListener("scroll", () => {
       landingContents7.style.position = "sticky";
       landingContents7.style.opacity = "0";
       landingContents7.style.transitionProperty = "opacity";
+    }
 });
