@@ -24,11 +24,16 @@
     </div>
     <br><br>
     <div>
-        <div>
-            <a id="linkTage" href="#"><div id="realLink" class="realLink" style="display:none"></div></a>
-            <input id="plus" type="button" class="plus"/>
-            <p id="bookName">북마크 추가</p>
+
+
+        <div class="container center-middle">
+            <div class ="widget widget-book">
+                <a id="linkTage" href="#" style="display:block;"><div id="realLink" class="realLink" style="display:none"></div></a>
+                <input id="plus" type="button" class="plus"/>
+                <p class="bookName" id="bookName">북마크 추가</p>
+            </div>
         </div>
+        
 
         <!-- 모달 -->
         <div id="modal" class="modal" tabindex="-1">
@@ -74,6 +79,7 @@
     outline: 0px;
     width: 70px;
     height: 70px;
+    display:block
     
 }
 .realLink{
@@ -86,8 +92,44 @@
     width: 70px;
     height: 70px;
 }
+.bookName{
+      font-family: 'BMJUA';
+}
+
+.widget-book{
+    display :block;
+    line-height: 50px;
+}
 
 
+
+  /* ----------------------------- */
+
+.container {
+    display: inline-block;
+    width: 50%;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .center-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  
+  @font-face {
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  
+}
 
 </style>
 <script>
