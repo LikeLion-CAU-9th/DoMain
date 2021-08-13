@@ -161,11 +161,11 @@ ul {
     
     left: 0;
     color: rgb(187, 116, 116);
-    text-align: center;
     width: 10rem;
     height: 100px;
     line-height: 100px;
     border-radius: 10px;
+    padding-left : 35px;
 
 }
 
