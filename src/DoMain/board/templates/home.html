@@ -241,17 +241,32 @@
                                 {% endfor %}
                             </div>
                         </li>
-
+                        
                         <li id="weather-tab-button">
-                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 날씨 </button>
+                            <button class="btn"> 날씨 </button>
                             <div class="cont">
-                                
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_weather"%}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </li>
 
                         <li id="bookmark-tab-button">
-                            <button class="btn" onclick="alert('서비스 준비중입니다')"> 북마크 </button>
+                            <button class="btn" onclick=> 북마크 </button>                                
                             <div class="cont">
+                                {% for widget in download_widget %}
+                                    {% if widget.widget_type == "simple_widget_book_mark"%}
+                                    <div onclick="widgetAppend('{{widget.seq}}')">
+                                        <input type="hidden" value="{{widget.data}}">
+                                        <img src="{{widget.image.url}}">
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                                 
                             </div>
                         </li>
