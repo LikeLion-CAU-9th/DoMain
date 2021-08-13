@@ -52,3 +52,7 @@ def createData(request, table):
         Layout.objects.filter(owner=user).delete()
         Layout.objects.create(owner=user, creater=user, from_store=False, is_applied=True,data=layout)
         return redirect('home')
+
+
+def mob_warning(request):
+  return render(request, 'mob-warning.html') 
