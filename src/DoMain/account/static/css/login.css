@@ -1,5 +1,3 @@
-
-
 body{
   margin:0px;
   overflow:hidden; 
@@ -30,6 +28,7 @@ input:focus{
 .input-group{
   text-align: center;
   width:100%;
+  height:30%;
   z-index:2;
   position: absolute;
 }
@@ -103,7 +102,7 @@ input:focus{
   border: 1px solid none;
   border-radius: 5px;
   width:65%;
-  height: 63%;
+  height: 75%;
   background-color:#ffffff;
   z-index:2;
   position:absolute;
@@ -145,6 +144,15 @@ input:focus{
   color:white;
   font-size:100%;
   text-align: center;
+}
+
+.signin-intro-text, .signup-intro-text{
+  padding-bottom: 5%;
+  color:white;
+  font-size:100%;
+  text-align: center;
+  width:80%;
+  padding-left:10%;
 }
 
 .welcome-text{
@@ -205,10 +213,7 @@ input:focus{
   display:none;
 } 
 @media screen and (max-width: 1200px) {
-  .icon {
-    margin-top:5px;
-    padding:5px;
-  }
+ 
   ::placeholder{
     padding-left:10px;
   }

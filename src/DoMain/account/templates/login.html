@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Base.css' %}">
   <link rel="stylesheet" href="{% static 'css/Login.css' %}">
   <title>DoMain-login</title>
 
@@ -38,6 +38,7 @@
       <div id="white-box">
         <!-- 흰색 sign in -->
         <div id="white-sign-in">
+          <form method="POST" action="../loginAction/">
           <div class="signin-bold-title">Sign in to
             <div style="color:#F7E461;display:inline;">Do<div style="color:#A2A4A6;display:inline;">Main</div>
             </div>
@@ -46,7 +47,7 @@
           <div class="welcome-text">welcome to DoMain</div>
           <!-- input부분 -->
           <div class="input-group">
-            <form method="POST" action="../loginAction/">
+            
               {% csrf_token %}
               <div class="signin-container">
                 <img src="{% static 'image/mail.svg' %}" class="icon">
@@ -56,11 +57,11 @@
                 <img src="{% static 'image/pass.svg' %}" class="icon">
                 <input class="signin-password" type='password' placeholder="PASSWORD" name="raw_pw">
               </div>
-            </form>
           </div>
           <div style="text-align: center;border-color: #45A685; margin-top:23%;">
             <input class="login-submit" id="button" type="submit" value="SIGN IN" style="padding-left:1%;">
           </div>
+          </form>
         </div>
         <!-- 흰색 sign up -->
         <form action="{% url 'join_action' %}" method="POST" enctype="multipart/form-data">
@@ -70,7 +71,6 @@
               <div class="signup-bold-title">Create Account</div>
               <div class="text" style="color:black;">Welcome to DoMain</div>
             </div>
-
             <!-- input부분 -->
             <div class="input-group">
               <div class="user_info_container">
@@ -90,13 +90,12 @@
                 <input type="password" id="user_pwd_check" placeholder="PASSWORD CHECK" name="user_pwd_check">
               </div>
             </div>
-            
+
             <div style="text-align: center;border-color: #45A685; margin-top:38%">
               <a href="#"><button id="joinBtn" type="submit">SIGN UP</button></a>
             </div>
           </div>
         </form>
-
       </div>
 
 
@@ -106,7 +105,7 @@
         <div id="green-sign-up">
 
           <div class="italic-title">Hello, friends!</div>
-          <div class="text" class="margin-bottom:50px">Enter your personal details
+          <div class="signup-intro-text" class="margin-bottom:50px">Enter your personal details
             and start journey with us.</div>
 
           <div style="text-align: center;">
@@ -117,9 +116,9 @@
         <div id="green-sign-in">
 
           <div class="italic-title">Welcome back!</div>
-          <div class="text">To keep connected with us please
+          <div class="signin-intro-text">To keep connected with us please
             login with your personal info</div>
-          
+
           <div style="text-align: center;">
             <a href="#"><button id="button" type="button" onclick="changeBox2();">SIGN IN</button></a>
           </div>
