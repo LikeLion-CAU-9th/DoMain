@@ -23,7 +23,7 @@
                 <span class="nav-text navbar-title"><b style="color:#F7E461;">Do</b>Main</span>
             </li>
             <li>
-                <a href="{% url 'home' %}">
+                <a id="to-custom" class="home">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Main
@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a href="{% url 'landingPage' %}">
+                <a id="to-landing" class="landingPage">
                     <i class="fa fa-laptop" aria-hidden="true"></i>
                     <span class="nav-text">
                         Introduce
@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a id="to-subpage" href="{% url 'subpage' %}">
+                <a id="to-subpage" class="subpage">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span class="nav-text">
                         Store
@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a href="{% url 'mypage' %}">
+                <a id="to-mypage" class="mypage">
                     <i class="fa fa-user"></i>
                     <span class="nav-text">
                         My Page
@@ -71,17 +71,13 @@
                 </a>
             </li>
         </ul>
- 
     </nav>
-    <div id="login-message" class="modal fade" role="dialog" >
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content" style="width:100%;padding:0 0 10px 20px">
-                <div class="close-btn-container" style="padding:10px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div><p style="font-size: 20px;">로그인해주세요</p></div>
-            </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="width:30%;">
+            <span class="close">&times;</span>
+            <p style="font-size: 17px; padding-left:10px">로그인이 필요한 서비스입니다.</p>
         </div>
     </div>
     {% block contents %}
@@ -113,6 +109,69 @@
         document.querySelector('.logout').style.display = 'none';
     }
 
+    $('a').click(function() {
+        var theClass = this.className;  
+    });
+    
+    var home_btn = document.querySelector(".home");
+    var landing_btn = document.querySelector(".landingPage");
+    var subpage_btn = document.querySelector(".subpage");
+    var mypage_btn = document.querySelector(".mypage");
+    
+    var home_url = '{% url "home" %}'
+    var landing_url = '{% url "landingPage" %}'
+    var subpage_url = '{% url "subpage" %}'
+    var mypage_url = '{% url "mypage" %}'
+    
+    home_btn.onclick = function(){
+        if(is_login === "true"){
+            document.location.href = home_url;
+        }
+        else{
+            modal.style.display = 'block';
+        }
+    }
+    landing_btn.onclick = function(){
+        if(is_login === "true"){
+            document.location.href = landing_url;
+        }
+        else{
+            modal.style.display = 'block';
+        }
+    }
+    subpage_btn.onclick = function(){
+        if(is_login === "true"){
+            document.location.href = subpage_url;
+        }
+        else{
+            modal.style.display = 'block';
+        }
+    }
+    mypage_btn.onclick = function(){
+        if(is_login === "true"){
+            document.location.href = mypage_url;
+        }
+        else{
+            modal.style.display = 'block';
+        }
+    }
 
+    
+    
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+        document.location.href = "{% url 'login_view' %}"
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.location.href = "{% url 'login_view' %}"
+        }
+    }
 
 </script>
