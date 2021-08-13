@@ -37,6 +37,13 @@ transition:width .05s linear;
 z-index:1000;
 }
 
+.navbar-title {
+  color:white;
+  font-weight: 600;
+  padding-left:11%;
+  font-size:20px;
+}
+
 .main-menu>ul {
 margin:7px 0;
 }
@@ -58,8 +65,16 @@ font-size: 14px;
 text-decoration:none;
 -webkit-transform:translateZ(0) scale(1,1);
 -webkit-transition:all .1s linear;
-transition:all .1s linear;
-  
+transition:all .1s linear; 
+}
+
+.main-menu.navbar-title{
+  position:relative;
+  display:table-cell;
+  vertical-align:middle;
+  width:190px;
+  font-family: 'Titillium Web', sans-serif;
+  margin-left:80px;
 }
 
 .main-menu .nav-icon {
