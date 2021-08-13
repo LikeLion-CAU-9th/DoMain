@@ -136,7 +136,7 @@
                             <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Download Widget</span>
                         </a>
-                        <a href="#" class="nav__link">
+                        <a href="#" class="nav__link" id="download-layout", onclick="layoutModalOn()">
                             <ion-icon name="storefront-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">Layout List</span>
                         </a>
@@ -179,20 +179,6 @@
                 <!-- modal Tab -->
                 <div class="modal-tab" style="display: inline;">
                     <ul class="list">
-                        <!-- <li id="finance-tab-button" class="is_on">
-                            <button class="btn"> 주식</button>
-                            <div class="cont">
-                                {% for widget in download_widget %}
-                                    {% if widget.widget_type == "simple_widget_finance" %}
-                                    <div onclick="widgetAppend('{{widget.seq}}')">
-                                        <input type="hidden" value="{{widget.data}}">
-                                        <img src="{{widget.image.url}}">
-                                    </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </li> -->
-                        
                         <li id="searchbar-tab-button">
                             <button class="btn">서치바</button>
                             <div class="cont">
@@ -266,9 +252,24 @@
             
         </div>
 
+        <div id="modal">
+            <div class="layout-modal-window" style = "background-color: rgba(250, 203, 144, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
+                <div class="layout-modal-tab" style="display: inline;">
+                    {% for layout in download_layout %}
+                        <div >
+                            <input type="hidden" value="{{layout.data}}">
+                            <img src="{{layout.image.url}}">
+                        </div>
+                
+                    {% endfor %}
+                </div>
+                <button id = "modal-off-btn" onclick="layoutModalOff()"> 닫기 </button> 
+            </div>
+            
+        </div>                   
+
  <div class="main-board" style = "z-index: -5;"></div>
 
-    </div>
 </body>
 
 

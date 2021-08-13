@@ -66,7 +66,6 @@ def layout_delete(request, pk):
     return redirect('test')
 
 
-
 def layout_clone(request, pk):
   user = get_user_inst(request)
   qs = Layout.objects.filter(owner = user, seq = pk)
@@ -83,7 +82,7 @@ def insert_dummy_layout(request, apply):
 
 def view_list(request):
   user = get_user_inst(request)
-  layout_list = Layout.objects.filter(owner=user)
+  layout_list = Layout.objects.filter(owner=user, widget_type='LAYOUT_WIDGET')
   return layout_list
 
 
