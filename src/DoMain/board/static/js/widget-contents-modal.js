@@ -51,7 +51,9 @@ const widgetModifyRequest = (index) => {
   widgetObj = {'type': type, 'contents': widgetContents};
   document.querySelectorAll('.hiddenObj')[index].value = JSON.stringify(widgetObj);
   widgetModalOff();
-  widgetLockToggle();
+  saveHiddenData();
+  renderAppliedLayout();
+  // widgetLockToggle(makeUnlock=true);
 }
 
 const btnEventSet = () => {
