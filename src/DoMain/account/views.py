@@ -34,9 +34,10 @@ class Activate(View):
 
 def login_view(request):
 
+
   # @FIXME: Remove this after login func is implemented
-  # if 'user_email' in request.session:
-  #   return redirect('login_success')
+  if 'user_email' in request.session:
+    return redirect('home')
 
   return render(request, 'login.html')
 

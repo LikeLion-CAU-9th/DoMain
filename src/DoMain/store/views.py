@@ -19,6 +19,9 @@ def store_main(request):
     return render(request, 'AssetStoreMainPage.html', {"suggestedStoreWidgets": suggestedStoreWidgets})
 
 def subpage(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
+
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
     widgets = StoreWidget.objects.all()
@@ -32,6 +35,8 @@ def subpage(request):
     return render(request, 'subpage.html', {'widgets':widgets, 'user':user, 'layouts':layouts, 'searchbars':searchbars, 'ddays':ddays, 'notes':notes, 'timers':timers, 'bookmarks':bookmarks})
 
 def detailpage(request, id):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     widget = get_object_or_404(StoreWidget, seq=id)
     related_widgets=StoreWidget.objects.filter(widget_type=widget.widget_type).exclude(seq=id)
     email= request.session['user_email']
@@ -43,6 +48,8 @@ def detailpage(request, id):
     return render(request, 'detailpage.html', {"widget":widget,'user':user, "comments":comments, 'related_widgets':related_widgets})
 
 def mypage(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
 
@@ -69,6 +76,8 @@ def mypage(request):
         })
 
 def comment_write(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
 
@@ -100,6 +109,8 @@ def comment_write(request):
         
 
 def reply_comment(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
 
@@ -132,6 +143,8 @@ def reply_comment(request):
 
       
 def like(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
     widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
@@ -151,6 +164,8 @@ def like(request):
     return HttpResponse(json.dumps(ret), content_type="application/json")      
 
 def make_download(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
     widget=get_object_or_404(StoreWidget, seq=request.POST['widget_id'])
@@ -185,6 +200,8 @@ def make_download(request):
 
 
 def make_reply(request):
+    if 'user_email' not in request.session:
+        return redirect('login_view')
     email= request.session['user_email']
     user = User_info.objects.get(user_email=email)
     comment = get_object_or_404(Comment, id=request.POST.get('comment_id'))
