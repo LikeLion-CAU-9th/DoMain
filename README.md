@@ -4,6 +4,8 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 User friendly main page for LikeLion 9th Hackathon.
 
+# URL
+do-main.site:8000
 
 ## Documentation
 You can see the documentations of this project [here](./docs).  
