@@ -4,8 +4,9 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 User friendly main page for LikeLion 9th Hackathon.
 
-# URL
-do-main.site:8000
+# LINK
+🌟 [URL](http://do-main.site:8000)\
+💻 [VIDEO](https://www.instagram.com/tv/CSlSn8oF1_-/?utm_source=ig_web_copy_link)
 
 ## Documentation
 You can see the documentations of this project [here](./docs).  
@@ -25,7 +26,7 @@ You can see our implementation source codes of this project [here](./src).
 
 ---
 
-#### Sub Group 01
+#### Sub group 01
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -37,7 +38,7 @@ You can see our implementation source codes of this project [here](./src).
   </tr>
 </table>
 
-#### Sub Group 02
+#### Sub group 02
 
 <table>
   <tr>
@@ -47,7 +48,7 @@ You can see our implementation source codes of this project [here](./src).
   </tr>
 </table>
 
-#### Sub Group 03
+#### Sub group 03
 
 <table>
   <tr>
