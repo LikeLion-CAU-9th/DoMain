@@ -1,22 +1,26 @@
-# DoMain
+# 👑 DoMain
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-g.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 User friendly main page for LikeLion 9th Hackathon.
 
-# LINK
+# 💻 Screenshot
+<img width="1440" alt="스크린샷 2021-08-19 오후 3 31 09" src="https://user-images.githubusercontent.com/39653584/130019319-1e9ee225-660a-432f-9e98-016e953c6e62.png">
+
+
+# 🔮 LINK
 🌟 [URL](http://do-main.site:8000)\
 💻 [VIDEO](https://www.instagram.com/tv/CSlSn8oF1_-/?utm_source=ig_web_copy_link)
 
-## Documentation
+## 📒 Documentation
 You can see the documentations of this project [here](./docs).  
 
-## Source Code
+## 📑 Source Code
 You can see our implementation source codes of this project [here](./src).
 
 ---
 
-## Our Team Members
+## 💛 Our Team Members
 
 | Sub group               | Members        |
 |-------------------------|----------------|
@@ -26,7 +30,7 @@ You can see our implementation source codes of this project [here](./src).
 
 ---
 
-#### Sub group 01
+#### 🥰 Sub group 01
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -38,7 +42,7 @@ You can see our implementation source codes of this project [here](./src).
   </tr>
 </table>
 
-#### Sub group 02
+#### 🥰 Sub group 02
 
 <table>
   <tr>
@@ -48,7 +52,7 @@ You can see our implementation source codes of this project [here](./src).
   </tr>
 </table>
 
-#### Sub group 03
+#### 🥰 Sub group 03
 
 <table>
   <tr>
@@ -64,6 +68,6 @@ You can see our implementation source codes of this project [here](./src).
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 -----
-## License
+## 💡 License
 GNU General Public license v3.0
 
