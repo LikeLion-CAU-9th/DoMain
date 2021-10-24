@@ -9,8 +9,7 @@ User friendly main page for LikeLion 9th Hackathon.
 
 
 # 🔮 LINK
-🌟 [URL](http://do-main.site:8000)\
-💻 [VIDEO](https://www.instagram.com/tv/CSlSn8oF1_-/?utm_source=ig_web_copy_link)
+💻 [DEMO-VIDEO](https://www.instagram.com/tv/CSlSn8oF1_-/?utm_source=ig_web_copy_link)
 
 ## 📒 Documentation
 You can see the documentations of this project [here](./docs).  
